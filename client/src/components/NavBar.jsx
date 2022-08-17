@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NatbVar = () => {
+const NavBar = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const NatbVar = () => {
   )
 }
 
-export default NatbVar
+export default NavBar
