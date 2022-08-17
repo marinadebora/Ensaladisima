@@ -1,0 +1,329 @@
+// ----------- USUARIO --------------------
+
+{
+    "userName": "user1",
+    "pasword": "xxxxx",
+    "name": "Alfredo",
+    "lastName": "Palacio",
+    "email": "alfredoP@gmail.com",
+    "adress": "adress",
+    "telefono":"222222",
+    "admin":false,
+    "activo": true, 
+    "pedido": [
+        {
+            "Nombre": "Tu ensalada",
+            "Ensalada1": "precio1",
+            "Base": ["ingrediente1","ingrediente2","ingrediente3","ingrediente4","ingrediente5"],
+            "Proteina": ["ingrediente1","ingrediente2"],
+            "Complementos": ["complemento1","complemento2","complemento3","complemento4","complemento5","complemento6"],
+            "Salsas": ["salsa1","salas2"],
+            "Topping": ["topping1","topping2","topping3"]
+        },
+        {
+            "Nombre": "Tu ensalada",
+            "Ensalada2": "precio2",
+            "Base": ["ingrediente1","ingrediente2","ingrediente3","ingrediente4","ingrediente5"],
+            "Proteina": ["ingrediente1","ingrediente2"],
+            "Complementos": ["complemento1","complemento2","complemento3","complemento4","complemento5","complemento6"],
+            "Salsas": ["salsa1","salas2"],
+            "Topping": ["topping1","topping2","topping3"]
+        },
+        {
+            "Nombre": "Ensalada cesar",
+            "Ensalada3": "precio3",
+            "Base": ["ingrediente1","ingrediente2","ingrediente3","ingrediente4","ingrediente5"],
+            "Proteina": ["ingrediente1","ingrediente2"],
+            "Complementos": ["complemento1","complemento2","complemento3","complemento4","complemento5","complemento6"],
+            "Salsas": ["salsa1","salas2"],
+            "Topping": ["topping1","topping2","topping3"] 
+        }, 
+        {
+            "total": "precioTotal",
+            "Delievery": true,
+            "DireccioDeEntrega": "Por default direccion de registro y que se peuda editar"
+        } 
+    ],
+
+    "historialDeCompra":[
+        {
+            "Fecha": "fecha de compra",
+            "Nombre": "Tu ensalada",
+            "Ensalada1": "precio1",
+            "Base": ["ingrediente1","ingrediente2","ingrediente3","ingrediente4","ingrediente5"],
+            "Proteina": ["ingrediente1","ingrediente2"],
+            "Complementos": ["complemento1","complemento2","complemento3","complemento4","complemento5","complemento6"],
+            "Salsas": ["salsa1","salas2"],
+            "Topping": ["topping1","topping2","topping3"]  
+        }
+    ]
+}
+
+// ----------- ENSALADA DE LA CASA --------------------
+
+
+{
+    [
+        {
+            "Nombre": "ensalada campera",
+            "EnsaladaMediana": "precio1",
+            "EnsaladaGrande": "precio2",
+            "Base": ["papa"],
+            "Proteina": ["atun"],
+            "Complementos": ["cebolla","tomate","pimiento verde","pimiento rojo", "huevo"],
+            "Salsas": ["aceite de oliva", "vinagre de jerez"],
+            "Topping": ["aceitunas","perejil fresco"]  
+        }
+        {
+            "Nombre": "ensalada capricho",
+            "EnsaladaMediana": "precio1",
+            "EnsaladaGrande": "precio2",
+            "Base": ["lechuga escarola", "zanahoria", "remolacha"],
+            "Proteina": ["bonito", "kanicama"],
+            "Complementos": ["col", "brotes de soja", "choclo baby", "cetas", "pimiento rojo", "huevo"],
+            "Salsas": ["aceite de oliva", "vinagre de jerez"],
+            "Topping": ["aceitunas negras","ajo picado", "crutones de pan tostado"]  
+        }
+        {
+            "Nombre": "ensalada cesar",
+            "EnsaladaMediana": "precio1",
+            "EnsaladaGrande": "precio2",
+            "Base": ["mix de lechugas", ],
+            "Proteina": ["pollo grillado"],
+            "Complementos": ["huevo", "queso en hebras"],
+            "Salsas": ["salsa cesar", "aceite de oliva", "mostaza"],
+            "Topping": ["crutones de pan tostado", "aceitunas negras", "ajo picado"]  
+        }
+        {
+            "Nombre": "ensaladade gallina",
+            "EnsaladaMediana": "precio1",
+            "EnsaladaGrande": "precio2",
+            "Base": ["papa"],
+            "Proteina": ["pechuga grillada"],
+            "Complementos": ["zanahoria", "cebolla", "arvejas", "mazana verde"],
+            "Salsas": ["mayonesa casera"],
+            "Topping": ["ajo picado",]  
+        }
+        {
+            "Nombre": "ensaladade de langosta",
+            "EnsaladaMediana": "precio1",
+            "EnsaladaGrande": "precio2",
+            "Base": ["papa", "lechuga"],
+            "Proteina": ["langosta cocida y picada"],
+            "Complementos": ["apio", "huevo"],
+            "Salsas": ["vinagre de chile", "mayonesa casera", "mostaza"],
+            "Topping": ["aceitunas negras", "jalapeño"]  
+        }
+    ]
+}
+
+// ----------- Productos --------------------
+
+{
+    "Base":[
+        {
+            "Nombre": "mix de lechugas",
+            "img": "url",
+        }
+        {
+            "Nombre": "arrozblanco",
+            "img": "url",
+        }
+        {
+            "Nombre": "arroz integral",
+            "img": "url",
+        }
+        {
+            "Nombre": "papa",
+            "img": "url",
+        }
+        {
+            "Nombre": "fideos de arroz",
+            "img": "url",
+        }
+        {
+            "Nombre": "fideos de calabacin",
+            "img": "url",
+        }
+    ],
+
+    "Proteina":[
+        {
+            "Nombre": "pollo grillado",
+            "img": "url",
+        }
+        {
+            "Nombre": "atun",
+            "img": "url",
+        }
+        {
+            "Nombre": "salmon rosado",
+            "img": "url",
+        }
+        {
+            "Nombre": "camarones",
+            "img": "url",
+        }
+        {
+            "Nombre": "kanicama",
+            "img": "url",
+        }
+        {
+            "Nombre": "tofu",
+            "img": "url",
+        }
+    ],
+
+    "Complementos": [
+        {
+            "Nombre": "pimiento rojo",
+            "img": "url", 
+        }
+        {
+            "Nombre": "pimineto verde",
+            "img": "url", 
+        }
+        {
+            "Nombre": "aguacate",
+            "img": "url", 
+        }
+        {
+            "Nombre": "Berengenas en escabeche",
+            "img": "url", 
+        }
+        {
+            "Nombre": "brotes de soja",
+            "img": "url", 
+        }
+        {
+            "Nombre": "tomates cherry",
+            "img": "url", 
+        }
+        {
+            "Nombre": "huevo",
+            "img": "url", 
+        }
+        {
+            "Nombre": "zanahoria",
+            "img": "url", 
+        }
+        {
+            "Nombre": "cetas",
+            "img": "url", 
+        }
+        {
+            "Nombre": "verdeo",
+            "img": "url", 
+        }
+        {
+            "Nombre": "rabano",
+            "img": "url", 
+        }
+        {
+            "Nombre": "arvejas",
+            "img": "url", 
+        }
+        {
+            "Nombre": "choclo",
+            "img": "url", 
+        }
+        {
+            "Nombre": "cebolla morada",
+            "img": "url", 
+        }
+        {
+            "Nombre": "ajies en vinagre",
+            "img": "url", 
+        }
+        
+        
+    ],
+
+    "Salsas":[
+        {
+            "Nombre": "salsa de soja",
+            "img": "url", 
+        }
+        {
+            "Nombre": "mayonesa casera",
+            "img": "url", 
+        }
+        {
+            "Nombre": "aceite de oliva",
+            "img": "url", 
+        }
+        {
+            "Nombre": "mayonesa y verdeo",
+            "img": "url", 
+        }
+        {
+            "Nombre": "mayo de wasabi",
+            "img": "url", 
+        }
+        {
+            "Nombre": "salsa teriyaky",
+            "img": "url", 
+        }
+        {
+            "Nombre": "mayo de zanahoria",
+            "img": "url", 
+        }
+        {
+            "Nombre": "mayo de morron",
+            "img": "url", 
+        }
+    ],
+
+    "Topping":[
+        {
+            "Nombre": "perejil picado",
+            "img": "url", 
+        }
+        {
+            "Nombre": "ajo picado",
+            "img": "url", 
+        }
+        {
+            "Nombre": "mix de semillas",
+            "img": "url", 
+        }
+        {
+            "Nombre": "mani",
+            "img": "url", 
+        }
+        {
+            "Nombre": "nueces",
+            "img": "url", 
+        }
+        {
+            "Nombre": "semillas de chia",
+            "img": "url", 
+        }
+        {
+            "Nombre": "cebolla crujiente",
+            "img": "url", 
+        }
+        {
+            "Nombre": "maiz crujiente",
+            "img": "url", 
+        }
+        {
+            "Nombre": "aceitunas negras",
+            "img": "url", 
+        }
+        {
+            "Nombre": "aceitunas verdes",
+            "img": "url", 
+        }
+        {
+            "Nombre": "crutones de pan tostado",
+            "img": "url", 
+        }
+        {
+            "Nombre": "jalapeños",
+            "img": "url", 
+        }
+
+    ]
+
+}
