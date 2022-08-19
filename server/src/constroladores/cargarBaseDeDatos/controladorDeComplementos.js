@@ -1,11 +1,11 @@
-const  Complement = require('../../modelos/Complementos');
+const  Complements = require('../../modelos/Complementos');
 const api = require('../../../../client/users.json')
 var findOrCreate = require('mongoose-findorcreate');
 
 const complements = async (req, res) =>{
     const inf = await api.Complementos
     try {
-        const crear = inf.map(e => Complement.findOrCreate({
+        const crear = inf.map(e => Complements.findOrCreate({
             name: e.Nombre,
             image: e.img
         }))
