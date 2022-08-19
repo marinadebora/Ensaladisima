@@ -1,4 +1,5 @@
 const {Router} = require("express");
+const { complements } = require("../constroladores/cargarBaseDeDatos/controladorDeComplementos");
 const { menu } = require("../constroladores/cargarBaseDeDatos/controladorDelMenu");
 
 const router = Router();
@@ -37,6 +38,7 @@ const router = Router();
 
 
 // rutas para cargar los modelos de la base de datos
-router.get('/', menu)
+router.get('/menu', menu)
+router.get('/complement', complements)
 
 module.exports = router

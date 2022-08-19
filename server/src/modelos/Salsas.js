@@ -5,4 +5,4 @@ const SalsasSchema = new Schema({
     name:{type:String , required:true,lowercase:true},
     image:{type:Array}
 })
-module.exports= mongoose.model("Salsas",SalsasSchema)
+module.exports= mongoose.model("Suaces",SalsasSchema)

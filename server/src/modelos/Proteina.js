@@ -5,4 +5,4 @@ const ProteinaSchema = new Schema({
     name:{type:String , required:true,lowercase:true},
     image:{type:Array}
 })
-module.exports= mongoose.model("Proteinas",ProteinaSchema)
+module.exports= mongoose.model("Proteins",ProteinaSchema)
