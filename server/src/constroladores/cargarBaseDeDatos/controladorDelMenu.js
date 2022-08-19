@@ -1,12 +1,10 @@
 const Menu = require('../../modelos/Menu')
 const api = require('../../../../client/users.json')
 var findOrCreate = require('mongoose-findorcreate')
-const mongoose = require('mongoose')
 
 const menu = async (req, res) => {
     const ensalada = api.Ensaladas
     try {
-        mongoose.Promise = Promise
         const crear = await ensalada.map(e => Menu.findOrCreate({
             name: e.Nombre,
             median: e.EnsaladaMediana,
