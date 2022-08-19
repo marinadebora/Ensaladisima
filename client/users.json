@@ -66,6 +66,7 @@
     [
         {
             "Nombre": "ensalada campera",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1660909307/ensaladas/ensalada-campera_xu8j1p.png",
             "EnsaladaMediana": "precio1",
             "EnsaladaGrande": "precio2",
             "Base": ["papa"],
@@ -76,6 +77,7 @@
         }
         {
             "Nombre": "ensalada capricho",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1660909383/ensaladas/ensalada-capricho_ncgmte.png",
             "EnsaladaMediana": "precio1",
             "EnsaladaGrande": "precio2",
             "Base": ["lechuga escarola", "zanahoria", "remolacha"],
@@ -86,6 +88,7 @@
         }
         {
             "Nombre": "ensalada cesar",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1660909390/ensaladas/ensalada-cesar_ovamhd.png",
             "EnsaladaMediana": "precio1",
             "EnsaladaGrande": "precio2",
             "Base": ["mix de lechugas", ],
@@ -96,6 +99,7 @@
         }
         {
             "Nombre": "ensaladade gallina",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1660909397/ensaladas/ensalada-gallina_t2ammd.png",
             "EnsaladaMediana": "precio1",
             "EnsaladaGrande": "precio2",
             "Base": ["papa"],
@@ -106,6 +110,7 @@
         }
         {
             "Nombre": "ensaladade de langosta",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1660909416/ensaladas/ensalada-langosta_dme1rp.png",
             "EnsaladaMediana": "precio1",
             "EnsaladaGrande": "precio2",
             "Base": ["papa", "lechuga"],
@@ -123,117 +128,117 @@
     "Base":[
         {
             "Nombre": "mix de lechugas",
-            "img": "url",
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660909978/ensaladas/base/mix-lechuga_ora4ui.png",
         }
         {
-            "Nombre": "arrozblanco",
-            "img": "url",
+            "Nombre": "arroz blanco",
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660909978/ensaladas/base/arroz_tjfb4y.png",
         }
         {
             "Nombre": "arroz integral",
-            "img": "url",
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660909978/ensaladas/base/arroz-integral_pgn5fp.png",
         }
         {
             "Nombre": "papa",
-            "img": "url",
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660909978/ensaladas/base/papa_q9igpy.png",
         }
         {
             "Nombre": "fideos de arroz",
-            "img": "url",
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660909978/ensaladas/base/fideos_de_arroz_doevpf.png",
         }
         {
             "Nombre": "fideos de calabacin",
-            "img": "url",
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660909978/ensaladas/base/fideos-calabacin_zaur01.png",
         }
     ],
 
     "Proteina":[
         {
             "Nombre": "pollo grillado",
-            "img": "url",
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910175/ensaladas/base/proteina/pollo_x3vtqa.png",
         }
         {
             "Nombre": "atun",
-            "img": "url",
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910175/ensaladas/base/proteina/atun_ubmlz3.png",
         }
         {
             "Nombre": "salmon rosado",
-            "img": "url",
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910175/ensaladas/base/proteina/salmon_woylla.png",
         }
         {
             "Nombre": "camarones",
-            "img": "url",
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910176/ensaladas/base/proteina/camarones_wju3sw.png",
         }
         {
             "Nombre": "kanicama",
-            "img": "url",
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910175/ensaladas/base/proteina/kanikama_d89qar.png",
         }
         {
             "Nombre": "tofu",
-            "img": "url",
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910175/ensaladas/base/proteina/tofu_msia2z.png",
         }
     ],
 
     "Complementos": [
         {
             "Nombre": "pimiento rojo",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910339/ensaladas/base/proteina/complementos/morron-rojo_hj49xw.png", 
         }
         {
             "Nombre": "pimineto verde",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910342/ensaladas/base/proteina/complementos/morron-verde_bsmnp9.png", 
         }
         {
             "Nombre": "aguacate",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910339/ensaladas/base/proteina/complementos/aguacate_j8rd74.png", 
         }
         {
             "Nombre": "Berengenas en escabeche",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910339/ensaladas/base/proteina/complementos/berenjenas_mwrsso.png", 
         }
         {
             "Nombre": "brotes de soja",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910342/ensaladas/base/proteina/complementos/brotes-de-soja_psyrv7.png", 
         }
         {
             "Nombre": "tomates cherry",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910340/ensaladas/base/proteina/complementos/tomates-cherry_w3ytt8.png", 
         }
         {
             "Nombre": "huevo",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910338/ensaladas/base/proteina/complementos/huevos_ofcsaa.png", 
         }
         {
             "Nombre": "zanahoria",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910340/ensaladas/base/proteina/complementos/zanahoria_jof40u.png", 
         }
         {
             "Nombre": "cetas",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910338/ensaladas/base/proteina/complementos/cetas_dihlzi.png", 
         }
         {
             "Nombre": "verdeo",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910340/ensaladas/base/proteina/complementos/verdeo_tfgn1i.png", 
         }
         {
             "Nombre": "rabano",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910340/ensaladas/base/proteina/complementos/rabano_r5pqfs.png", 
         }
         {
             "Nombre": "arvejas",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910342/ensaladas/base/proteina/complementos/arvejas_ijof6u.png", 
         }
         {
             "Nombre": "choclo",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910342/ensaladas/base/proteina/complementos/choclo_hwkovm.png", 
         }
         {
             "Nombre": "cebolla morada",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910339/ensaladas/base/proteina/complementos/cebollas_vh38yx.png", 
         }
         {
             "Nombre": "ajies en vinagre",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910342/ensaladas/base/proteina/complementos/ajies_zub55z.png", 
         }
         
         
@@ -242,86 +247,86 @@
     "Salsas":[
         {
             "Nombre": "salsa de soja",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910634/ensaladas/base/proteina/complementos/salsas/salsa-soja_dy77co.png", 
         }
         {
             "Nombre": "mayonesa casera",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910623/ensaladas/base/proteina/complementos/salsas/mayonesa_mw77xc.png", 
         }
         {
-            "Nombre": "aceite de oliva",
-            "img": "url", 
+            "Nombre": "salsa de queso",
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910634/ensaladas/base/proteina/complementos/salsas/salsa-queso_sgqthp.png", 
         }
         {
             "Nombre": "mayonesa y verdeo",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910623/ensaladas/base/proteina/complementos/salsas/mayonesa-verdeo_ycmt1z.png", 
         }
         {
             "Nombre": "mayo de wasabi",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910623/ensaladas/base/proteina/complementos/salsas/mayonesa-wasabi_xwqmxl.png", 
         }
         {
             "Nombre": "salsa teriyaky",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910634/ensaladas/base/proteina/complementos/salsas/salsa-teriyaky_c8evrv.png", 
         }
         {
             "Nombre": "mayo de zanahoria",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910622/ensaladas/base/proteina/complementos/salsas/mayonesa-zanahoria_x8kogr.png", 
         }
         {
             "Nombre": "mayo de morron",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910623/ensaladas/base/proteina/complementos/salsas/mayonesa-morron_yjcrgb.png", 
         }
     ],
 
     "Topping":[
         {
             "Nombre": "perejil picado",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910785/ensaladas/base/proteina/complementos/salsas/topping/perejil_uvqd5b.png", 
         }
         {
             "Nombre": "ajo picado",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910786/ensaladas/base/proteina/complementos/salsas/topping/ajo_j51pqj.png", 
         }
         {
             "Nombre": "mix de semillas",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910786/ensaladas/base/proteina/complementos/salsas/topping/mix-semillas_rhwjwn.png", 
         }
         {
             "Nombre": "mani",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910784/ensaladas/base/proteina/complementos/salsas/topping/mani_vkapvw.png", 
         }
         {
             "Nombre": "nueces",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910784/ensaladas/base/proteina/complementos/salsas/topping/nueces_aajimc.png", 
         }
         {
             "Nombre": "semillas de chia",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910784/ensaladas/base/proteina/complementos/salsas/topping/semillas-chia_rigtuw.png", 
         }
         {
             "Nombre": "cebolla crujiente",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910786/ensaladas/base/proteina/complementos/salsas/topping/cebolla-crijiente_grxnaj.png", 
         }
         {
             "Nombre": "maiz crujiente",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910784/ensaladas/base/proteina/complementos/salsas/topping/maiz-crujiente_z3ow6i.png", 
         }
         {
             "Nombre": "aceitunas negras",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910784/ensaladas/base/proteina/complementos/salsas/topping/aceitunas-negras_qcq2kd.png", 
         }
         {
             "Nombre": "aceitunas verdes",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910785/ensaladas/base/proteina/complementos/salsas/topping/aceitunas-verdes_1_lnw1u3.png", 
         }
         {
             "Nombre": "crutones de pan tostado",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910785/ensaladas/base/proteina/complementos/salsas/topping/crutones-pan_imnhih.png", 
         }
         {
             "Nombre": "jalapeños",
-            "img": "url", 
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910785/ensaladas/base/proteina/complementos/salsas/topping/jalape%C3%B1os_cckw02.png", 
         }
 
     ]
