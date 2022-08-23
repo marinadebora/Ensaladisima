@@ -9,10 +9,17 @@ const { getBase } = require("./Base/getBase");
 const { getComplements } = require("./Complementos/getComplementos");
 const { getMenu } = require("./Menu/getMenu");
 const { getProteins } = require("./Proteina/getProteina");
+const getSalsas = require("./Salsa/get.Salsas");
+const getToppings = require("./Topping/getTopping");
+const getUsuarios = require("./Usuarios/getUsuarios");
+const crearEnsaladaMed = require("./EnsaladasMedianas/postCrearEnsaladaMed");
+const registro = require("./Usuarios/postRegistroUsuario");
 
 const router = Router();
 
 // rutas para el modelo de Usuarios.
+router.use('/usuarios', getUsuarios)
+router.use('/registro', registro)
 
 
 // rutas para el modelo de Pedidos.
@@ -25,6 +32,7 @@ router.get("/menus", getMenu)
 
 
 // rutas para el modelo de EnsaladasMedian.
+router.use('/ensaladamed', crearEnsaladaMed)
 
 
 // rutas para el modelo de EnsaladasBig.
@@ -40,9 +48,11 @@ router.get("/proteins", getProteins)
 router.get("/complements", getComplements)
 
 // rutas para el modelo de Suace.
+router.use('/salsas', getSalsas)
 
 
 // rutas para el modelo de Topping
+router.use('/toppings', getToppings)
 
 
 // rutas para cargar los modelos de la base de datos
