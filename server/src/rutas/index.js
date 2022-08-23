@@ -14,11 +14,13 @@ const getToppings = require("./Topping/getTopping");
 const getUsuarios = require("./Usuarios/getUsuarios");
 const crearEnsaladaMed = require("./EnsaladasMedianas/postCrearEnsaladaMed");
 const registro = require("./Usuarios/postRegistroUsuario");
+const getIdUsuario = require("./Usuarios/getUsuarioId");
 
 const router = Router();
 
 // rutas para el modelo de Usuarios.
 router.use('/usuarios', getUsuarios)
+router.use('/usuario', getIdUsuario)
 router.use('/registro', registro)
 
 
