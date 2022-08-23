@@ -5,10 +5,17 @@ const { proteina } = require("../constroladores/cargarBaseDeDatos/controladorPro
 const { salsas } = require("../constroladores/cargarBaseDeDatos/controladorSalsas");
 const { topping } = require("../constroladores/cargarBaseDeDatos/controladorTopping");
 const { complements } = require("../constroladores/cargarBaseDeDatos/controladorDeComplementos");
+const getSalsas = require("./Salsa/get.Salsas");
+const getToppings = require("./Topping/getTopping");
+const getUsuarios = require("./Usuarios/getUsuarios");
+const crearEnsaladaMed = require("./EnsaladasMedianas/postCrearEnsaladaMed");
+const registro = require("./Usuarios/postRegistroUsuario");
 
 const router = Router();
 
 // rutas para el modelo de Usuarios.
+router.use('/usuarios', getUsuarios)
+router.use('/registro', registro)
 
 
 // rutas para el modelo de Pedidos.
@@ -21,6 +28,7 @@ const router = Router();
 
 
 // rutas para el modelo de EnsaladasMedian.
+router.use('/ensaladamed', crearEnsaladaMed)
 
 
 // rutas para el modelo de EnsaladasBig.
@@ -36,18 +44,20 @@ const router = Router();
 
 
 // rutas para el modelo de Suace.
+router.use('/salsas', getSalsas)
 
 
 // rutas para el modelo de Topping
+router.use('/toppings', getToppings)
 
 
 // rutas para cargar los modelos de la base de datos
-router.get('/menu', menu);
-router.get("/base",base);
-router.get("/proteina",proteina);
-router.get("/salsas",salsas);
-router.get("/topping",topping);
-router.get('/complement', complements)
+router.get('/menudb', menu);
+router.get("/basedb",base);
+router.get("/proteinadb",proteina);
+router.get("/salsasdb",salsas);
+router.get("/toppingdb",topping);
+router.get('/complementdb', complements)
 
 
 module.exports = router

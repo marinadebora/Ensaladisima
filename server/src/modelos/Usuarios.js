@@ -7,7 +7,7 @@ const UsuariosSchema = new Schema({
     email: { type: String, required: true, lowercase:true },
     password: { type: String, require: true},
     adress: { type: String, required:true, lowercase:true },
-    Phone: { type: Number, required: true },
+    phone: { type: Number, required: true },
     admin: { type: Boolean, default: false },
     activo: { type: Boolean, default: true },
     orders: [{ type: Schema.Types.ObjectId, ref: "Pedidos" }],
