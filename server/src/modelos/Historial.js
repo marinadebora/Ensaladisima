@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = require('mongoose');
 
 const HistorialSchema = new Schema({
+    user: [{ type: Schema.Types.ObjectId, ref: "Usuarios" }],
     orders: [{ type: Schema.Types.ObjectId, ref: "Pedidos" }],
     pending: { type: Boolean, default: true },
     processing: { type: Boolean, default: false },
