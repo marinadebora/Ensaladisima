@@ -1,0 +1,74 @@
+@font-face {
+    font-family: Tommy-regular;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+}
+@font-face {
+    font-family: Tommy-Light;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Light_PERSONAL\ USE.ttf);
+}
+
+*{
+    background-color: #FFF2DB;
+ }
+
+ #tituloMenu{
+    font-family: Tommy-regular;
+    color: #207140;
+    margin-top: 20px;
+    
+ }
+
+#tamaños{
+    display: inline-block;
+    align-items: flex-end;
+    margin-top: 20px;
+   
+}
+
+#tamaño{
+    float: left;
+    width: 200px;
+    font-family:  Tommy-Light;
+    font-size: 15px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+#tamañoPrecioM{
+    float: left;
+    font-family:  Tommy-Light;
+    font-size: 15px;
+    margin-right: 10px;
+    margin-top: 20px;
+    padding-right: 40px;
+    border-right: 1px solid black;
+}
+#tamañoPrecioG{
+    float: left;
+    font-family:  Tommy-Light;
+    font-size: 15px;
+    margin-right: 15px;
+    margin-top: 20px;
+}
+
+#ensaladaMediana{
+    float: left;
+    width: 50px;
+    margin-right: 15px;
+    margin-top: 10px;
+}
+ 
+#ensaladaGrande{
+    float: left;
+    width: 75px;
+    margin-right: 15px;
+    margin-left: 30px;
+
+}
+
+#ensaladasDeLaCasa{
+    
+}
+
+
+ 
