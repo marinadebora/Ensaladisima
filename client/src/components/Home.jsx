@@ -19,8 +19,9 @@ const Home = () => {
       
         <div class="row" id="bloque1">
           
-          <div id="cuadradoText" class="col-7">
-            
+
+            <div id="cuadradoText" class="col-7">
+
               <h1 class="col" id="texto0">POR QUE ELEJIRNOS?</h1>
               <p  class="col" id="texto1">
               Porque es sano, delicioso y divertido.<br/>
@@ -32,13 +33,14 @@ const Home = () => {
               <div id="button" class="col" >
               <Link class="button" to="/menu">Conoce nuestro menu</Link>
               </div>
-            
+
             </div>
             <img src={photo} class="col-5" alt="img" id="photo"></img>
 
         </div>
 
-        <div class="row" id="bloque2">
+            <div class="row" id="bloque2">
+
                 <div class="col" id="cuadradoText1">
                   <h1 id="titulo1Bloque2">ARMA</h1>
                   <p id="texto2">
@@ -52,6 +54,7 @@ const Home = () => {
                   <p id="texto3">
                 </p>
             </div>
+
         </div> 
 
         <div  class="row" id="bloque3">
@@ -59,6 +62,7 @@ const Home = () => {
               <img class="col" src={healtyFood} id="healtyFood" alt="img"/>
               <img class="col" src={collage1}  id="collage1" alt="img"/>
         </div>
+
 
       </div>
       

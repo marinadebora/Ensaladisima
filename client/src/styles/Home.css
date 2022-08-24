@@ -19,8 +19,7 @@
 }
 
 #bloque1{
-   margin: 0px;
-   padding: 0px;
+   max-height: 600px;
 }
 
 #cuadradoText{
@@ -37,13 +36,17 @@
 #texto0{
    
    font-family: Tommy-bold;
+
    font-size: 3rem;
   
    margin-top: 10.0rem;
+
    background-color: transparent;
 }
+
 #texto1{
    
+
    margin-top: 3.0rem;
    margin-bottom: 3.0rem;
    line-height: 2.5rem;
@@ -51,6 +54,7 @@
    color: white;
    font-family: Tommy-regular;
    font-size: 1.5rem;
+
 }
 
 #button{
@@ -66,6 +70,7 @@
     border-radius: 50px;
     font-family: Tommy-bold;
     font-size: 1.2rem;
+
     cursor: pointer;
 }
 
@@ -181,12 +186,6 @@
 #logoGroup{
    background-color: transparent;
 }
-
-
-
-
-
-
 
 
 

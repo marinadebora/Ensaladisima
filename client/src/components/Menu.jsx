@@ -4,6 +4,7 @@ import NavBarMenu from './NavBarMenu';
 import Ensaladas from './Ensaladas';
 import Bebidas from './Bebidas';
 import Postres from './Postres';
+
 import ensaladaMediana from "../images/ensaladera.png";
 import ensaladaGrande from "../images/ensaladera.png";
 
@@ -16,7 +17,9 @@ import "../styles/Menu.css";
 
 const Menu = () => {
   return (
+
     <div class="container-fluid">
+
         <NavBarMenu/>
         <h1 id="tituloMenu"> Ensaladas de la casa</h1>
         <div id="tamaños">
@@ -26,6 +29,7 @@ const Menu = () => {
           <img src={ensaladaGrande} alt="img" id="ensaladaGrande" />
           <h5 id="tamañoPrecioG">Grande: u$d 15</h5>
         </div>
+
 
         <div  id="ensaladasDeLaCasa">
         <Ensaladas/>
