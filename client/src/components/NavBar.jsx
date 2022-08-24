@@ -10,13 +10,19 @@ const NavBar = () => {
     <div>
       <nav id="navBarMain" class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
-    <img src={Logo} alt="img" id="logoNavBar" />
+
+    <Link class="nav-link-Main" to="/">
+      <img src={Logo} alt="img" id="logoNavBar" />
+    </Link>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <Link class="nav-link-Main"  to="/home">Home</Link>
+
+        <Link class="nav-link-Main"  to="/">Home</Link>
+
         <Link class="nav-link-Main" to="/menu">Menu</Link>
         <Link class="nav-link-Main" to="/pideTuEnsalada">Pide tu ensalada</Link>
         <Link class="nav-link-Main" to="/contacto">Contacto</Link>
@@ -24,10 +30,12 @@ const NavBar = () => {
         <div class="contenedor-icono">
           <i class="bi bi-bag-fill"></i>
         </div> 
-    </div>
+
         <div class="contenedor-login">
           <i class="bi bi-person-circle"></i>
         </div>
+    </div>
+
   </div>
 </nav>
    

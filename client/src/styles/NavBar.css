@@ -11,9 +11,8 @@
 }
 
 #logoNavBar{
-    width: 15%;
-    margin-left: 10%;
-    
+
+    width: 35%;
 }
 
 
@@ -24,9 +23,11 @@
     font-family: Tommy-regular;
     font-weight: bold;
     font-size: 20px;
-    margin-left: 80px;
+    margin-right: 1.0rem;
+    margin-left: 1.0rem;
     cursor: pointer;
 }
+
 .nav-link-Main:hover{
     color: #D77511;
 }
@@ -40,13 +41,11 @@
 .contenedor-login{
     font-size: 20px;
     color: #207140;
-    margin-right: 50px;
+    margin-right: 11.0rem;
+
 }
 
 .contenedor-icono i:hover{
     color: #D77511;
 }
-
-
-
 
