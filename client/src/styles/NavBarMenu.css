@@ -5,14 +5,14 @@
 
 .menuBarra{
     width: 100%;
-    padding-top: 125px;
+    padding-top: 130px;
     height: 160px;
     background-color: #94D2DE;
 }
 
 
 
-#nav-link-Menu{
+#subMenu{
     background-color: #94D2DE;
     text-decoration: none;
     color: white;
@@ -33,8 +33,8 @@
 }
 
 
-#nav-link-Menu:hover{
-    padding: 5px;
+#subMenu:hover{
+    padding: 3px;
     border-radius: 40px;
     color: white;
     background-color: #FABB4E;

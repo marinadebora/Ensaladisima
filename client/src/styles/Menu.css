@@ -71,4 +71,80 @@
 }
 
 
+@media(max-width: 686px){
+    #ensaladaMediana{
+       
+        width: 40px;
+        margin-right: 10px;
+        margin-top: 15px;
+    }
+     
+    #ensaladaGrande{
+      
+        width: 55px;
+        margin-right: 10px;
+        margin-left: 20px;
+        margin-top: 10px;
+    
+    }
+
+    #tamaño{
+        margin-right: 5px;
+    }
+}
+
+@media(max-width: 646px){
+    #ensaladaMediana{
+        
+        width: 30px;
+        margin-right: 10px;
+        margin-top: 20px;
+    }
+     
+    #ensaladaGrande{
+       
+        width: 45px;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-top: 15px;
+    
+    }
+
+    #tamaño{
+        margin-right: 5px;
+    }
+}
+
+@media(max-width: 646px){
+    #tamaño{
+        display: none;
+    }
+}
+
+@media(max-width: 380px){
+    #ensaladaMediana{
+        
+        width: 30px;
+        margin-right: 5px;
+        margin-top: 20px;
+    }
+     
+    #ensaladaGrande{
+       
+        width: 45px;
+        margin-right: 5px;
+        margin-left: 10px;
+        margin-top: 15px;
+    
+    }
+
+    #tamañoPrecioM{
+        font-size: 13px ;
+        padding-right: 10px;
+    }
+    #tamañoPrecioG{
+        font-size: 13px;
+    }
+}
+
  

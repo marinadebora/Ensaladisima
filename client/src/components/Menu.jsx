@@ -1,7 +1,9 @@
 import React from 'react';
 import '../styles/Home.css';
 import NavBarMenu from './NavBarMenu';
-import Card from './Card';
+import Ensaladas from './Ensaladas';
+import Bebidas from './Bebidas';
+import Postres from './Postres';
 import ensaladaMediana from "../images/ensaladera.png";
 import ensaladaGrande from "../images/ensaladera.png";
 
@@ -14,7 +16,7 @@ import "../styles/Menu.css";
 
 const Menu = () => {
   return (
-    <div>
+    <div class="container-fluid">
         <NavBarMenu/>
         <h1 id="tituloMenu"> Ensaladas de la casa</h1>
         <div id="tamaños">
@@ -24,7 +26,21 @@ const Menu = () => {
           <img src={ensaladaGrande} alt="img" id="ensaladaGrande" />
           <h5 id="tamañoPrecioG">Grande: u$d 15</h5>
         </div>
-        <Card/>
+
+        <div  id="ensaladasDeLaCasa">
+        <Ensaladas/>
+        </div>
+
+        <div id="bebidas">
+          <h1 id="tituloMenu">Bebidas</h1>
+          <Bebidas/>
+        </div>
+
+        <div id="postres">
+          <h1 id="tituloMenu">Postres</h1>
+          <Postres/>
+        </div>
+       
     </div>
   )
 }

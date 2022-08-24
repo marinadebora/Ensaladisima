@@ -19,7 +19,6 @@
 }
 
 #bloque1{
-   max-height: 600px;
    margin: 0px;
    padding: 0px;
 }
@@ -38,20 +37,20 @@
 #texto0{
    
    font-family: Tommy-bold;
-   font-size: 300%;
+   font-size: 3rem;
   
-   margin-top: 170px;
+   margin-top: 10.0rem;
    background-color: transparent;
 }
 #texto1{
    
-   margin-top: 30px;
-   margin-bottom: 50px;
-   line-height: 50px;
+   margin-top: 3.0rem;
+   margin-bottom: 3.0rem;
+   line-height: 2.5rem;
    background-color: transparent;
    color: white;
    font-family: Tommy-regular;
-   font-size: 20px;
+   font-size: 1.5rem;
 }
 
 #button{
@@ -63,10 +62,10 @@
     color: white;
     text-decoration: none;
     border:3px  solid white;
-    padding: 13px;
+    padding: 1.0rem;
     border-radius: 50px;
     font-family: Tommy-bold;
-    font-size: 18px;
+    font-size: 1.2rem;
     cursor: pointer;
 }
 
@@ -182,6 +181,10 @@
 #logoGroup{
    background-color: transparent;
 }
+
+
+
+
 
 
 
