@@ -16,6 +16,7 @@ registro.post('/', async (req,res,next)=>{
         }else{
             res.status(404).end(`el email ${email}, ya existe en nuestra base de datos`)
         }
+        next()
     } catch (error) {
         console.log(error)
     }

@@ -14,12 +14,14 @@ const getToppings = require("./Topping/getTopping");
 const getUsuarios = require("./Usuarios/getUsuarios");
 const crearEnsaladaMed = require("./EnsaladasMedianas/postCrearEnsaladaMed");
 const registro = require("./Usuarios/postRegistroUsuario");
+const { correo } = require("../Nodemailer/autenticar");
+
 
 const router = Router();
 
 // rutas para el modelo de Usuarios.
 router.use('/usuarios', getUsuarios)
-router.use('/registro', registro)
+router.use('/registro', registro,correo)
 
 
 // rutas para el modelo de Pedidos.
