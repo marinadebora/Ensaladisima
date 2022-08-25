@@ -7,7 +7,7 @@ export function salads()
 	{
 		try {
 			const salad = await axios(`/menus`)
-
+		
 			return dispatch({
 
 				type: "SALADS",
