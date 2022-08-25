@@ -15,6 +15,7 @@ getPedidos.get("/", async (req,res)=>{
         }).populate("saladsMenu",{__v:0}).populate("saladsMed",{__v:0}).populate("saladsBig",{__v:0});
         const pedido = buscar.map(d=>{
             return {
+                _id: d._id,
                 user: d.user,
                 salads: d.saladsMenu.concat(d.saladsMed).concat(d.saladsBig),
                 totalPayable: d.saladsMenu.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.saladsMed.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.saladsBig.map(a => a.price).reduce((sum, current) => sum + current, 0),

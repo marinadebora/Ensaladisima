@@ -17,13 +17,15 @@ const registro = require("./Usuarios/postRegistroUsuario");
 const getIdUsuario = require("./Usuarios/getUsuarioId");
 const getPedidos = require("./Pedidos/getPedidos");
 const crearEnsaladasBigs = require("./EnsaladasBigs/postEnsaladasBigs");
+const { correo } = require("../Nodemailer/autenticar");
 
 const router = Router();
 
 // rutas para el modelo de Usuarios.
 router.use('/usuarios', getUsuarios)
 router.use('/usuario', getIdUsuario)
-router.use('/registro', registro)
+router.use('/registro', registro,correo)
+
 
 
 // rutas para el modelo de Pedidos.

@@ -12,7 +12,8 @@ registro.post('/', async (req,res,next)=>{
             if (error){
                 res.status(500).send("ERROR AL REGISTRAR AL USUARIO");
             }else{
-                res.status(200).send("USUARIO REGISTRADO");
+                res.status(200).send("USUARIO REGISTRADO")
+                next();
             }
         })
     } catch (error) {
