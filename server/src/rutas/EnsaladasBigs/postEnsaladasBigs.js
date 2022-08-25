@@ -1,25 +1,25 @@
 const {Router} = require('express');
 const Usuarios = require('../../modelos/Usuarios');
 const Pedidos = require('../../modelos/Pedidos');
-const EnsaladasMedians = require('../../modelos/EnsaladasMedian')
+const EnsaladasBigs = require('../../modelos/EnsaladasBig')
 var findOrCreate = require('mongoose-findorcreate')
 
-const crearEnsaladaMed = Router()
+const crearEnsaladasBigs = Router()
 
-crearEnsaladaMed.post('/', async (req, res, next) =>{
+crearEnsaladasBigs.post('/', async (req, res, next) =>{
     const { base, protein, complement, suace, topping} = req.body;
     const {id} = req.body;
     try {
         const use = await Usuarios.find({_id:id})
         if(use){
-            const crearEnsalada = await EnsaladasMedians.findOrCreate({
+            const crearEnsalada = await EnsaladasBigs.findOrCreate({
                 base,
                 protein,
                 complement,
                 suace,
                 topping
             })
-            const ensalada = await EnsaladasMedians.find({
+            const ensalada = await EnsaladasBigs.find({
                 base,
                 protein,
                 complement,
@@ -29,14 +29,14 @@ crearEnsaladaMed.post('/', async (req, res, next) =>{
             if(use[0].orders.length){
                 const pedidoExite = await Pedidos.findOneAndUpdate({_id:use[0].orders},{
                     $push:{
-                        saladsMed:ensalada[0]._id,
+                        saladsBig:ensalada[0]._id,
                     }
                 })
                 res.send(pedidoExite)
             }else{
                 const pedido = await Pedidos.create({
                     user: use[0]._id,
-                    saladsMed: ensalada[0]._id,
+                    saladsBig: ensalada[0]._id,
                     adress: use[0].adress
                 })
                 const pedidodeUsuario = await Usuarios.findOneAndUpdate({_id:id},{
@@ -54,4 +54,4 @@ crearEnsaladaMed.post('/', async (req, res, next) =>{
     }
 })
 
-module.exports = crearEnsaladaMed
+module.exports = crearEnsaladasBigs
