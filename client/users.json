@@ -488,5 +488,114 @@
             "Nombre": "jalapeños",
             "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910785/ensaladas/base/proteina/complementos/salsas/topping/jalape%C3%B1os_cckw02.png"
         }
+    ],
+    "bebidas":[
+        {
+            "Nombre": "cerveza Session-ale",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456496/bebidas/cerveza-session_ale_rpjgwi.png"
+        },
+        {
+            "Nombre": "cerveza Speed-metal",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456496/bebidas/cerveza-speed_metal_dhklob.png"   
+        },
+        {
+            "Nombre": "cerveza Launchpad",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456496/bebidas/cerveza-launchpad_zl1of9.png"
+        },
+        {
+            "Nombre": "cerveza Theread-the-needle",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456496/bebidas/cerveza-theread-the-needle_ijaplx.png" 
+        },
+        {
+            "Nombre": "cerveza Icefields",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456496/bebidas/cerveza-icefields_cbzs4g.png" 
+        },
+        {
+            "Nombre": "cerveza Blower",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456496/bebidas/cerveza-blower_pow_apymdm.png" 
+        },{
+            "Nombre": "agua gificada",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456515/bebidas/agua-gificada_dxbutb.png"
+        },
+        {
+            "Nombre": "agua mineral",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456515/bebidas/agua_v347lb.png" 
+        },
+        {
+            "Nombre": "vino Chañamuyo",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456514/bebidas/vino-Cha%C3%B1amuyo_xbvohj.png" 
+        },
+        {
+            "Nombre": "vino Lamadrid",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456515/bebidas/vino-Lamadrid_mmapdx.png" 
+        },
+        {
+            "Nombre":"vino Enamore",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456515/bebidas/vino-Enamore_xqjvhh.png"
+        },
+        {
+            "Nombre":"vino Tapiz",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456516/bebidas/vino-Tapiz_evhalu.png"
+        },
+        {
+            "Nombre":"vino Tomero",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456516/bebidas/vino-Tomero_erir1t.png"
+        },
+        {
+            "Nombre":"vino BuenAlma",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456516/bebidas/vino-BuenAlma_esyho1.png"
+        },
+        {
+            "Nombre":"gaseosa Coca-cola",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456517/bebidas/gaseosa-coca-cola_x9igr2.png"
+        },
+        {
+            "Nombre":"gaseosa Fanta",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456517/bebidas/gaseosa-fanta_ec4hps.png"
+        },
+        {
+            "Nombre":"gaseosa Sprite",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456517/bebidas/gaseosa-sprite_u49chs.png"
+        },
+        {
+            "Nombre":"jugo de kiwi",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456516/bebidas/jugo-kiwi_hujb3s.png"
+        },
+        {
+            "Nombre":"jugo de naranja y mango",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456517/bebidas/jugo-Naranja-Mango_kh7ipp.png"
+        },
+        {
+            "Nombre":"jugo de frutilla",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456515/bebidas/jugo-frutilla_wyzngi.png"
+        },
+        {
+            "Nombre":"jugo naranja",
+            "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456515/bebidas/jugo-naranja_v1noyj.png"
+        }
+       
+
+    ],
+    "postres":[
+        {
+            "Nombre":"budin de pan",
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1661462698/bebidas/postres/budin-pan_nngemg.png" 
+        },
+        {
+            "Nombre":"blueberry Cheesecake",
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1661462698/bebidas/postres/blueberry_-Cheesecake_lnxv9s.png" 
+        },
+        {
+            "Nombre":"pastel de cocolate",
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1661462698/bebidas/postres/pastel-cocolate_obwwhp.png" 
+        },
+        {
+            "Nombre":"latte machiato",
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1661462698/bebidas/postres/latte-machiato_mw4y75.png" 
+        },
+        {
+            "Nombre":"tarta de queso con fresa",
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1661462700/bebidas/postres/tarta-queso-fresa_gbsixl.png" 
+        }
     ]
 }

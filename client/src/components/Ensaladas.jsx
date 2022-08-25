@@ -3,8 +3,10 @@ import "../styles/Card.css";
 
 
 
+
+
 const Ensaladas = ({image, name, base, protein, complement, sauce, topping}) => {
-  
+
   return (
     <div id='ensaladaMarco'>
       <div>
