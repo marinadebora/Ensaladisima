@@ -29,6 +29,7 @@ getUsuarios.get('/', async (req,res,next) =>{
                 activo: e.activo,
                 orders:e.orders.map(d=>{
                     return{
+                        _id: d._id,
                         user: d.user,
                         salads: d.saladsMenu.concat(d.saladsMed).concat(d.saladsBig),
                         totalPayable: d.saladsMenu.map(a=> a.price).reduce((sum,current)=> sum + current, 0) + d.saladsMed.map(a=> a.price).reduce((sum,current)=> sum + current, 0) + d.saladsBig.map(a=> a.price).reduce((sum,current)=> sum + current, 0),

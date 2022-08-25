@@ -9,7 +9,6 @@ const crearEnsaladasBigs = Router()
 crearEnsaladasBigs.post('/', async (req, res, next) =>{
     const { base, protein, complement, suace, topping} = req.body;
     const {id} = req.body;
-    console.log(id)
     try {
         const use = await Usuarios.find({_id:id})
         if(use){
