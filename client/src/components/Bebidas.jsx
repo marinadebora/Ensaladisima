@@ -8,9 +8,9 @@ import ensaladaPrueba from "../images/ensaladaPrueba.png";
 
 const Bebidas = () => {
   return (
-    <div id='ensalabedaMarco'>
+    <div id='bebidaMarco'>
        <div>
-       
+        Bebida 1
        </div>
         
        
