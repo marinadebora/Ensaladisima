@@ -26,8 +26,7 @@ import ensaladaPrueba from "../images/ensaladaPrueba.png";
 
 
 
-const Ensaladas = (image, name, base, protein, complement, sauce, topping) => {
-  
+const Ensaladas = ({image, name, base, protein, complement, sauce, topping}) => {
   return (
     <div id='ensaladaMarco'>
       <div>
