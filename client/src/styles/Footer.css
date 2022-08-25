@@ -8,6 +8,7 @@
  
  #logocontent{
     background-color: #207140;
+    margin-left: 30px;
  }
  
  #logoWhite{
@@ -21,6 +22,7 @@
     background-color: transparent;
     color: white;
     font-family: Tommy-bold;
+    margin-left: 30px;
    
  }
  
@@ -33,4 +35,5 @@
  
  #logoGroup{
     background-color: transparent;
+    margin-left: 30px;
  }

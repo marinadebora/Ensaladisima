@@ -23,9 +23,10 @@
 }
 
 #cuadradoText{
+  
    background-color:#94D2DE;
    margin: 0px;
-   padding: 0px; 
+   padding: 0px;
 }
 
 #photo{
@@ -34,19 +35,16 @@
 }
 
 #texto0{
-   
+
+   text-align: center;
    font-family: Tommy-bold;
-
    font-size: 3rem;
-  
    margin-top: 10.0rem;
-
    background-color: transparent;
 }
 
 #texto1{
-   
-
+   text-align: center;
    margin-top: 3.0rem;
    margin-bottom: 3.0rem;
    line-height: 2.5rem;
@@ -57,11 +55,9 @@
 
 }
 
-#button{
-   background-color:transparent;
-}
+
 .button{
-    
+   margin-left: 18.0rem;
     background-color: #94D2DE;
     color: white;
     text-decoration: none;
@@ -70,7 +66,7 @@
     border-radius: 50px;
     font-family: Tommy-bold;
     font-size: 1.2rem;
-
+    
     cursor: pointer;
 }
 
@@ -94,6 +90,7 @@
 }
 
 #video{
+   
    width: 33%;
    float: left;
    padding: 0px;
@@ -109,6 +106,7 @@
 }
 
 #titulo1Bloque2{
+   text-align: center;
    margin-top: 40%;
    font-size: 70px;
    font-family:Tommy-outline;
@@ -118,6 +116,7 @@
 }
 
 #titulo2Bloque2{
+   text-align: center;
    margin-top: 30%;
    font-size: 70px;
    font-family:Tommy-outline;

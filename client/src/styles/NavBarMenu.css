@@ -4,11 +4,13 @@
 }
 
 .menuBarra{
+    text-align: center;
     width: 100%;
     padding-top: 130px;
     height: 160px;
     background-color: #94D2DE;
 }
+
 
 
 
