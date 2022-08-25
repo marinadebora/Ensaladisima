@@ -15,16 +15,21 @@ const getUsuarios = require("./Usuarios/getUsuarios");
 const crearEnsaladaMed = require("./EnsaladasMedianas/postCrearEnsaladaMed");
 const registro = require("./Usuarios/postRegistroUsuario");
 const getIdUsuario = require("./Usuarios/getUsuarioId");
+const getPedidos = require("./Pedidos/getPedidos");
+const crearEnsaladasBigs = require("./EnsaladasBigs/postEnsaladasBigs");
+const { correo } = require("../Nodemailer/autenticar");
 
 const router = Router();
 
 // rutas para el modelo de Usuarios.
 router.use('/usuarios', getUsuarios)
 router.use('/usuario', getIdUsuario)
-router.use('/registro', registro)
+router.use('/registro', registro,correo)
+
 
 
 // rutas para el modelo de Pedidos.
+router.use('/pedidos', getPedidos)
 
 
 // rutas para el modelo de Menu.
@@ -38,6 +43,7 @@ router.use('/ensaladamed', crearEnsaladaMed)
 
 
 // rutas para el modelo de EnsaladasBig.
+router.use('/ensaladabig', crearEnsaladasBigs)
 
 
 // rutas para el modelo de Base.

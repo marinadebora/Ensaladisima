@@ -3,9 +3,11 @@ const mongoose = require('mongoose');
 
 const PedidosSchema = new Schema({
     user: [{ type: Schema.Types.ObjectId, ref: "Usuarios"}],
-    salads: [{type: Schema.Types.ObjectId, ref: "Menu", ref: "EnsaladasMedians", ref: "EnsaladasBigs"}],
-    totalPayable: { type: Number },
-    delievery: { type: Boolean },
+    saladsMenu:[{type: Schema.Types.ObjectId, ref:"Menu"}],
+    saladsMed:[{type: Schema.Types.ObjectId, ref:"EnsaladasMedians"}],
+    saladsBig: [{type: Schema.Types.ObjectId, ref:"EnsaladasBigs"}],
+    totalPayable: { type: Number, default: 0},
+    delievery: { type: Boolean, default :true},
     adress: { type: String },
 })
 
