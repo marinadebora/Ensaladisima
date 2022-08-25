@@ -29,11 +29,13 @@ const Menu = () => {
 
   return (
 
-    <div class="container-fluid">
+    <div lass="container-fluid">
 
         <NavBarMenu/>
         <CarrouselEP/>
         <h1 id="tituloMenu"> Ensaladas de la casa</h1>
+
+  
         <div id="tamaños">
           <h4 id="tamaño">Opciones de tamaño:</h4>
           <img src={ensaladaMediana} alt="img" id="ensaladaMediana" />
@@ -42,10 +44,12 @@ const Menu = () => {
           <h5 id="tamañoPrecioG">Grande: u$d 15</h5>
         </div>
 
-        
+        <div class="divisorMenu">..............................................................</div>
 
         <div  id="ensaladasDeLaCasa">
+        
           {
+            
              allSalads?.map(e =>(
               <Ensaladas
               name={e.name}
@@ -58,13 +62,18 @@ const Menu = () => {
         />
             ))
           }
-        
+          
         </div>
+        <div class="clearFix"></div>
+
+        <div class="divisorMenu">..............................................................</div>
 
         <div id="bebidas">
           <h1 id="tituloMenu">Bebidas</h1>
           <Bebidas/>
         </div>
+
+        <div class="divisorMenu">..............................................................</div>
 
         <div id="postres">
           <h1 id="tituloMenu">Postres</h1>

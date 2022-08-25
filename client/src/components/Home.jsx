@@ -30,9 +30,8 @@ const Home = () => {
               Porque queres probarlo.<br/>
               Porque no todo necesita un por qué!<br/>
               </p>
-              <div id="button" class="col" >
               <Link class="button" to="/menu">Conoce nuestro menu</Link>
-              </div>
+            
 
             </div>
             <img src={photo} class="col-5" alt="img" id="photo"></img>

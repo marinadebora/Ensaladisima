@@ -12,6 +12,7 @@
  }
 
  #tituloMenu{
+    text-align: center;
     font-family: Tommy-regular;
     color: #207140;
     margin-top: 20px;
@@ -19,8 +20,9 @@
  }
 
 #tamaños{
+    width: 100%;
     display: inline-block;
-    align-items: flex-end;
+    margin-left: 28%;
     margin-top: 20px;
    
 }
@@ -67,7 +69,21 @@
 }
 
 #ensaladasDeLaCasa{
-    
+    width: 100%;
+    margin: 0px;
+}
+
+.clearFix{
+    clear: both;
+    float: none;
+}
+
+.divisorMenu{
+    margin-top: 10px;
+    text-align: center;
+    color: #207140;
+    font-size: 40px;
+    letter-spacing: 10px;
 }
 
 
