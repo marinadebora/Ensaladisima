@@ -4,11 +4,11 @@ import NavBarMenu from './NavBarMenu';
 import Ensaladas from './Ensaladas';
 import Bebidas from './Bebidas';
 import Postres from './Postres';
-
 import ensaladaMediana from "../images/ensaladera.png";
 import ensaladaGrande from "../images/ensaladera.png";
-
-
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { salads } from "../action/index.js";
 import "../styles/Menu.css";
 import CarrouselEP from './CarrouselEP';
 
@@ -17,6 +17,16 @@ import CarrouselEP from './CarrouselEP';
 
 
 const Menu = () => {
+
+  const dispatch = useDispatch();
+  const allSalads = useSelector((state) => state.salads);
+
+  useEffect(() => {
+    dispatch(salads());
+  }, [dispatch]);
+
+  console.log(allSalads);
+
   return (
 
     <div class="container-fluid">
@@ -35,15 +45,20 @@ const Menu = () => {
         
 
         <div  id="ensaladasDeLaCasa">
-        <Ensaladas
-          name={e.name}
-          image={e.image}
-          base={e.base}
-          protein={e.protein}
-          complement={e.complement}
-          sauce={e.sauce}
-          topping={e.topping}
+          {
+             allSalads?.map(e =>(
+              <Ensaladas
+              name={e.name}
+              image={e.image}
+              base={e.base}
+              protein={e.protein}
+              complement={e.complement}
+              sauce={e.sauce}
+              topping={e.topping}
         />
+            ))
+          }
+        
         </div>
 
         <div id="bebidas">
