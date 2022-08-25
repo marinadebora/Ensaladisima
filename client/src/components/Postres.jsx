@@ -8,9 +8,9 @@ import ensaladaPrueba from "../images/ensaladaPrueba.png";
 
 const Postres = () => {
   return (
-    <div id='ensalabedaMarco'>
+    <div id='postreMarco'>
        <div>
-       
+       Postre 1
        </div>
         
        

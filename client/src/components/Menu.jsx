@@ -10,6 +10,7 @@ import ensaladaGrande from "../images/ensaladera.png";
 
 
 import "../styles/Menu.css";
+import CarrouselEP from './CarrouselEP';
 
 
 
@@ -21,6 +22,7 @@ const Menu = () => {
     <div class="container-fluid">
 
         <NavBarMenu/>
+        <CarrouselEP/>
         <h1 id="tituloMenu"> Ensaladas de la casa</h1>
         <div id="tamaños">
           <h4 id="tamaño">Opciones de tamaño:</h4>
@@ -30,9 +32,18 @@ const Menu = () => {
           <h5 id="tamañoPrecioG">Grande: u$d 15</h5>
         </div>
 
+        
 
         <div  id="ensaladasDeLaCasa">
-        <Ensaladas/>
+        <Ensaladas
+          name={e.name}
+          image={e.image}
+          base={e.base}
+          protein={e.protein}
+          complement={e.complement}
+          sauce={e.sauce}
+          topping={e.topping}
+        />
         </div>
 
         <div id="bebidas">

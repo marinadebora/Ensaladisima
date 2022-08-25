@@ -18,7 +18,7 @@ const NavBarMenu = () => {
             <a id="separador">|</a>
             <Link id="subMenu" to="/pideTuEnsalada">Bebidas</Link>
             <a id="separador">|</a>
-            <Link id="subMenu" to="/contacto">Postre</Link>
+            <Link id="subMenu" to="/contacto">Postres</Link>
 
         
    
