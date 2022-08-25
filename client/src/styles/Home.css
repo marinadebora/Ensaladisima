@@ -1,0 +1,191 @@
+@font-face {
+   font-family: Tommy-regular;
+   src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+   font-family: Tommy-bold;
+   src: url(../fonts//made_tommy/MADE\ TOMMY\ Bold_PERSONAL\ USE.ttf);
+}
+@font-face {
+   font-family: Tommy-outline;
+   src: url(../fonts//made_tommy/MADE\ TOMMY\ Bold\ Outline_PERSONAL\ USE.ttf);
+}
+
+*{
+   background-color: #FFF2DB;
+  
+}
+
+.container-fluid{
+   padding: 0px;
+}
+
+#bloque1{
+   max-height: 600px;
+}
+
+#cuadradoText{
+   background-color:#94D2DE;
+   margin: 0px;
+   padding: 0px; 
+}
+
+#photo{
+  padding: 0px;
+  margin: 0px;
+}
+
+#texto0{
+   
+   font-family: Tommy-bold;
+
+   font-size: 3rem;
+  
+   margin-top: 10.0rem;
+
+   background-color: transparent;
+}
+
+#texto1{
+   
+
+   margin-top: 3.0rem;
+   margin-bottom: 3.0rem;
+   line-height: 2.5rem;
+   background-color: transparent;
+   color: white;
+   font-family: Tommy-regular;
+   font-size: 1.5rem;
+
+}
+
+#button{
+   background-color:transparent;
+}
+.button{
+    
+    background-color: #94D2DE;
+    color: white;
+    text-decoration: none;
+    border:3px  solid white;
+    padding: 1.0rem;
+    border-radius: 50px;
+    font-family: Tommy-bold;
+    font-size: 1.2rem;
+
+    cursor: pointer;
+}
+
+.button:hover{
+   background-color: #207140;
+   color: white;
+   transition: all 20ms;
+}
+
+#bloque2{
+   display: block;
+}
+
+#cuadradoText1{
+   width: 33%;
+   height: 436px;
+   font-family: Tommy-bold;
+   background-color: #F18D1D;
+   float: left;
+   z-index: 2;
+}
+
+#video{
+   width: 33%;
+   float: left;
+   padding: 0px;
+}
+
+#cuadradoText2{
+   width: 34%;
+   height: 436px;
+   font-family: Tommy-bold;
+   background-color: #FABB4E;
+   float: left;
+   z-index: 3;
+}
+
+#titulo1Bloque2{
+   margin-top: 40%;
+   font-size: 70px;
+   font-family:Tommy-outline;
+   -webkit-text-stroke: 2px #207140;
+   color: transparent;
+   background-color: #F18D1D;
+}
+
+#titulo2Bloque2{
+   margin-top: 30%;
+   font-size: 70px;
+   font-family:Tommy-outline;
+   -webkit-text-stroke: 2px #207140;
+   color: transparent;
+   background-color: #FABB4E;   
+}
+
+#bloque3{
+   margin: 0px;
+   padding: 0px;
+   width: 100%;
+   max-height: 500px;
+}
+
+#collage1{
+   padding: 0px;
+   margin: 0px;
+   width: 33%;  
+}
+
+#healtyFood{
+   padding: 0px;
+   width: 33%;  
+}
+
+#collage2{
+   padding: 0px;
+  margin: 0px;
+   width: 33%;
+}
+
+#footerInfo{
+  
+   background-color: #207140;
+   width: 100%;
+   height: 300px;
+   
+}
+
+#logocontent{
+   background-color: #207140;
+}
+
+#logoWhite{
+   margin-top: 50px;
+   background-color: #207140;
+   width: 40%;
+   
+}
+
+#buscanos{
+   background-color: transparent;
+   color: white;
+   font-family: Tommy-bold;
+  
+}
+
+#igLogo{
+   background-color: transparent;
+   color: white;
+   font-size: 40px;
+   margin-right: 20px;
+}
+
+#logoGroup{
+   background-color: transparent;
+}
+
+
+

@@ -1,0 +1,51 @@
+ul {
+    padding:0;
+    margin:0;
+    }
+  ul li {
+    padding:0;
+    margin:0;
+    }
+
+#ensaladaMarco{
+border: 1px  solid black;
+width: 250px;
+margin-left: 100px;
+}
+
+#ensaladaPrueba{
+    width: 200px;
+    
+}
+
+#nombreEnsalada{
+    font-family:  Tommy-regular;
+    color: #D77511;
+}
+
+#ingredientesUl{
+    margin-left: 10px;
+    text-align: start;
+    list-style: none;
+    
+}
+
+#ingredientesLi{
+    margin-left: 35px;
+    text-align: start;
+}
+
+#numberLi{
+    float: left;
+    background: #9BC656;
+    border-radius: 0.8em;
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 0.8em;
+    color: #207140;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.2em;
+    margin-right: 15px;
+    text-align: center;
+    width: 1.2em;   
+}
