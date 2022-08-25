@@ -1,14 +1,16 @@
 const { Schema } = require('mongoose');
 const mongoose = require('mongoose');
+var findOrCreate = require('mongoose-findorcreate')
 
-const EnsaladasBigSchema = new Schema({
-    name: { type: String, default: 'Tu Ensalada' },
+const EnsaladasBigsSchema = new Schema({
+    name: { type: String, default: 'Tu Ensalada Grande' },
     price: { type: Number, default: 14 },
-    base: { type: Schema.Types.ObjectId, ref: "Base" },
-    protein: { type: Schema.Types.ObjectId, ref: "Proteins" },
-    complement: { type: Schema.Types.ObjectId, ref: "Complements" },
-    suace: { type: Schema.Types.ObjectId, ref: "Suaces" },
-    topping: { type: Schema.Types.ObjectId, ref: "Toppings" },
+    base: { type: Array },
+    protein: { type: Array },
+    complement: { type: Array },
+    suace: { type: Array },
+    topping: { type: Array },
 })
 
-module.exports = mongoose.model("EnsaladasBigs", EnsaladasBigSchema)
+EnsaladasBigsSchema.plugin(findOrCreate)
+module.exports = mongoose.model("EnsaladasBigs", EnsaladasBigsSchema)

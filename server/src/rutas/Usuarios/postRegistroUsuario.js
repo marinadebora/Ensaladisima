@@ -6,20 +6,20 @@ const registro = Router()
 registro.post('/', async (req,res,next)=>{
     const {firstName, lastName, email, password, adress, phone} = req.body;
     try {
-        const user = await Usuarios.findOne({email})
-        if(!user){
-            const crearUser = await Usuarios.create({
-                firstName, lastName, email, password, adress, phone
-            })
-            console.log(crearUser)
-            res.send(`Te has registrado correctamente con el correo ${email}`)
-        }else{
-            res.status(404).end(`el email ${email}, ya existe en nuestra base de datos`)
-        }
+        const user = new Usuarios({firstName, lastName, email, password, adress, phone})
+        
+        user.save(error=>{
+            if (error){
+                res.status(500).send("ERROR AL REGISTRAR AL USUARIO");
+            }else{
+                res.status(200).send("USUARIO REGISTRADO");
+            }
+        })
     } catch (error) {
         console.log(error)
     }
 })
+
 
 
 module.exports = registro

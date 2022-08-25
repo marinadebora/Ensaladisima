@@ -15,6 +15,8 @@ const getUsuarios = require("./Usuarios/getUsuarios");
 const crearEnsaladaMed = require("./EnsaladasMedianas/postCrearEnsaladaMed");
 const registro = require("./Usuarios/postRegistroUsuario");
 const getIdUsuario = require("./Usuarios/getUsuarioId");
+const getPedidos = require("./Pedidos/getPedidos");
+const crearEnsaladasBigs = require("./EnsaladasBigs/postEnsaladasBigs");
 
 const router = Router();
 
@@ -25,6 +27,7 @@ router.use('/registro', registro)
 
 
 // rutas para el modelo de Pedidos.
+router.use('/pedidos', getPedidos)
 
 
 // rutas para el modelo de Menu.
@@ -38,6 +41,7 @@ router.use('/ensaladamed', crearEnsaladaMed)
 
 
 // rutas para el modelo de EnsaladasBig.
+router.use('/ensaladabig', crearEnsaladasBigs)
 
 
 // rutas para el modelo de Base.
