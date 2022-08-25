@@ -5,9 +5,9 @@ import video from '../images/video.mp4';
 import collage1 from '../images/collage.png';
 import healtyFood from '../images/healtyFood.jpeg';
 import collage2 from '../images/collage1.png';
-import  logoWhite  from '../images/ensaladisimaLogoWhite.png'
 import NavBar from './NavBar';
 import { Link } from 'react-router-dom';
+
 
 
 
@@ -66,23 +66,6 @@ const Home = () => {
 
       </div>
       
-        <div class="container-fluid" id="footerInfo" >
-        
-          <div class="col-3" id="logocontent">
-          <img src={logoWhite} alt="img" id="logoWhite"/>
-          </div>
-          <div class="col-3" id="buscanos">Buscanos en redes</div>
-          <div class="col-3" id="logoGroup">
-            <i class="bi bi-instagram" id="igLogo"/>
-            <i class="bi bi-facebook" id="igLogo"/>
-            <i class="bi bi-tiktok" id="igLogo"/>
-          </div>
-         
-        </div>
-      
-        
-         
-     
     </div>  
   )
 }
