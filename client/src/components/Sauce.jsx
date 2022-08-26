@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { sauces } from "../action";
 import '../styles/Bases.css'
-import '../styles/Bases.css'
 
 export function Sauce () {
     const allSauces= useSelector(state=>state.sauces)

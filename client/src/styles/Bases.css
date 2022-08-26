@@ -2,12 +2,8 @@
   font-family: Tommy-regular;
   src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
 }
-#h1-bases{
-  padding-top: 10%;
-  text-align: center;
-  font-size: 2.3rem;
-  font-family: Tommy-regular;
-  color: #207140;
+.contain-total{
+  padding-top: 3rem;
 }
 #h3-bases{
  
