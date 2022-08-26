@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { toppings } from "../action";
 import '../styles/Bases.css'
-import '../styles/Bases.css'
 
 export function Toppings () {
     const allToppings= useSelector(state=>state.toppings)

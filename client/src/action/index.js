@@ -125,3 +125,43 @@ export function toppings()
 
 	}
 }
+//ruta get de las bebidas 
+export function beverages()
+{
+	return async function (dispatch)
+	{
+		try {
+			const beverage = await axios(`/beverages`)
+
+			return dispatch({
+
+				type: "BEVERAGES",
+				payload: beverage.data
+
+			})
+		} catch (error) {
+			console.log(error)
+		}
+
+	}
+}
+//ruta get de los postres 
+export function desserts()
+{
+	return async function (dispatch)
+	{
+		try {
+			const dessert = await axios(`/desserts`)
+
+			return dispatch({
+
+				type: "DESSERTS",
+				payload: dessert.data
+
+			})
+		} catch (error) {
+			console.log(error)
+		}
+
+	}
+}

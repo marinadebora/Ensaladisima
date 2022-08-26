@@ -4,7 +4,9 @@ const initialState = {
   proteins:[],
   complements:[],
   sauces:[],
-  toppings:[]
+  toppings:[],
+  beverages:[],
+  desserts:[]
 }
 
 
@@ -40,7 +42,17 @@ function rootReducer(state = initialState, action)
         return{
           ...state,
           toppings:action.payload
-        }     
+        }
+        case 'BEVERAGES':
+          return{
+            ...state,
+            beverages:action.payload
+          }
+          case 'DESSERTS':
+            return{
+              ...state,
+              desserts:action.payload
+            }
     default:
       return {
         state
