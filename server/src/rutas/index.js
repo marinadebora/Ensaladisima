@@ -27,7 +27,6 @@ router.use('/usuario', getIdUsuario)
 router.use('/registro', registro,correo)
 
 
-
 // rutas para el modelo de Pedidos.
 router.use('/pedidos', getPedidos)
 
