@@ -1,0 +1,21 @@
+@font-face {
+    font-family: Tommy-regular;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+  }
+  .contain-tamaños{
+      padding-top: 8rem;
+      padding-bottom: 5rem;
+      
+    }
+    #h1-crea{
+        padding-top: 0.8rem;
+        text-align: center;
+        font-size: 2.3rem;
+        font-family: Tommy-regular;
+        color: #207140;
+      }
+     #tamaño-contain{
+        padding-top: 1.5rem;
+        padding-left: 20%;
+        align-items: center;
+     }

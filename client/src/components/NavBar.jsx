@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 const NavBar = () => {
   return (
     <div>
+
       <nav id="navBarMain" class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
 
@@ -20,9 +21,7 @@ const NavBar = () => {
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-
         <Link class="nav-link-Main"  to="/">Home</Link>
-
         <Link class="nav-link-Main" to="/menu">Menu</Link>
         <Link class="nav-link-Main" to="/pideTuEnsalada">Pide tu ensalada</Link>
         <Link class="nav-link-Main" to="/contacto">Contacto</Link>
@@ -39,6 +38,7 @@ const NavBar = () => {
   </div>
 </nav>
    
+
     </div>
   )
 }
