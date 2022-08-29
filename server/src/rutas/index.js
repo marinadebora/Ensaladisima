@@ -14,6 +14,7 @@ const getToppings = require("./Topping/getTopping");
 const getUsuarios = require("./Usuarios/getUsuarios");
 const crearEnsaladaMed = require("./EnsaladasMedianas/postCrearEnsaladaMed");
 const registro = require("./Usuarios/postRegistroUsuario");
+const auth = require("./Usuarios/postInicioSesionUsuario")
 const getIdUsuario = require("./Usuarios/getUsuarioId");
 const getPedidos = require("./Pedidos/getPedidos");
 const crearEnsaladasBigs = require("./EnsaladasBigs/postEnsaladasBigs");
@@ -25,7 +26,7 @@ const router = Router();
 router.use('/usuarios', getUsuarios)
 router.use('/usuario', getIdUsuario)
 router.use('/registro', registro,correo)
-
+router.use("/autenticar",auth)
 
 // rutas para el modelo de Pedidos.
 router.use('/pedidos', getPedidos)
