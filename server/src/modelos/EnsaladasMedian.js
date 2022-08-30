@@ -4,7 +4,7 @@ var findOrCreate = require('mongoose-findorcreate')
 
 const EnsaladasMedianSchema = new Schema({
     name: { type: String, default: 'Tu Ensalada Mediana' },
-    price: { type: Number, default: 11 },
+    price: { type: Number, default: 13 },
     base: { type: Array },
     protein: { type: Array },
     complement: { type: Array },

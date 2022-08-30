@@ -23,6 +23,22 @@ const { bebidas } = require("../constroladores/cargarBaseDeDatos/controladorDeBe
 const { postres } = require("../constroladores/cargarBaseDeDatos/controladorDePostres");
 const { getBebidas } = require("./Bebidas/getBebidas");
 const { getPostres } = require("./Postres/getPostres");
+const { postBase } = require("./Base/postBase");
+const { putBase } = require("./Base/putBase");
+const { postBebidas } = require("./Bebidas/postBebidas");
+const { putBebidas } = require("./Bebidas/putBebidas");
+const { postComplementos } = require("./Complementos/postComplementos");
+const { putComplementos } = require("./Complementos/putComplementos");
+const { postMenu } = require("./Menu/postMenu");
+const { putMenu } = require("./Menu/putMenu");
+const { postPostres } = require("./Postres/postPostres");
+const { putPostres } = require("./Postres/putPostres");
+const { putProteins } = require("./Proteina/putProteina");
+const { postProteins } = require("./Proteina/postProteina");
+const { postSalsas } = require("./Salsa/postSalsas");
+const { putSalsas } = require("./Salsa/putSalsas");
+const { postToppings } = require("./Topping/postTopping");
+const { putToppings } = require("./Topping/putTopping");
 
 const router = Router();
 
@@ -38,6 +54,8 @@ router.use('/pedidos', getPedidos)
 
 // rutas para el modelo de Menu.
 router.get("/menus", getMenu)
+router.post("/menus",postMenu);
+router.put("/menus/:_id",putMenu);
 
 // rutas para el modelo de Historial.
 
@@ -52,26 +70,38 @@ router.use('/ensaladabig', crearEnsaladasBigs)
 
 // rutas para el modelo de Base.
 router.get("/bases", getBase)
+router.post("/bases",postBase);
+router.put("/bases/:_id",putBase);
 
 // rutas para el modelo de Protein.
 router.get("/proteins", getProteins)
-
+router.post("/proteins", postProteins);
+router.put("/proteins/:_id", putProteins);
 // rutas para el modelo de Complement.
 router.get("/complements", getComplements)
+router.post("/complements",postComplementos);
+router.put("/complements/:_id",putComplementos);
 
 // rutas para el modelo de Suace.
 router.use('/salsas', getSalsas)
+router.post('/salsas', postSalsas);
+router.put('/salsas/:_id', putSalsas);
 
 
 // rutas para el modelo de Topping
 router.use('/toppings', getToppings)
-
+router.post('/toppings', postToppings);
+router.put('/toppings/:_id', putToppings);
 
 //rutas para el modelo de Beverages
 router.get("/bebidas",getBebidas);
+router.post("/bebidas",postBebidas);
+router.put("/bebidas/:_id",putBebidas);
 
 //rutas para el modelo de Desserts
 router.get("/postres",getPostres);
+router.post("/postres",postPostres);
+router.put("/postres/:_id",putPostres);
 
 // rutas para cargar los modelos de la base de datos
 router.get('/menudb', menu);
