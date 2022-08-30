@@ -154,8 +154,8 @@
         {
             "Nombre": "ensalada campera",
             "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660909307/ensaladas/ensalada-campera_xu8j1p.png",
-            "EnsaladaMediana": 11,
-            "EnsaladaGrande": 14,
+            "EnsaladaMediana": 13,
+            "EnsaladaGrande": 15,
             "Base": [
                 "papa"
             ],
@@ -181,8 +181,8 @@
         {
             "Nombre": "ensalada capricho",
             "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660909383/ensaladas/ensalada-capricho_ncgmte.png",
-            "EnsaladaMediana": 11,
-            "EnsaladaGrande": 14,
+            "EnsaladaMediana": 13,
+            "EnsaladaGrande": 15,
             "Base": [
                 "lechuga escarola",
                 "zanahoria",
@@ -213,8 +213,8 @@
         {
             "Nombre": "ensalada cesar",
             "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660909390/ensaladas/ensalada-cesar_ovamhd.png",
-            "EnsaladaMediana": 11,
-            "EnsaladaGrande": 14,
+            "EnsaladaMediana": 13,
+            "EnsaladaGrande": 15,
             "Base": [
                 "mix de lechugas"
             ],
@@ -239,8 +239,8 @@
         {
             "Nombre": "ensaladade gallina",
             "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660909397/ensaladas/ensalada-gallina_t2ammd.png",
-            "EnsaladaMediana": 11,
-            "EnsaladaGrande": 14,
+            "EnsaladaMediana": 13,
+            "EnsaladaGrande": 15,
             "Base": [
                 "papa"
             ],
@@ -263,8 +263,8 @@
         {
             "Nombre": "ensaladade de langosta",
             "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660909416/ensaladas/ensalada-langosta_dme1rp.png",
-            "EnsaladaMediana": 11,
-            "EnsaladaGrande": 14,
+            "EnsaladaMediana": 13,
+            "EnsaladaGrande": 15,
             "Base": [
                 "papa",
                 "lechuga"
@@ -493,107 +493,128 @@
         {
             "Nombre": "cerveza Session-ale",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456496/bebidas/cerveza-session_ale_rpjgwi.png",
-            "price":3.5
+            "price":3.5,
+            "stock":12
         },
         {
             "Nombre": "cerveza Speed-metal",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456496/bebidas/cerveza-speed_metal_dhklob.png",
-            "price":3.5  
+            "price":3.5,
+            "stock":12  
         },
         {
             "Nombre": "cerveza Launchpad",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456496/bebidas/cerveza-launchpad_zl1of9.png",
-            "price":4.5
+            "price":4.5,
+            "stock":12
         },
         {
             "Nombre": "cerveza Theread-the-needle",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456496/bebidas/cerveza-theread-the-needle_ijaplx.png",
-            "price":4
+            "price":4,
+            "stock":12
         },
         {
             "Nombre": "cerveza Icefields",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456496/bebidas/cerveza-icefields_cbzs4g.png",
-            "price":3.5
+            "price":3.5,
+            "stock":12
         },
         {
             "Nombre": "cerveza Blower",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456496/bebidas/cerveza-blower_pow_apymdm.png",
-            "price":4
+            "price":4,
+            "stock":12
         },{
             "Nombre": "agua gificada",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456515/bebidas/agua-gificada_dxbutb.png",
-            "price": 1
+            "price": 1,
+            "stock":12
         },
         {
             "Nombre": "agua mineral",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456515/bebidas/agua_v347lb.png",
-            "price":1
+            "price":1,
+            "stock":12
         },
         {
             "Nombre": "vino Chañamuyo",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456514/bebidas/vino-Cha%C3%B1amuyo_xbvohj.png",
-            "price":12.5 
+            "price":12.5,
+            "stock":12
         },
         {
             "Nombre": "vino Lamadrid",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456515/bebidas/vino-Lamadrid_mmapdx.png",
-            "price":26
+            "price":26,
+            "stock":12
         },
         {
             "Nombre":"vino Enamore",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456515/bebidas/vino-Enamore_xqjvhh.png",
-            "price":12
+            "price":12,
+            "stock":12
         },
         {
             "Nombre":"vino Tapiz",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456516/bebidas/vino-Tapiz_evhalu.png",
-            "price":16
+            "price":16,
+            "stock":12
         },
         {
             "Nombre":"vino Tomero",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456516/bebidas/vino-Tomero_erir1t.png",
-            "price": 9
+            "price": 9,
+            "stock":12
         },
         {
             "Nombre":"vino BuenAlma",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456516/bebidas/vino-BuenAlma_esyho1.png",
-            "price":26
+            "price":26,
+            "stock":12
         },
         {
             "Nombre":"gaseosa Coca-cola",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456517/bebidas/gaseosa-coca-cola_x9igr2.png",
-            "price":2
+            "price":2,
+            "stock":12
         },
         {
             "Nombre":"gaseosa Fanta",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456517/bebidas/gaseosa-fanta_ec4hps.png",
-            "price":2
+            "price":2,
+            "stock":12
         },
         {
             "Nombre":"gaseosa Sprite",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456517/bebidas/gaseosa-sprite_u49chs.png",
-            "price":2
+            "price":2,
+            "stock":12
         },
         {
             "Nombre":"jugo de kiwi",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456516/bebidas/jugo-kiwi_hujb3s.png",
-            "price":7
+            "price":7,
+            "stock":12
         },
         {
             "Nombre":"jugo de naranja y mango",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456517/bebidas/jugo-Naranja-Mango_kh7ipp.png",
-            "price":2.5
+            "price":2.5,
+            "stock":12
 
         },
         {
             "Nombre":"jugo de frutilla",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456515/bebidas/jugo-frutilla_wyzngi.png",
-            "price":2.5
+            "price":2.5,
+            "stock":12
         },
         {
             "Nombre":"jugo naranja",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456515/bebidas/jugo-naranja_v1noyj.png",
-            "price":2.5
+            "price":2.5,
+            "stock":12
         }
 
 
@@ -602,27 +623,32 @@
         {
             "Nombre":"budin de pan",
             "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1661462698/bebidas/postres/budin-pan_nngemg.png",
-            "prece":4
+            "prece":4,
+            "stock":12
         },
         {
             "Nombre":"blueberry Cheesecake",
             "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1661462698/bebidas/postres/blueberry_-Cheesecake_lnxv9s.png",
-            "prece":4
+            "prece":4,
+            "stock":12
         },
         {
             "Nombre":"pastel de cocolate",
             "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1661462698/bebidas/postres/pastel-cocolate_obwwhp.png",
-            "prece":3.5
+            "prece":3.5,
+            "stock":12
         },
         {
             "Nombre":"latte machiato",
             "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1661462698/bebidas/postres/latte-machiato_mw4y75.png",
-            "prece":4
+            "prece":4,
+            "stock":12
         },
         {
             "Nombre":"cheesecake with strawberry",
             "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1661462700/bebidas/postres/tarta-queso-fresa_gbsixl.png",
-            "prece":4
+            "prece":4,
+            "stock":12
         }
     ]
 }

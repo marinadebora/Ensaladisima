@@ -4,7 +4,9 @@ var findOrCreate = require('mongoose-findorcreate');
 
 const BebidaSchema = new Schema({
     name:{type:String , required:true,lowercase:true},
-    image:{type:Array}
+    image:{type:Array},
+    price:{type:Number},
+    stock:{type:Number}
 });
 
 BebidaSchema.plugin(findOrCreate);
