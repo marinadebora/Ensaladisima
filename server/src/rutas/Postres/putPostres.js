@@ -1,13 +1,13 @@
 const Postres = require("../../modelos/Postres");
 
 const putPostres = async (req, res) => {
-    const { name, image } = req.body;
+    const { name, image,price,stock} = req.body;
     const { _id } = req.params;
     try {
         const buscar = await Postres.findById(_id);
         if (!buscar) res.status(404).send("No se encontro el id");
         else {
-            const editar = await Postres.updateOne({ _id }, { name, image });
+            const editar = await Postres.updateOne({ _id }, { name, image,price,stock });
             res.send("Postre editado correctamente");
         }
     } catch (error) {
