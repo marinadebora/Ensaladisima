@@ -131,7 +131,7 @@ export function beverages()
 	return async function (dispatch)
 	{
 		try {
-			const beverage = await axios(`/beverages`)
+			const beverage = await axios(`/bebidas`)
 
 			return dispatch({
 
@@ -151,7 +151,7 @@ export function desserts()
 	return async function (dispatch)
 	{
 		try {
-			const dessert = await axios(`/desserts`)
+			const dessert = await axios(`/postres`)
 
 			return dispatch({
 
