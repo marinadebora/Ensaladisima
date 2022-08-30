@@ -19,6 +19,10 @@ const getIdUsuario = require("./Usuarios/getUsuarioId");
 const getPedidos = require("./Pedidos/getPedidos");
 const crearEnsaladasBigs = require("./EnsaladasBigs/postEnsaladasBigs");
 const { correo } = require("../Nodemailer/autenticar");
+const { bebidas } = require("../constroladores/cargarBaseDeDatos/controladorDeBebidas");
+const { postres } = require("../constroladores/cargarBaseDeDatos/controladorDePostres");
+const { getBebidas } = require("./Bebidas/getBebidas");
+const { getPostres } = require("./Postres/getPostres");
 
 const router = Router();
 
@@ -63,13 +67,21 @@ router.use('/salsas', getSalsas)
 router.use('/toppings', getToppings)
 
 
+//rutas para el modelo de Beverages
+router.get("/bebidas",getBebidas);
+
+//rutas para el modelo de Desserts
+router.get("/postres",getPostres);
+
 // rutas para cargar los modelos de la base de datos
 router.get('/menudb', menu);
 router.get("/basedb", base);
 router.get("/proteinadb", proteina);
 router.get("/salsasdb", salsas);
 router.get("/toppingdb", topping);
-router.get('/complementdb', complements)
+router.get('/complementdb', complements);
+router.get("/bebida",bebidas);
+router.get("/postre",postres);
 
 
 module.exports = router
