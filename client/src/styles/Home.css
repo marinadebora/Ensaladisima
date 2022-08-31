@@ -29,7 +29,12 @@
    padding: 0px;
 }
 
-#photo{
+#photo1Container{
+   padding: 0px;
+}
+
+#photo1{
+   width: 100%;
   padding: 0px;
   margin: 0px;
 }

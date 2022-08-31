@@ -8,7 +8,7 @@ import "../styles/Card.css";
 const Ensaladas = ({image, name, base, protein, complement, sauce, topping}) => {
 
   return (
-    <div id='ensaladaMarco'>
+    <div id='ensaladaMarco' class="container-fluid">
       <div>
         <img src={image} alt="img" id="ensaladaImagen" />
         <div class="row" id="addContent">
