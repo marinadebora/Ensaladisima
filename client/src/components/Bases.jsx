@@ -46,4 +46,6 @@ export function Bases()
       </div>
     </div>
   );
+};
+
 
