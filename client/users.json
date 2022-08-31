@@ -491,7 +491,7 @@
     ],
     "bebidas":[
         {
-            "Nombre": "cerveza Session-ale",
+            "Nombre": "cerveza Session ale",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456496/bebidas/cerveza-session_ale_rpjgwi.png",
             "price":3.5,
             "stock":12
@@ -509,7 +509,7 @@
             "stock":12
         },
         {
-            "Nombre": "cerveza Theread-the-needle",
+            "Nombre": "cerveza Theread the needle",
             "img":"https://res.cloudinary.com/deqbqghhq/image/upload/v1661456496/bebidas/cerveza-theread-the-needle_ijaplx.png",
             "price":4,
             "stock":12
@@ -623,31 +623,31 @@
         {
             "Nombre":"budin de pan",
             "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1661462698/bebidas/postres/budin-pan_nngemg.png",
-            "prece":4,
+            "price":4,
             "stock":12
         },
         {
             "Nombre":"blueberry Cheesecake",
             "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1661462698/bebidas/postres/blueberry_-Cheesecake_lnxv9s.png",
-            "prece":4,
+            "price":4,
             "stock":12
         },
         {
             "Nombre":"pastel de cocolate",
             "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1661462698/bebidas/postres/pastel-cocolate_obwwhp.png",
-            "prece":3.5,
+            "price":3.5,
             "stock":12
         },
         {
             "Nombre":"latte machiato",
             "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1661462698/bebidas/postres/latte-machiato_mw4y75.png",
-            "prece":4,
+            "price":4,
             "stock":12
         },
         {
             "Nombre":"cheesecake with strawberry",
             "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1661462700/bebidas/postres/tarta-queso-fresa_gbsixl.png",
-            "prece":4,
+            "price":4,
             "stock":12
         }
     ]

@@ -23,6 +23,8 @@ const { bebidas } = require("../constroladores/cargarBaseDeDatos/controladorDeBe
 const { postres } = require("../constroladores/cargarBaseDeDatos/controladorDePostres");
 const { getBebidas } = require("./Bebidas/getBebidas");
 const { getPostres } = require("./Postres/getPostres");
+const putPedidoBebida = require("./Pedidos/putPedidoBebidas");
+const putPedidoPostre = require("./Pedidos/putPedidoPostres");
 
 const router = Router();
 
@@ -34,6 +36,8 @@ router.use("/autenticar",auth)
 
 // rutas para el modelo de Pedidos.
 router.use('/pedidos', getPedidos)
+router.use('/pedidoBebida', putPedidoBebida)
+router.use('/pedidoPostre', putPedidoPostre)
 
 
 // rutas para el modelo de Menu.
