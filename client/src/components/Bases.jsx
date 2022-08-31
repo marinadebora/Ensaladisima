@@ -22,10 +22,10 @@ console.log(allBases)
             {
              allBases?.map(e=>(
                 <div id="contain-bases-card">
-                    <label class="checkeable">
-             <input type="checkbox" name="cap1"/>
-            <img id="img-bases" src={e.image} alt={e.name}/> 
-            </label>
+                <label class="checkeable">
+                    <img id="img-bases" src={e.image} alt={e.name}/> 
+                </label>
+                    <input type="checkbox" name="cap1"/>
             <h2 id="h2-bases">{e.name.toUpperCase()}</h2> 
             </div>     
              )) 

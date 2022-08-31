@@ -29,7 +29,7 @@ const Menu = () => {
 
   return (
 
-    <div lass="container-fluid">
+    <div class="container">
 
         <NavBarMenu/>
         <CarrouselEP/>

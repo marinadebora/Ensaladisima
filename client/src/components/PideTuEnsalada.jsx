@@ -21,7 +21,7 @@ export function PideTuEnsalada() {
           <h5 id="tamañoPrecioG">Grande: u$d 15</h5>
         </div>
       
-     <Bases />
+    <Bases />
     <Protein />
     <Complement />
     <Sauce />
