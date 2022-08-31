@@ -3,7 +3,7 @@ const morgan = require('morgan')
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const index = require('./rutas/index')
-
+const bcrypt = require("bcrypt")
 
 require('./dataBase')
 

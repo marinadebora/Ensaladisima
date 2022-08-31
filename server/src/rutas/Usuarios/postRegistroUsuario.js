@@ -4,7 +4,7 @@ const Usuarios = require('../../modelos/Usuarios')
 const registro = Router()
 
 registro.post('/', async (req,res,next)=>{
-    const {firstName, lastName, email, password, adress, phone} = req.body;
+    const {firstName, lastName, email, password} = req.body;
     try {
         const user = new Usuarios({firstName, lastName, email, password, adress, phone})
         
