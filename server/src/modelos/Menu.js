@@ -12,6 +12,7 @@ const MenuSchema = new Schema({
     complement: { type: Array },
     sauce: { type: Array },
     topping: { type: Array },
+    price: {type:Number, default:0}
     // La ensalada Grande Contiene 1/2 porcion mas de cada ingrediente
 })
 
