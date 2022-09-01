@@ -19,7 +19,6 @@ const Home = () => {
       
         <div class="row" id="bloque1">
           
-
             <div id="cuadradoText" class="col-7">
 
               <h1 class="col" id="texto0">POR QUE ELEJIRNOS?</h1>
@@ -34,7 +33,9 @@ const Home = () => {
             
 
             </div>
-            <img src={photo} class="col-5" alt="img" id="photo"></img>
+            <div class="col-5" id="photo1Container">
+            <img src={photo} alt="img"  class="img-fluid" id="photo1"></img>
+            </div>
 
         </div>
 

@@ -3,10 +3,10 @@ const api = require('../../../../client/users.json')
 var findOrCreate = require('mongoose-findorcreate')
 
 const postres = async (req,res)=>{
-    const json = await api.postres;
+    const json = api.postres;
     try {
-        const crear = await json.map(e => Dessert.findOrCreate({name:e.Nombre,image:e.img}))
-         res.send("Se cargo correctamente")
+        const crear = json.map( async (e) => await Dessert.findOrCreate({name:e.Nombre,image:e.img,price:e.price,stock:e.stock}))
+        res.send("Se cargo correctamente")
     } catch (error) {
         console.error(error)
     }

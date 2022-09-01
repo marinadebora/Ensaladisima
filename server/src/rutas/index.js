@@ -23,6 +23,8 @@ const { bebidas } = require("../constroladores/cargarBaseDeDatos/controladorDeBe
 const { postres } = require("../constroladores/cargarBaseDeDatos/controladorDePostres");
 const { getBebidas } = require("./Bebidas/getBebidas");
 const { getPostres } = require("./Postres/getPostres");
+const postPedidoBebida = require("./Pedidos/postPedidoBebidas");
+const postPedidoPostre = require("./Pedidos/postPedidoPostres");
 const { postBase } = require("./Base/postBase");
 const { putBase } = require("./Base/putBase");
 const { postBebidas } = require("./Bebidas/postBebidas");
@@ -43,6 +45,10 @@ const { editarPassword } = require("./Usuarios/putPassword");
 const { correoPassword } = require("../Nodemailer/putPassword");
 const { getEmail } = require("./Usuarios/getEmail");
 const { passwordEditada } = require("../Nodemailer/passwordActualizada");
+const eliminarDelPedido  = require("./Pedidos/eliminardelPedido");
+const postPedidoMenu = require("./Pedidos/postPedidoMenu");
+const postHistorial = require("./Historial/postHistorial");
+
 
 const router = Router();
 
@@ -56,6 +62,11 @@ router.get("/email",getEmail,correoPassword);
 
 // rutas para el modelo de Pedidos.
 router.use('/pedidos', getPedidos)
+router.use('/pedidobebida', postPedidoBebida)
+router.use('/pedidopostre', postPedidoPostre)
+router.use('/pedidomenu', postPedidoMenu)
+router.use('/eliminarDelPedido', eliminarDelPedido)
+
 
 
 // rutas para el modelo de Menu.
@@ -64,6 +75,7 @@ router.post("/menus",postMenu);
 router.put("/menus/:_id",putMenu);
 
 // rutas para el modelo de Historial.
+router.use('/crearHistorial', postHistorial)
 
 
 // rutas para el modelo de EnsaladasMedian.
