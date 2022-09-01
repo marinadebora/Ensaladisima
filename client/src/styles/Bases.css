@@ -6,29 +6,31 @@
   padding-top: 3rem;
 }
 #h3-bases{
- 
+ width: 100%;
   padding: 2%;
    font-size: 1.2rem;
   font-family: Tommy-regular;
   color:#207140;
 }
 #contain-bases{
-
+  
   display: flex;
   position: relative;
-flex-wrap: wrap;
+  flex-wrap: wrap;
 
 }
 
 #contain-bases-card{
+  
  padding: 0.5rem;
+ 
+ 
 }
 #img-bases{
- position: relative;
+  position: relative;
   overflow: hidden;
-  
-    padding: 0px;
-    width: 10rem;
+  padding: 0px;
+  width: 10rem;
 }
 
 #h2-bases {
