@@ -48,11 +48,12 @@ function rootReducer(state = initialState, action)
             ...state,
             beverages:action.payload
           }
-          case 'DESSERTS':
-            return{
-              ...state,
-              desserts:action.payload
-            }
+        case 'DESSERTS':
+          return{
+            ...state,
+            desserts:action.payload
+           }
+        
     default:
       return {
         state
