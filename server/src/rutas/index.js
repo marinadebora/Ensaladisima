@@ -39,6 +39,10 @@ const { postSalsas } = require("./Salsa/postSalsas");
 const { putSalsas } = require("./Salsa/putSalsas");
 const { postToppings } = require("./Topping/postTopping");
 const { putToppings } = require("./Topping/putTopping");
+const { editarPassword } = require("./Usuarios/putPassword");
+const { correoPassword } = require("../Nodemailer/putPassword");
+const { getEmail } = require("./Usuarios/getEmail");
+const { passwordEditada } = require("../Nodemailer/passwordActualizada");
 
 const router = Router();
 
@@ -47,6 +51,8 @@ router.use('/usuarios', getUsuarios)
 router.use('/usuario', getIdUsuario)
 router.use('/registro', registro,correo)
 router.use("/autenticar",auth)
+router.put("/usuarios/:_id",editarPassword,passwordEditada);
+router.get("/email",getEmail,correoPassword);
 
 // rutas para el modelo de Pedidos.
 router.use('/pedidos', getPedidos)
