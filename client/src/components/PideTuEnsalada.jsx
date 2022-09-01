@@ -22,7 +22,7 @@ export function PideTuEnsalada() {
         </div>
       
 
-     <Bases />
+    <Bases />
     <Protein />
     <Complement />
     <Sauce />

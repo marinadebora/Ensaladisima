@@ -19,7 +19,14 @@ getIdUsuario.get('/:id', async (req,res,next) =>{
             }).populate({
                 path:"orders",
                 populate:{path:"saladsBig"}
-            })
+            }).populate({
+                path:"orders",
+                populate:{path:"beverages"}
+            }).populate({
+                path:"orders",
+                populate:{path:"desserts"}});
+            
+            
             
             let results = {
                     _id: user[0]._id,
@@ -36,7 +43,9 @@ getIdUsuario.get('/:id', async (req,res,next) =>{
                             _id: d._id,
                             user: d.user,
                             salads: d.saladsMenu.concat(d.saladsMed).concat(d.saladsBig),
-                            totalPayable: d.saladsMenu.map(a=> a.price).reduce((sum,current)=> sum + current, 0) + d.saladsMed.map(a=> a.price).reduce((sum,current)=> sum + current, 0) + d.saladsBig.map(a=> a.price).reduce((sum,current)=> sum + current, 0),
+                            beverages: d.beverages.map(e => e)? d.beverages.map(e => e): [],
+                            desserts: d.desserts.map(e => e)? d.desserts.map(e => e):[],
+                            totalPayable: d.saladsMenu.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.saladsMed.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.saladsBig.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.beverages.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.desserts.map(a => a.price).reduce((sum, current) => sum + current, 0),
                             delievery: d.delievery,
                             adress: d.adress
                         }
@@ -46,7 +55,9 @@ getIdUsuario.get('/:id', async (req,res,next) =>{
                             _id: d._id,
                             user: d.user,
                             salads: d.saladsMenu.concat(d.saladsMed).concat(d.saladsBig),
-                            totalPayable: d.saladsMenu.map(a=> a.price).reduce((sum,current)=> sum + current, 0) + d.saladsMed.map(a=> a.price).reduce((sum,current)=> sum + current, 0) + d.saladsBig.map(a=> a.price).reduce((sum,current)=> sum + current, 0),
+                            beverages: d.beverages.map(e => e)? d.beverages.map(e => e): [],
+                            desserts: d.desserts.map(e => e)? d.desserts.map(e => e):[],
+                            totalPayable: d.saladsMenu.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.saladsMed.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.saladsBig.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.beverages.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.desserts.map(a => a.price).reduce((sum, current) => sum + current, 0),
                             delievery: d.delievery,
                             adress: d.adress
                         }
