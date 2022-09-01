@@ -12,7 +12,7 @@
   font-family: Tommy-regular;
   color:#207140;
 }
-#contain-bases{
+.contain-bases{
 
   display: flex;
   position: relative;
@@ -21,7 +21,8 @@ flex-wrap: wrap;
 }
 
 #contain-bases-card{
- padding: 0.5rem;
+ padding: 1.5rem;
+ 
 }
 #img-bases{
  position: relative;
