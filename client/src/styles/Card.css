@@ -1,0 +1,122 @@
+@font-face {
+    font-family: Tommy-regular;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+}
+
+
+ul {
+    padding:0;
+    margin:0;
+    }
+  ul li {
+    padding:0;
+    margin:0;
+    }
+
+#ensaladaMarco{
+margin-top: 30px;
+width: 250px;
+float: right;
+}
+
+#bebidaMarco{
+    border: 1px  solid black;
+    width: 200px;
+    height: 250px;
+    margin-left: 100px;
+}
+
+#postreMarco{
+    border: 1px  solid black;
+    width: 200px;
+    height: 250px;
+    margin-left: 100px;
+}
+
+#ensaladaImagen{
+    overflow: hidden;
+    margin-top: 5%;
+    margin-left: 15%;
+    padding: 0px;
+    width: 200px;
+    
+}
+
+#addContent{
+   margin-bottom: 20px;
+   margin-left: 4%;
+
+}
+
+#buttonAddM{
+
+    text-decoration: none;
+    border: none;
+    color: #207140;
+    padding: 0px;
+}
+
+#buttonAddG{
+    display: flex;
+    text-decoration: none;
+    border: none;
+    color: #207140;
+    padding: 0px;
+}
+
+#textButtonAdd{
+    margin-left: 1.5rem;
+    margin-right: 0.5rem;
+    font-family:  Tommy-regular;
+    color: #207140;
+    text-decoration: none;
+    padding: 0px;
+    
+    
+    
+}
+
+#nombreEnsalada{
+    text-align: center;
+    font-size: 25px;
+    font-family:  Tommy-regular;
+    color: #D77511;
+}
+
+#ingredientes{
+    align-content: center;
+}
+
+#ingredientesUl{
+    margin-left: 20%;
+    text-align: start;
+    list-style: none;
+    
+}
+
+#ingredientesLi{
+    margin-left: 35px;
+    text-align: start;
+   
+    
+}
+
+#numberLi{
+    float: left;
+    background: #9BC656;
+    border-radius: 0.8em;
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 0.8em;
+    color: #207140;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.2em;
+    margin-right: 15px;
+    text-align: center;
+    width: 1.2em;   
+}
+
+#tipoIngrediente{
+    float: left;
+    font-weight: bold;
+}

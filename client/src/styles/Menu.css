@@ -1,0 +1,167 @@
+@font-face {
+    font-family: Tommy-regular;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+}
+@font-face {
+    font-family: Tommy-Light;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Light_PERSONAL\ USE.ttf);
+}
+
+*{
+    background-color: #FFF2DB;
+ }
+
+ #tituloMenu{
+    text-align: center;
+    font-family: Tommy-regular;
+    color: #207140;
+    margin-top: 20px;
+    
+ }
+
+#tamaños{
+    width: 100%;
+    display: inline-block;
+    margin-left: 28%;
+    margin-top: 20px;
+   
+}
+
+#tamaño{
+    float: left;
+    width: 200px;
+    font-family:  Tommy-Light;
+    font-size: 15px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+#tamañoPrecioM{
+    float: left;
+    font-family:  Tommy-Light;
+    font-size: 15px;
+    margin-right: 10px;
+    margin-top: 20px;
+    padding-right: 40px;
+    border-right: 1px solid black;
+}
+#tamañoPrecioG{
+    float: left;
+    font-family:  Tommy-Light;
+    font-size: 15px;
+    margin-right: 15px;
+    margin-top: 20px;
+}
+
+#ensaladaMediana{
+    float: left;
+    width: 50px;
+    margin-right: 15px;
+    margin-top: 10px;
+}
+ 
+#ensaladaGrande{
+    float: left;
+    width: 75px;
+    margin-right: 15px;
+    margin-left: 30px;
+
+}
+
+#ensaladasDeLaCasa{
+    width: 100%;
+    margin-right: 50px;
+    margin: 0px;
+}
+
+.clearFix{
+    clear: both;
+    float: none;
+}
+
+.divisorMenu{
+    margin-top: 10px;
+    text-align: center;
+    color: #207140;
+    font-size: 40px;
+    letter-spacing: 10px;
+}
+
+
+@media(max-width: 686px){
+    #ensaladaMediana{
+       
+        width: 40px;
+        margin-right: 10px;
+        margin-top: 15px;
+    }
+     
+    #ensaladaGrande{
+      
+        width: 55px;
+        margin-right: 10px;
+        margin-left: 20px;
+        margin-top: 10px;
+    
+    }
+
+    #tamaño{
+        margin-right: 5px;
+    }
+}
+
+@media(max-width: 646px){
+    #ensaladaMediana{
+        
+        width: 30px;
+        margin-right: 10px;
+        margin-top: 20px;
+    }
+     
+    #ensaladaGrande{
+       
+        width: 45px;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-top: 15px;
+    
+    }
+
+    #tamaño{
+        margin-right: 5px;
+    }
+}
+
+@media(max-width: 646px){
+    #tamaño{
+        display: none;
+    }
+}
+
+@media(max-width: 380px){
+    #ensaladaMediana{
+        
+        width: 30px;
+        margin-right: 5px;
+        margin-top: 20px;
+    }
+     
+    #ensaladaGrande{
+       
+        width: 45px;
+        margin-right: 5px;
+        margin-left: 10px;
+        margin-top: 15px;
+    
+    }
+
+    #tamañoPrecioM{
+        font-size: 13px ;
+        padding-right: 10px;
+    }
+    #tamañoPrecioG{
+        font-size: 13px;
+    }
+}
+
+ 

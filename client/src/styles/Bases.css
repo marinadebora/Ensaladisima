@@ -1,0 +1,42 @@
+@font-face {
+  font-family: Tommy-regular;
+  src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+}
+.contain-total{
+  padding-top: 3rem;
+}
+#h3-bases{
+ width: 100%;
+  padding: 2%;
+   font-size: 1.2rem;
+  font-family: Tommy-regular;
+  color:#207140;
+}
+
+.contain-bases{
+
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+
+}
+
+#contain-bases-card{
+
+ padding: 1.5rem;
+
+}
+#img-bases{
+  position: relative;
+  overflow: hidden;
+  padding: 0px;
+  width: 10rem;
+}
+
+#h2-bases {
+  text-align: center ;
+  font-size: 1rem;
+  font-family: Tommy-regular;
+  color: #D77511;
+}
+

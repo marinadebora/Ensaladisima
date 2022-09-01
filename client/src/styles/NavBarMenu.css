@@ -1,0 +1,47 @@
+@font-face {
+    font-family: Tommy-regular;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+}
+
+.menuBarra{
+    text-align: center;
+    width: 100%;
+    padding-top: 130px;
+    height: 160px;
+    background-color: #94D2DE;
+}
+
+
+
+
+
+#subMenu{
+
+    background-color: #94D2DE;
+    text-decoration: none;
+    color: white;
+    font-family: Tommy-regular;
+    font-weight: bold;
+    font-size: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+#separador{
+    color: white;
+    background-color: #94D2DE;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: 2px;
+}
+
+
+
+#subMenu:hover{
+    padding: 3px;
+    border-radius: 40px;
+    color: white;
+    background-color: #FABB4E;
+    transition: all 2ms;
+}
