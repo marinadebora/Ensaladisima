@@ -13,8 +13,9 @@
   color:#207140;
 }
 #contain-bases{
-  
+  margin-left: 2%;
   display: flex;
+  justify-content: flex-start;
   position: relative;
   flex-wrap: wrap;
 
@@ -30,7 +31,7 @@
   position: relative;
   overflow: hidden;
   padding: 0px;
-  width: 10rem;
+  width: 9rem;
 }
 
 #h2-bases {

@@ -81,6 +81,25 @@
    transition: all 20ms;
 }
 
+.buttonChico{
+    background-color: #207140; 
+    color: white;
+    text-decoration: none;
+    border:3px  solid white;
+    padding: 1.0rem;
+    border-radius: 50px;
+    font-family: Tommy-bold;
+    font-size: 1.2rem;
+    
+    cursor: pointer;
+}
+
+.buttonChico:hover{
+   background-color: #94D2DE;
+   color: white;
+   transition: all 20ms;
+}
+
 #bloque2{
    display: block;
 }

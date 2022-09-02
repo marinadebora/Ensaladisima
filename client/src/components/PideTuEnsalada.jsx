@@ -4,6 +4,8 @@ import { Complement } from "./Complement";
 import { Protein } from "./Protein";
 import { Sauce } from "./Sauce";
 import { Toppings } from "./Toppings";
+import {SideBarFront} from './SideBarFront';
+import {Tamaños} from './Tamaños';
 import ensaladaMediana from "../images/ensaladera.png";
 import ensaladaGrande from "../images/ensaladera.png";
 import '../styles/PideTuEnsalada.css'
@@ -11,21 +13,22 @@ import '../styles/PideTuEnsalada.css'
 export function PideTuEnsalada() {
 
   return( 
-  <div className="contain-tamaños">
-    <h1 id="h1-crea">Crea tu ensalada</h1>
-        <div id="tamaño-contain">
-          <h4 id="tamaño">Opciones de tamaño:</h4>
-          <img src={ensaladaMediana} alt="img" id="ensaladaMediana" />
-          <h5 id="tamañoPrecioM">Mediana: u$d 13</h5>
-          <img src={ensaladaGrande} alt="img" id="ensaladaGrande" />
-          <h5 id="tamañoPrecioG">Grande: u$d 15</h5>
+  <div>
+      <Tamaños/>
+      <div class='container-fluid'>
+        <div class="row">
+              <div id='contenedor-1' class='col-sm-9'>
+                <Bases />
+                <Protein />
+                <Complement />
+                <Sauce />
+                <Toppings />
+              </div>
+              <div class="col-sm-3" id='sideBarContent'>
+              <SideBarFront/>
+              </div>
         </div>
+      </div>
       
-    <Bases />
-    <Protein />
-    <Complement />
-    <Sauce />
-    <Toppings />
-   
   </div>);
 };
