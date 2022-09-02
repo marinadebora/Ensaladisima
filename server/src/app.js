@@ -6,7 +6,7 @@ const index = require('./rutas/index')
 const bcrypt = require("bcrypt")
 const passport = require("passport")
 
-require('./dataBase')
+require('./database')
 
 const app = express();
 
