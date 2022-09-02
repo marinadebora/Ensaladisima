@@ -11,6 +11,7 @@ const NavBar = () => {
 
   <nav id="navBarMain" class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
+      
 
     <Link class="nav-link-Main" to="/">
       <img src={Logo} alt="img" id="logoNavBar"/>
@@ -25,14 +26,17 @@ const NavBar = () => {
         <Link class="nav-link-Main" to="/menu">Menu</Link>
         <Link class="nav-link-Main" to="/pideTuEnsalada">Pide tu ensalada</Link>
         <Link class="nav-link-Main" to="/contacto">Contacto</Link>
-      </div>
-        <div class="contenedor-icono">
+        
+        <Link to="/checkout" class="nav-link-Main">
           <i class="bi bi-bag-fill"></i>
-        </div> 
+          <span class="badge rounded-pill badge-notification" >2</span>
+        </Link> 
 
-        <div class="contenedor-login">
+        <Link to="/profile" class="nav-link-Main">
           <i class="bi bi-person-circle"></i>
-        </div>
+          <a id='logInText'> LOGIN</a>
+        </Link>
+      </div>
     </div>
 
   </div>

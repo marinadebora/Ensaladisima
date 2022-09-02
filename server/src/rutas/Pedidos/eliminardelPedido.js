@@ -8,7 +8,6 @@ const eliminarDelPedido = Router()
 eliminarDelPedido .put('/:id', async (req,res,next) =>{
     const {id} = req.params;
     const {_id} = req.body;
-    
     try {
         const pedido = await Pedidos.find({_id:id})
         if(pedido[0].desserts.filter(e => e === _id)){
@@ -30,7 +29,7 @@ eliminarDelPedido .put('/:id', async (req,res,next) =>{
                 }
             })
             const stockBeverages = await Bebidas.findOneAndUpdate({_id:_id},{
-                stock: buscarBebidasr[0].stock + 1
+                stock: buscarBebidas[0].stock + 1
             })
             res.send('La bebida se elimino del pedido correctamente')
         }else if(pedido[0].saladsBig.filter(e => e === _id)){
@@ -48,9 +47,16 @@ eliminarDelPedido .put('/:id', async (req,res,next) =>{
             })
             res.send('La ensalda mediana se elimino del pedido correctamente')
         }else if(pedido[0].saladsMenu.filter(e => e === _id)){
-            const borrarSaladsMed = await Pedidos.findOneAndUpdate({_id:id,saladsMenu:_id},{
+            const borrarSaladaMenu = await Pedidos.findOneAndUpdate({_id:id,saladsMenu:_id},{
                 $unset:{
                     "saladsMenu.$":_id
+                }
+            })
+            res.send('La ensalda que elegistes de nuestro menu se elimino del pedido correctamente')
+        }else if(pedido[0].saladsMenuBig.filter(e => e === _id)){
+            const borrarSaladsMenuBig = await Pedidos.findOneAndUpdate({_id:id,saladsMenuBig:_id},{
+                $unset:{
+                    "saladsMenuBig.$":_id
                 }
             })
             res.send('La ensalda que elegistes de nuestro menu se elimino del pedido correctamente')

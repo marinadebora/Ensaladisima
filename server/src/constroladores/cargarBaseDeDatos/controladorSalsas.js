@@ -1,5 +1,5 @@
 const Suaces = require("../../modelos/Salsas")
-const api = require('../../../../client/users.json')
+const api = require('../../../../server/users.json')
 var findOrCreate = require('mongoose-findorcreate')
 
 const salsas = async (req,res)=>{
