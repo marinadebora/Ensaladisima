@@ -41,6 +41,9 @@ const { postSalsas } = require("./Salsa/postSalsas");
 const { putSalsas } = require("./Salsa/putSalsas");
 const { postToppings } = require("./Topping/postTopping");
 const { putToppings } = require("./Topping/putTopping");
+const passport = require("passport");
+require("../../middlewares/google")
+
 
 const router = Router();
 
@@ -48,7 +51,13 @@ const router = Router();
 router.use('/usuarios', getUsuarios)
 router.use('/usuario', getIdUsuario)
 router.use('/registro', registro,correo)
-router.use("/autenticar",auth)
+router.use("/autenticar", passport.authenticate("auth-google", {
+    scope: [
+        "https://www.googleapis.com/auth/userinfo.profile",
+        "https://www.googleapis.com/auth/userinfo.email"
+    ],
+    session: false
+}), auth)
 
 // rutas para el modelo de Pedidos.
 router.use('/pedidos', getPedidos)
