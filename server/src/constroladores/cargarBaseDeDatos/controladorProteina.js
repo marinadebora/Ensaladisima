@@ -1,4 +1,4 @@
-const Proteins = require("../../modelos/Proteina")
+/* const Proteins = require("../../modelos/Proteina")
 const api = require('../../../server/users.json')
 var findOrCreate = require('mongoose-findorcreate')
 
@@ -11,4 +11,4 @@ const proteina = async (req,res)=>{
         console.error(error)
     }
 }
-module.exports={proteina}
+module.exports={proteina} */

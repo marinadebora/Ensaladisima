@@ -1,4 +1,4 @@
-const Suaces = require("../../modelos/Salsas")
+/* const Suaces = require("../../modelos/Salsas")
 const api = require('../../../server/users.json')
 var findOrCreate = require('mongoose-findorcreate')
 
@@ -11,4 +11,4 @@ const salsas = async (req,res)=>{
         console.error(error)
     }
 }
-module.exports={salsas}
+module.exports={salsas} */
