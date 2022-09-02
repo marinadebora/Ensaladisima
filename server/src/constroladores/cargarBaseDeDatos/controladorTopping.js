@@ -1,5 +1,5 @@
 const Toppings = require("../../modelos/Topping")
-const api = require('../../../../client/users.json')
+const api = require('../../../../server/users.json')
 var findOrCreate = require('mongoose-findorcreate')
 
 const topping = async (req,res)=>{
