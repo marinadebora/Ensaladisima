@@ -29,6 +29,6 @@ export function PideTuEnsalada() {
               </div>
         </div>
       </div>
-      
+     
   </div>);
 };
