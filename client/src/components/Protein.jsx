@@ -7,14 +7,13 @@ import '../styles/Bases.css'
 export function Protein () {
     const allProteins= useSelector(state=>state.proteins)
     const dispatch= useDispatch()
-    console.log(allProteins)
         useEffect(() => {
             dispatch(proteins())
         }, [dispatch])
   return (
   <div>
     <h3 id="h3-bases">ELIGE TUS PROTEINAS</h3>
-<div id="contain-bases">
+<div className="contain-bases">
             {
              allProteins?.map(e=>(
                 <div id="contain-bases-card">
