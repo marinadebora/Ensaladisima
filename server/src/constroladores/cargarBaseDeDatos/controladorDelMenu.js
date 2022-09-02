@@ -1,5 +1,5 @@
 const Menu = require('../../modelos/Menu')
-const api = require('../../../../server/users.json')
+const api = require('../../../server/users.json')
 var findOrCreate = require('mongoose-findorcreate')
 
 const menu = async (req, res) => {
