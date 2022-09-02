@@ -1,4 +1,4 @@
-const Menu = require('../../modelos/Menu')
+/* const Menu = require('../../modelos/Menu')
 const api = require('../../../server/users.json')
 var findOrCreate = require('mongoose-findorcreate')
 
@@ -22,4 +22,4 @@ const menu = async (req, res) => {
     }
 }
 
-module.exports = { menu }
+module.exports = { menu } */
