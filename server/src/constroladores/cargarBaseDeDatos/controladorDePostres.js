@@ -1,5 +1,5 @@
 const Dessert = require("../../modelos/Postres")
-const api = require('../../../../client/users.json')
+const api = require('../../../../server/users.json')
 var findOrCreate = require('mongoose-findorcreate')
 
 const postres = async (req,res)=>{

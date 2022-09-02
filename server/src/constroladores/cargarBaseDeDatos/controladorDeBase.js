@@ -1,5 +1,5 @@
 const Base = require("../../modelos/Base")
-const api = require('../../../../client/users.json')
+const api = require('../../../../server/users.json')
 var findOrCreate = require('mongoose-findorcreate')
 
 const base = async (req,res)=>{
