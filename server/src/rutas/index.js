@@ -1,10 +1,10 @@
 const { Router } = require("express");
-const { base } = require("../constroladores/cargarBaseDeDatos/controladorDeBase");
+/* const { base } = require("../constroladores/cargarBaseDeDatos/controladorDeBase");
 const { menu } = require("../constroladores/cargarBaseDeDatos/controladorDelMenu");
 const { proteina } = require("../constroladores/cargarBaseDeDatos/controladorProteina");
 const { salsas } = require("../constroladores/cargarBaseDeDatos/controladorSalsas");
 const { topping } = require("../constroladores/cargarBaseDeDatos/controladorTopping");
-const { complements } = require("../constroladores/cargarBaseDeDatos/controladorDeComplementos");
+const { complements } = require("../constroladores/cargarBaseDeDatos/controladorDeComplementos"); */
 const { getBase } = require("./Base/getBase");
 const { getComplements } = require("./Complementos/getComplementos");
 const { getMenu } = require("./Menu/getMenu");
@@ -23,8 +23,8 @@ const { bebidas } = require("../constroladores/cargarBaseDeDatos/controladorDeBe
 const { postres } = require("../constroladores/cargarBaseDeDatos/controladorDePostres");
 const { getBebidas } = require("./Bebidas/getBebidas");
 const { getPostres } = require("./Postres/getPostres");
-const putPedidoBebida = require("./Pedidos/putPedidoBebidas");
-const putPedidoPostre = require("./Pedidos/putPedidoPostres");
+const postPedidoBebida = require("./Pedidos/postPedidoBebidas");
+const postPedidoPostre = require("./Pedidos/postPedidoPostres");
 const { postBase } = require("./Base/postBase");
 const { putBase } = require("./Base/putBase");
 const { postBebidas } = require("./Bebidas/postBebidas");
@@ -41,6 +41,16 @@ const { postSalsas } = require("./Salsa/postSalsas");
 const { putSalsas } = require("./Salsa/putSalsas");
 const { postToppings } = require("./Topping/postTopping");
 const { putToppings } = require("./Topping/putTopping");
+const { editarPassword } = require("./Usuarios/putPassword");
+const { correoPassword } = require("../Nodemailer/putPassword");
+const { getEmail } = require("./Usuarios/getEmail");
+const { passwordEditada } = require("../Nodemailer/passwordActualizada");
+const eliminarDelPedido  = require("./Pedidos/eliminardelPedido");
+const postPedidoMenu = require("./Pedidos/postPedidoMenu");
+const postHistorial = require("./Historial/postHistorial");
+const passport = require("passport");
+require("../../middlewares/google")
+
 
 const router = Router();
 
@@ -48,12 +58,23 @@ const router = Router();
 router.use('/usuarios', getUsuarios)
 router.use('/usuario', getIdUsuario)
 router.use('/registro', registro,correo)
-router.use("/autenticar",auth)
+router.use("/autenticar", passport.authenticate("auth-google", {
+    scope: [
+        "https://www.googleapis.com/auth/userinfo.profile",
+        "https://www.googleapis.com/auth/userinfo.email"
+    ],
+    session: false
+}), auth)
+router.put("/usuarios/:_id",editarPassword,passwordEditada);
+router.get("/email",getEmail,correoPassword);
 
 // rutas para el modelo de Pedidos.
 router.use('/pedidos', getPedidos)
-router.use('/pedidoBebida', putPedidoBebida)
-router.use('/pedidoPostre', putPedidoPostre)
+router.use('/pedidobebida', postPedidoBebida)
+router.use('/pedidopostre', postPedidoPostre)
+router.use('/pedidomenu', postPedidoMenu)
+router.use('/eliminarDelPedido', eliminarDelPedido)
+
 
 
 // rutas para el modelo de Menu.
@@ -62,6 +83,7 @@ router.post("/menus",postMenu);
 router.put("/menus/:_id",putMenu);
 
 // rutas para el modelo de Historial.
+router.use('/crearHistorial', postHistorial)
 
 
 // rutas para el modelo de EnsaladasMedian.
@@ -108,14 +130,14 @@ router.post("/postres",postPostres);
 router.put("/postres/:_id",putPostres);
 
 // rutas para cargar los modelos de la base de datos
-router.get('/menudb', menu);
+/* router.get('/menudb', menu);
 router.get("/basedb", base);
 router.get("/proteinadb", proteina);
 router.get("/salsasdb", salsas);
 router.get("/toppingdb", topping);
 router.get('/complementdb', complements);
 router.get("/bebida",bebidas);
-router.get("/postre",postres);
+router.get("/postre",postres); */
 
 
 module.exports = router

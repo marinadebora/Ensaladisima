@@ -6,14 +6,13 @@ import '../styles/Bases.css'
 export function Sauce () {
     const allSauces= useSelector(state=>state.sauces)
     const dispatch= useDispatch()
-    console.log(allSauces)
         useEffect(() => {
             dispatch(sauces())
         }, [dispatch])
   return (
   <div>
     <h3 id="h3-bases">ELIGE TUS SALSAS</h3>
-<div id="contain-bases">
+<div className="contain-bases">
             {
              allSauces?.map(e=>(
                 <div id="contain-bases-card">

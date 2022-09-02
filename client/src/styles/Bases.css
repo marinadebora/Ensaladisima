@@ -12,20 +12,17 @@
   font-family: Tommy-regular;
   color:#207140;
 }
+
 #contain-bases{
   margin-left: 2%;
-  display: flex;
-  justify-content: flex-start;
-  position: relative;
-  flex-wrap: wrap;
-
 }
 
+
+
 #contain-bases-card{
-  
- padding: 0.5rem;
- 
- 
+
+ padding: 1.5rem;
+
 }
 #img-bases{
   position: relative;

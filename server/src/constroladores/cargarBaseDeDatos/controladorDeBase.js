@@ -1,5 +1,5 @@
-const Base = require("../../modelos/Base")
-const api = require('../../../../client/users.json')
+/* const Base = require("../../modelos/Base")
+const api = require('../../../users.json')
 var findOrCreate = require('mongoose-findorcreate')
 
 const base = async (req,res)=>{
@@ -11,4 +11,4 @@ const base = async (req,res)=>{
         console.error(error)
     }
 }
-module.exports={base}
+module.exports={base} */

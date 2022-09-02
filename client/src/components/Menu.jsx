@@ -6,7 +6,7 @@ import Bebidas from './Bebidas';
 import Postres from './Postres';
 import ensaladaMediana from "../images/ensaladera.png";
 import ensaladaGrande from "../images/ensaladera.png";
-import { useEffect, useState } from "react";
+import { useEffect/* , useState  */} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { salads } from "../action/index.js";
 import "../styles/Menu.css";

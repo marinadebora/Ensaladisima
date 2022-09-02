@@ -13,11 +13,11 @@ const NavBarMenu = () => {
         
 
             <Link id="subMenu"  to="/home">Arma tu ensalada</Link>
-            <a id="separador">|</a>
+            <a href=' ' id="separador">|</a>
             <Link id="subMenu" to="/menu">Ensaladas de la casa</Link>
-            <a id="separador">|</a>
+            <a href=' 'id="separador">|</a>
             <Link id="subMenu" to="/pideTuEnsalada">Bebidas</Link>
-            <a id="separador">|</a>
+            <a href=' 'id="separador">|</a>
             <Link id="subMenu" to="/contacto">Postre</Link>
 
         

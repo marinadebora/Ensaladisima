@@ -6,8 +6,8 @@ import { Sauce } from "./Sauce";
 import { Toppings } from "./Toppings";
 import {SideBarFront} from './SideBarFront';
 import {Tamaños} from './Tamaños';
-import ensaladaMediana from "../images/ensaladera.png";
-import ensaladaGrande from "../images/ensaladera.png";
+/* import ensaladaMediana from "../images/ensaladera.png";
+import ensaladaGrande from "../images/ensaladera.png"; */
 import '../styles/PideTuEnsalada.css'
 
 export function PideTuEnsalada() {
@@ -29,6 +29,6 @@ export function PideTuEnsalada() {
               </div>
         </div>
       </div>
-      
+     
   </div>);
 };
