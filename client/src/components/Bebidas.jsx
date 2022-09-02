@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { beverages } from "../action";
 import '../styles/Bases.css'
 import {useLocalStorage}from '../useLocalStorage'
-
-
+import img from '../images/bolsa.png'
+import '../styles/Bebidas.css'
 
 
 export const Bebidas = () =>
@@ -14,22 +14,24 @@ export const Bebidas = () =>
   console.log(allBeverages)
   const dispatch = useDispatch()
 const [beverage, setBeverage] = useLocalStorage('bebidas',[])
-const [count, setCount] = useState(0)
-const [pedido, setPedido] = useState(0)
+const [bebidas,setBebidas]=useState({
+name:'',
 
+})
+const handleSubmit=(event)=>{
+
+  setBeverage({
+    ...beverage,
+    [event.target.name]:event.target.value
+  })
+}
+console.log(beverage)
   useEffect(() =>
   {
     dispatch(beverages())
   }, [dispatch])
 
-let sum=()=>{
-  setCount(count+1)
-}
-let res=()=>{
-  count>0?
-  setCount(count-1)
-  :setCount(0)
-}
+
   return (
     <div id="contain-bases">
       {
@@ -39,8 +41,7 @@ let res=()=>{
               <img id="img-bases" src={e.image} alt={e.name} />
               <p>US$ {e.price}</p>
             </label>
-            <i class="bi bi-bag-fill"></i>
-            {/* <button onClick={sum}>+</button>{count}<button onClick={res}>-</button> */}
+            <button className='btn-bolsa'name={e.name} value={e._id} onClick={handleSubmit} ><img className='img-bolsa' src={img} alt="bolsa" /></button>
             <h2 id="h2-bases">{e.name?.toUpperCase()}</h2>
           </div>
         ))
