@@ -6,7 +6,7 @@ import Bebidas from './Bebidas';
 import Postres from './Postres';
 import ensaladaMediana from "../images/ensaladera.png";
 import ensaladaGrande from "../images/ensaladera.png";
-import { useEffect, useState } from "react";
+import { useEffect/* , useState  */} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { salads } from "../action/index.js";
 import "../styles/Menu.css";
@@ -28,10 +28,11 @@ const Menu = () => {
   console.log(allSalads);
 
   return (
-
+    <div>
+       <NavBarMenu/>
     <div class="container">
 
-        <NavBarMenu/>
+       
         <CarrouselEP/>
         <h1 id="tituloMenu"> Ensaladas de la casa</h1>
 
@@ -80,6 +81,7 @@ const Menu = () => {
           <Postres/>
         </div>
        
+    </div>
     </div>
   )
 }

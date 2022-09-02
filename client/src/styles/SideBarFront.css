@@ -1,0 +1,30 @@
+* {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  #contenedor-2{
+    width: 100%;
+    height: 700px;
+    background: #94D2DE;
+  
+    
+  }
+
+  #titulo-sideBar{
+    
+    background-color: transparent;
+    color: #207140;
+    font-family: Tommy-regular;
+    font-weight: bold;
+    font-size: 2rem;
+
+   
+  }
+
+  
+
+
+  
+  
+ 

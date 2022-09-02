@@ -1,5 +1,5 @@
-const  Complements = require('../../modelos/Complementos');
-const api = require('../../../../client/users.json')
+/* const  Complements = require('../../modelos/Complementos');
+const api = require('../../../server/users.json')
 var findOrCreate = require('mongoose-findorcreate');
 
 const complements = async (req, res) =>{
@@ -15,4 +15,4 @@ const complements = async (req, res) =>{
     }
 }
 
-module.exports = { complements }
+module.exports = { complements } */

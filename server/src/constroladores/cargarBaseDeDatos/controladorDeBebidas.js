@@ -1,5 +1,5 @@
-const Beverages = require("../../modelos/Bebidas")
-const api = require('../../../../client/users.json')
+/* const Beverages = require("../../modelos/Bebidas")
+const api = require('../../../server/users.json')
 var findOrCreate = require('mongoose-findorcreate')
 
 const bebidas = async (req,res)=>{
@@ -11,4 +11,4 @@ const bebidas = async (req,res)=>{
         console.error(error)
     }
 }
-module.exports={bebidas};
+module.exports={bebidas}; */
