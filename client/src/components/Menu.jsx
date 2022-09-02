@@ -28,10 +28,11 @@ const Menu = () => {
   console.log(allSalads);
 
   return (
-
+    <div>
+       <NavBarMenu/>
     <div class="container">
 
-        <NavBarMenu/>
+       
         <CarrouselEP/>
         <h1 id="tituloMenu"> Ensaladas de la casa</h1>
 
@@ -80,6 +81,7 @@ const Menu = () => {
           <Postres/>
         </div>
        
+    </div>
     </div>
   )
 }

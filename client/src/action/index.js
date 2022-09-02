@@ -165,3 +165,20 @@ export function desserts()
 
 	}
 }
+
+export function PostPedido(payload)
+{
+	return async function (dispatch)
+	{
+		try {
+			const pedido = await axios.post(`/menus`, payload);
+			return dispatch({
+				type: 'POST_PEDIDO',
+				payload: pedido,
+			});
+		} catch (error) {
+			console.log(error.message);
+			
+		}
+	};
+}
