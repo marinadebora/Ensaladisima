@@ -122,14 +122,14 @@ router.post("/postres",postPostres);
 router.put("/postres/:_id",putPostres);
 
 // rutas para cargar los modelos de la base de datos
-router.get('/menudb', menu);
+/* router.get('/menudb', menu);
 router.get("/basedb", base);
 router.get("/proteinadb", proteina);
 router.get("/salsasdb", salsas);
 router.get("/toppingdb", topping);
 router.get('/complementdb', complements);
 router.get("/bebida",bebidas);
-router.get("/postre",postres);
+router.get("/postre",postres); */
 
 
 module.exports = router
