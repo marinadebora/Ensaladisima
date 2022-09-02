@@ -1,5 +1,5 @@
 const  Complements = require('../../modelos/Complementos');
-const api = require('../../../../server/users.json')
+const api = require('../../../server/users.json')
 var findOrCreate = require('mongoose-findorcreate');
 
 const complements = async (req, res) =>{
