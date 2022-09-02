@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect/* , useState  */} from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { beverages } from "../action";
 import '../styles/Bases.css'
@@ -14,10 +14,10 @@ export const Bebidas = () =>
   console.log(allBeverages)
   const dispatch = useDispatch()
 const [beverage, setBeverage] = useLocalStorage('bebidas',[])
-const [bebidas,setBebidas]=useState({
+/* const [bebidas,setBebidas]=useState({
 name:'',
 
-})
+}) */
 const handleSubmit=(event)=>{
 
   setBeverage({
