@@ -6,14 +6,13 @@ import '../styles/Bases.css'
 export function Toppings () {
     const allToppings= useSelector(state=>state.toppings)
     const dispatch= useDispatch()
-    console.log(allToppings)
         useEffect(() => {
             dispatch(toppings())
         }, [dispatch])
   return (
   <div>
     <h3 id="h3-bases">ELIGE TUS TOPPINGS</h3>
-<div id="contain-bases">
+<div className="contain-bases">
             {
              allToppings?.map(e=>(
                 <div id="contain-bases-card">

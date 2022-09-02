@@ -3,6 +3,7 @@
     src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
   }
   .contain-tamaños{
+   
       padding-top: 8rem;
       padding-bottom: 5rem;
       
@@ -19,3 +20,16 @@
         padding-left: 20%;
         align-items: center;
      }
+
+     #contenedor-1{
+     margin-right: 0px;
+     padding: 0px;
+     }
+
+     #sideBarContent{
+      margin: 0px;
+      padding-left: 0px;
+      background-color: transparent;
+    }
+
+     
