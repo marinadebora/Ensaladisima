@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect/* , useState  */} from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { bases } from "../action";
 import '../styles/Bases.css';
@@ -43,7 +43,7 @@ export function Bases()
   let formInputs = {
     allBases: []
   }
-  const [state, setstate] = useState(' ') /* useLocalStorage('base',[]) */
+ /*  const [state, setstate] = useState(' ') useLocalStorage('base',[]) */
   const handleChange = (e) =>
   {
     limitCheckBox();

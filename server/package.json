@@ -7,6 +7,10 @@
     "dev": "nodemon ./index.js",
     "start": "node index.js"
   },
+  "engines": {
+    "node": ">=16.16.0",
+    "npm": ">=6.14.13"
+  },
   "dependencies": {
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
