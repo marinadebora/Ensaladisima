@@ -1,4 +1,4 @@
-const MenuBig = require('../../modelos/MenuBig')
+/* const MenuBig = require('../../modelos/MenuBig')
 const api = require('../../../../client/users.json')
 var findOrCreate = require('mongoose-findorcreate')
 
@@ -21,4 +21,4 @@ const menuBig = async (req, res) => {
     }
 }
 
-module.exports = { menuBig }
+module.exports = { menuBig } */
