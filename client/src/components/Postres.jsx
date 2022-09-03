@@ -19,7 +19,7 @@ const Postres = () => {
       useEffect(() => {
           dispatch(desserts())
           dispatch(pedidoPostres(dessert))
-      }, [dispatch])
+      }, [dispatch,dessert])
 
       let postre=[]
 const handleSubmit=(event)=>{

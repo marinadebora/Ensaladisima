@@ -11,7 +11,7 @@ export const Bebidas = () =>
 {
 
 const allBeverages = useSelector(state => state.beverages)
-const pedido = useSelector(state => state.usuario)
+//const pedido = useSelector(state => state.usuario)
 const dispatch = useDispatch()
 const [beverage, setBeverage] = useLocalStorage('bebidas',[])
 const UserLocalStorage=useLocalStorage('User',[])
@@ -25,7 +25,7 @@ const handleSubmit=(event)=>{
   console.log(name)
 }
 //si el usuario esta logeado
-const [bebidas,setBebidas]=useState({
+const [bebidas/* ,setBebidas */]=useState({
   name:name?.length-1,
   user:UserLocalStorage[0].email
 })
@@ -33,7 +33,7 @@ const [bebidas,setBebidas]=useState({
   {
     dispatch(beverages())
     dispatch(pedidoBebidas(bebidas))
-  }, [dispatch])
+  }, [dispatch,bebidas])
 
 
   return (
