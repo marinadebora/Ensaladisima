@@ -39,12 +39,21 @@ import {
      let postre=arrP?.map(e=>(
       allDesserts?.filter(f=>e===f.name)
     ))
-    //unir todos los productos
     let renderP=postre.flat()
-    let todosLosProductos=[...render,...renderP]
+    //para renderizar ensaladas medianas desde localStorage
+    let ensaladasMed=useLocalStorage('medianas',[])
+    const allSalads = useSelector((state) => state.salads);
+    let arrEM=[...ensaladasMed?.[0]]
+    let ensMed=arrEM?.map(e=>(
+    allSalads?.filter(f=>e.name===f.name)
+    ))
+    let renderEM=ensMed.flat()
+    //unir todos los productos
+    let todosLosProductos=[...render,...renderP,...renderEM]
     let total=todosLosProductos?.map(e=>e?.price)
     let suma=total.reduce((e,i)=>e+i)
-    console.log(suma) 
+    console.log(todosLosProductos) 
+
     return (
     <section className="h-100 h-custom" style={{ backgroundColor: "#94D2DE", paddingTop: "100px" }}>
       <MDBContainer className="py-5 h-100" style={{ backgroundColor: "#94D2DE"}}>
@@ -92,7 +101,7 @@ import {
                         </MDBCol>
                         <MDBCol md="3" lg="2" xl="2" className="text-end">
                           <MDBTypography tag="h6" className="mb-0">
-                          US$ {e?.price}
+                          US$ {e?.price?e?.price:e?.median}
                           </MDBTypography>
                         </MDBCol>
                         <MDBCol md="1" lg="1" xl="1" className="text-end">
