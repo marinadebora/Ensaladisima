@@ -7,12 +7,12 @@ const Usuarios = require("../../modelos/Usuarios");
 const postPedidoBebida = Router();
 
 postPedidoBebida.post("/", async (req,res,next)=>{
-    /* const {id} = req.body; */
+    
     const {bebidas, usuario} = req.body;
     try {
         const usuarios = await Usuarios.find({email:usuario})
         const buscar = await Bebidas.find({name:bebidas})
-        if(usuarios[0].orders[0]){
+        if(usuarios[0].orders){
             const pedido = await Pedidos.find({_id:usuarios[0].orders})
             if(pedido[0]){
                 const anexar = await Pedidos.findOneAndUpdate({ _id: pedido[0]._id }, {

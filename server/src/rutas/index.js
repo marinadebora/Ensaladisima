@@ -48,6 +48,7 @@ const { passwordEditada } = require("../Nodemailer/passwordActualizada");
 const eliminarDelPedido  = require("./Pedidos/eliminardelPedido");
 const postPedidoMenu = require("./Pedidos/postPedidoMenu");
 const postHistorial = require("./Historial/postHistorial");
+const { menuBig } = require("../constroladores/cargarBaseDeDatos/controladorDelMenuBig");
 
 
 const router = Router();
@@ -130,6 +131,7 @@ router.get("/toppingdb", topping);
 router.get('/complementdb', complements);
 router.get("/bebida",bebidas);
 router.get("/postre",postres);
+router.get("/MenuBig", menuBig )
 
 
 module.exports = router

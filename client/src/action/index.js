@@ -165,15 +165,15 @@ export function desserts()
 
 	}
 }
-
-export function PostPedido(payload)
+//ruta post de bebidas
+export function pedidoBebidas(payload)
 {
 	return async function (dispatch)
 	{
 		try {
-			const pedido = await axios.post(`/menus`, payload);
+			const pedido = await axios.post(`/pedidobebida`, payload);
 			return dispatch({
-				type: 'POST_PEDIDO',
+				type: 'PEDIDO_BEBIDAS',
 				payload: pedido,
 			});
 		} catch (error) {

@@ -4,15 +4,11 @@ import { desserts } from "../action";
 import '../styles/Bases.css'
 
 
-
-
-
-
 const Postres = () => {
 
     const allDesserts= useSelector(state=>state.desserts)
   const dispatch= useDispatch()
-  console.log(allDesserts)
+  /* console.log(allDesserts) */
       useEffect(() => {
           dispatch(desserts())
       }, [dispatch])
@@ -20,7 +16,7 @@ const Postres = () => {
     <div id="contain-bases">
        {
              allDesserts?.map(e=>(
-                <div id="contain-bases-card">
+                <div key={e._id} id="contain-bases-card">
                     <label class="checkeable">
             <img id="img-bases" src={e.image} alt={e.name}/> 
             </label>
