@@ -37,8 +37,7 @@ const NavBar = () => {
         </Link>
 
         <Link to="/login" class="nav-link-Main">
-          <a id='logInText'> LOGIN</a>
-          <a href=' ' id='logInText'> LOGIN</a>
+          <p id='logInText'> LOGIN</p>
         </Link>
       </div>
     </div>

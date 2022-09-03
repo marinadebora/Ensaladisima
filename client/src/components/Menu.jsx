@@ -25,7 +25,7 @@ const Menu = () => {
     dispatch(salads());
   }, [dispatch]);
 
-  console.log(allSalads);
+ 
 
   return (
     <div>
