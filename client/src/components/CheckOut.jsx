@@ -171,7 +171,7 @@ import {
                         <MDBTypography tag="h5">US$ {suma}</MDBTypography>
                       </div>
     
-                      <Link class="buttonChico" to="/">Regitrate</Link>
+                      <Link class="buttonChico" to="/">Registrate</Link>
                       <Link class="buttonChico" to="/">Comprar</Link>
 
                     </div>
