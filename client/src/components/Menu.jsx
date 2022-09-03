@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { salads } from "../action/index.js";
 import "../styles/Menu.css";
 import CarrouselEP from './CarrouselEP';
+import { useLocalStorage } from '../useLocalStorage';
 
 
 
@@ -20,13 +21,25 @@ const Menu = () => {
 
   const dispatch = useDispatch();
   const allSalads = useSelector((state) => state.salads);
+const [medianas, setmeMedianas] = useLocalStorage ('medianas',[])
+const [grandes, setmeGrandes] = useLocalStorage ('grandes',[])
+
 
   useEffect(() => {
     dispatch(salads());
   }, [dispatch]);
+  console.log(allSalads)
+  
+  let medium=(name)=>{
+    let ensaladaM=allSalads.filter(e=>e.name===name)
+    setmeMedianas([...medianas,...ensaladaM])
 
-  console.log(allSalads);
-
+  }
+  let big=(name)=>{
+    let ensaladaG=allSalads.filter(e=>e.name===name)
+    setmeGrandes([...grandes,...ensaladaG])
+ 
+  }
   return (
     <div>
        <NavBarMenu/>
@@ -60,6 +73,8 @@ const Menu = () => {
               complement={e.complement}
               sauce={e.sauce}
               topping={e.topping}
+              medium={()=>medium(e.name)}
+              big={()=>big(e.name)}
         />
             ))
           }

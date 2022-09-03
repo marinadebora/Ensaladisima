@@ -1,6 +1,6 @@
-import React, { useEffect/* , useState  */} from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
-import { beverages } from "../action";
+import { beverages, pedidoBebidas } from "../action";
 import '../styles/Bases.css'
 import {useLocalStorage}from '../useLocalStorage'
 import img from '../images/bolsa.png'
@@ -10,38 +10,43 @@ import '../styles/Bebidas.css'
 export const Bebidas = () =>
 {
 
-  const allBeverages = useSelector(state => state.beverages)
-  console.log(allBeverages)
-  const dispatch = useDispatch()
+const allBeverages = useSelector(state => state.beverages)
+//const pedido = useSelector(state => state.usuario)
+const dispatch = useDispatch()
 const [beverage, setBeverage] = useLocalStorage('bebidas',[])
-/* const [bebidas,setBebidas]=useState({
-name:'',
+const UserLocalStorage=useLocalStorage('User',[])
 
-}) */
+let name=[]
 const handleSubmit=(event)=>{
 
-  setBeverage({
-    ...beverage,
-    [event.target.name]:event.target.value
-  })
+  name.push(event.target.name) 
+  setBeverage([...beverage,...name])
+ 
+  console.log(name)
 }
-console.log(beverage)
+//si el usuario esta logeado
+const [bebidas/* ,setBebidas */]=useState({
+  name:name?.length-1,
+  user:UserLocalStorage[0].email
+})
   useEffect(() =>
   {
     dispatch(beverages())
-  }, [dispatch])
+    dispatch(pedidoBebidas(bebidas))
+  }, [dispatch,bebidas])
 
 
   return (
     <div id="contain-bases">
       {
         allBeverages?.map(e => (
-          <div id="contain-bases-card">
+          <div key={e._id} id="contain-bases-card">
             <label class="checkeable">
               <img id="img-bases" src={e.image} alt={e.name} />
               <p>US$ {e.price}</p>
+            <input type='button' className='btn-bolsa' name={e.name} value='selecciona' onClick={handleSubmit} />
+            <img className='img-bolsa' src={img} alt="bolsa" />
             </label>
-            <button className='btn-bolsa'name={e.name} value={e._id} onClick={handleSubmit} ><img className='img-bolsa' src={img} alt="bolsa" /></button>
             <h2 id="h2-bases">{e.name?.toUpperCase()}</h2>
           </div>
         ))
