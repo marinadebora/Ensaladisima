@@ -26,19 +26,17 @@ const Ensaladas = ({image, name, base, protein, complement, sauce, topping, medi
       </div>
           <div id="ingredientes">
           <ul id="ingredientesUl">
+
             <span id="numberLi">1</span><p id="tipoIngrediente">Base: </p> {base?.map(e => <li id="ingredientesLi"> {e}</li>)} 
             <span id="numberLi">2</span><p id="tipoIngrediente">Proteina: </p> {protein?.map(e => <li id="ingredientesLi"> {e}</li>)}
-            <span id="numberLi">3</span><p  id="tipoIngrediente">Complementos: </p> {complement?.map(e => <li id="ingredientesLi"> {e}</li>)}
+            <span id="numberLi">3</span><p id="tipoIngrediente">Complementos: </p> {complement?.map(e => <li id="ingredientesLi"> {e}</li>)}
             <span id="numberLi">4</span><p id="tipoIngrediente">Salsas: </p> {sauce?.map(e => <li id="ingredientesLi"> {e}</li>)}
             <span id="numberLi">5</span><p id="tipoIngrediente">Topping: </p> {topping?.map(e => <li id="ingredientesLi"> {e}</li>)}
+
+
           </ul>
           </div>
       </div>
-
-
-
-
-
 
   )
 }
