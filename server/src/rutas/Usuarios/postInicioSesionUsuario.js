@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken")
 
 const auth = async (req, res) => {
     const { email, password } = req.body;
+    console.log("HOLA SOY UN CONSOLE.LOG"+ email)
     const user = await Usuarios.findOne({ email })
     let firstName = ''
     let lastName = ''
@@ -52,5 +53,7 @@ const auth = async (req, res) => {
     
 
 };
+
+
 
 module.exports = auth

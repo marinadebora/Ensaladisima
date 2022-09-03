@@ -11,11 +11,12 @@
 
 *{
    background-color: #FFF2DB;
-  
 }
+
 
 .container-fluid{
    padding: 0px;
+  
 }
 
 #bloque1{
@@ -95,6 +96,27 @@
 }
 
 .buttonChico:hover{
+   background-color: #94D2DE;
+   color: white;
+   transition: all 20ms;
+}
+
+.buttonChico2{
+   width: 50%;
+   margin-left: 30%;
+   background-color: #207140; 
+   color: white;
+   text-decoration: none;
+   border:3px  solid white;
+   padding: 0.5rem;
+   border-radius: 50px;
+   font-family: Tommy-bold;
+   font-size: 1.0rem;
+   cursor: pointer;
+
+}
+
+.buttonChico2:hover{
    background-color: #94D2DE;
    color: white;
    transition: all 20ms;

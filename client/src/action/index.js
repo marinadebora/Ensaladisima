@@ -182,3 +182,31 @@ export function PostPedido(payload)
 		}
 	};
 }
+
+export function PostRegistroUsuario(payload){
+	return async function(dispatch){
+		try{
+			const registrado = await axios.post("/registro", payload);
+			return dispatch({
+				type:"POST_REGISTRO",
+				payload: registrado
+			})
+		}catch(error){
+			console.log({message:error.message})
+		}
+	}
+}
+
+export function PostLogeoUsuario(payload){
+	return async function(dispatch){
+		try{
+			const logueado = await axios.post("/autenticar",payload)
+			return dispatch({
+				type:"POST_LOGEO",
+				payload:logueado
+			})
+		}catch(error){
+			console.log({message:error.message})
+		}
+	}
+}

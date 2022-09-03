@@ -59,6 +59,15 @@ function rootReducer(state = initialState, action)
             ...state,
             pedido: action.payload
           }
+        case "POST_REGISTRO":
+          return{
+            ...state
+          }
+        case "POST_LOGEO":
+          return{
+            ...state
+          }  
+
           
     default:
       return {
