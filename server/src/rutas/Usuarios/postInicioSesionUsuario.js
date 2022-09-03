@@ -1,5 +1,6 @@
 const {Router} = require('express')
 const Usuarios = require('../../modelos/Usuarios')
+const passport = require("passport")
 
 const autenticar = Router()
 
@@ -24,5 +25,7 @@ autenticar.post("/",(req,res)=>{
         }
     })
 })
+
+autenticar.get("/google", (req, res) => res.send(req.user))
 
 module.exports = autenticar

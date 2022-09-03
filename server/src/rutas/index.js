@@ -1,10 +1,10 @@
 const { Router } = require("express");
-const { base } = require("../constroladores/cargarBaseDeDatos/controladorDeBase");
+/* const { base } = require("../constroladores/cargarBaseDeDatos/controladorDeBase");
 const { menu } = require("../constroladores/cargarBaseDeDatos/controladorDelMenu");
 const { proteina } = require("../constroladores/cargarBaseDeDatos/controladorProteina");
 const { salsas } = require("../constroladores/cargarBaseDeDatos/controladorSalsas");
 const { topping } = require("../constroladores/cargarBaseDeDatos/controladorTopping");
-const { complements } = require("../constroladores/cargarBaseDeDatos/controladorDeComplementos");
+const { complements } = require("../constroladores/cargarBaseDeDatos/controladorDeComplementos"); */
 const { getBase } = require("./Base/getBase");
 const { getComplements } = require("./Complementos/getComplementos");
 const { getMenu } = require("./Menu/getMenu");
@@ -49,6 +49,8 @@ const eliminarDelPedido  = require("./Pedidos/eliminardelPedido");
 const postPedidoMenu = require("./Pedidos/postPedidoMenu");
 const postHistorial = require("./Historial/postHistorial");
 const { menuBig } = require("../constroladores/cargarBaseDeDatos/controladorDelMenuBig");
+const passport = require("passport");
+require("../../middlewares/google")
 
 
 const router = Router();
@@ -57,7 +59,13 @@ const router = Router();
 router.use('/usuarios', getUsuarios)
 router.use('/usuario', getIdUsuario)
 router.use('/registro', registro,correo)
-router.use("/autenticar",auth)
+router.use("/autenticar", passport.authenticate("auth-google", {
+    scope: [
+        "https://www.googleapis.com/auth/userinfo.profile",
+        "https://www.googleapis.com/auth/userinfo.email"
+    ],
+    session: false
+}), auth)
 router.put("/usuarios/:_id",editarPassword,passwordEditada);
 router.get("/email",getEmail,correoPassword);
 
@@ -123,7 +131,7 @@ router.post("/postres",postPostres);
 router.put("/postres/:_id",putPostres);
 
 // rutas para cargar los modelos de la base de datos
-router.get('/menudb', menu);
+/* router.get('/menudb', menu);
 router.get("/basedb", base);
 router.get("/proteinadb", proteina);
 router.get("/salsasdb", salsas);
@@ -131,7 +139,7 @@ router.get("/toppingdb", topping);
 router.get('/complementdb', complements);
 router.get("/bebida",bebidas);
 router.get("/postre",postres);
-router.get("/MenuBig", menuBig )
+router.get("/MenuBig", menuBig )*/
 
 
 module.exports = router
