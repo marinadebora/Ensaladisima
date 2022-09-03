@@ -45,7 +45,7 @@ import {
     const allSalads = useSelector((state) => state.salads);
     let arrEM=[...ensaladasMed?.[0]]
     let ensMed=arrEM?.map(e=>(
-    allSalads?.filter(f=>e===f.name)
+    allSalads?.filter(f=>e.name===f.name)
     ))
     let renderEM=ensMed.flat()
     //unir todos los productos
@@ -53,6 +53,7 @@ import {
     let total=todosLosProductos?.map(e=>e?.price)
     let suma=total.reduce((e,i)=>e+i)
     console.log(todosLosProductos) 
+
     return (
     <section className="h-100 h-custom" style={{ backgroundColor: "#94D2DE", paddingTop: "100px" }}>
       <MDBContainer className="py-5 h-100" style={{ backgroundColor: "#94D2DE"}}>
