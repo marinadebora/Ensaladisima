@@ -23,8 +23,8 @@ import {
       let bebidas= useLocalStorage('bebidas',[])
        
       const allBeverages = useSelector(state => state.beverages)
-      let arr=[...bebidas?.[0]]
-
+      let arr1=[...bebidas]
+      let arr=arr1[0]
       let bebida=arr?.map(e=>(
         allBeverages?.filter(f=>e===f.name)
       ))
@@ -34,8 +34,8 @@ import {
      let postres=useLocalStorage('postres',[])
 
      const allDesserts= useSelector(state=>state.desserts)
-     let arrP=[...postres?.[0]]
-
+     let arrP1=[...postres]
+    let arrP=arrP1[0]
      let postre=arrP?.map(e=>(
       allDesserts?.filter(f=>e===f.name)
     ))
@@ -43,7 +43,8 @@ import {
     //para renderizar ensaladas medianas desde localStorage
     let ensaladasMed=useLocalStorage('medianas',[])
     const allSalads = useSelector((state) => state.salads);
-    let arrEM=[...ensaladasMed?.[0]]
+    let arrEM1=[...ensaladasMed]
+    let arrEM=arrEM1[0]
     let ensMed=arrEM?.map(e=>(
     allSalads?.filter(f=>e.name===f.name)
     ))
