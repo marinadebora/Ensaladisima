@@ -38,7 +38,7 @@ export default function QuantityEdit()
   
 
   //unir todos los productos
-  let todosLosProductos =[...beb,...post,...med,...gran]
+  let todosLosProductos = [beb,post,med,gran].flat()
   let total = todosLosProductos?.map(e => e?.price)
   let suma = total?.reduce((e, i) => e + i, 0)
   console.log(todosLosProductos)
