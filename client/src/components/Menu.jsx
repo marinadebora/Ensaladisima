@@ -8,7 +8,7 @@ import ensaladaMediana from "../images/ensaladera.png";
 import ensaladaGrande from "../images/ensaladera.png";
 import { useEffect/* , useState  */} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { salads } from "../action/index.js";
+import { salads,desserts,beverages } from "../action/index.js";
 import "../styles/Menu.css";
 import CarrouselEP from './CarrouselEP';
 import { useLocalStorage } from '../useLocalStorage';
@@ -21,14 +21,21 @@ const Menu = () => {
 
   const dispatch = useDispatch();
   const allSalads = useSelector((state) => state.salads);
+  const allDesserts= useSelector(state=>state.desserts)
+  const allBeverages = useSelector(state => state.beverages)
+
 const [medianas, setmeMedianas] = useLocalStorage ('medianas',[])
 const [grandes, setmeGrandes] = useLocalStorage ('grandes',[])
+const [dessert, setDessert] = useLocalStorage('postres',[])
+const [beverage, setBeverage] = useLocalStorage('bebidas',[])
 
 
   useEffect(() => {
     dispatch(salads());
+    dispatch(desserts())
+    dispatch(beverages())
   }, [dispatch]);
-  console.log(allSalads)
+  
   
   let medium=(name)=>{
     let ensaladaM=allSalads.filter(e=>e.name===name)
@@ -40,6 +47,17 @@ const [grandes, setmeGrandes] = useLocalStorage ('grandes',[])
     setmeGrandes([...grandes,...ensaladaG])
  
   }
+ 
+  let select=(name)=>{
+    let postre= allDesserts.filter(e=>e.name===name)
+  setDessert([...dessert,...postre])
+  let bebidas= allBeverages.filter(e=>e.name===name)
+  setBeverage([...beverage,...bebidas])
+console.log(postre)
+console.log(bebidas)
+
+  }
+  
   return (
     <div>
        <NavBarMenu/>
@@ -86,14 +104,37 @@ const [grandes, setmeGrandes] = useLocalStorage ('grandes',[])
 
         <div id="bebidas">
           <h1 id="tituloMenu">Bebidas</h1>
-          <Bebidas/>
+          {
+            allBeverages?.map(e=>(
+            <Bebidas
+            id={e._id}
+            image={e.image}
+            name={e.name}
+            price={e.price}
+            select={()=>select(e.name)}
+            />
+            ))
+          }
+          
+         
         </div>
 
         <div class="divisorMenu">..............................................................</div>
 
         <div id="postres">
           <h1 id="tituloMenu">Postres</h1>
-          <Postres/>
+          {
+            allDesserts?.map(e=>(
+              <Postres
+              id={e._id}
+              image={e.image}
+              name={e.name}
+              price={e.price}
+              select={()=>select(e.name)}
+              />
+            ))
+          }
+        
         </div>
        
     </div>
