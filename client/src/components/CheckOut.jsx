@@ -25,9 +25,7 @@ import {
       const allBeverages = useSelector(state => state.beverages)
       let arr1=[...bebidas]
       let arr=arr1[0]
-      let bebida=arr?.map(e=>(
-        allBeverages?.filter(f=>e===f.name)
-      ))
+      let bebida=arr?.map(e=>allBeverages?.filter(f=>e===f.name))
       let render=bebida.flat()
 
      //para renderizar postres desde localStorage
@@ -36,18 +34,14 @@ import {
      const allDesserts= useSelector(state=>state.desserts)
      let arrP1=[...postres]
     let arrP=arrP1[0]
-     let postre=arrP?.map(e=>(
-      allDesserts?.filter(f=>e===f.name)
-    ))
+     let postre=arrP?.map(e=>allDesserts?.filter(f=>e===f.name))
     let renderP=postre.flat()
     //para renderizar ensaladas medianas desde localStorage
     let ensaladasMed=useLocalStorage('medianas',[])
     const allSalads = useSelector((state) => state.salads);
     let arrEM1=[...ensaladasMed]
     let arrEM=arrEM1[0]
-    let ensMed=arrEM?.map(e=>(
-    allSalads?.filter(f=>e.name===f.name)
-    ))
+    let ensMed=arrEM?.map(e=>allSalads?.filter(f=>e.name===f.name))
     let renderEM=ensMed.flat()
     //unir todos los productos
     let todosLosProductos=[...render,...renderP,...renderEM]
