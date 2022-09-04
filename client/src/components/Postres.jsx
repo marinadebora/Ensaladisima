@@ -30,7 +30,7 @@ const handleSubmit=(event)=>{
   console.log(postre)
 }
 return (
-  <div id="contain-bases">
+  <div class="contain-bases">
     {
       allDesserts?.map(e => (
         <div key={e._id} id="contain-bases-card">

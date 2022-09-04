@@ -13,18 +13,20 @@
   color:#207140;
 }
 
-#contain-bases{
-  margin-left: 2%;
-  display: flex;
-  justify-content: flex-start;
-  position: relative;
-  flex-wrap: wrap;
+
+.contain-bases{
+   margin-left: 2%;
+   display: flex;
+   justify-content: flex-start;
+   position: relative;
+   flex-wrap: wrap;
+
 }
 
 
 
 #contain-bases-card{
-
+ 
  padding: 1.5rem;
 
 }
