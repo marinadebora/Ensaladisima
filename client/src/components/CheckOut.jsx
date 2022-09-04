@@ -14,37 +14,30 @@ import
   } from "mdb-react-ui-kit";
 import { useLocalStorage } from '../useLocalStorage'
 import React from "react";
-import { /* useDispatch, */ useSelector } from 'react-redux'
 
 import { Link } from 'react-router-dom';
 
 
 export default function QuantityEdit()
-{//estado global de bebidas y postres
-  const allBeverages = useSelector(state => state.beverages)
-  const allDesserts = useSelector(state => state.desserts)
-  let bebidasYPostres = [...allBeverages, ...allDesserts]
-
+{
   //para renderizar bebidas y postres desde localStorage
   let bebidas = useLocalStorage('bebidas', [])
   let postres = useLocalStorage('postres', [])
-  let localStB_P=[...bebidas,...postres]
-
-  //comparo la selecion con el estado y guardo solo lo que el usuario eligio
-  let arr=localStB_P[0]
-  let bebida=arr?.map(e=>bebidasYPostres?.filter(f=>e===f.name))
-  let render=bebida.flat()
+  let beb=bebidas[0]
+  let post=postres[0]
+  let localStB_P=[...beb,...post]
 
   //para renderizar ensaladas medianas desde localStorage
   let ensaladasMed = useLocalStorage('medianas', [])
-  const allSalads = useSelector((state) => state.salads);
-  let arrEM1 = [...ensaladasMed]
-  let arrEM = arrEM1[0]
-  let ensMed = arrEM?.map(e => allSalads?.filter(f => e.name === f.name))
-  let renderEM = ensMed.flat()
+  let ensaladasGr = useLocalStorage('grandes', [])
+  let med=ensaladasMed[0]
+  let gran=ensaladasGr[0]
+  let totalEnsaladas=[...med,...gran]
+ 
   
+
   //unir todos los productos
-  let todosLosProductos = [...render,  ...renderEM]
+  let todosLosProductos = [...localStB_P,  ...totalEnsaladas]
   let total = todosLosProductos?.map(e => e?.price)
   let suma = total?.reduce((e, i) => e + i, 0)
   console.log(todosLosProductos)
@@ -81,7 +74,7 @@ export default function QuantityEdit()
                             </MDBCol>
                             <MDBCol md="3" lg="3" xl="3">
                               <MDBTypography tag="h6" className="text-muted">
-                                {e?.name.split(' ')[0]}
+                                {e?.name}
                               </MDBTypography>
                               <MDBTypography tag="h6" className="text-black mb-0">
                                 {e?.name}
