@@ -37,7 +37,7 @@ const [bebidas/* ,setBebidas */]=useState({
 
 
   return (
-    <div id="contain-bases">
+    <div class="contain-bases">
       {
         allBeverages?.map(e => (
           <div key={e._id} id="contain-bases-card">
