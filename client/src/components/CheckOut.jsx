@@ -25,21 +25,20 @@ export default function QuantityEdit()
   let postres = useLocalStorage('postres', [])
   let beb=bebidas[0]
   let post=postres[0]
-  let localStB_P=beb.concat(post)
-
+ 
 
   //para renderizar ensaladas medianas desde localStorage
   let ensaladasMed = useLocalStorage('medianas', [])
   let ensaladasGr = useLocalStorage('grandes', [])
   let med=ensaladasMed[0]
   let gran=ensaladasGr[0]
-  let totalEnsaladas=med.concat(gran)
+ 
 
  
   
 
   //unir todos los productos
-  let todosLosProductos = localStB_P.concat(totalEnsaladas)
+  let todosLosProductos =[...beb,...post,...med,...gran]
   let total = todosLosProductos?.map(e => e?.price)
   let suma = total?.reduce((e, i) => e + i, 0)
   console.log(todosLosProductos)
