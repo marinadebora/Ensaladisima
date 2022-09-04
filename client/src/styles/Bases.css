@@ -15,6 +15,10 @@
 
 #contain-bases{
   margin-left: 2%;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  flex-wrap: wrap;
 }
 
 
