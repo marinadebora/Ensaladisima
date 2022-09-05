@@ -13,7 +13,7 @@ export default function AdminEdit(){
 
     useEffect ( () => {
         dispatch(bases(id))
-    },[id])
+    },[dispatch,id])
     return (
       <div>
       {

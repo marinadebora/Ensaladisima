@@ -21,13 +21,13 @@ export default function BaseEdit(image) {
   const  base1 = useSelector(state => state.bases)
 
   const navigate = useNavigate()
-  let { _id } = useParams()
+  let { id } = useParams()
 
-  const buscar = base1.find(e => e._id === _id)
+  const buscar = base1.find(e => e._id === id)
 
   useEffect(() => {
-    dispatch(bases(_id))
-  }, [])
+    dispatch(bases(id))
+  }, [dispatch,id])
 
   const [input, setInput] = useState({
     name: "",
@@ -42,7 +42,7 @@ export default function BaseEdit(image) {
   }
   function handleSubmit(e) {
     e.preventDefault()
-    dispatch(putBases(_id, input))
+    dispatch(putBases(id, input))
     alert("Base editada")
     setInput({
       name: "",
