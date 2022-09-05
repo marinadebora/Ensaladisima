@@ -8,6 +8,8 @@ import CheckOut from './components/CheckOut';
 import Profile from './components/Profile';
 import Contacto from './components/Contacto';
 import { PideTuEnsalada } from './components/PideTuEnsalada';
+import AdminEdit from './components/AdminEdit';
+import CrearProduto from './FormPost/Crear Producto';
 
 
 
@@ -29,7 +31,11 @@ function App() {
         <Route exact path= '/checkout' element={<CheckOut/>}/>
         <Route exact path= '/profile' element={<Profile/>}/>
         <Route exact path= '/contacto' element={<Contacto/>}/>
-      
+
+        {/* rutas para administador */}
+
+        <Route path= '/admincrear' element={<CrearProduto/>}/>  
+        <Route path= '/adminedit' element={<AdminEdit/>}/>
 
       </Routes>
       <Footer/>
