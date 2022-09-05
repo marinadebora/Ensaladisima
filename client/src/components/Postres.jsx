@@ -10,8 +10,7 @@ import img from '../images/bolsa.png'
 const Postres = ({id,image,name,price,select}) => {
 
 return (
-  <div class="contain-bases">
-    
+
         <div key={id} id="contain-bases-card">
           <label class="checkeable">
             <img id="img-bases" src={image[0]} alt={name} />
@@ -22,7 +21,6 @@ return (
           <h2 id="h2-bases">{name?.toUpperCase()}</h2>
         </div>
 
-  </div>
 
 )
 }

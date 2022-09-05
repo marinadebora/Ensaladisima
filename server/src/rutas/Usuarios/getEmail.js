@@ -7,7 +7,9 @@ try {
     if(!buscar[0]) res.status(404).send("Usuario no encontrado");
     else{
         res.send("Se ha enviado un mensaje a tu correo");
+        console.log(buscar)
         next()
+        
     }
 } catch (error) {
     console.error(error)

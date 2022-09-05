@@ -1,5 +1,22 @@
 import axios from 'axios'
 
+
+//ruta get de todos los usuarios
+export function usuarios()
+{
+	return async function(dispatch){
+		try{
+			const usuarios = await axios("/usuarios")
+			return dispatch({
+				type:"USUARIOS",
+				payload:usuarios.data
+			})
+		}catch(error){
+			console.log({message:error.message})
+		}
+	}
+}
+
 //ruta get de las ensaldas de la casa
 export function salads()
 {
