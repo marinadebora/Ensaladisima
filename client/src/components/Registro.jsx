@@ -6,14 +6,14 @@ import {
   MDBRow,
   MDBCol,
   MDBCard,
-  MDBCardBody,
+  MDBCardBody,MDBInput,MDBBtn,MDBCheckbox 
 }
 from 'mdb-react-ui-kit';
 import collage1 from '../images/collage1.png';
 import "../styles/Registro.css"
 import { useState } from "react";
 import {PostRegistroUsuario} from "../action/index";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch, /* useSelector */} from "react-redux";
 import {useNavigate} from "react-router-dom";
 
 
@@ -40,7 +40,7 @@ function Registro() {
 
   const history = useNavigate()
   const dispatch = useDispatch();
-  const usuarios = useSelector(state =>state.usuarios)
+//const usuarios = useSelector(state =>state.usuarios)
   const [inputUser, setInputUser] = useState({
       firstName:"",
       lastName:"",
