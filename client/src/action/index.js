@@ -1,5 +1,22 @@
 import axios from 'axios'
 
+
+//ruta get de todos los usuarios
+export function usuarios()
+{
+	return async function(dispatch){
+		try{
+			const usuarios = await axios("/usuarios")
+			return dispatch({
+				type:"USUARIOS",
+				payload:usuarios.data
+			})
+		}catch(error){
+			console.log({message:error.message})
+		}
+	}
+}
+
 //ruta get de las ensaldas de la casa
 export function salads() {
 	return async function (dispatch) {
@@ -304,3 +321,30 @@ export const putBases=(_id,payload)=>async (dispatch)=>{
 	  alert(`el ID: ${_id} no existe`)
 	}
   }
+export function PostRegistroUsuario(payload){
+	return async function(dispatch){
+		try{
+			const registrado = await axios.post("/registro", payload);
+			return dispatch({
+				type:"POST_REGISTRO",
+				payload: registrado
+			})
+		}catch(error){
+			console.log({message:error.message})
+		}
+	}
+}
+
+export function PostLogeoUsuario(payload){
+	return async function(dispatch){
+		try{
+			const logueado = await axios.post("/autenticar",payload)
+			return dispatch({
+				type:"POST_LOGEO",
+				payload:logueado
+			})
+		}catch(error){
+			console.log({message:error.message})
+		}
+	}
+}

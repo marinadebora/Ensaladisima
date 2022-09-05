@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/Home.css';
+import '../styles/Bases.css'
 import NavBarMenu from './NavBarMenu';
 import Ensaladas from './Ensaladas';
 import Bebidas from './Bebidas';
@@ -8,7 +9,7 @@ import ensaladaMediana from "../images/ensaladera.png";
 import ensaladaGrande from "../images/ensaladera.png";
 import { useEffect/* , useState  */} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { salads } from "../action/index.js";
+import { salads,desserts,beverages } from "../action/index.js";
 import "../styles/Menu.css";
 import CarrouselEP from './CarrouselEP';
 import { useLocalStorage } from '../useLocalStorage';
@@ -21,14 +22,21 @@ const Menu = () => {
 
   const dispatch = useDispatch();
   const allSalads = useSelector((state) => state.salads);
+  const allDesserts= useSelector(state=>state.desserts)
+  const allBeverages = useSelector(state => state.beverages)
+
 const [medianas, setmeMedianas] = useLocalStorage ('medianas',[])
 const [grandes, setmeGrandes] = useLocalStorage ('grandes',[])
+const [dessert, setDessert] = useLocalStorage('postres',[])
+const [beverage, setBeverage] = useLocalStorage('bebidas',[])
 
 
   useEffect(() => {
     dispatch(salads());
+    dispatch(desserts())
+    dispatch(beverages())
   }, [dispatch]);
-  console.log(allSalads)
+  
   
   let medium=(name)=>{
     let ensaladaM=allSalads.filter(e=>e.name===name)
@@ -40,12 +48,21 @@ const [grandes, setmeGrandes] = useLocalStorage ('grandes',[])
     setmeGrandes([...grandes,...ensaladaG])
  
   }
+ 
+  let select=(name)=>{
+    let postre= allDesserts.filter(e=>e.name===name)
+  setDessert([...dessert,...postre])
+  let bebidas= allBeverages.filter(e=>e.name===name)
+  setBeverage([...beverage,...bebidas])
+console.log(postre)
+console.log(bebidas)
+
+  }
+  
   return (
     <div>
        <NavBarMenu/>
     <div class="container">
-
-       
         <CarrouselEP/>
         <h1 id="tituloMenu"> Ensaladas de la casa</h1>
 
@@ -60,7 +77,7 @@ const [grandes, setmeGrandes] = useLocalStorage ('grandes',[])
 
         <div class="divisorMenu">..............................................................</div>
 
-        <div  id="ensaladasDeLaCasa">
+        <div id="ensaladasDeLaCasa">
         
           {
             
@@ -86,14 +103,43 @@ const [grandes, setmeGrandes] = useLocalStorage ('grandes',[])
 
         <div id="bebidas">
           <h1 id="tituloMenu">Bebidas</h1>
-          <Bebidas/>
+
+          <div class="contain-bases">  
+          {
+            allBeverages?.map(e=>(
+            
+            <Bebidas
+            id={e._id}
+            image={e.image}
+            name={e.name}
+            price={e.price}
+            select={()=>select(e.name)}
+            />
+            ))
+          }
+          </div>
+          
+         
         </div>
 
         <div class="divisorMenu">..............................................................</div>
 
         <div id="postres">
           <h1 id="tituloMenu">Postres</h1>
-          <Postres/>
+          <div class="contain-bases">  
+          {
+            allDesserts?.map(e=>(
+              <Postres
+              id={e._id}
+              image={e.image}
+              name={e.name}
+              price={e.price}
+              select={()=>select(e.name)}
+              />
+            ))
+          }
+          </div>
+        
         </div>
        
     </div>

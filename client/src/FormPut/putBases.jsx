@@ -27,7 +27,7 @@ export default function BaseEdit(image) {
 
   useEffect(() => {
     dispatch(bases(_id))
-  }, [_id])
+  }, [])
 
   const [input, setInput] = useState({
     name: "",

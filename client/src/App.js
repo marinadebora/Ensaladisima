@@ -5,15 +5,14 @@ import Menu from './components/Menu';
 import Home from './components/Home';
 import Footer from './components/Footer';
 import CheckOut from './components/CheckOut';
+import Registro from './components/Registro';
 import Profile from './components/Profile';
 import Contacto from './components/Contacto';
 import { PideTuEnsalada } from './components/PideTuEnsalada';
 import AdminEdit from './components/AdminEdit';
 import CrearProduto from './FormPost/Crear Producto';
-
-
-
-
+import Login from './components/Login';
+import BaseEdit from './FormPut/putBases';
 
 
 
@@ -28,7 +27,10 @@ function App() {
         <Route exact path= '/' element={<Home/>}/>
         <Route exact path= '/menu' element={<Menu/>}/>
         <Route exact path= '/pideTuEnsalada' element={<PideTuEnsalada />}/>
+
         <Route exact path= '/checkout' element={<CheckOut/>}/>
+        <Route exact path= '/login' element={<Login/>}/>
+        <Route exact path= '/registro' element={<Registro/>}/>
         <Route exact path= '/profile' element={<Profile/>}/>
         <Route exact path= '/contacto' element={<Contacto/>}/>
 
@@ -36,8 +38,11 @@ function App() {
 
         <Route path= '/admincrear' element={<CrearProduto/>}/>  
         <Route path= '/adminedit' element={<AdminEdit/>}/>
+        <Route path= '/adminedit/:_id' element={<BaseEdit/>}/>
+
 
       </Routes>
+
       <Footer/>
       
     </div>
