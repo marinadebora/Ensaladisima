@@ -57,7 +57,7 @@ const router = Router();
 // rutas para el modelo de Usuarios.
 router.use('/usuarios', getUsuarios)
 router.use('/usuario', getIdUsuario)
-router.use('/registro', registro  /*,correo */)
+router.use('/registro', registro, correo)
 router.use("/autenticar",auth)
 router.use("/autenticargoogle", passport.authenticate("auth-google", {
     scope: [
