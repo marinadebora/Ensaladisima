@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/Home.css';
+import '../styles/Bases.css'
 import NavBarMenu from './NavBarMenu';
 import Ensaladas from './Ensaladas';
 import Bebidas from './Bebidas';
@@ -62,8 +63,6 @@ console.log(bebidas)
     <div>
        <NavBarMenu/>
     <div class="container">
-
-       
         <CarrouselEP/>
         <h1 id="tituloMenu"> Ensaladas de la casa</h1>
 
@@ -78,7 +77,7 @@ console.log(bebidas)
 
         <div class="divisorMenu">..............................................................</div>
 
-        <div  id="ensaladasDeLaCasa">
+        <div id="ensaladasDeLaCasa">
         
           {
             
@@ -104,8 +103,11 @@ console.log(bebidas)
 
         <div id="bebidas">
           <h1 id="tituloMenu">Bebidas</h1>
+
+          <div class="contain-bases">  
           {
             allBeverages?.map(e=>(
+            
             <Bebidas
             id={e._id}
             image={e.image}
@@ -115,6 +117,7 @@ console.log(bebidas)
             />
             ))
           }
+          </div>
           
          
         </div>
@@ -123,6 +126,7 @@ console.log(bebidas)
 
         <div id="postres">
           <h1 id="tituloMenu">Postres</h1>
+          <div class="contain-bases">  
           {
             allDesserts?.map(e=>(
               <Postres
@@ -134,6 +138,7 @@ console.log(bebidas)
               />
             ))
           }
+          </div>
         
         </div>
        
