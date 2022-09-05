@@ -7,13 +7,19 @@ const initialState = {
   toppings:[],
   beverages:[],
   desserts:[],
-  pedido:[]
+  pedido:[],
+  usuarios:[]
 }
 
 
-function rootReducer(state = initialState, action)
+function rootReducer( state = initialState, action )
 {
   switch (action.type) {
+    case "USUARIOS":
+      return{
+        ...state,
+        usuarios: action.payload
+      }
     case 'SALADS':
       return {
         ...state,
@@ -66,13 +72,11 @@ function rootReducer(state = initialState, action)
         case "POST_LOGEO":
           return{
             ...state
-          }  
-
-          
-    default:
-      return {
-        state
-      }
+          }     
+        default:
+         return {
+          state
+        }
   }
 }
 
