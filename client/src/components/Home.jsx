@@ -21,7 +21,7 @@ const Home = () => {
           
             <div id="cuadradoText" class="col-7">
 
-              <h1 class="col" id="texto0">POR QUE ELEJIRNOS?</h1>
+              <h1 class="col" id="texto0">POR QUE ELEGIRNOS?</h1>
               <p  class="col" id="texto1">
               Porque es sano, delicioso y divertido.<br/>
               Porque tiene todo lo que tu cuerpo necesita en un solo plato.<br/>
