@@ -24,7 +24,7 @@ export default function AdminEdit(){
             <CardSimple
               name={e.name}
               image={e.image}
-              _id={e._id}
+              id={e._id}
 
             />
           </div>
