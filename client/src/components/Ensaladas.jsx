@@ -11,9 +11,10 @@ const Ensaladas = ({image, name, base, protein, complement, sauce, topping, medi
   return (
     <div>
       <div id='ensaladaMarco' class="container-fluid">
-        <div>
+          <div>
           <img src={image} alt="img" id="ensaladaImagen" />
           <div class="row" id="addContent">
+
             <p  class="col-3" id="textButtonAdd">Mediana</p>
             <button onClick={medium} class="col-1" id="buttonAddM">
             <i class="bi bi-plus-circle-fill"></i>
