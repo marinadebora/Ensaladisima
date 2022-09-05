@@ -23,7 +23,7 @@ export default function BaseEdit(image) {
   const navigate = useNavigate()
   let { id } = useParams()
 
-  const buscar = base1.find(e => e._id === id)
+  const buscar = base1?.find(e => e._id === id ? e._id :"cargando..")
 
   useEffect(() => {
     dispatch(bases(id))
@@ -74,11 +74,11 @@ export default function BaseEdit(image) {
       <div><h1>Creación de Bases</h1></div>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Nombre: </label><input type="text" value={input.name} placeholder={buscar.name} name="name" onChange={handleChange} />
+          <label>Nombre: </label><input type="text" value={input.name} placeholder={buscar?.name?buscar.name:input.name} name="name" onChange={handleChange} />
           {/* {errors.name && <p>{errors.name}</p>} */}
         </div>
         <div>
-          <label >Imagen(link):</label><input type="url" defaulValue={input.image} placeholder={buscar.image} name="image" onChange={handleChange} />
+          <label >Imagen(link):</label><input type="url" defaulValue={input.image} placeholder={buscar?.image ? buscar.image:input.image} name="image" onChange={handleChange} />
           {/* {errors.image && <p>{errors.image}</p>} */}
         </div>
         <button type='submit'>Editar Base</button>
