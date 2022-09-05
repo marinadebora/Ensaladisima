@@ -1,9 +1,7 @@
 
-import axios from "axios"
 import { useState } from "react";
 import React from 'react';
 import {
-  MDBBtn,
   MDBContainer,
   MDBRow,
   MDBCol,
@@ -51,7 +49,7 @@ function Login() {
 
       <MDBCol sm='5' className='d-none d-sm-block px-0  me-5'>
           <img src={collage}
-            alt="Login image" className="w-100" style={{objectFit: 'cover', objectPosition: 'left'}} />
+            alt="Login img" className="w-100" style={{objectFit: 'cover', objectPosition: 'left'}} />
         </MDBCol>
 
         <MDBCol sm='5'className='ms-5'>
@@ -67,8 +65,8 @@ function Login() {
             
             <form onSubmit={handleLogin}>
 
-            <MDBInput wrapperClass='mb-4 mx-5 w-100'name="email" value={loginUser.email} label='Email address' id='formControlLg' type='email' size="lg" onChange={handleInput}/>
-            <MDBInput wrapperClass='mb-4 mx-5 w-100'name="password"value={loginUser.password}  label='Password' id='formControlLg' type='password' size="lg" onChange={handleInput}/>
+            <MDBInput style={{border: "2px solid #207140"}} wrapperClass='mb-4 mx-5 w-100'name="email" value={loginUser.email} placeholder='Email address' id='formControlLg' type='email' size="lg" onChange={handleInput}/>
+            <MDBInput style={{border: "2px solid #207140"}} wrapperClass='mb-4 mx-5 w-100'name="password"value={loginUser.password}  placeholder='Password' id='formControlLg' type='password' size="lg" onChange={handleInput}/>
 
             <button type="submit" class="buttonChico2">Login</button>
             

@@ -182,15 +182,105 @@ export function desserts()
 
 	}
 }
-
-export function PostPedido(payload)
+//ruta post de bebidas
+export function pedidoBebidas(payload)
 {
 	return async function (dispatch)
 	{
 		try {
-			const pedido = await axios.post(`/menus`, payload);
+			const pedido = await axios.post(`/pedidobebida`, payload);
 			return dispatch({
-				type: 'POST_PEDIDO',
+				type: 'PEDIDO_BEBIDAS',
+				payload: pedido,
+			});
+		} catch (error) {
+			console.log(error.message);
+			
+		}
+	};
+}
+
+//ruta post de postres
+export function pedidoPostres(payload)
+{
+	return async function (dispatch)
+	{
+		try {
+			const pedido = await axios.post(`/pedidopostre`, payload);
+			return dispatch({
+				type: 'PEDIDO_POSTRES',
+				payload: pedido,
+			});
+		} catch (error) {
+			console.log(error.message);
+			
+		}
+	};
+}
+
+//ruta post de ensalada mediana
+export function pedidoEnsaladaM(payload)
+{
+	return async function (dispatch)
+	{
+		try {
+			const pedido = await axios.post(`/ensaladamed`, payload);
+			return dispatch({
+				type: 'PEDIDO_ENSALADAM',
+				payload: pedido,
+			});
+		} catch (error) {
+			console.log(error.message);
+			
+		}
+	};
+}
+
+//ruta post de ensalada grande
+export function pedidoEnsaladaG(payload)
+{
+	return async function (dispatch)
+	{
+		try {
+			const pedido = await axios.post(`/ensaladabig`, payload);
+			return dispatch({
+				type: 'PEDIDO_ENSALADAG',
+				payload: pedido,
+			});
+		} catch (error) {
+			console.log(error.message);
+			
+		}
+	};
+}
+
+//ruta post de menu medium
+export function pedidoMenu(payload)
+{
+	return async function (dispatch)
+	{
+		try {
+			const pedido = await axios.post(`/pedidomenu`, payload);
+			return dispatch({
+				type: 'PEDIDO_MENU',
+				payload: pedido,
+			});
+		} catch (error) {
+			console.log(error.message);
+			
+		}
+	};
+}
+
+//ruta post de menu big
+export function pedidoBig(payload)
+{
+	return async function (dispatch)
+	{
+		try {
+			const pedido = await axios.post(`/pedidomenuBig`, payload);
+			return dispatch({
+				type: 'PEDIDO_MENU_BIG',
 				payload: pedido,
 			});
 		} catch (error) {

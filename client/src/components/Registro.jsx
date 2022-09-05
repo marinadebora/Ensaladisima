@@ -1,14 +1,12 @@
 import React from 'react';
 
 import {
-  MDBBtn,
+ 
   MDBContainer,
   MDBRow,
   MDBCol,
   MDBCard,
   MDBCardBody,
-  MDBInput,
-  MDBCheckbox
 }
 from 'mdb-react-ui-kit';
 import collage1 from '../images/collage1.png';

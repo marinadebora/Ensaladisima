@@ -128,7 +128,7 @@
 
 #cuadradoText1{
    width: 33%;
-   height: 436px;
+   height: 395px;
    font-family: Tommy-bold;
    background-color: #F18D1D;
    float: left;
@@ -136,7 +136,7 @@
 }
 
 #video{
-   
+   overflow: hidden;
    width: 33%;
    float: left;
    padding: 0px;
@@ -144,7 +144,7 @@
 
 #cuadradoText2{
    width: 34%;
-   height: 436px;
+   height: 395px;
    font-family: Tommy-bold;
    background-color: #FABB4E;
    float: left;
