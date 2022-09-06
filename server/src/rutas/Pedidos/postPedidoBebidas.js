@@ -7,7 +7,7 @@ const Usuarios = require("../../modelos/Usuarios");
 const postPedidoBebida = Router();
 
 postPedidoBebida.post("/", async (req,res,next)=>{
-    /* const {id} = req.body; */
+    
     const {bebidas, usuario} = req.body;
     try {
         const usuarios = await Usuarios.find({email:usuario})
