@@ -1,6 +1,39 @@
 @font-face {
     font-family: Tommy-regular;
     src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+    font-family: Tommy-light;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Light_PERSONAL\ USE.ttf);
+}
+
+#carrouselTitle{
+    font-family:  Tommy-regular;
+    color: #207140;
+    font-size: 25px;
+}
+
+.card-title{
+    font-family:  Tommy-light;
+    color: #207140;
+    font-size: 20px;
+}
+
+.card-text{
+    font-family:  Tommy-light;
+   
+    font-size: 15px;
+}
+
+#butonCarrouselMain{
+    border:none;
+    margin: 5px;
+}
+
+#butonCarrousel{
+   
+    text-decoration: none;
+    border: none;
+    color: #207140;
+    padding: 0px;
 }
 
 
@@ -121,3 +154,4 @@ float: right;
    margin-bottom: 0px;
     font-weight: bold;
 }
+
