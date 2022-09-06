@@ -21,15 +21,15 @@ const Home = () => {
           
             <div id="cuadradoText" class="col-7">
 
-              <h1 class="col" id="texto0">POR QUE ELEJIRNOS?</h1>
+              <h1 class="col" id="texto0">POR QUÉ ELEGIRNOS?</h1>
               <p  class="col" id="texto1">
               Porque es sano, delicioso y divertido.<br/>
               Porque tiene todo lo que tu cuerpo necesita en un solo plato.<br/>
               Porque te ahorra tiempo y dinero.<br/>
-              Porque queres probarlo.<br/>
+              Porque querés probarlo.<br/>
               Porque no todo necesita un por qué!<br/>
               </p>
-              <Link class="button" to="/menu">Conoce nuestro menu</Link>
+              <Link class="button" to="/menu">Conocé nuestro menú</Link>
             
 
             </div>
@@ -42,7 +42,7 @@ const Home = () => {
             <div class="row" id="bloque2">
 
                 <div class="col" id="cuadradoText1">
-                  <h1 id="titulo1Bloque2">ARMA</h1>
+                  <h1 id="titulo1Bloque2">ARMÁ</h1>
                   <p id="texto2">
                   </p>
                 </div>

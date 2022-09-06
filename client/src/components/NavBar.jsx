@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/NavBar.css';
 import Logo from "../images/ensaladisimaLogo1.png";
 import { Link } from 'react-router-dom';
@@ -6,6 +6,18 @@ import { Link } from 'react-router-dom';
 
 
 const NavBar = () => {
+  
+  
+  const [usuario, setUsuario] = useState({})
+  useEffect(()=>{
+    
+    let UsuarioLogeado = JSON.parse( localStorage.getItem("UsuarioLogeado"))
+    setUsuario(UsuarioLogeado)
+    
+  })
+  console.log(usuario)
+
+
   return (
     <div>
 
@@ -36,9 +48,10 @@ const NavBar = () => {
           <i class="bi bi-person-circle"></i>
         </Link>
 
-        <Link to="/login" class="nav-link-Main">
+        {!usuario?(<Link to="/login" class="nav-link-Main">
           <p id='logInText'> LOGIN</p>
-        </Link>
+        </Link>):(<h3>Hola mamahuevo</h3>)}
+        
       </div>
     </div>
 

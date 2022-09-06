@@ -66,7 +66,7 @@ function Registro() {
   const handleSubmit = (e) => {
       e.preventDefault();
 
-      console.log(dispatch(PostRegistroUsuario(inputUser)));
+      //console.log(dispatch(PostRegistroUsuario(inputUser)));
 
      if (  
       errors.firstName||
