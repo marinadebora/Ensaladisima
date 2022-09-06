@@ -1,13 +1,13 @@
-/* const Menu = require('../../modelos/Menu')
-const api = require('../../../users.json')
+/* const MenuBig = require('../../modelos/MenuBig')
+const api = require('../../../../client/users.json')
 var findOrCreate = require('mongoose-findorcreate')
 
-const menu = async (req, res) => {
+const menuBig = async (req, res) => {
     const ensalada = api.Ensaladas
     try {
-        const crear = await ensalada.map(e => Menu.findOrCreate({
+        const crear = await ensalada.map(e => MenuBig.findOrCreate({
             name: e.Nombre,
-            price: e.EnsaladaMediana,
+            price: e.EnsaladaGrande,
             image: e.img,
             base: e.Base,
             protein: e.Proteina,
@@ -21,4 +21,4 @@ const menu = async (req, res) => {
     }
 }
 
-module.exports = { menu } */
+module.exports = { menuBig } */

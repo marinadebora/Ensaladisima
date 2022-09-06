@@ -8,9 +8,9 @@ const crearEnsaladasBigs = Router()
 
 crearEnsaladasBigs.post('/', async (req, res, next) =>{
     const { base, protein, complement, suace, topping} = req.body;
-    const {id} = req.body;
+    const {email} = req.body;
     try {
-        const use = await Usuarios.find({_id:id})
+        const use = await Usuarios.find({email:email})
         if(use){
             const crearEnsalada = await EnsaladasBigs.findOrCreate({
                 base,
@@ -39,7 +39,7 @@ crearEnsaladasBigs.post('/', async (req, res, next) =>{
                     saladsBig: ensalada[0]._id,
                     adress: use[0].adress
                 })
-                const pedidodeUsuario = await Usuarios.findOneAndUpdate({_id:id},{
+                const pedidodeUsuario = await Usuarios.findOneAndUpdate({email:email},{
                     $push:{
                         orders: pedido._id
                     }

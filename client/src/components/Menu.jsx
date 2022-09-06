@@ -9,7 +9,7 @@ import ensaladaMediana from "../images/ensaladera.png";
 import ensaladaGrande from "../images/ensaladera.png";
 import { useEffect/* , useState  */} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { salads,desserts,beverages } from "../action/index.js";
+import { salads,desserts,beverages, saladsBig } from "../action/index.js";
 import "../styles/Menu.css";
 import CarrouselEP from './CarrouselEP';
 import { useLocalStorage } from '../useLocalStorage';
@@ -22,6 +22,7 @@ const Menu = () => {
 
   const dispatch = useDispatch();
   const allSalads = useSelector((state) => state.salads);
+  const allSaladsBig = useSelector(state => state.saladsBig)
   const allDesserts= useSelector(state=>state.desserts)
   const allBeverages = useSelector(state => state.beverages)
 
@@ -35,6 +36,7 @@ const [beverage, setBeverage] = useLocalStorage('bebidas',[])
     dispatch(salads());
     dispatch(desserts())
     dispatch(beverages())
+    dispatch(saladsBig())
   }, [dispatch]);
   
   
@@ -44,11 +46,10 @@ const [beverage, setBeverage] = useLocalStorage('bebidas',[])
 
   }
   let big=(name)=>{
-    let ensaladaG=allSalads.filter(e=>e.name===name)
+    let ensaladaG=allSaladsBig.filter(e=>e.name===name)
     setmeGrandes([...grandes,...ensaladaG])
- 
   }
- 
+
   let select=(name)=>{
     let postre= allDesserts.filter(e=>e.name===name)
   setDessert([...dessert,...postre])
@@ -61,7 +62,7 @@ console.log(bebidas)
   
   return (
     <div>
-       <NavBarMenu/>
+      <NavBarMenu/>
     <div class="container">
         <CarrouselEP/>
         <h1 id="tituloMenu"> Ensaladas de la casa</h1>

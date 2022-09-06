@@ -2,9 +2,13 @@ import React from 'react';
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
 import loginLogo from "../images/loginLogo.png";
 
+
 export default function PersonalProfile() {
-  return (
-    <section className="vh-100" style={{ backgroundColor: "#94D2DE", paddingTop: "100px"  }}>
+  const user = JSON.parse(localStorage.getItem('usuarioLogueado'))
+
+  const sesion = ()=>{
+    return(
+      <section className="vh-100" style={{ backgroundColor: "#94D2DE", paddingTop: "100px"  }}>
       <MDBContainer className="py-5 h-100" style={{ backgroundColor: "#94D2DE"}}>
         <MDBRow className="justify-content-center align-items-center h-100" style={{ backgroundColor: "#94D2DE"}}>
           <MDBCol lg="6" className="mb-4 mb-lg-0" style={{ backgroundColor: "#207140", paddingTop:"12px", paddingBottom:"10px" }}>
@@ -14,8 +18,8 @@ export default function PersonalProfile() {
                   style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem' }}>
                   <MDBCardImage src={loginLogo}
                     alt="Avatar" className="my-5" style={{ width: '80px' }} fluid />
-                  <MDBTypography tag="h5"style={{color:"#207140", fontFamily:"Tommy-light"}}>Marie Horwitz</MDBTypography>
-                  <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>Web Designer</MDBCardText>
+                  <MDBTypography tag="h5"style={{color:"#207140", fontFamily:"Tommy-light"}}>usuario{/* {user.fistName + " " + user.lastNanme} */}</MDBTypography>
+                  {/* <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>Web Designer</MDBCardText> */}
                   <MDBIcon far icon="edit mb-5" />
                 </MDBCol>
                 <MDBCol md="8">
@@ -25,25 +29,25 @@ export default function PersonalProfile() {
                     <MDBRow className="pt-1">
                       <MDBCol size="6" className="mb-3">
                         <MDBTypography tag="h6" style={{color:"#207140", fontFamily:"Tommy-regular"}}>Email</MDBTypography>
-                        <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>info@example.com</MDBCardText>
+                        <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>email{/* {user.email} */}</MDBCardText>
                       </MDBCol>
                       <MDBCol size="6" className="mb-3">
                         <MDBTypography tag="h6" style={{color:"#207140", fontFamily:"Tommy-regular"}}>Phone</MDBTypography>
-                        <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>123 456 789</MDBCardText>
+                        <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>telefono{/* {user.phone} */}</MDBCardText>
                       </MDBCol>
                     </MDBRow>
 
-                    <MDBTypography tag="h6" style={{color:"#207140", fontFamily:"Tommy-regular"}}>Information</MDBTypography>
+                    {/* <MDBTypography tag="h6" style={{color:"#207140", fontFamily:"Tommy-regular"}}>Information</MDBTypography> */}
                     <hr className="mt-0 mb-4" />
                     <MDBRow className="pt-1">
                       <MDBCol size="6" className="mb-3">
-                        <MDBTypography tag="h6" style={{color:"#207140", fontFamily:"Tommy-regular"}}>Email</MDBTypography>
-                        <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>info@example.com</MDBCardText>
+                        <MDBTypography tag="h6" style={{color:"#207140", fontFamily:"Tommy-regular"}}>Direccion</MDBTypography>
+                        <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>Direccion</MDBCardText>
                       </MDBCol>
-                      <MDBCol size="6" className="mb-3">
+                      {/* <MDBCol size="6" className="mb-3">
                         <MDBTypography tag="h6" style={{color:"#207140", fontFamily:"Tommy-regular"}}>Phone</MDBTypography>
                         <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>123 456 789</MDBCardText>
-                      </MDBCol>
+                      </MDBCol> */}
                     </MDBRow>
 
                     <div className="d-flex justify-content-start">
@@ -59,5 +63,19 @@ export default function PersonalProfile() {
         </MDBRow>
       </MDBContainer>
     </section>
+    )
+  }
+  return (
+    <div >
+    {
+      !user?
+      sesion():
+      <div style={{ paddingTop: "7%" ,}}>
+        
+        <h3 style={{color:"#207140", fontFamily:"Tommy-light", paddingBottom:"9%" ,paddingTop: "12%",display:'flex', justifyContent:'center', alignContent:'center' }}>Inicia sesion para ver tu descripcion</h3>
+      </div>
+      
+    }
+    </div>
   );
 }

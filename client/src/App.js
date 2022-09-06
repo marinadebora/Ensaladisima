@@ -25,14 +25,14 @@ function App() {
       <Routes>
 
         <Route exact path= '/' element={<Home/>}/>
-        <Route exact path= '/menu' element={<Menu/>}/>
-        <Route exact path= '/pideTuEnsalada' element={<PideTuEnsalada />}/>
+        <Route path= '/menu' element={<Menu/>}/>
+        <Route path= '/pideTuEnsalada' element={<PideTuEnsalada />}/>
 
-        <Route exact path= '/checkout' element={<CheckOut/>}/>
-        <Route exact path= '/login' element={<Login/>}/>
-        <Route exact path= '/registro' element={<Registro/>}/>
-        <Route exact path= '/profile' element={<Profile/>}/>
-        <Route exact path= '/contacto' element={<Contacto/>}/>
+        <Route path= '/checkout' element={<CheckOut/>}/>
+        <Route path= '/login' element={<Login/>}/>
+        <Route path= '/registro' element={<Registro/>}/>
+        <Route path= '/profile' element={<Profile/>}/>
+        <Route path= '/contacto' element={<Contacto/>}/>
 
         {/* rutas para administador */}
 

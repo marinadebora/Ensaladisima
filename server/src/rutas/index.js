@@ -48,7 +48,9 @@ const { passwordEditada } = require("../Nodemailer/passwordActualizada");
 const eliminarDelPedido  = require("./Pedidos/eliminardelPedido");
 const postPedidoMenu = require("./Pedidos/postPedidoMenu");
 const postHistorial = require("./Historial/postHistorial");
+const { menuBig } = require("../constroladores/cargarBaseDeDatos/controladorDelMenuBig");
 const passport = require("passport");
+const { getMenuBig } = require("./MenuBig/getMenuBig");
 require("../../middlewares/google")
 
 
@@ -83,6 +85,9 @@ router.get("/menus", getMenu)
 router.post("/menus",postMenu);
 router.put("/menus/:_id",putMenu);
 
+//rutas para el modelo de MenuBig
+router.get("/menubig", getMenuBig)
+
 // rutas para el modelo de Historial.
 router.use('/crearHistorial', postHistorial)
 
@@ -104,6 +109,7 @@ router.put("/bases/:_id",putBase);
 router.get("/proteins", getProteins)
 router.post("/proteins", postProteins);
 router.put("/proteins/:_id", putProteins);
+
 // rutas para el modelo de Complement.
 router.get("/complements", getComplements)
 router.post("/complements",postComplementos);
@@ -138,7 +144,8 @@ router.get("/salsasdb", salsas);
 router.get("/toppingdb", topping);
 router.get('/complementdb', complements);
 router.get("/bebida",bebidas);
-router.get("/postre",postres); */
+router.get("/postre",postres);
+router.get("/MenuBig", menuBig )*/
 
 
 module.exports = router
