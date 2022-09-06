@@ -1,23 +1,37 @@
+import { saladsBig } from "../action"
+
 const initialState = {
   salads: [],
+  saladsBig:[],
   bases: [],
-  proteins: [],
-  complements: [],
-  sauces: [],
-  toppings: [],
-  beverages: [],
-  desserts: [],
-  pedidoBebidas: []
+  proteins:[],
+  complements:[],
+  sauces:[],
+  toppings:[],
+  beverages:[],
+  desserts:[],
+  pedidoBebidas:[],
+  usuarios:[]
 }
 
 
-function rootReducer(state = initialState, action)
+function rootReducer( state = initialState, action )
 {
   switch (action.type) {
+    case "USUARIOS":
+      return{
+        ...state,
+        usuarios: action.payload
+      }
     case 'SALADS':
       return {
         ...state,
         salads: action.payload
+      }
+    case "SALADS_BIG":
+      return{
+        ...state,
+        saladsBig: action.payload
       }
     case 'BASES':
       return {
@@ -78,6 +92,15 @@ function rootReducer(state = initialState, action)
       return {
         ...state,
       }
+    case "POST_REGISTRO":
+      return{
+        ...state
+          }
+    case "POST_LOGEO":
+      return{
+        ...state
+          }    
+
     default:
       return {
         state

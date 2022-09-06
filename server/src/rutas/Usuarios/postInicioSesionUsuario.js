@@ -1,31 +1,59 @@
-const {Router} = require('express')
-const Usuarios = require('../../modelos/Usuarios')
-const passport = require("passport")
+const Usuarios = require("../../modelos/Usuarios");
+const jwt = require("jsonwebtoken")
 
-const autenticar = Router()
+const auth = async (req, res) => {
+    const { email, password } = req.body;
+    console.log("HOLA SOY UN CONSOLE.LOG"+ email)
+    const user = await Usuarios.findOne({ email })
+    let firstName = ''
+    let lastName = ''
+    let adress=''
+    let id = ''
+    let admin = false
+    let orders=[]
+    if (user) {
+        firstName = user.firstName
+        id = user._id
+        admin = user.admin
+        lastName = user.lastName
+        adress = user.adress
+        orders = user.orders
+    }
 
-autenticar.post("/",(req,res)=>{
-    const {email, password} = req.body;
-    Usuarios.findOne({email},(error,Usuarios)=>{
-        if (error){
-            res.status(500).send("ERROR AL AUTENTICAR USUARIO");
-        }else if(!Usuarios){
-            res.status(500).send("EL USUARIO NO EXISTE")
-        }else{
-            user.isCorrectPassword(password,(error,resultado)=>{
-                if(error){
-                    res.status(500).send("ERROR AL AUTENTICAR");
-                }else if(resultado){
-                    res.status(200).send("USUARIO AUTENTICADO CORRECTAMENTE");
-                }else{
-                    res.status(500).send("usuario y/o contraseña incorrecta")
+    const authUser = await Usuarios.findOne({ email })
+    if (authUser.activo !== true) {
+        res.send('Disculpa pero te encuentras bloqueado')
+    } else {
+    Usuarios.findOne({ email }, (err, Usuarios) => {
+        if (err) {
+            res.status(404).send("Error al autenticar el correo")
+        } else if (!Usuarios) {
+            res.status(404).send("Hay campos erroneos")
+        } else {
+            Usuarios.isCorrectPassword(password, (err, result) => {
+                if (err) {
+                    res.status(500).send("Error al autenticar")
+                } else if (result) {
+                    /* console.log(req.headers) */
+                    let token = jwt.sign({ Usuarios }, "torombolo", {
+                        expiresIn: "10h"
+                    })
+                    /* res.cookie("token", token, { expiresIn: "10h" }); */
+                    res.send({ email, token, firstName, lastName, id, admin,adress, orders })
+                    /* console.log(req.headers) */
+                } else {
+                    res.status(500).send("Correo y/o contraseña incorrecta")
                 }
             })
-
         }
-    })
-})
 
-autenticar.get("/google", (req, res) => res.send(req.user))
+    });
+    }
+    /* console.log(nombre) */
+    
 
-module.exports = autenticar
+};
+
+
+
+module.exports = auth

@@ -11,11 +11,12 @@
 
 *{
    background-color: #FFF2DB;
-  
 }
+
 
 .container-fluid{
    padding: 0px;
+  
 }
 
 #bloque1{
@@ -100,13 +101,34 @@
    transition: all 20ms;
 }
 
+.buttonChico2{
+   width: 50%;
+   margin-left: 30%;
+   background-color: #207140; 
+   color: white;
+   text-decoration: none;
+   border:3px  solid white;
+   padding: 0.5rem;
+   border-radius: 50px;
+   font-family: Tommy-bold;
+   font-size: 1.0rem;
+   cursor: pointer;
+
+}
+
+.buttonChico2:hover{
+   background-color: #94D2DE;
+   color: white;
+   transition: all 20ms;
+}
+
 #bloque2{
    display: block;
 }
 
 #cuadradoText1{
    width: 33%;
-   height: 436px;
+   height: 395px;
    font-family: Tommy-bold;
    background-color: #F18D1D;
    float: left;
@@ -114,7 +136,7 @@
 }
 
 #video{
-   
+   overflow: hidden;
    width: 33%;
    float: left;
    padding: 0px;
@@ -122,7 +144,7 @@
 
 #cuadradoText2{
    width: 34%;
-   height: 436px;
+   height: 395px;
    font-family: Tommy-bold;
    background-color: #FABB4E;
    float: left;

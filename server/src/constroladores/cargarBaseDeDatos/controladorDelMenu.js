@@ -1,5 +1,5 @@
 /* const Menu = require('../../modelos/Menu')
-const api = require('../../../server/users.json')
+const api = require('../../../users.json')
 var findOrCreate = require('mongoose-findorcreate')
 
 const menu = async (req, res) => {
@@ -7,8 +7,7 @@ const menu = async (req, res) => {
     try {
         const crear = await ensalada.map(e => Menu.findOrCreate({
             name: e.Nombre,
-            median: e.EnsaladaMediana,
-            big: e.EnsaladaGrande,
+            price: e.EnsaladaMediana,
             image: e.img,
             base: e.Base,
             protein: e.Proteina,

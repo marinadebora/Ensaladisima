@@ -5,11 +5,11 @@ const bcrypt = require("bcrypt")
 const saltRounds = 10;
 
 const UsuariosSchema = new Schema({
-    firstName: { type: String, required: true, lowercase:true },
-    lastName: { type: String, required: true, lowercase:true },
+    firstName: { type: String, default:"", lowercase:true },
+    lastName: { type: String, default:"", lowercase:true },
     email: { type: String, required: true, lowercase:true },
     password: { type: String, require: true},
-    adress: { type: String, lowercase:true, default:''},
+    adress: { type: String, default:"", lowercase:true, default:''},
     phone: { type: String, default: ''},
     admin: { type: Boolean, default: false },
     activo: { type: Boolean, default: true },
@@ -35,7 +35,7 @@ UsuariosSchema.pre("save", function(next){
 });
 
 UsuariosSchema.methods.isCorrectPassword = function(password,callback){
-    bcrypt.compare(password, this.password, function(err,same){
+    bcrypt.compare(password, this.password, function(error,same){
         if(error){
             callback(error);
         }else{

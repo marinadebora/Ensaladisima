@@ -34,7 +34,10 @@ const NavBar = () => {
 
         <Link to="/profile" class="nav-link-Main">
           <i class="bi bi-person-circle"></i>
-          <a href=' ' id='logInText'> LOGIN</a>
+        </Link>
+
+        <Link to="/login" class="nav-link-Main">
+          <p id='logInText'> LOGIN</p>
         </Link>
       </div>
     </div>

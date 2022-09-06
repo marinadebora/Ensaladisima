@@ -50,6 +50,7 @@ const postPedidoMenu = require("./Pedidos/postPedidoMenu");
 const postHistorial = require("./Historial/postHistorial");
 const { menuBig } = require("../constroladores/cargarBaseDeDatos/controladorDelMenuBig");
 const passport = require("passport");
+const { getMenuBig } = require("./MenuBig/getMenuBig");
 require("../../middlewares/google")
 
 
@@ -58,8 +59,9 @@ const router = Router();
 // rutas para el modelo de Usuarios.
 router.use('/usuarios', getUsuarios)
 router.use('/usuario', getIdUsuario)
-router.use('/registro', registro,correo)
-router.use("/autenticar", passport.authenticate("auth-google", {
+router.use('/registro', registro, correo)
+router.use("/autenticar",auth)
+router.use("/autenticargoogle", passport.authenticate("auth-google", {
     scope: [
         "https://www.googleapis.com/auth/userinfo.profile",
         "https://www.googleapis.com/auth/userinfo.email"
@@ -83,6 +85,9 @@ router.get("/menus", getMenu)
 router.post("/menus",postMenu);
 router.put("/menus/:_id",putMenu);
 
+//rutas para el modelo de MenuBig
+router.get("/menubig", getMenuBig)
+
 // rutas para el modelo de Historial.
 router.use('/crearHistorial', postHistorial)
 
@@ -104,6 +109,7 @@ router.put("/bases/:_id",putBase);
 router.get("/proteins", getProteins)
 router.post("/proteins", postProteins);
 router.put("/proteins/:_id", putProteins);
+
 // rutas para el modelo de Complement.
 router.get("/complements", getComplements)
 router.post("/complements",postComplementos);

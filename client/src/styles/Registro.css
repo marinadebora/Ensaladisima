@@ -1,0 +1,17 @@
+@font-face {
+    font-family: Tommy-regular;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+
+    font-family: Tommy-light;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Light_PERSONAL\ USE.ttf);
+}
+
+
+.inputRegistro{
+    width: 100%;
+    background-color: white;
+    padding: 5px;
+    margin: 7px;
+    border-radius: 5px;
+    border: 2px solid #207140;
+}
