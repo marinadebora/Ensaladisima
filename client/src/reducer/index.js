@@ -1,4 +1,4 @@
-import { saladsBig } from "../action"
+/* import { saladsBig } from "../action" */
 
 const initialState = {
   salads: [],
