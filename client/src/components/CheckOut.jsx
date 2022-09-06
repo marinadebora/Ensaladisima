@@ -43,30 +43,29 @@ export default function QuantityEdit()
     const buscarBebidas = JSON.parse(localStorage.getItem('bebidas'))
     const buscarPostres = JSON.parse(localStorage.getItem('postres'))
     
-    const filtroMed = /* buscarMed?.indexOf({_id:e.target.value}) */buscarMed?.find(a => a._id === e.target.value )
-    console.log(filtroMed)
+    const filtroMed = buscarMed?.find(a => a._id === e.target.value )
     const filtroBig = buscarBig?.find(a => a._id === e.target.value )
     const filtroBebida = buscarBebidas?.indexOf(a => a._id === e.target.value )
     const filtropostre = buscarPostres?.find(a => a._id === e.target.value )
-    console.log(buscarMed?.indexOf(filtroMed))
+    
     
     if(filtroMed){
-      const borrar = /* buscarMed?.indexOf(filtroMed) */buscarMed[0]?buscarMed?.splice(buscarMed?.indexOf(filtroMed), buscarMed?.indexOf(filtroMed)+1) :buscarMed?.splice(buscarMed?.indexOf(filtroMed), buscarMed?.indexOf(filtroMed)+1)
+      const borrar = buscarMed?.splice(buscarMed?.indexOf(filtroMed), 1)
       console.log(borrar)
       localStorage.setItem('medianas', JSON.stringify(buscarMed))
       window.location.reload(false)
     }else if(filtroBig){
-      const borrar = buscarBig?.filter(e => e._id !== filtroBig._id)
+      const borrar = buscarBig?.splice(buscarBig?.indexOf(filtroBig), 1)
       console.log(borrar)
-      localStorage.setItem('grandes', JSON.stringify(borrar))
+      localStorage.setItem('grandes', JSON.stringify(buscarBig))
       window.location.reload(false)
     }else if(filtroBebida){
-      const borrar = buscarBebidas?.filter(e => e._id !== filtroBebida._id)
-      localStorage.setItem('bebidas', JSON.stringify(borrar))
+      const borrar = buscarBebidas?.splice(buscarBebidas?.indexOf(filtroBebida), 1)
+      localStorage.setItem('bebidas', JSON.stringify(buscarBebidas))
       window.location.reload(false)
     }else if(filtropostre){
-      const borrar = buscarPostres?.filter(e => e._id !== filtropostre._id)
-      localStorage.setItem('postres', JSON.stringify(borrar))
+      const borrar = buscarPostres?.splice(buscarPostres?.indexOf(filtropostre), 1)
+      localStorage.setItem('postres', JSON.stringify(buscarPostres))
       window.location.reload(false)
     }
   }
