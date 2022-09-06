@@ -61,10 +61,12 @@ export default function QuantityEdit()
       window.location.reload(false)
     }else if(filtroBebida){
       const borrar = buscarBebidas?.splice(buscarBebidas?.indexOf(filtroBebida), 1)
+      console.log(borrar)
       localStorage.setItem('bebidas', JSON.stringify(buscarBebidas))
       window.location.reload(false)
     }else if(filtropostre){
       const borrar = buscarPostres?.splice(buscarPostres?.indexOf(filtropostre), 1)
+      console.log(borrar)
       localStorage.setItem('postres', JSON.stringify(buscarPostres))
       window.location.reload(false)
     }
