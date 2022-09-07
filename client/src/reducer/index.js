@@ -23,6 +23,11 @@ function rootReducer( state = initialState, action )
         ...state,
         usuarios: action.payload
       }
+     case "VACIAR_U":
+      return{
+        ...state,
+        usuarios:[]
+      }
     case 'SALADS':
       return {
         ...state,
