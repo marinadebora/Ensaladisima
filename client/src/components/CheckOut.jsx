@@ -164,7 +164,7 @@ export default function QuantityEdit()
                               -
                             </button>
                               <MDBInput type="number" min="1" defaultValue={todosLosProductos?.filter(d=> d._id === e._id).length} size="sm"/>
-                              <button onClick={(e)=>agregar(e)} value={e._id} style={{border:'none',color:'#fff', backgroundColor:'green', fontSize:'large',width:'2rem', marginLeft:'0.5rem',fontSize:'larger'}}>
+                              <button onClick={(e)=>agregar(e)} value={e._id} style={{border:'none',color:'#fff', backgroundColor:'green',width:'2rem', marginLeft:'0.5rem',fontSize:'larger'}}>
                               +
                             </button>
                               
