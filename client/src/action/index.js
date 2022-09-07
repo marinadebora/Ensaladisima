@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 //ruta get de todos los usuarios
-export function usuarios()
+export function usuariosRegistrados()
 {
 	return async function(dispatch){
 		try{
@@ -15,6 +15,9 @@ export function usuarios()
 			console.log({message:error.message})
 		}
 	}
+}
+export const vaciarUsuarios=()=>{
+	return {type: "VACIAR_U", payload:[]}
 }
 
 //ruta get de las ensaldas de la casa
@@ -360,7 +363,7 @@ export function PostLogeoUsuario(payload){
 			const logueado = await axios.post("/autenticar",payload)
 			return dispatch({
 				type:"POST_LOGEO",
-				payload:logueado
+				payload:logueado.data
 			})
 		}catch(error){
 			console.log({message:error.message})
