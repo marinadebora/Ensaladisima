@@ -63,24 +63,25 @@ function Registro() {
     }))
   }
 
-  const handleSubmit = (e) => {
-      e.preventDefault();
+  const handleSubmit = async (e) => {
+      e.preventDefault()      
+      if (  
+        errors.firstName||
+        errors.lastName||
+        errors.email||
+        errors.password||
+        errors.adress||
+        errors.phone||
+        !inputUser.firstName) alert("Tienes errores en los campos")
+        
+      else{
 
-      console.log(dispatch(PostRegistroUsuario(inputUser)));
-
-     if (  
-      errors.firstName||
-      errors.lastName||
-      errors.email||
-      errors.password||
-      errors.adress||
-      errors.phone||
-      !inputUser.firstName)return alert("Tienes errores en los campos")
-
-
-
+        const  dispatchRegister = await dispatch(PostRegistroUsuario(inputUser));
+        if(!dispatchRegister) alert("Tienes errores en los campos")
+        alert(`Se ha registrado correctamente con el email ${inputUser.email}`)
+      }  
       
-      alert(`Se ha registrado correctamente con el email ${inputUser.email}`)
+        
       setInputUser({
         firstName:"",
         lastName:"",
@@ -114,18 +115,18 @@ function Registro() {
 
           <form onSubmit={handleSubmit}>
           
-          <MDBInput wrapperClass='mb-2' name = "firstName" value={inputUser.firstName} placeholder='Nombre' size='lg' id='form1' type='text'onChange={handleChange}/>
+          <MDBInput wrapperClass='mb-2' name = "firstName" value={inputUser.firstName} placeholder='Nombre*' size='lg' id='form1' type='text'onChange={handleChange}/>
           {errors.name && <p>{errors.firstName}</p>}
-          <MDBInput wrapperClass='mb-2' name = "lastName" value={inputUser.lastName} placeholder='Apellido' size='lg' id='form1' type='text'onChange={handleChange}/>
-          {errors.name && <p>{errors.lastName}</p>}
-          <MDBInput wrapperClass='mb-2' name = "email" value={inputUser.email} placeholder='Email' size='lg' id='form2' type='email' onChange={handleChange}/>
-          {errors.name && <p>{errors.email}</p>}
-          <MDBInput wrapperClass='mb-2' name = "password" value={inputUser.password} placeholder='Password' size='lg' id='form4' type='password'onChange={handleChange}/>
-          {errors.name && <p>{errors.password}</p>}
+          <MDBInput wrapperClass='mb-2' name = "lastName" value={inputUser.lastName} placeholder='Apellido*' size='lg' id='form1' type='text'onChange={handleChange}/>
+          {errors.lastName && <p>{errors.lastName}</p>}
+          <MDBInput wrapperClass='mb-2' name = "email" value={inputUser.email} placeholder='Email*' size='lg' id='form2' type='email' onChange={handleChange}/>
+          {errors.email && <p>{errors.email}</p>}
+          <MDBInput wrapperClass='mb-2' name = "password" value={inputUser.password} placeholder='Password*' size='lg' id='form4' type='password'onChange={handleChange}/>
+          {errors.password && <p>{errors.password}</p>}
           <MDBInput wrapperClass='mb-2' name = "phone" value={inputUser.phone} placeholder='Telefono' size='lg' id='form3' type='tel'onChange={handleChange}/>
-          {errors.name && <p>{errors.phone}</p>}
+          {errors.phone && <p>{errors.phone}</p>}
           <MDBInput wrapperClass='mb-2' name = "adress" value={inputUser.adress} placeholder='Direccion' size='lg' id='form4' type='text' onChange={handleChange}/> 
-          {errors.name && <p>{errors.adress}</p>}
+          {errors.adress && <p>{errors.adress}</p>}
  <div className='d-flex flex-row justify-content-center mb-4'>
   <MDBCheckbox name='flexCheck' id='flexCheckDefault' placeholder='I agree all statements in Terms of service' />
 </div> 
