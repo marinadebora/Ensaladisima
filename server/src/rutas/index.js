@@ -51,6 +51,8 @@ const postHistorial = require("./Historial/postHistorial");
 const { menuBig } = require("../constroladores/cargarBaseDeDatos/controladorDelMenuBig");
 const passport = require("passport");
 const { getMenuBig } = require("./MenuBig/getMenuBig");
+const postEnsaladaMediana = require("./EnsaladasMedianas/posEnsaladasMediana");
+const postEnsaladaGrande = require("./EnsaladasBigs/postEnsaladasBig");
 require("../../middlewares/google")
 
 
@@ -94,10 +96,12 @@ router.use('/crearHistorial', postHistorial)
 
 // rutas para el modelo de EnsaladasMedian.
 router.use('/ensaladamed', crearEnsaladaMed)
+router.use('/mediana', postEnsaladaMediana)
 
 
 // rutas para el modelo de EnsaladasBig.
 router.use('/ensaladabig', crearEnsaladasBigs)
+router.use('/grande', postEnsaladaGrande)
 
 
 // rutas para el modelo de Base.
