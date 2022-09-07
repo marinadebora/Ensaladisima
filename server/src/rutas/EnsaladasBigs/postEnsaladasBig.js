@@ -3,7 +3,7 @@ const EnsaladasBig = require('../../modelos/EnsaladasBig')
 
 const postEnsaladaGrande = Router()
 
-postEnsaladaGrande.post('/', async (req,res,next) =>{
+postEnsaladaGrande.post('/', async (req,res) =>{
     const {base,complement,protein,suace,topping} = req.body
     try {
         const buscar = await EnsaladasBig.find({base,complement,protein,suace,topping})

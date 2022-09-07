@@ -1,9 +1,9 @@
-const {Router}=require('express')
+const {Router} = require('express')
 const EnsaladasMedians = require('../../modelos/EnsaladasMedian')
 
 const postEnsaladaMediana = Router()
 
-postEnsaladaMediana.post('/', async (req,res,next) =>{
+postEnsaladaMediana.post('/', async (req,res) =>{
     const {base,complement,protein,suace,topping} = req.body
     try {
         const buscar = await EnsaladasMedians.find({base,complement,protein,suace,topping})
