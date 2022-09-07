@@ -7,7 +7,7 @@ const putSalsas = async (req, res) => {
         const buscar = await Salsas.findById(_id);
         if (!buscar) res.status(404).send("No se encontro el id");
         else {
-            const editar = await Salsas.updateOne({ _id }, { name, image });
+            const editar = await Salsas.updateOne({ _id }, { name:name?name:buscar.name, image:image? image:buscar.image });
             res.send("Salsa editada correctamente");
         }
     } catch (error) {
