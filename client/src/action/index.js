@@ -39,6 +39,25 @@ export function salads() {
 	}
 }
 
+//ruta get de las ensaldas grande de la casa
+export function saladsBig() {
+	return async function (dispatch) {
+		try {
+			const salad = await axios(`/menubig`)
+
+			return dispatch({
+
+				type: "SALADS_BIG",
+				payload: salad.data
+
+			})
+		} catch (error) {
+			console.log(error)
+		}
+
+	}
+}
+
 //ruta get de las bases para las ensalada armadas por el usuario
 export function bases() {
 	return async function (dispatch) {

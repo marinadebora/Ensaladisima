@@ -8,6 +8,8 @@ import "../styles/Card.css";
 
 const Ensaladas = ({image, name, base, protein, complement, sauce, topping, medium, big}) => {
 
+  
+
   return (
     <div>
       <div id='ensaladaMarco' class="container-fluid">

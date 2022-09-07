@@ -4,7 +4,7 @@ var findOrCreate = require('mongoose-findorcreate')
 
 const MenuBigSchema = new Schema({
     name: { type: String, required:true, lowercase:true },
-    price: { type: Number, required: true },
+    price: { type: Number, default: 15 },
     image: { type: Array },
     base : { type: Array },
     protein: { type: Array },
