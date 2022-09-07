@@ -28,7 +28,7 @@ export default function QuantityEdit()
   let postres = useLocalStorage('postres', [])
   let beb=bebidas[0]
   let post=postres[0]
- 
+
 
   //para renderizar ensaladas medianas desde localStorage
   let ensaladasMed = useLocalStorage('medianas', [])
@@ -114,7 +114,7 @@ export default function QuantityEdit()
       const usuario = JSON.parse(localStorage.getItem('loguearUsuario'))
       setUser(usuario)
     }
-  })
+  },[])
 
   
 
