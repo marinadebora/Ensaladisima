@@ -11,9 +11,9 @@ import {
 from 'mdb-react-ui-kit';
 import collage from '../images/collage.png';
 import "../styles/Login.css"
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { PostLogeoUsuario, usuariosRegistrados, vaciarUsuarios } from "../action";
+import { PostLogeoUsuario, usuariosRegistrados } from "../action";
 import { useEffect } from "react";
 
 
@@ -67,12 +67,13 @@ import { useEffect } from "react";
         if(!dispatchLog) alert("Hay un error en el inicio de sesion") 
         else{
           alert('Bienvenido a ensaladísima')
-          localStorage.setItem("UsuarioLogueado", JSON.stringify(dispatchLog.payload))
+          localStorage.setItem("loguearUsuario", JSON.stringify(dispatchLog.payload))
     setLoginUser({
       email:"",
       password:"",
     });
       history("/menu")
+      window.location.reload()
       }
         }
         
