@@ -34,6 +34,40 @@ export default function QuantityEdit()
   let med=ensaladasMed[0]
   let gran=ensaladasGr[0]
 
+  // agregar cal carrito
+  const agregar = (e)=>{
+    const buscarMed = JSON.parse(localStorage.getItem('medianas'))
+    const buscarBig = JSON.parse(localStorage.getItem('grandes'))
+    const buscarBebidas = JSON.parse(localStorage.getItem('bebidas'))
+    const buscarPostres = JSON.parse(localStorage.getItem('postres'))
+
+    const filtroMed = buscarMed?.find(a => a._id === e.target.value )
+    const filtroBig = buscarBig?.find(a => a._id === e.target.value )
+    const filtroBebida = buscarBebidas?.find(a => a._id === e.target.value )
+    const filtropostre = buscarPostres?.find(a => a._id === e.target.value )
+
+    if(filtroMed){
+      const agregar = buscarMed?.push(filtroMed)
+      console.log(agregar)
+      localStorage.setItem('medianas', JSON.stringify(buscarMed))
+      window.location.reload(false)
+    }else if(filtroBig){
+      const agregar = buscarBig?.push(filtroBig)
+      console.log(agregar)
+      localStorage.setItem('grandes', JSON.stringify(buscarBig))
+      window.location.reload(false)
+    }else if(filtroBebida){
+      const agregar = buscarBebidas?.push(filtroBebida)
+      console.log(agregar)
+      localStorage.setItem('bebidas', JSON.stringify(buscarBebidas))
+      window.location.reload(false)
+    }else if(filtropostre){
+      const agregar = buscarPostres?.push(filtropostre)
+      console.log(agregar)
+      localStorage.setItem('postres', JSON.stringify(buscarPostres))
+      window.location.reload(false)
+    }
+  }
 
   // eleiminar del carrito
   
@@ -45,9 +79,8 @@ export default function QuantityEdit()
     
     const filtroMed = buscarMed?.find(a => a._id === e.target.value )
     const filtroBig = buscarBig?.find(a => a._id === e.target.value )
-    const filtroBebida = buscarBebidas?.indexOf(a => a._id === e.target.value )
+    const filtroBebida = buscarBebidas?.find(a => a._id === e.target.value )
     const filtropostre = buscarPostres?.find(a => a._id === e.target.value )
-    
     
     if(filtroMed){
       const borrar = buscarMed?.splice(buscarMed?.indexOf(filtroMed), 1)
@@ -127,8 +160,13 @@ export default function QuantityEdit()
                             </MDBCol>
                             <MDBCol md="3" lg="3" xl="3" className="d-flex align-items-center">
 
-                              
-                              <MDBInput type="number" min="1" defaultValue={todosLosProductos?.filter(d=> d._id === e._id).length} size="sm" />
+                            <button onClick={(e)=>remove(e)} value={e._id} style={{border:'none',color:'#fff',fontWeight:"bolder", backgroundColor:'red', fontSize:'larger',width:'2rem', marginRight:'0.5rem'}}>
+                              -
+                            </button>
+                              <MDBInput type="number" min="1" defaultValue={todosLosProductos?.filter(d=> d._id === e._id).length} size="sm"/>
+                              <button onClick={(e)=>agregar(e)} value={e._id} style={{border:'none',color:'#fff', backgroundColor:'green',width:'2rem', marginLeft:'0.5rem',fontSize:'larger'}}>
+                              +
+                            </button>
                               
 
 
@@ -139,9 +177,9 @@ export default function QuantityEdit()
                               </MDBTypography>
                             </MDBCol>
                             <MDBCol md="2" lg="1" xl="1" className="text-end">
-                            <MDBTypography tag="h6" className="mb-0">
+                            {/* <MDBTypography tag="p" className="mb-0">
                               <button onClick={(e)=>remove(e)} value={e._id} class="buttonChico">X</button>
-                              </MDBTypography>
+                              </MDBTypography> */}
                             </MDBCol>
                             <MDBCol md="1" lg="1" xl="1" className="text-end">
                               <a href="#!" className="text-muted">
