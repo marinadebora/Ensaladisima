@@ -170,6 +170,27 @@ export function beverages() {
 
 	}
 }
+// ruta get de menu
+export function Menu() {
+	return async function (dispatch) {
+		try {
+			const menu = await axios(`/menus`)
+
+			return dispatch({
+
+				type: "MENU",
+				payload: menu.data
+
+			})
+		} catch (error) {
+			console.log(error)
+		}
+
+	}
+}
+
+
+
 //ruta get de los postres 
 export function desserts() {
 	return async function (dispatch) {
@@ -343,6 +364,86 @@ export const putBases=(_id,payload)=>async (dispatch)=>{
 	  alert(`el ID: ${_id} no existe`)
 	}
   }
+  //ruta put de menu
+  export const putMenu=(_id,payload)=>async (dispatch)=>{
+	try {
+	   let json= await axios.put(`/menus/${_id}`,payload)
+	   return dispatch(
+		 {type:"PUT_MENU",payload:json.data})
+	   
+	   } catch (error) {
+	  alert(`el ID: ${_id} no existe`)
+	}
+  }
+   //ruta put de Complemento
+   export const putComplemento=(_id,payload)=>async (dispatch)=>{
+	try {
+	   let json= await axios.put(`/complements/${_id}`,payload)
+	   return dispatch(
+		 {type:"PUT_COMPLEMENTOS",payload:json.data})
+	   
+	   } catch (error) {
+	  alert(`el ID: ${_id} no existe`)
+	}
+  }
+  //ruta put de Salsas
+  export const putSalsas=(_id,payload)=>async (dispatch)=>{
+	try {
+	   let json= await axios.put(`/salsas/${_id}`,payload)
+	   return dispatch(
+		 {type:"PUT_SALSAS",payload:json.data})
+	   
+	   } catch (error) {
+	  alert(`el ID: ${_id} no existe`)
+	}
+  }
+  //ruta put de Topping
+  export const putTopping=(_id,payload)=>async (dispatch)=>{
+	try {
+	   let json= await axios.put(`/toppings/${_id}`,payload)
+	   return dispatch(
+		 {type:"PUT_TOPPINGS",payload:json.data})
+	   
+	   } catch (error) {
+	  alert(`el ID: ${_id} no existe`)
+	}
+  }
+   //ruta put de Proteinas
+   export const putProteinas=(_id,payload)=>async (dispatch)=>{
+	try {
+	   let json= await axios.put(`/proteins/${_id}`,payload)
+	   return dispatch(
+		 {type:"PUT_PROTEINAS",payload:json.data})
+	   
+	   } catch (error) {
+	  alert(`el ID: ${_id} no existe`)
+	}
+  }
+     //ruta put de Bebidas
+	 export const putBebidas=(_id,payload)=>async (dispatch)=>{
+		try {
+		   let json= await axios.put(`/bebidas/${_id}`,payload)
+		   return dispatch(
+			 {type:"PUT_BEBIDAS",payload:json.data})
+		   
+		   } catch (error) {
+		  alert(`el ID: ${_id} no existe`)
+		}
+	  }
+	   //ruta put de Postres
+	 export const putPostres=(_id,payload)=>async (dispatch)=>{
+		try {
+		   let json= await axios.put(`/postres/${_id}`,payload)
+		   return dispatch(
+			 {type:"PUT_POSTRES",payload:json.data})
+		   
+		   } catch (error) {
+		  alert(`el ID: ${_id} no existe`)
+		}
+	  }
+
+
+
 export function PostRegistroUsuario(payload){
 	return async function(dispatch){
 		try{

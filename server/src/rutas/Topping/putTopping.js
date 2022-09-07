@@ -7,7 +7,7 @@ const putToppings = async (req, res) => {
         const buscar = await Topping.findById(_id);
         if (!buscar) res.status(404).send("No se encontro el id");
         else {
-            const editar = await Topping.updateOne({ _id }, { name, image });
+            const editar = await Topping.updateOne({ _id }, { name:name?name:buscar.name, image:image? image:buscar.image });
             res.send("Topping editado correctamente");
         }
     } catch (error) {

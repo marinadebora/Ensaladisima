@@ -16,6 +16,8 @@ import { useLocalStorage } from '../useLocalStorage'
 import React from "react";
 
 import { Link } from 'react-router-dom';
+import { useEffect } from "react";
+import { useState } from "react";
 /* import { useState } from "react"; */
 
 
@@ -26,7 +28,7 @@ export default function QuantityEdit()
   let postres = useLocalStorage('postres', [])
   let beb=bebidas[0]
   let post=postres[0]
- 
+
 
   //para renderizar ensaladas medianas desde localStorage
   let ensaladasMed = useLocalStorage('medianas', [])
@@ -105,6 +107,14 @@ export default function QuantityEdit()
     }
   }
 
+  const [user, setUser] = useState(null)
+
+  useEffect(()=>{
+    if(localStorage.getItem('loguearUsuario')){
+      const usuario = JSON.parse(localStorage.getItem('loguearUsuario'))
+      setUser(usuario)
+    }
+  },[])
 
   
 
@@ -247,9 +257,9 @@ export default function QuantityEdit()
                         </MDBTypography>
                         <MDBTypography tag="h5">US$ {suma}</MDBTypography>
                       </div>
-
-                      <Link class="buttonChico" to="/">Registrate</Link>
-                      <Link class="buttonChico" to="/">Comprar</Link>
+                      {user?<Link class="buttonChico" to="/">Comprar</Link>:<Link class="buttonChico" to="/registro">Registrate</Link>}
+                      
+                      
 
                     </div>
                   </MDBCol>

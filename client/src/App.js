@@ -9,7 +9,6 @@ import Registro from './components/Registro';
 import Profile from './components/Profile';
 import Contacto from './components/Contacto';
 import { PideTuEnsalada } from './components/PideTuEnsalada';
-import AdminEdit from './components/AdminEdit';
 import CrearProduto from './FormPost/Crear Producto';
 import Login from './components/Login';
 import BaseEdit from './FormPut/putBases';
@@ -36,9 +35,9 @@ function App() {
 
         {/* rutas para administador */}
 
-        <Route path= '/admincrear' element={<CrearProduto/>}/>  
-        <Route path= '/adminedit' element={<AdminEdit/>}/>
+        <Route path= '/admin' element={<CrearProduto/>}/>  
         <Route path= '/adminedit/:id' element={<BaseEdit/>}/>
+        {/* <Route path= '/admincrear' element={<EditarProduto/>}/> */}
 
 
       </Routes>
