@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 //ruta get de todos los usuarios
-export function usuarios()
+export function usuariosRegistrados()
 {
 	return async function(dispatch){
 		try{
@@ -16,6 +16,9 @@ export function usuarios()
 		}
 	}
 }
+export const vaciarUsuarios=()=>{
+	return {type: "VACIAR_U", payload:[]}
+}
 
 //ruta get de las ensaldas de la casa
 export function salads() {
@@ -26,6 +29,25 @@ export function salads() {
 			return dispatch({
 
 				type: "SALADS",
+				payload: salad.data
+
+			})
+		} catch (error) {
+			console.log(error)
+		}
+
+	}
+}
+
+//ruta get de las ensaldas grande de la casa
+export function saladsBig() {
+	return async function (dispatch) {
+		try {
+			const salad = await axios(`/menubig`)
+
+			return dispatch({
+
+				type: "SALADS_BIG",
 				payload: salad.data
 
 			})
@@ -442,7 +464,7 @@ export function PostLogeoUsuario(payload){
 			const logueado = await axios.post("/autenticar",payload)
 			return dispatch({
 				type:"POST_LOGEO",
-				payload:logueado
+				payload:logueado.data
 			})
 		}catch(error){
 			console.log({message:error.message})

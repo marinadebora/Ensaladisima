@@ -1,23 +1,25 @@
 
 import React from 'react';
 import { imag } from '../imagenes';
+import "../styles/Card.css";
 
 const CarrouselEP = () => {
   return( 
     
-    <div class="container">
+    <div class="container mt-2">
 
         <div class="row">
-            <div class="col-6">
-                <h3 class="mb-3">Tus ultimas ensaladas</h3>
+            <div class="col-10">
+                <h3 class="mb-3" id="carrouselTitle">Tus ultimas ensaladas</h3>
             </div>
-            <div class="col-6 text-right">
-                <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
-                    <i class="fa fa-arrow-left"></i>
-                </a>
-                <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
-                    <i class="fa fa-arrow-right"></i>
-                </a>
+            
+            <div class="col-2 ml-2">
+                <button id="butonCarrouselMain" href="#carouselExampleIndicators2" data-slide="prev">
+                <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"></i>
+                </button>
+                <button id="butonCarrouselMain" href="#carouselExampleIndicators2" data-slide="next">
+                <i id="butonCarrousel" class="bi bi-arrow-right-circle-fill"></i>
+                </button>
             </div>
             <div class="col-12">
                 <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">

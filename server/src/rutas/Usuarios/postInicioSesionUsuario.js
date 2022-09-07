@@ -22,7 +22,7 @@ const auth = async (req, res) => {
 
     const authUser = await Usuarios.findOne({ email })
     if (authUser.activo !== true) {
-        res.send('Disculpa pero te encuentras bloqueado')
+        res.status(404).send('Disculpa pero te encuentras bloqueado')
     } else {
     Usuarios.findOne({ email }, (err, Usuarios) => {
         if (err) {

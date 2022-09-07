@@ -13,34 +13,77 @@ import collage from '../images/collage.png';
 import "../styles/Login.css"
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { PostLogeoUsuario } from "../action";
+import { PostLogeoUsuario, usuariosRegistrados } from "../action";
+import { useEffect } from "react";
 
 
-function Login() {
+  function validate(loginUser){
+  let error = {}
+  if(!loginUser.email) error.email = "Necesitas tu email para iniciar sesión"
+  if(!loginUser.password) error.password= "Necesitas tu contraseña para iniciar sesión"
+ // if(!usuarios.filter(e => e.email === loginUser.email))error.email = "No encontramos un perfil con ese email"
+  return error
+}
 
+ 
+ function Login() {
    const history = useNavigate();
-   const dispatch =  useDispatch();
-   const [loginUser, setLoginUser] = useState({
-        email:"",
-        password:""
-    });
+   const dispatch = useDispatch();
+   
   
-    const handleInput = (e) => {
-      setLoginUser({
-            ...loginUser,
-            [e.target.name]: e.target.value
+   const [loginUser, setLoginUser] = useState({
+     email:"",
+     password:""
+    });
+    const [error, setError] = useState({})
+      
+
+    
+    useEffect( () => {
+      dispatch(usuariosRegistrados())
+       
+    }, [dispatch])
+    
+    
+
+  const handleInput = (e) => {
+    setLoginUser({
+          ...loginUser,
+          [e.target.name]: e.target.value
         })
+    setError(validate({
+          ...loginUser,
+          [e.target.name]:e.target.value
+      }))
     }
-    const handleLogin = (e) => {
-      e.preventDefault();
-      dispatch(PostLogeoUsuario(loginUser));
-      alert('Bienvenido a ensaladisima')
-      setLoginUser({
-        email:"",
-        password:"",
-      });
+  const handleLogin = async(e) => {
+    e.preventDefault();
+    try{
+      if(error.email||error.password)  alert("Hay errores en los campos")
+    
+      else{
+  
+        const dispatchLog = await dispatch(PostLogeoUsuario(loginUser))
+        if(!dispatchLog) alert("Hay un error en el inicio de sesion") 
+        else{
+          alert('Bienvenido a ensaladísima')
+          localStorage.setItem("loguearUsuario", JSON.stringify(dispatchLog.payload))
+    setLoginUser({
+      email:"",
+      password:"",
+    });
       history("/menu")
+      window.location.reload()
+      }
+        }
+        
+    }catch(error){
+      console.log(error)
+      alert(error)
+    }
   }
+   
+  
   
   return (
     
@@ -65,14 +108,15 @@ function Login() {
             
             <form onSubmit={handleLogin}>
 
-            <MDBInput style={{border: "2px solid #207140"}} wrapperClass='mb-4 mx-5 w-100'name="email" value={loginUser.email} placeholder='Email address' id='formControlLg' type='email' size="lg" onChange={handleInput}/>
+            <MDBInput style={{border: "2px solid #207140"}} wrapperClass='mb-4 mx-5 w-100'name="email" value={loginUser.email} placeholder='Email' id='formControlLg' type='email' size="lg" onChange={handleInput}/>
+            {error.email && <p>{error.email}</p>}
             <MDBInput style={{border: "2px solid #207140"}} wrapperClass='mb-4 mx-5 w-100'name="password"value={loginUser.password}  placeholder='Password' id='formControlLg' type='password' size="lg" onChange={handleInput}/>
-
+            {error.password && <p>{error.password}</p>}
             <button type="submit" class="buttonChico2">Login</button>
             
             </form>
             <p className="small mb-5 pb-lg-3 ms-5"><a class="text-muted" href="#!">Forgot password?</a></p>
-            <p className='ms-5'>Don't have an account? <a href="/registro" class="link-info">Register here</a></p>
+            <p className='ms-5'>No tienes una cuenta? <a href="/registro" class="link-info">Registrate</a></p>
 
           </div>
 

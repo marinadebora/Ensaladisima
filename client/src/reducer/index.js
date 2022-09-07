@@ -1,5 +1,8 @@
+/* import { saladsBig } from "../action" */
+
 const initialState = {
   salads: [],
+  saladsBig:[],
   bases: [],
   proteins:[],
   complements:[],
@@ -21,10 +24,20 @@ function rootReducer( state = initialState, action )
         ...state,
         usuarios: action.payload
       }
+     case "VACIAR_U":
+      return{
+        ...state,
+        usuarios:[]
+      }
     case 'SALADS':
       return {
         ...state,
         salads: action.payload
+      }
+    case "SALADS_BIG":
+      return{
+        ...state,
+        saladsBig: action.payload
       }
     case 'BASES':
       return {
