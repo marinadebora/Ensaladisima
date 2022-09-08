@@ -6,7 +6,7 @@ import '../styles/Bases.css'
 
 export function Complement()
 {
-  const [complement, setComplement] = useLocalStorage('complement',[])
+  const [/* complement, */ setComplement] = useLocalStorage('complement',[])
     const allcomplements = useSelector(state => state.complements)
     let [form, setForm] = useState({
         complements: []
