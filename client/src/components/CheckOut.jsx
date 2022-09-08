@@ -28,15 +28,15 @@ export default function QuantityEdit()
   //para renderizar bebidas y postres desde localStorage
   let bebidas = JSON.parse(localStorage.getItem('bebidas'))
   let postres = JSON.parse(localStorage.getItem('postres'))
-  let beb=bebidas[0]
-  let post=postres[0]
+  let beb=bebidas?.[0]
+  let post=postres?.[0]
 
 
   //para renderizar ensaladas medianas desde localStorage
   let ensaladasMed = JSON.parse(localStorage.getItem('medianas'))
   let ensaladasGr = JSON.parse(localStorage.getItem('grandes'))
-  let med=ensaladasMed[0]
-  let gran=ensaladasGr[0]
+  let med=ensaladasMed?.[0]
+  let gran=ensaladasGr?.[0]
 
   // agregar cal carrito
   const agregar = (e)=>{
@@ -153,10 +153,10 @@ export default function QuantityEdit()
   let todosLosProductos = [beb,post,med,gran].flat()
   let total = todosLosProductos?.map(e => e?.price)
   let suma = total?.reduce((e, i) => e + i, 0)
-  /* console.log(todosLosProductos) */
+  console.log(todosLosProductos)
 
   let productosMap = todosLosProductos.map(item=>{
-    return [item._id,item]
+    return [item?._id,item]
   })
   let productosMapArr = new Map(productosMap)
   let unicos = [...productosMapArr.values()]
@@ -317,11 +317,11 @@ export default function QuantityEdit()
                               </MDBTypography>
                             </MDBCol>
                             <MDBCol md="3" lg="3" xl="3" className="d-flex align-items-center">
-                            <button onClick={(e)=>remove(e)} value={e._id} style={{border:'none',color:'#fff',fontWeight:"bolder", backgroundColor:'red', fontSize:'larger',width:'2rem', marginRight:'0.5rem'}}>
+                            <button onClick={(e)=>remove(e)} value={e?._id} style={{border:'none',color:'#fff',fontWeight:"bolder", backgroundColor:'red', fontSize:'larger',width:'2rem', marginRight:'0.5rem'}}>
                               -
                             </button>
-                              <MDBInput type="number" min="1" defaultValue={todosLosProductos?.filter(d=> d._id === e._id).length} size="sm"/>
-                              <button onClick={(e)=>agregar(e)} value={e._id} style={{border:'none',color:'#fff', backgroundColor:'green',width:'2rem', marginLeft:'0.5rem',fontSize:'larger'}}>
+                              <MDBInput type="number" min="1" defaultValue={todosLosProductos?.filter(d=> d?._id === e?._id).length} size="sm"/>
+                              <button onClick={(e)=>agregar(e)} value={e?._id} style={{border:'none',color:'#fff', backgroundColor:'green',width:'2rem', marginLeft:'0.5rem',fontSize:'larger'}}>
                               +
                             </button>
                             </MDBCol>
