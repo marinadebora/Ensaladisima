@@ -10,6 +10,8 @@ export function Complement()
     const allcomplements = useSelector(state => state.complements)
     let [form, setForm] = useState({
         complements: []
+      
+    
       })
   
       let handleChange = (event) =>
@@ -31,6 +33,7 @@ export function Complement()
           ...form,
           complements: form.complements.filter(e => e !== event)
         })
+        
       }
     
       return (
@@ -38,7 +41,7 @@ export function Complement()
     <div>
           <div id="checkboxContent" className="contain-bases" >
            
-            <h3 id="h3-bases">ELIGE TU BASE</h3>
+            <h3 id="h3-bases">ELIGE TUS COMPLEMENTOS (3)</h3>
               {
               allcomplements?.map(e => (
                 <div id="contain-bases-card" key={e._id}>
@@ -50,6 +53,7 @@ export function Complement()
               ))
             }
               <select onChange={(e) => handleChange(e)} disabled={form.complements?.length === 3 && true} class="form-select" aria-label="Default select example">
+              <option value="">seleccione</option>
                 {
                   allcomplements?.map(e => (
                   <option name={e.name} value={e.name}>{e.name}</option>
@@ -59,8 +63,8 @@ export function Complement()
              
               {form.complements?.map(e =>
                 <div >
-                  <h5>{e}
-                    <button onClick={() => handleDelete(e)} >X</button>
+                  <h5 class="badge text-bg-secondary">{e}
+                    <button class="btn btn-outline-success" onClick={() => handleDelete(e)} >X</button>
                   </h5>
                 </div>
               )} 

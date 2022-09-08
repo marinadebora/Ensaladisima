@@ -53,7 +53,7 @@ let ensalada={
 
 setForm({
   ...form,
-  proteinas: [...form.ensalada, ensalada],
+  ensalada: [...form.ensalada, ensalada],
 
 })
 setEnsaladaG([...ensaladaG,ensalada])
@@ -98,7 +98,7 @@ let medium = () =>
   
   setFormM({
     ...formM,
-    proteinas: [...formM.ensalada, ensalada],
+    ensalada: [...formM.ensalada, ensalada],
   
   })
   setEnsaladaM([...ensaladaM,ensalada])
@@ -150,7 +150,7 @@ let medium = () =>
               </div>
               <div class="row" id="addContent">
         <p class="col-3" id="textButtonAdd">Mediana</p>
-        <button onClick={medium} type="button" class="col-1" id="buttonAddG">
+        <button onClick={()=>medium()} type="button" class="col-1" id="buttonAddG">
           <i class="bi bi-plus-circle-fill"></i>
         </button>
 
