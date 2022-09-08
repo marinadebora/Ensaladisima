@@ -305,6 +305,8 @@ export function pedidoBig(payload) {
 	};
 }
 
+
+
 // ruta post de Bases
 export const postBases = (payload) => async () => {
 	let json = await axios.post("/bases", payload);
@@ -450,7 +452,7 @@ export function PostRegistroUsuario(payload){
 			const registrado = await axios.post("/registro", payload);
 			return dispatch({
 				type:"POST_REGISTRO",
-				payload: registrado
+				payload: registrado.data
 			})
 		}catch(error){
 			console.log({message:error.message})
@@ -468,6 +470,108 @@ export function PostLogeoUsuario(payload){
 			})
 		}catch(error){
 			console.log({message:error.message})
+		}
+	}
+}
+
+// me traigo todos los pedidos
+
+export function getPedidos(){
+	return async function(dispatch){
+		try {
+			const pedido = await axios.get("/pedidos")
+			return dispatch({
+				type: "PEDIDOS",
+				payload:pedido.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
+
+export function eliminarDelCarrito(value){
+	return async function(dispatch){
+		try {
+			const eliminar = await axios.put(`/eliminarDelPedido/`,value)
+			return dispatch({
+				type: "ELIMINAR_DEL_PEDIDO",
+				payload: eliminar.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
+
+export function agregarAlCarrito(value){
+	return async function(dispatch){
+		try {
+			const agregar = await axios.put(`/agregar/`,value)
+			return dispatch({
+				type: "AGREGAR_AL_PEDIDO",
+				payload: agregar.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
+
+// rutas para agregar del menu al carrito del usuario logueado
+
+export function menuGrande(value){
+	return async function(dispatch){
+		try {
+			const agregar = await axios.post(`/pedidomenubig`,value)
+			return dispatch({
+				type: "MENU_GRANDE",
+				payload: agregar.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
+
+export function menuMediano(value){
+	return async function(dispatch){
+		try {
+			const agregar = await axios.post(`/pedidomenu`,value)
+			return dispatch({
+				type: "MENU_MDIANO",
+				payload: agregar.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
+
+export function pedidoBebidaLogueado(value){
+	return async function(dispatch){
+		try {
+			const agregar = await axios.post(`/pedidobebida`,value)
+			return dispatch({
+				type: "PEDIDO_DE_BEBIDAS",
+				payload: agregar.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
+
+export function pedidoPostreLogueado(value){
+	return async function(dispatch){
+		try {
+			const agregar = await axios.post(`/pedidopostre`,value)
+			return dispatch({
+				type: "PEDIDO_DE_POSTRES",
+				payload: agregar.data
+			})
+		} catch (error) {
+			console.log(error)
 		}
 	}
 }

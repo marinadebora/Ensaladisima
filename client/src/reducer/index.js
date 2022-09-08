@@ -12,7 +12,8 @@ const initialState = {
   desserts:[],
   menu:[],
   pedidoBebidas:[],
-  usuarios:[]
+  usuarios:[],
+  pedidos:[]
 }
 
 
@@ -110,7 +111,36 @@ function rootReducer( state = initialState, action )
     case "POST_LOGEO":
       return{
         ...state
-          }    
+          }
+    case "PEDIDOS":
+      return{
+        ...state,
+        pedidos: action.payload
+      }
+    case "ELIMINAR_DEL_PEDIDO":
+      return {
+        ...state
+      }
+      case "AGREGAR_AL_PEDIDO":
+        return {
+          ...state
+        }
+      case "MENU_MDIANO":
+        return{
+          ...state
+        }
+      case "MENU_GRANDE":
+        return{
+          ...state
+        }
+      case "PEDIDO_DE_BEBIDAS":
+        return{
+          ...state
+        }
+        case "PEDIDO_DE_POSTRES":
+          return {
+            ...state
+          }
     default:
       return {
         state

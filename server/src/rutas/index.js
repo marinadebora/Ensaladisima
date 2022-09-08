@@ -53,6 +53,8 @@ const passport = require("passport");
 const { getMenuBig } = require("./MenuBig/getMenuBig");
 const postEnsaladaMediana = require("./EnsaladasMedianas/posEnsaladasMediana");
 const postEnsaladaGrande = require("./EnsaladasBigs/postEnsaladasBig");
+const agregarAlPedido = require("./Pedidos/agregarAlPedido");
+const postPedidoMenuBig = require("./Pedidos/postPedidoMenuBig");
 require("../../middlewares/google")
 
 
@@ -78,7 +80,9 @@ router.use('/pedidos', getPedidos)
 router.use('/pedidobebida', postPedidoBebida)
 router.use('/pedidopostre', postPedidoPostre)
 router.use('/pedidomenu', postPedidoMenu)
+router.use('/pedidomenubig', postPedidoMenuBig)
 router.use('/eliminarDelPedido', eliminarDelPedido)
+router.use('/agregar', agregarAlPedido )
 
 
 
