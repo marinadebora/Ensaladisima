@@ -5,7 +5,6 @@ import { complements, postBases, postBebidas, postComplementos, postMenu, postPo
 import BaseEdit, { BebidasEdit, ComplemetoEdit, MenuEdit, PostresEdit, ProteinaEdit, SalsasEdit, ToppingEdit } from "../components/AdminEdit";
 
 
-
 function validate(input) {
     let errors = {}
     if (!input.name) errors.name = "Campo Obligatorio"
@@ -216,7 +215,9 @@ export default function CrearProduto() {
             
 
             <div><Link to="/menu"><button>Volver</button></Link></div>
+
             <div><h1>Creá o editá tu producto!</h1></div>
+            
             <form onSubmit={handleSubmit}>
                 {/**SELECT PARA CREAR PRODUCTOS */}
                 <div>
@@ -305,7 +306,6 @@ export default function CrearProduto() {
                                     </div>
 
                                     <button type='submit'>Crear Postre</button></div>) :
-
 
                                     select === "base" ? (<div>
                                           {/**FORMULARIO PARA CREAR BASES */}

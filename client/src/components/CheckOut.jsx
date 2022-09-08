@@ -352,7 +352,6 @@ export default function QuantityEdit()
                           <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"> Volver a la tienda</i>
                         </Link>
                         
-
                       </div>
                     </div>
                   </MDBCol>
@@ -392,7 +391,6 @@ export default function QuantityEdit()
                         </MDBTypography>
                         <MDBTypography tag="h5">US$ {suma}</MDBTypography>
                       </div>
-
 
                       <Link class="buttonChico" to="/">Registrate</Link>
                       <Link class="buttonChico" to="/pago">Comprar</Link>
