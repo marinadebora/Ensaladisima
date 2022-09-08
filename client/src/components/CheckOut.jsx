@@ -12,7 +12,6 @@ import
     MDBRow,
     MDBTypography,
   } from "mdb-react-ui-kit";
-import { useLocalStorage } from '../useLocalStorage'
 import React from "react";
 
 import { Link/* , useParams  */} from 'react-router-dom';
@@ -27,15 +26,15 @@ import { eliminarDelCarrito, getPedidos, agregarAlCarrito } from "../action";
 export default function QuantityEdit()
 {
   //para renderizar bebidas y postres desde localStorage
-  let bebidas = useLocalStorage('bebidas', [])
-  let postres = useLocalStorage('postres', [])
+  let bebidas = JSON.parse(localStorage.getItem('bebidas'))
+  let postres = JSON.parse(localStorage.getItem('postres'))
   let beb=bebidas[0]
   let post=postres[0]
 
 
   //para renderizar ensaladas medianas desde localStorage
-  let ensaladasMed = useLocalStorage('medianas', [])
-  let ensaladasGr = useLocalStorage('grandes', [])
+  let ensaladasMed = JSON.parse(localStorage.getItem('medianas'))
+  let ensaladasGr = JSON.parse(localStorage.getItem('grandes'))
   let med=ensaladasMed[0]
   let gran=ensaladasGr[0]
 
