@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Home.css';
 import '../styles/Bases.css'
 import NavBarMenu from './NavBarMenu';
@@ -7,9 +7,9 @@ import Bebidas from './Bebidas';
 import Postres from './Postres';
 import ensaladaMediana from "../images/ensaladera.png";
 import ensaladaGrande from "../images/ensaladera.png";
-import { useEffect/* , useState  */} from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { salads,desserts,beverages, saladsBig } from "../action/index.js";
+import { salads,desserts,beverages, saladsBig, menuMediano, menuGrande, pedidoBebidaLogueado, pedidoPostreLogueado } from "../action/index.js";
 import "../styles/Menu.css";
 import CarrouselEP from './CarrouselEP';
 import { useLocalStorage } from '../useLocalStorage';
@@ -26,10 +26,11 @@ const Menu = () => {
   const allDesserts= useSelector(state=>state.desserts)
   const allBeverages = useSelector(state => state.beverages)
 
-const [medianas, setmeMedianas] = useLocalStorage ('medianas',[])
-const [grandes, setmeGrandes] = useLocalStorage ('grandes',[])
-const [dessert, setDessert] = useLocalStorage('postres',[])
-const [beverage, setBeverage] = useLocalStorage('bebidas',[])
+  const [medianas, setmeMedianas] = useLocalStorage ('medianas',[])
+  const [grandes, setmeGrandes] = useLocalStorage ('grandes',[])
+  const [dessert, setDessert] = useLocalStorage('postres',[])
+  const [beverage, setBeverage] = useLocalStorage('bebidas',[])
+  const [user, setUser] = useState(null)
 
 
   useEffect(() => {
@@ -37,26 +38,56 @@ const [beverage, setBeverage] = useLocalStorage('bebidas',[])
     dispatch(desserts())
     dispatch(beverages())
     dispatch(saladsBig())
+    if(localStorage.getItem('loguearUsuario')){
+      const usuario = JSON.parse(localStorage.getItem('loguearUsuario'))
+      setUser(usuario)
+    }
   }, [dispatch]);
   
   
   let medium=(name)=>{
-    let ensaladaM=allSalads.filter(e=>e.name===name)
-    setmeMedianas([...medianas,...ensaladaM])
+    if(!user){
+      let ensaladaM=allSalads.filter(e=>e.name===name)
+      setmeMedianas([...medianas,...ensaladaM])
+    }else{
+      dispatch(menuMediano(name))
+    }
+    
 
   }
   let big=(name)=>{
-    let ensaladaG=allSaladsBig.filter(e=>e.name===name)
-    setmeGrandes([...grandes,...ensaladaG])
+    if(!user){
+      let ensaladaG=allSaladsBig.filter(e=>e.name===name)
+      setmeGrandes([...grandes,...ensaladaG])
+    }else{
+      dispatch(menuGrande(name))
+    }
+    
   }
 
   let select=(name)=>{
-    let postre= allDesserts.filter(e=>e.name===name)
-  setDessert([...dessert,...postre])
+    if(!user){
+      let postre= allDesserts.filter(e=>e.name===name)
+      setDessert([...dessert,...postre])
+    }else{
+      let bebidaLogueado = allBeverages?.filter(e=>e.name===name?.bebidas)
+      console.log(name)
+      console.log(bebidaLogueado)
+      bebidaLogueado?.length ? dispatch(pedidoBebidaLogueado(name)) :/*  postrelogueado ?  */dispatch(pedidoPostreLogueado(name)) /* : alert('esta errado') */
+    }
+    
   let bebidas= allBeverages.filter(e=>e.name===name)
   setBeverage([...beverage,...bebidas])
-console.log(postre)
-console.log(bebidas)
+
+
+  // agregar al pedido cuando se esta logueado
+
+  /* let medina = (name)=>{
+    if(user){
+
+      dispatch(menuMediano(name))
+    }
+  } */
 
   }
   
@@ -91,8 +122,8 @@ console.log(bebidas)
               complement={e.complement}
               sauce={e.sauce}
               topping={e.topping}
-              medium={()=>medium(e.name)}
-              big={()=>big(e.name)}
+              medium={() => medium(!user?e.name:{usuario:user?.email,menu:e.name})}
+              big={()=>big(!user?e.name:{usuario:user?.email,menu:e.name})}
         />
             ))
           }
@@ -114,7 +145,7 @@ console.log(bebidas)
             image={e.image}
             name={e.name}
             price={e.price}
-            select={()=>select(e.name)}
+            select={()=>select(!user ? e.name:{usuario:user?.email, bebidas:e.name})}
             />
             ))
           }
@@ -135,7 +166,7 @@ console.log(bebidas)
               image={e.image}
               name={e.name}
               price={e.price}
-              select={()=>select(e.name)}
+              select={()=>select(!user?e.name:{usuario:user?.email,postres:e.name})}
               />
             ))
           }

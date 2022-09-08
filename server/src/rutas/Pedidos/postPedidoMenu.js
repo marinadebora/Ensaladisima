@@ -8,6 +8,7 @@ const postPedidoMenu = Router();
 postPedidoMenu.post("/", async (req,res,next)=>{
     
     const {menu, usuario} = req.body;
+    console.log({menu, usuario})
     try {
         const usuarios = await Usuarios.find({email:usuario})
         const buscar = await Menu.find({name:menu})
