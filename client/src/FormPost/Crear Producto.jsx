@@ -1,7 +1,8 @@
-import React, { useState} from "react";
-import { Link} from "react-router-dom";
-import { useDispatch} from "react-redux";
-import { postBases, postBebidas,postComplementos, postMenu, postPostres, postProteinas, postSalsas, postToppings } from "../action";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { complements, postBases, postBebidas, postComplementos, postMenu, postPostres, postProteinas, postSalsas, postToppings } from "../action";
+import BaseEdit, { BebidasEdit, ComplemetoEdit, MenuEdit, PostresEdit, ProteinaEdit, SalsasEdit, ToppingEdit } from "../components/AdminEdit";
 
 
 
@@ -37,12 +38,12 @@ function validateMenu(menu) {
 
 export default function CrearProduto() {
     const dispatch = useDispatch()
-    // const { } = useSelector(state => state)
-
     // const navigate = useNavigate()
     const seleccionar = ["base", "complemento", "proteina", "topping", "salsas", "postre", "bebidas", "menu"];
+    const seleccionarEdit = ["baseEdit", "complementoEdit", "proteinaEdit", "toppingEdit", "salsasEdit", "postreEdit", "bebidasEdit", "menuEdit"];
     const [select, setSelect] = useState("");
-    // let seleccion = [];
+    const [selectEdit, setSelectEdit] = useState("");
+    let { id } = useParams()
     const [input, setInput] = useState({
         name: "",
         image: "",
@@ -95,7 +96,7 @@ export default function CrearProduto() {
     function handleSubmit(e) {
         e.preventDefault()
         if (select === "bebidas") {
-            if (errors.name || errors.image || errors.price || errors.stock || !input.name || errorsIngredientes.name || errorsIngredientes.image || !ingredientes.name) {
+            if (errors.name || errors.image || errors.price || errors.stock || !input.name) {
                 alert("No se pudo crear la Bebida, por favor completa los campos")
             } else {
                 dispatch(postBebidas(input))
@@ -109,8 +110,8 @@ export default function CrearProduto() {
             }
 
         } else if (select === "postre") {
-            if (errors.name || errors.image || errors.price || errors.stock || !input.name || errorsIngredientes.name || errorsIngredientes.image || !ingredientes.name) {
-                alert("No se pudo crear la Bebida, por favor completa los campos")
+            if (errors.name || errors.image || errors.price || errors.stock || !input.name) {
+                alert("No se pudo crear el Postre, por favor completa los campos")
             } else {
                 dispatch(postPostres(input))
                 alert("Postre Creado")
@@ -195,16 +196,18 @@ export default function CrearProduto() {
             }
         }
 
-
-        // navigate("/menu")
-
     }
 
     function hanldeOnChangeSelect(e) {
         setSelect(e.target.value)
-        // seleccion.push(e.target.value)
     }
 
+    function hanldeOnChangeSelectEdit(e) {
+        setSelectEdit(e.target.value)
+    }
+    useEffect(() => {
+        dispatch(complements(id))
+    }, [dispatch, id])
 
 
     return (
@@ -221,11 +224,12 @@ export default function CrearProduto() {
             <br />
 
             <div><Link to="/menu"><button>Volver</button></Link></div>
-            <div><h1>Crear nuevo producto!</h1></div>
+            <div><h1>Creá o editá tu producto!</h1></div>
             <form onSubmit={handleSubmit}>
+                {/**SELECT PARA CREAR PRODUCTOS */}
                 <div>
                     <select onChange={hanldeOnChangeSelect}>
-                        <option value="">Seleccionar</option>
+                        <option value="">Seleccioná para Crear</option>
                         {seleccionar.map(e => {
                             return (
                                 <option>
@@ -234,8 +238,38 @@ export default function CrearProduto() {
                             )
                         })}
                     </select>
+                    {/**SELECT PARA EDITAR PRODUCTOS */}
+                    <div>
+
+                        <select onChange={hanldeOnChangeSelectEdit}>
+                            <option value="">Seleccioná para Editar</option>
+                            {seleccionarEdit.map(e => {
+                                return (
+                                    <option>
+                                        {e}
+                                    </option>
+                                )
+                            })}
+                        </select>
+                        <div>
+                             {/**RENDERIZADO DE LAS CARDS */}
+                            {
+                                selectEdit === "baseEdit" ? (<BaseEdit />) :
+                                    selectEdit === "complementoEdit" ? (<ComplemetoEdit />) :
+                                        selectEdit === "salsasEdit" ? (<SalsasEdit />) :
+                                            selectEdit === "proteinaEdit" ? (<ProteinaEdit />) :
+                                                selectEdit === "toppingEdit" ? (<ToppingEdit />) :
+                                                    selectEdit === "bebidasEdit" ? (<BebidasEdit />) :
+                                                        selectEdit === "postreEdit" ? (<PostresEdit />) :
+                                                            selectEdit === "menuEdit" ? (<MenuEdit />) : ""
+
+
+                            }
+                        </div>
+                    </div>
                 </div>
                 <div>
+                    {/**FORMULARIO PARA CREAR BEBIDAS */}
                     {
                         select === "" ? (<div><h2>selecciona el parametro que vas a crear</h2></div>) :
                             select === "bebidas" ? (<div>
@@ -248,17 +282,20 @@ export default function CrearProduto() {
                                     {errors.image && <p>{errors.image}</p>}
                                 </div>
                                 <div>
-                                    <label>Price: </label><input type="text" value={input.price} name="price" onChange={handleChange} />
+                                    <label>Price: </label><input type="number" value={input.price} name="price" onChange={handleChange} />
                                     {errors.price && <p>{errors.price}</p>}
                                 </div>
                                 <div>
-                                    <label>Stock: </label><input type="text" value={input.stock} name="stock" onChange={handleChange} />
+                                    <label>Stock: </label><input type="number" value={input.stock} name="stock" onChange={handleChange} />
                                     {errors.stock && <p>{errors.stock}</p>}
                                 </div>
 
                                 <button type='submit'>Crear Bebida</button>
                             </div>) :
+
+
                                 select === "postre" ? (<div><div>
+                                    {/**FORMULARIO PARA CREAR POSTRES */}
                                     <label>Nombre: </label><input type="text" value={input.name} name="name" onChange={handleChange} />
                                     {errors.name && <p>{errors.name}</p>}
                                 </div>
@@ -267,16 +304,19 @@ export default function CrearProduto() {
                                         {errors.image && <p>{errors.image}</p>}
                                     </div>
                                     <div>
-                                        <label>Price: </label><input type="text" value={input.price} name="price" onChange={handleChange} />
+                                        <label>Price: </label><input type="number" value={input.price} name="price" onChange={handleChange} />
                                         {errors.price && <p>{errors.price}</p>}
                                     </div>
                                     <div>
-                                        <label>Stock: </label><input type="text" value={input.stock} name="stock" onChange={handleChange} />
+                                        <label>Stock: </label><input type="number" value={input.stock} name="stock" onChange={handleChange} />
                                         {errors.stock && <p>{errors.stock}</p>}
                                     </div>
 
                                     <button type='submit'>Crear Postre</button></div>) :
+
+
                                     select === "base" ? (<div>
+                                          {/**FORMULARIO PARA CREAR BASES */}
                                         <div>
                                             <label>Nombre: </label><input type="text" value={ingredientes.name} name="name" onChange={handleChangeIngredientes} />
                                             {errorsIngredientes.name && <p>{errorsIngredientes.name}</p>}
@@ -287,7 +327,10 @@ export default function CrearProduto() {
                                         </div>
                                         <button type='submit'>Crear Base</button>
                                     </div>) :
+
+
                                         select === "complemento" ? (<div>
+                                             {/**FORMULARIO PARA CREAR COMPLEMENTOS */}
                                             <div>
                                                 <label>Nombre: </label><input type="text" value={ingredientes.name} name="name" onChange={handleChangeIngredientes} />
                                                 {errorsIngredientes.name && <p>{errorsIngredientes.name}</p>}
@@ -298,7 +341,10 @@ export default function CrearProduto() {
                                             </div>
                                             <button type='submit'>Crear Complemento</button>
                                         </div>) :
+
+
                                             select === "proteina" ? (<div>
+                                                 {/**FORMULARIO PARA CREAR PROTEINAS */}
                                                 <div>
                                                     <label>Nombre: </label><input type="text" value={ingredientes.name} name="name" onChange={handleChangeIngredientes} />
                                                     {errorsIngredientes.name && <p>{errorsIngredientes.name}</p>}
@@ -309,7 +355,10 @@ export default function CrearProduto() {
                                                 </div>
                                                 <button type='submit'>Crear Proteina</button>
                                             </div>) :
+
+
                                                 select === "topping" ? (<div>
+                                                     {/**FORMULARIO PARA CREAR TOPPING */}
                                                     <div>
                                                         <label>Nombre: </label><input type="text" value={ingredientes.name} name="name" onChange={handleChangeIngredientes} />
                                                         {errorsIngredientes.name && <p>{errorsIngredientes.name}</p>}
@@ -320,7 +369,10 @@ export default function CrearProduto() {
                                                     </div>
                                                     <button type='submit'>Crear Topping</button>
                                                 </div>) :
+
+
                                                     select === "salsas" ? (<div>
+                                                         {/**FORMULARIO PARA CREAR SALSAS */}
                                                         <div>
                                                             <label>Nombre: </label><input type="text" value={ingredientes.name} name="name" onChange={handleChangeIngredientes} />
                                                             {errorsIngredientes.name && <p>{errorsIngredientes.name}</p>}
@@ -331,7 +383,10 @@ export default function CrearProduto() {
                                                         </div>
                                                         <button type='submit'>Crear Salsas</button>
                                                     </div>) :
+
+
                                                         select === "menu" ? (<div>
+                                                             {/**FORMULARIO PARA CREAR MENU */}
                                                             <div>
                                                                 <label>Nombre: </label><input type="text" value={menu.name} name="name" onChange={handleChangeMenu} />
                                                                 {errorsMenu.name && <p>{errorsMenu.name}</p>}

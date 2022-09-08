@@ -10,6 +10,7 @@ const initialState = {
   toppings:[],
   beverages:[],
   desserts:[],
+  menu:[],
   pedidoBebidas:[],
   usuarios:[],
   pedidos:[]
@@ -74,6 +75,11 @@ function rootReducer( state = initialState, action )
         ...state,
         desserts: action.payload
       }
+      case "MENU":
+        return {
+          ...state,
+          menu: action.payload
+        }
     case 'PEDIDO_BEBIDAS':
       return {
         ...state,
