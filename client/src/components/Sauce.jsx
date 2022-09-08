@@ -5,7 +5,7 @@ import '../styles/Bases.css'
 
 export function Sauce () {
     const allSauces= useSelector(state=>state.sauces)
-    const [/* salsa, */ setSalsa] = useLocalStorage('salsa',[])
+    const [salsa, setSalsa] = useLocalStorage('salsa',[])
     let [form, setForm] = useState({
         sauces: []
       
@@ -22,7 +22,7 @@ export function Sauce () {
       
         })
         setSalsa([...form.sauces,info] )
-      
+        console.log(salsa)
       }
     
     

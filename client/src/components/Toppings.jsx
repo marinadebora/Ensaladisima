@@ -6,7 +6,7 @@ import '../styles/Bases.css'
 
 export function Toppings () {
     const allToppings= useSelector(state=>state.toppings)
-    const [/* topping, */ setTopping] = useLocalStorage('topping',[])
+    const [topping, setTopping] = useLocalStorage('topping',[])
 
     let [form, setForm] = useState({
         toppings: []
@@ -24,6 +24,7 @@ export function Toppings () {
       
         })
         setTopping([...form.toppings,event.target.value])
+        console.log(topping)
       }
     
     

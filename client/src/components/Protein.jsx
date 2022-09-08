@@ -5,8 +5,8 @@ import '../styles/Bases.css'
 import '../styles/Bases.css'
 
 export function Protein () {
+  const [proteinas, setProteinas] = useLocalStorage('proteinas',[])
     const allProteins= useSelector(state=>state.proteins)
-    const [/* proteinas, */ setProteinas] = useLocalStorage('proteinas',[])
     let [form, setForm] = useState({
         proteinas: []
       })
@@ -23,8 +23,8 @@ export function Protein () {
           proteinas: [...form.proteinas, event.target.value],
       
         })
-        setProteinas([...form.proteinas,event.target.value])
-      
+        setProteinas([...form.proteinas, event.target.value])
+        console.log(proteinas)
       }
     
     
@@ -64,8 +64,8 @@ export function Protein () {
              
               {form.proteinas?.map(e =>
                 <div >
-                  <h5 class="badge text-bg-secondary">{e}
-                    <button class="btn btn-outline-success" onClick={() => handleDelete(e)} >X</button>
+                  <h5 >{e}
+                    <button onClick={() => handleDelete(e)} >X</button>
                   </h5>
                 </div>
               )} 
