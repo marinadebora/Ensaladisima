@@ -9,11 +9,11 @@ import Registro from './components/Registro';
 import Profile from './components/Profile';
 import Contacto from './components/Contacto';
 import { PideTuEnsalada } from './components/PideTuEnsalada';
-import AdminEdit from './components/AdminEdit';
 import CrearProduto from './FormPost/Crear Producto';
 import Login from './components/Login';
 import BaseEdit from './FormPut/putBases';
 import Admin from './components/Admin';
+import AdminEdit from './components/AdminEdit';
 import Pago from './components/Pago';
 
 

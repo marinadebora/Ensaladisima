@@ -5,10 +5,10 @@ const registro = Router()
 
 registro.post('/', async (req,res,next)=>{
     const {firstName, lastName, email, password,adress, phone} = req.body;
-    console.log("llego a la ruta")
+    
     try {
         const errorUsuario =await Usuarios.findOne({email}) 
-        console.log(errorUsuario)
+        
         if(errorUsuario) res.status(404).send("el usuario ya existe")
         else{const user = new Usuarios({firstName, lastName, email, password, adress, phone})
         

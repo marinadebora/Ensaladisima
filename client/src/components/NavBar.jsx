@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/NavBar.css';
 import Logo from "../images/ensaladisimaLogo1.png";
 import { Link } from 'react-router-dom';
@@ -6,9 +6,47 @@ import { Link } from 'react-router-dom';
 
 
 const NavBar = () => {
+
+
+  const [user,setUser] = useState(null)
+
+  useEffect(()=>{
+    if(localStorage.getItem('loguearUsuario')){
+      const users = JSON.parse(localStorage.getItem('loguearUsuario'))
+      setUser(users)
+    }    
+  },[])
+  
+  const logOut =()=>{ 
+    localStorage.removeItem("loguearUsuario")
+    window.location.reload()
+  }
+  const logeado = ()=>{
+    return (
+                <div style={{display : "flex", flexdirection: "row" }}>
+                  <Link to="/profile" class="nav-link-Main">
+                      <i class="bi bi-person-circle"></i>  </Link>
+                
+                  <Link to="/profile" class="nav-link-Main"><p>Hola {user.firstName}</p></Link>
+                  <button onClick={logOut}> Cerrar sesión</button>
+                </div> 
+        
+      )
+  }
+
+  const noLogeado=()=>{
+    return(
+   
+        <Link to="/login" class="nav-link-Main">
+          <p id='logInText'> Inicia sesión</p>
+        </Link>
+
+    )
+  }
+
   return (
     <div>
-
+   
   <nav id="navBarMain" class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
       
@@ -32,13 +70,10 @@ const NavBar = () => {
           <span class="badge rounded-pill badge-notification" >2</span>
         </Link> 
 
-        <Link to="/profile" class="nav-link-Main">
-          <i class="bi bi-person-circle"></i>
-        </Link>
-
-        <Link to="/login" class="nav-link-Main">
-          <p id='logInText'> LOGIN</p>
-        </Link>
+        
+        
+        {!user?noLogeado():logeado()}
+        
       </div>
     </div>
 

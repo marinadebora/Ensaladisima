@@ -1,5 +1,8 @@
+/* import { saladsBig } from "../action" */
+
 const initialState = {
   salads: [],
+  saladsBig:[],
   bases: [],
   proteins:[],
   complements:[],
@@ -7,8 +10,10 @@ const initialState = {
   toppings:[],
   beverages:[],
   desserts:[],
+  menu:[],
   pedidoBebidas:[],
-  usuarios:[]
+  usuarios:[],
+  pedidos:[]
 }
 
 
@@ -20,10 +25,20 @@ function rootReducer( state = initialState, action )
         ...state,
         usuarios: action.payload
       }
+     case "VACIAR_U":
+      return{
+        ...state,
+        usuarios:[]
+      }
     case 'SALADS':
       return {
         ...state,
         salads: action.payload
+      }
+    case "SALADS_BIG":
+      return{
+        ...state,
+        saladsBig: action.payload
       }
     case 'BASES':
       return {
@@ -60,6 +75,11 @@ function rootReducer( state = initialState, action )
         ...state,
         desserts: action.payload
       }
+      case "MENU":
+        return {
+          ...state,
+          menu: action.payload
+        }
     case 'PEDIDO_BEBIDAS':
       return {
         ...state,
@@ -91,8 +111,36 @@ function rootReducer( state = initialState, action )
     case "POST_LOGEO":
       return{
         ...state
-          }    
-
+          }
+    case "PEDIDOS":
+      return{
+        ...state,
+        pedidos: action.payload
+      }
+    case "ELIMINAR_DEL_PEDIDO":
+      return {
+        ...state
+      }
+      case "AGREGAR_AL_PEDIDO":
+        return {
+          ...state
+        }
+      case "MENU_MDIANO":
+        return{
+          ...state
+        }
+      case "MENU_GRANDE":
+        return{
+          ...state
+        }
+      case "PEDIDO_DE_BEBIDAS":
+        return{
+          ...state
+        }
+        case "PEDIDO_DE_POSTRES":
+          return {
+            ...state
+          }
     default:
       return {
         state
