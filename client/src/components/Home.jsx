@@ -46,7 +46,7 @@ const Home = () => {
                   <p id="texto2">
                   </p>
                 </div>
-                <div class="col">
+                <div class="col" id="videoMain">
                   <video  id="video" src={video} autoPlay loop muted/> 
                 </div>
                 <div class="col" id="cuadradoText2">

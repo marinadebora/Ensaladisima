@@ -2,7 +2,7 @@ import React, { useState} from "react";
 import { Link} from "react-router-dom";
 import { useDispatch} from "react-redux";
 import { postBases, postBebidas,postComplementos, postMenu, postPostres, postProteinas, postSalsas, postToppings } from "../action";
-
+import '../styles/CrearProducto.css';
 
 
 function validate(input) {
@@ -210,18 +210,10 @@ export default function CrearProduto() {
     return (
         <div>
             <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
+            
 
             <div><Link to="/menu"><button>Volver</button></Link></div>
-            <div><h1>Crear nuevo producto!</h1></div>
+            <h1 id="formTitle">Que producto vas a crear?</h1>
             <form onSubmit={handleSubmit}>
                 <div>
                     <select onChange={hanldeOnChangeSelect}>
@@ -237,7 +229,7 @@ export default function CrearProduto() {
                 </div>
                 <div>
                     {
-                        select === "" ? (<div><h2>selecciona el parametro que vas a crear</h2></div>) :
+                        select === "" ? (<div><h2 id="formSubtitle">selecciona el parametro que vas a crear</h2></div>) :
                             select === "bebidas" ? (<div>
                                 <div>
                                     <label>Nombre: </label><input type="text" value={input.name} name="name" onChange={handleChange} />
@@ -256,7 +248,7 @@ export default function CrearProduto() {
                                     {errors.stock && <p>{errors.stock}</p>}
                                 </div>
 
-                                <button type='submit'>Crear Bebida</button>
+                                <button class="buttonFormAdmin" type='submit'>Crear Bebida</button>
                             </div>) :
                                 select === "postre" ? (<div><div>
                                     <label>Nombre: </label><input type="text" value={input.name} name="name" onChange={handleChange} />
@@ -275,7 +267,7 @@ export default function CrearProduto() {
                                         {errors.stock && <p>{errors.stock}</p>}
                                     </div>
 
-                                    <button type='submit'>Crear Postre</button></div>) :
+                                    <button class="buttonFormAdmin" type='submit'>Crear Postre</button></div>) :
                                     select === "base" ? (<div>
                                         <div>
                                             <label>Nombre: </label><input type="text" value={ingredientes.name} name="name" onChange={handleChangeIngredientes} />
@@ -285,7 +277,7 @@ export default function CrearProduto() {
                                             <label >Imagen(link):</label><input type="url" value={ingredientes.image} name="image" onChange={handleChangeIngredientes} />
                                             {errorsIngredientes.image && <p>{errorsIngredientes.image}</p>}
                                         </div>
-                                        <button type='submit'>Crear Base</button>
+                                        <button class="buttonFormAdmin" type='submit'>Crear Base</button>
                                     </div>) :
                                         select === "complemento" ? (<div>
                                             <div>
@@ -296,7 +288,7 @@ export default function CrearProduto() {
                                                 <label >Imagen(link):</label><input type="url" value={ingredientes.image} name="image" onChange={handleChangeIngredientes} />
                                                 {errorsIngredientes.image && <p>{errorsIngredientes.image}</p>}
                                             </div>
-                                            <button type='submit'>Crear Complemento</button>
+                                            <button class="buttonFormAdmin" type='submit'>Crear Complemento</button>
                                         </div>) :
                                             select === "proteina" ? (<div>
                                                 <div>
@@ -307,7 +299,7 @@ export default function CrearProduto() {
                                                     <label >Imagen(link):</label><input type="url" value={ingredientes.image} name="image" onChange={handleChangeIngredientes} />
                                                     {errorsIngredientes.image && <p>{errorsIngredientes.image}</p>}
                                                 </div>
-                                                <button type='submit'>Crear Proteina</button>
+                                                <button class="buttonFormAdmin" type='submit'>Crear Proteina</button>
                                             </div>) :
                                                 select === "topping" ? (<div>
                                                     <div>
@@ -318,7 +310,7 @@ export default function CrearProduto() {
                                                         <label >Imagen(link):</label><input type="url" value={ingredientes.image} name="image" onChange={handleChangeIngredientes} />
                                                         {errorsIngredientes.image && <p>{errorsIngredientes.image}</p>}
                                                     </div>
-                                                    <button type='submit'>Crear Topping</button>
+                                                    <button class="buttonFormAdmin" type='submit'>Crear Topping</button>
                                                 </div>) :
                                                     select === "salsas" ? (<div>
                                                         <div>
@@ -329,7 +321,7 @@ export default function CrearProduto() {
                                                             <label >Imagen(link):</label><input type="url" value={ingredientes.image} name="image" onChange={handleChangeIngredientes} />
                                                             {errorsIngredientes.image && <p>{errorsIngredientes.image}</p>}
                                                         </div>
-                                                        <button type='submit'>Crear Salsas</button>
+                                                        <button class="buttonFormAdmin" type='submit'>Crear Salsas</button>
                                                     </div>) :
                                                         select === "menu" ? (<div>
                                                             <div>
@@ -363,7 +355,7 @@ export default function CrearProduto() {
                                                             </div>
 
 
-                                                            <button type='submit'>Crear Menu</button>
+                                                            <button class="buttonFormAdmin" type='submit'>Crear Menu</button>
                                                         </div>) :
                                                             (<div><h2>Selecciona el parametro que vas a crear</h2></div>)
 
