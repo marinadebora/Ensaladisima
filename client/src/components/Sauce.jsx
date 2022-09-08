@@ -5,7 +5,7 @@ import '../styles/Bases.css'
 
 export function Sauce () {
     const allSauces= useSelector(state=>state.sauces)
-    const [/* salsa, */ setSalsa] = useLocalStorage('salsa',[])
+    const [salsa, setSalsa] = useLocalStorage('salsa',[])
     let [form, setForm] = useState({
         sauces: []
       
@@ -15,24 +15,25 @@ export function Sauce () {
       let handleChange = (event) =>
       {
         event.preventDefault()
-    
+    let info=event.target.value
         setForm({
           ...form,
-          sauces: [...form.sauces, event.target.value],
+          sauces: [...form.sauces,info ],
       
         })
-        setSalsa([...form.sauces,event.target.value])
+        setSalsa([...form.sauces,info] )
       
       }
     
     
       const handleDelete = (event) =>
       {
+        
         setForm({
           ...form,
           sauces: form.sauces.filter(e => e !== event)
         })
-        setSalsa([...form.sauces,event.target.value])
+        
       }
    
       return (
@@ -40,7 +41,7 @@ export function Sauce () {
     <div>
           <div id="checkboxContent" className="contain-bases" >
            
-            <h3 id="h3-bases">ELIGE TU BASE</h3>
+            <h3 id="h3-bases">ELIGE TUS SALSAS (4)</h3>
               {
               allSauces?.map(e => (
                 <div id="contain-bases-card" key={e._id}>
@@ -52,6 +53,7 @@ export function Sauce () {
               ))
             }
               <select onChange={(e) => handleChange(e)} disabled={form.sauces?.length === 4 && true} class="form-select" aria-label="Default select example">
+              <option value="">seleccione</option>
                 {
                   allSauces?.map(e => (
                   <option name={e.name} value={e.name}>{e.name}</option>
@@ -61,8 +63,8 @@ export function Sauce () {
              
               {form.sauces?.map(e =>
                 <div >
-                  <h5>{e}
-                    <button onClick={() => handleDelete(e)} >X</button>
+                  <h5 class="badge text-bg-secondary">{e}
+                    <button class="btn btn-outline-success" onClick={() => handleDelete(e)} >X</button>
                   </h5>
                 </div>
               )} 
