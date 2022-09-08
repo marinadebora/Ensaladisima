@@ -9,7 +9,6 @@ import Registro from './components/Registro';
 import Profile from './components/Profile';
 import Contacto from './components/Contacto';
 import { PideTuEnsalada } from './components/PideTuEnsalada';
-import AdminEdit from './components/AdminEdit';
 import CrearProduto from './FormPost/Crear Producto';
 import Login from './components/Login';
 import BaseEdit from './FormPut/putBases';
@@ -27,6 +26,7 @@ function App() {
       <Routes>
 
         <Route exact path= '/' element={<Home/>}/>
+
         <Route exact path= '/menu' element={<Menu/>}/>
         <Route exact path= '/pideTuEnsalada' element={<PideTuEnsalada />}/>
         <Route exact path= '/checkout' element={<CheckOut/>}/>
