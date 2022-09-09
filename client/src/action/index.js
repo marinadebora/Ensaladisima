@@ -588,4 +588,23 @@ export function contactForm(value){
 			console.log(error)
 		}
 	}
+
+export function crearLocalStorage(value){
+	return async function(dispatch){
+		const cargar = await axios.post('/crearLocalStorage',value)
+		return dispatch({
+			type: 'CARGA_LOCAL',
+			payload: cargar.data
+		})
+	}
+}
+
+export function putPedidocargarPedido(value){
+	return async function(dispatch){
+		const cargarPedido = await axios.put('/cargarPedido', value)
+		return dispatch({
+			type: 'CARGAR_PEDIDO_DEL_LOCAL', payload: cargarPedido.data
+		})
+	} 
+
 }

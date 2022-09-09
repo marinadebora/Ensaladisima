@@ -11,7 +11,7 @@ const PedidosSchema = new Schema({
     desserts:[{type: Schema.Types.ObjectId, ref:"desserts"}],
     totalPayable: { type: Number, default: 0},
     delievery: { type: Boolean, default :true},
-    adress: { type: String },
+    adress: { type: String, default: ''},
 })
 
 module.exports = mongoose.model("Pedidos", PedidosSchema)
