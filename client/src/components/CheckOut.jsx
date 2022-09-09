@@ -31,24 +31,34 @@ export default function QuantityEdit()
   let beb=bebidas?.[0]
   let post=postres?.[0]
 
-
-  //para renderizar ensaladas medianas desde localStorage
+  //para renderizar ensaladas  desde localStorage
   let ensaladasMed = JSON.parse(localStorage.getItem('medianas'))
   let ensaladasGr = JSON.parse(localStorage.getItem('grandes'))
   let med=ensaladasMed?.[0]
   let gran=ensaladasGr?.[0]
 
+   //para renderizar ensaladas creadas  desde localStorage
+   let ensaladaCreadaM = JSON.parse(localStorage.getItem('ensaladaM'))
+   let ensaladaCreadaG = JSON.parse(localStorage.getItem('ensaladaG'))
+   let creadaM=ensaladaCreadaM?.[0]
+   let creadaG=ensaladaCreadaG?.[0]
+   console.log(creadaM)
+   console.log(ensaladaCreadaG)
   // agregar cal carrito
   const agregar = (e)=>{
     const buscarMed = JSON.parse(localStorage.getItem('medianas'))
     const buscarBig = JSON.parse(localStorage.getItem('grandes'))
     const buscarBebidas = JSON.parse(localStorage.getItem('bebidas'))
     const buscarPostres = JSON.parse(localStorage.getItem('postres'))
+    const buscarEnsaladaM = JSON.parse(localStorage.getItem('ensaladaM'))
+    const buscarEnsaladaG = JSON.parse(localStorage.getItem('ensaladaG'))
 
     const filtroMed = buscarMed?.find(a => a._id === e.target.value )
     const filtroBig = buscarBig?.find(a => a._id === e.target.value )
     const filtroBebida = buscarBebidas?.find(a => a._id === e.target.value )
     const filtropostre = buscarPostres?.find(a => a._id === e.target.value )
+    const filtroEnsaladaM = buscarEnsaladaM?.find(a => a._id === e.target.value )
+    const filtroEnsaladaG = buscarEnsaladaG?.find(a => a._id === e.target.value )
 
     if(filtroMed){
       const agregar = buscarMed?.push(filtroMed)
@@ -71,6 +81,18 @@ export default function QuantityEdit()
       localStorage.setItem('postres', JSON.stringify(buscarPostres))
       window.location.reload(false)
     }
+    else if(filtroEnsaladaM){
+      const agregar = buscarEnsaladaM?.push(filtroEnsaladaM)
+      console.log(agregar)
+      localStorage.setItem('ensaladaM', JSON.stringify(buscarEnsaladaM))
+      window.location.reload(false)
+    }
+    else if(filtroEnsaladaG){
+      const agregar = buscarEnsaladaG?.push(filtroEnsaladaG)
+      console.log(agregar)
+      localStorage.setItem('ensaladaG', JSON.stringify(buscarEnsaladaG))
+      window.location.reload(false)
+    }
   }
 
   // eleiminar del carrito
@@ -80,12 +102,17 @@ export default function QuantityEdit()
     const buscarBig = JSON.parse(localStorage.getItem('grandes'))
     const buscarBebidas = JSON.parse(localStorage.getItem('bebidas'))
     const buscarPostres = JSON.parse(localStorage.getItem('postres'))
+    const buscarEnsaladaM = JSON.parse(localStorage.getItem('ensaladaM'))
+    const buscarEnsaladaG = JSON.parse(localStorage.getItem('ensaladaG'))
+
     
     const filtroMed = buscarMed?.find(a => a._id === e.target.value )
     const filtroBig = buscarBig?.find(a => a._id === e.target.value )
     const filtroBebida = buscarBebidas?.find(a => a._id === e.target.value )
     const filtropostre = buscarPostres?.find(a => a._id === e.target.value )
-    
+    const filtroEnsaladaM = buscarEnsaladaM?.find(a => a._id === e.target.value )
+    const filtroEnsaladaG = buscarEnsaladaG?.find(a => a._id === e.target.value )
+
     if(filtroMed){
       const borrar = buscarMed?.splice(buscarMed?.indexOf(filtroMed), 1)
       console.log(borrar)
@@ -105,6 +132,16 @@ export default function QuantityEdit()
       const borrar = buscarPostres?.splice(buscarPostres?.indexOf(filtropostre), 1)
       console.log(borrar)
       localStorage.setItem('postres', JSON.stringify(buscarPostres))
+      window.location.reload(false)
+    }else if(filtroEnsaladaM){
+      const borrar = buscarEnsaladaM?.splice(buscarEnsaladaM?.indexOf(filtroEnsaladaM), 1)
+      console.log(borrar)
+      localStorage.setItem('ensaladaM', JSON.stringify(buscarEnsaladaM))
+      window.location.reload(false)
+    }else if(filtroEnsaladaG){
+      const borrar = buscarEnsaladaG?.splice(buscarEnsaladaG?.indexOf(filtroEnsaladaG), 1)
+      console.log(borrar)
+      localStorage.setItem('ensaladaG', JSON.stringify(buscarEnsaladaG))
       window.location.reload(false)
     }
   }
@@ -150,17 +187,18 @@ export default function QuantityEdit()
   let unicosInicio = [...productosMapArrInicio.values()]
 
   //unir todos los productos
-  let todosLosProductos = [beb,post,med,gran].flat()
-  let total = todosLosProductos?.map(e => e?.price)
-  let suma = total?.reduce((e, i) => e + i, 0)
-  console.log(todosLosProductos)
-
+  let todosLosProductos = [beb,post,med,gran,creadaM,creadaG].flat()
   let productosMap = todosLosProductos.map(item=>{
     return [item?._id,item]
   })
   let productosMapArr = new Map(productosMap)
   let unicos = [...productosMapArr.values()]
 
+  let productosReales=unicos.filter(e=>e!==undefined&&e!==null)
+  let total = productosReales?.map(e => e?.price)
+  let suma = total?.reduce((e, i) => e + i, 0)
+
+  console.log(suma)
   return (
     <div>
     {user ? user?.orders[0] ?(
@@ -206,7 +244,7 @@ export default function QuantityEdit()
                             </MDBCol>
                             <MDBCol md="3" lg="2" xl="2" className="text-end">
                               <MDBTypography tag="h6" className="mb-0">
-                                US$ {e?.price ? e?.price : e?.median}
+                                US$ {e?.price /* ? e?.price : e?.median */}
                               </MDBTypography>
                             </MDBCol>
                             <MDBCol md="2" lg="1" xl="1" className="text-end">
@@ -296,12 +334,12 @@ export default function QuantityEdit()
                           Pedido
                         </MDBTypography>
                         {
-                          todosLosProductos && <MDBTypography className="mb-0 text-muted">{todosLosProductos.length} Productos  </MDBTypography>
+                          productosReales && <MDBTypography className="mb-0 text-muted">{productosReales.length} Productos  </MDBTypography>
                         }
                       </div>
                       <hr className="my-4" />
                       {
-                        unicos?.map(e => (
+                        productosReales?.map(e => (
                           <MDBRow className="mb-4 d-flex justify-content-between align-items-center">
                             <MDBCol md="2" lg="2" xl="2">
                               <MDBCardImage
@@ -320,14 +358,14 @@ export default function QuantityEdit()
                             <button onClick={(e)=>remove(e)} value={e?._id} style={{border:'none',color:'#fff',fontWeight:"bolder", backgroundColor:'red', fontSize:'larger',width:'2rem', marginRight:'0.5rem'}}>
                               -
                             </button>
-                              <MDBInput type="number" min="1" defaultValue={todosLosProductos?.filter(d=> d?._id === e?._id).length} size="sm"/>
+                              <MDBInput type="number" min="1" defaultValue={productosReales?.filter(d=> d?._id === e?._id).length} size="sm"/>
                               <button onClick={(e)=>agregar(e)} value={e?._id} style={{border:'none',color:'#fff', backgroundColor:'green',width:'2rem', marginLeft:'0.5rem',fontSize:'larger'}}>
                               +
                             </button>
                             </MDBCol>
                             <MDBCol md="3" lg="2" xl="2" className="text-end">
                               <MDBTypography tag="h6" className="mb-0">
-                                US$ {e?.price ? e?.price : e?.median}
+                                US$ {e?.price}
                               </MDBTypography>
                             </MDBCol>
                             <MDBCol md="2" lg="1" xl="1" className="text-end">
@@ -362,7 +400,7 @@ export default function QuantityEdit()
                       <hr className="my-4" />
                       <div className="d-flex justify-content-between mb-4">
                         <MDBTypography tag="h5" className="text-uppercase">
-                          {todosLosProductos.length} Productos
+                          {productosReales.length} Productos
                         </MDBTypography>
                         <MDBTypography tag="h5">US$ {suma}</MDBTypography>
                       </div>

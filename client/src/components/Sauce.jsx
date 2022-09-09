@@ -53,7 +53,7 @@ export function Sauce () {
               ))
             }
               <select onChange={(e) => handleChange(e)} disabled={form.sauces?.length === 4 && true} class="form-select" aria-label="Default select example">
-              <option value="">seleccione</option>
+              <option value=""disabled>seleccione</option>
                 {
                   allSauces?.map(e => (
                   <option name={e.name} value={e.name}>{e.name}</option>

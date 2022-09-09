@@ -54,7 +54,7 @@ export function Toppings () {
               ))
             }
               <select onChange={(e) => handleChange(e)} disabled={form.toppings?.length === 5 && true} class="form-select" aria-label="Default select example">
-              <option value="">seleccione</option>
+              <option value=""disabled>seleccione</option>
                 {
                   allToppings?.map(e => (
                   <option name={e.name} value={e.name}>{e.name}</option>

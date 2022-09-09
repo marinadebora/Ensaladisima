@@ -41,12 +41,13 @@ let salsa=JSON.parse(localStorage.getItem('salsa'))
 let topping=JSON.parse(localStorage.getItem('topping'))
 
 let ensalada={  
+  id_:2,
   base:base,
   proteinas:proteinas,
   complement:complement,
   salsa:salsa,
   topping:topping,
-  price:[precioM,precioG],
+  price:precioG,
   image:img,
   name:'Tu Ensalada'
 }
@@ -58,7 +59,7 @@ setForm({
 })
 setEnsaladaG([...ensaladaG,ensalada])
 
-  navigate("/checkout");
+  navigate("/cargando");
   Swal.fire({
     position: 'top-end',
     icon: 'success',
@@ -86,12 +87,13 @@ let medium = () =>
   let topping=JSON.parse(localStorage.getItem('topping'))
   
   let ensalada={  
+    _id:1,
     base:base,
     proteinas:proteinas,
     complement:complement,
     salsa:salsa,
     topping:topping,
-    price:[precioM,precioG],
+    price:precioM,
     image:img,
     name:'Tu Ensalada'
   }
@@ -103,7 +105,7 @@ let medium = () =>
   })
   setEnsaladaM([...ensaladaM,ensalada])
   
-    navigate("/checkout");
+    navigate("/cargando");
     Swal.fire({
       position: 'top-end',
       icon: 'success',
