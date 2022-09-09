@@ -54,7 +54,7 @@ export function Protein () {
               ))
             }
               <select onChange={(e) => handleChange(e)} disabled={form.proteinas?.length === 2 && true} class="form-select" aria-label="Default select example">
-              <option value="">seleccione</option>
+              <option value=""disabled>seleccione</option>
                 {
                   allProteins?.map(e => (
                   <option name={e.name} value={e.name}>{e.name}</option>
