@@ -7,13 +7,13 @@ import Footer from './components/Footer';
 import CheckOut from './components/CheckOut';
 import Registro from './components/Registro';
 import Profile from './components/Profile';
-import Contacto from './components/Contacto';
+import ContactForm from './components/ContactForm';
 import { PideTuEnsalada } from './components/PideTuEnsalada';
-import CrearProduto from './FormPost/Crear Producto';
-import Login from './components/Login';
+import AdminProductos from './components/AdminProductos';
+import AdminOrdenes from './components/AdminOrdenes';
+import AdminUsuarios from './components/AdminUsuarios';
 import BaseEdit from './FormPut/putBases';
-import Admin from './components/Admin';
-import AdminEdit from './components/AdminEdit';
+import Login from './components/Login';
 import Pago from './components/Pago';
 
 
@@ -35,16 +35,15 @@ function App() {
         <Route exact path= '/login' element={<Login/>}/>
         <Route exact path= '/registro' element={<Registro/>}/>
         <Route exact path= '/profile' element={<Profile/>}/>
-        <Route exact path= '/contacto' element={<Contacto/>}/>
+        <Route exact path= '/contacto' element={<ContactForm/>}/>
         
 
         {/* rutas para administador */}
-        <Route exact path= '/admin' element={<Admin />}/>
-        <Route path= '/admincrear' element={<CrearProduto/>}/>  
-        <Route path= '/adminedit' element={<AdminEdit/>}/>
-        <Route path= '/adminedit/:_id' element={<BaseEdit/>}/>
-
-
+        <Route exact path= '/admin_productos' element={<AdminProductos />}/>
+        <Route exact path= '/admin_ordenes' element={<AdminOrdenes />}/>
+        <Route exact path= '/admin_usuarios' element={<AdminUsuarios />}/>
+        <Route path= '/adminedit/:id' element={<BaseEdit/>}/>
+        
       </Routes>
 
       <Footer/>

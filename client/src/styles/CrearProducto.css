@@ -27,6 +27,10 @@ select{
     border: 1px solid #207140;
 }
 
+#SelectCrearEdit{
+    float: right;
+}
+
 label{
     font-family: Tommy-light;
     color: #207140;
@@ -63,4 +67,21 @@ input{
 
 .errors{
     color: red;
+}
+
+#formEdit{
+    float: left;
+    margin-right: 0px;
+    margin-bottom: 10rem;
+}
+
+#grillaEditCard{
+   float: right;
+}
+
+#grillaEditCardContent{
+display: flex;
+justify-content: flex-start;
+position: relative;
+flex-wrap: wrap;
 }

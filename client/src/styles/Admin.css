@@ -7,7 +7,7 @@
 }
 
 #sideBar{
-    height: 1000px;
+    height: auto;
     padding-top:150px;
     background-color: #FABB4E;
 }
@@ -15,7 +15,7 @@
 #adminContent{
     
     background-color: transparent;
-    height: auto;
+    min-height: 100vh;
     padding-top:100px;
 }
 
@@ -51,6 +51,7 @@
 }
 
 #butonSideBarAdmin{
+    text-decoration: none;
     border: none;
     background-color: transparent;
 }
@@ -64,3 +65,6 @@
     
    
 }
+
+
+

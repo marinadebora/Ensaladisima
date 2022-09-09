@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { complements, postBases, postBebidas, postComplementos, postMenu, postPostres, postProteinas, postSalsas, postToppings } from "../action";
 import BaseEdit, { BebidasEdit, ComplemetoEdit, MenuEdit, PostresEdit, ProteinaEdit, SalsasEdit, ToppingEdit } from "../components/AdminEdit";
+import '../styles/CrearProducto.css';
+
 
 
 function validate(input) {
@@ -213,38 +215,35 @@ export default function CrearProduto() {
         <div>
             <br />
             
-
-            <div><Link to="/menu"><button>Volver</button></Link></div>
-
-            <div><h1>Creá o editá tu producto!</h1></div>
-            
-            <form onSubmit={handleSubmit}>
+            <form id="formEdit" onSubmit={handleSubmit}>
                 {/**SELECT PARA CREAR PRODUCTOS */}
                 <div>
-                    <select onChange={hanldeOnChangeSelect}>
-                        <option value="">Seleccioná para Crear</option>
-                        {seleccionar.map(e => {
-                            return (
-                                <option>
-                                    {e}
-                                </option>
-                            )
-                        })}
-                    </select>
+                        <div id="SelectCrearEdit">
+                            <select onChange={hanldeOnChangeSelect}>
+                                <option value="">Seleccioná para Crear</option>
+                                {seleccionar.map(e => {
+                                    return (
+                                        <option>
+                                            {e}
+                                        </option>
+                                    )
+                                })}
+                            </select>
+                        </div>
                     {/**SELECT PARA EDITAR PRODUCTOS */}
-                    <div>
-
-                        <select onChange={hanldeOnChangeSelectEdit}>
-                            <option value="">Seleccioná para Editar</option>
-                            {seleccionarEdit.map(e => {
-                                return (
-                                    <option>
-                                        {e}
-                                    </option>
-                                )
-                            })}
-                        </select>
+                        <div id="SelectCrearEdit">
+                            <select onChange={hanldeOnChangeSelectEdit}>
+                                <option value="">Seleccioná para Editar</option>
+                                {seleccionarEdit.map(e => {
+                                    return (
+                                        <option>
+                                            {e}
+                                        </option>
+                                    )
+                                })}
+                            </select>
                         <div>
+
                              {/**RENDERIZADO DE LAS CARDS */}
                             {
                                 selectEdit === "baseEdit" ? (<BaseEdit />) :
@@ -264,7 +263,7 @@ export default function CrearProduto() {
                 <div>
                     {/**FORMULARIO PARA CREAR BEBIDAS */}
                     {
-                        select === "" ? (<div><h2 id="formSubtitle">selecciona el parametro que vas a crear</h2></div>) :
+                        // select === "" ? (<h2 id="formSubtitle">selecciona el parametr</h2>) :
                             select === "bebidas" ? (<div>
                                 <div>
                                     <label>Nombre: </label><input type="text" value={input.name} name="name" onChange={handleChange} />
@@ -305,7 +304,7 @@ export default function CrearProduto() {
                                         {errors.stock && <p>{errors.stock}</p>}
                                     </div>
 
-                                    <button type='submit'>Crear Postre</button></div>) :
+                                    <button class="buttonFormAdmin" type='submit'>Crear Postre</button></div>) :
 
                                     select === "base" ? (<div>
                                           {/**FORMULARIO PARA CREAR BASES */}
@@ -411,8 +410,8 @@ export default function CrearProduto() {
 
 
                                                             <button class="buttonFormAdmin" type='submit'>Crear Menu</button>
-                                                        </div>) :
-                                                            (<div><h2>Selecciona el parametro que vas a crear</h2></div>)
+                                                        </div>) : ""
+                                                            // (<div><h2>Selecciona el parametro que vas a crear</h2></div>)
 
 
 

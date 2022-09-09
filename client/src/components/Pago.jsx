@@ -14,8 +14,6 @@ import PasarelaDePago from "./PasarelaDePago";
 
 
 function Pago() {
-
-
   
   return (
     
@@ -37,7 +35,11 @@ function Pago() {
           <div className='d-flex flex-column justify-content-center h-custom-1 w-100 pt-2'>
 
             <h3 className="fw-normal mb-3 ps-5 pb-3" style={{letterSpacing: '1px'}}>Log in</h3>
-            
+
+
+          
+
+
             <PasarelaDePago/>
             <Link id="butonPagoBack" to="/checkout">
                  <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"> Volver</i>

@@ -1,36 +1,10 @@
-import React, {useState} from 'react';
-import { useEffect } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/Admin.css';
 import CrearProduto from '../FormPost/Crear Producto';
 
 
-
-
-
-
-const Admin = () => {
-
-    const value1 = "ordenes";
-    const value2 = "usuarios";
-    const value3 = "crear producto";
-
-    const [buttonValue, setButtonValue] = useState("")
-
-    function click1(valor){
-        setButtonValue (valor)
-        console.log(buttonValue)
-    }
-
-    // function click2(){
-    //     setButtonValue ("usuarios")
-    //     console.log(buttonValue)
-    // }
-
-    // function click3(){
-    //     setButtonValue ("crear producto")
-    //     console.log(buttonValue)
-    // }
-
+const Admin_ordenes= () => {
 
 
     return (
@@ -43,25 +17,25 @@ const Admin = () => {
                 
 
                 <div class="col" id="mainButtonContentAdmin">
-                    <button id="butonSideBarAdmin" href="#" onClick={()=> click1(value1)}>
+                    <Link id="butonSideBarAdmin" to="/admin_ordenes">
                         <i id="butonOrders" class="bi bi-clipboard-check-fill"> Ordenes</i>
-                    </button>
+                    </Link>
                 </div>
                 
                 <div class="col" id="mainButtonContentAdmin">
-                    <button id="butonSideBarAdmin" href="#"  onClick={()=> click1(value2)}>
+                    <Link id="butonSideBarAdmin" to="/admin_usuarios">
                         <i id="butonOrders" class="bi bi-people-fill"> Usuarios</i>
-                    </button>
+                    </Link>
                 </div>
                 <div class="col" id="mainButtonContentAdmin">
-                    <button id="butonSideBarAdmin" href="#"  onClick={()=> click1(value3)}>
-                        <i id="butonOrders" class="bi bi-file-earmark-plus-fill"> Crear Producto</i>
-                    </button>
+                    <Link id="butonSideBarAdmin" to="/admin_productos">
+                        <i id="butonOrders" class="bi bi-file-earmark-plus-fill"> Productos</i> 
+                    </Link>
                 </div>
                 <div class="col" id="mainButtonContentAdmin">
-                    <button id="butonSideBarAdmin" href="#">
+                    <Link id="butonSideBarAdmin" to="#">
                         <i id="butonOrders" class="bi bi-clipboard-check-fill"> Caja</i>
-                    </button>
+                    </Link>
                 </div>
                 
             
@@ -101,4 +75,4 @@ const Admin = () => {
 
     )}
 
-    export default Admin
+    export default Admin_ordenes
