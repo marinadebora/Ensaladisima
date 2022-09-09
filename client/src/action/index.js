@@ -607,4 +607,5 @@ export function putPedidocargarPedido(value){
 			type: 'CARGAR_PEDIDO_DEL_LOCAL', payload: cargarPedido.data
 		})
 	} 
+
 }

@@ -42,9 +42,7 @@ function App() {
         <Route exact path= '/admin_ordenes' element={<AdminOrdenes />}/>
         <Route exact path= '/admin_usuarios' element={<AdminUsuarios />}/>
         <Route path= '/adminedit/:id' element={<BaseEdit/>}/>
-        
         {/* <Route path= '/admincrear' element={<EditarProduto/>}/> */}
-
         <Route path= '/cargando' element={<ArmandoEnsalada/>}/>
       </Routes>
 
