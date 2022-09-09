@@ -20,14 +20,39 @@ getUsuarios.get('/', async (req,res,next) =>{
             populate:{path:"beverages"}
         }).populate({
             path:"orders",
-            populate:{path:"desserts"}})
+            populate:{path:"desserts"}
+        }).populate({
+            path:"purchaseHistory",
+            populate:{path:"orders",
+            populate:{path:"saladsMenu"}
+        }}).populate({
+            path:"purchaseHistory",
+            populate:{path:"orders",
+            populate:{path:"saladsMenuBig"}
+        }}).populate({
+            path:"purchaseHistory",
+            populate:{path:"orders",
+            populate:{path:"saladsMed"}
+        }}).populate({
+            path:"purchaseHistory",
+            populate:{path:"orders",
+            populate:{path:"saladsBig"}
+        }}).populate({
+            path:"purchaseHistory",
+            populate:{path:"orders",
+            populate:{path:"beverages"}
+        }}).populate({
+            path:"purchaseHistory",
+            populate:{path:"orders",
+            populate:{path:"desserts"}
+        }})
         const results = usuarios.map(e =>{
             return{
                 _id: e._id,
                 firstName: e.firstName,
                 lastName: e.lastName,
                 email: e.email,
-                password: e.password,
+                /* password: e.password, */
                 adress: e.adress,
                 phone: e.phone,
                 admin: e.admin,

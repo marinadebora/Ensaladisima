@@ -1,0 +1,70 @@
+@font-face {
+    font-family: Tommy-regular;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+
+    font-family: Tommy-light;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Light_PERSONAL\ USE.ttf);
+}
+
+#sideBar{
+    height: auto;
+    padding-top:150px;
+    background-color: #FABB4E;
+}
+
+#adminContent{
+    
+    background-color: transparent;
+    min-height: 100vh;
+    padding-top:100px;
+}
+
+#searchBarAdmin{
+    padding-top: 25px;
+    height: 80px;
+    background-color: #207140;
+}
+
+#searchBarAdminComponent{
+   
+    background-color: #207140;
+}
+
+#searchBarForm{
+    background-color: #207140;
+}
+
+#adminTittle{
+    text-align: center;
+    font-family: Tommy-regular;
+    font-size: 30px;
+    color: white;
+    background-color: transparent;
+}
+
+#mainButtonContentAdmin{
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    margin-top: 2rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+#butonSideBarAdmin{
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+}
+
+#butonOrders{
+    font-style:normal;
+    font-family: Tommy-regular;
+    background-color: transparent;
+    color: white;
+    font-size: 20px
+    
+   
+}
+
+
+

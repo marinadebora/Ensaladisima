@@ -3,6 +3,7 @@ import CardSimple from "./CardSimple";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import '../styles/CrearProducto.css';
 
 
 
@@ -15,12 +16,12 @@ export default function BaseEdit(){
         dispatch(bases(id))
     },[dispatch,id])
     return (
-      <div>
+      <div id='grillaEditCardContent'>
       {
         bases1 ?
       bases1.map((e,i) => {
         return (
-          <div key={i}>
+          <div  id="grillaEditCard" key={i}>
           <CardSimple
           key={e._id}
               name={e.name}
@@ -29,7 +30,9 @@ export default function BaseEdit(){
                />
           </div>
         )
-      }):<h1>Cargandoo</h1>
+      }): <div class="spinner-grow text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
     }
     </div>
     )
@@ -44,12 +47,12 @@ export  function ComplemetoEdit(){
       dispatch(complements(id))
   },[dispatch,id])
   return (
-    <div>
+    <div id='grillaEditCardContent'>
     {
       complemento ?
       complemento.map(e => {
       return (
-        <div key={e._id}>
+        <div id="grillaEditCard" key={e._id}>
           <CardSimple
             name={e.name}
             image={e.image}
@@ -57,7 +60,9 @@ export  function ComplemetoEdit(){
           />
         </div>
       )
-    }):<h1>Cargandoo</h1>
+    }):<div class="spinner-grow text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
   }
   </div>
   )
@@ -72,12 +77,12 @@ export  function SalsasEdit(){
       dispatch(sauces(id))
   },[dispatch,id])
   return (
-    <div>
+    <div id='grillaEditCardContent'>
     {
       salsas ?
       salsas.map(e => {
       return (
-        <div key={e._id}>
+        <div id="grillaEditCard" key={e._id}>
           <CardSimple
             name={e.name}
             image={e.image}
@@ -86,7 +91,9 @@ export  function SalsasEdit(){
           />
         </div>
       )
-    }):<h1>Cargandoo</h1>
+    }):<div class="spinner-grow text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+       </div>
   }
   </div>
   )
@@ -101,12 +108,12 @@ export  function ProteinaEdit(){
       dispatch(proteins(id))
   },[dispatch,id])
   return (
-    <div>
+    <div id='grillaEditCardContent'>
     {
       proteina ?
       proteina.map(e => {
       return (
-        <div key={e._id}>
+        <div id="grillaEditCard" key={e._id}>
           <CardSimple
             name={e.name}
             image={e.image}
@@ -115,7 +122,9 @@ export  function ProteinaEdit(){
           />
         </div>
       )
-    }):<h1>Cargandoo</h1>
+    }):<div class="spinner-grow text-success" role="status">
+         <span class="visually-hidden">Loading...</span>
+       </div>
   }
   </div>
   )
@@ -129,12 +138,12 @@ export  function ToppingEdit(){
       dispatch(toppings(id))
   },[dispatch,id])
   return (
-    <div>
+    <div id='grillaEditCardContent'>
     {
       topping ?
       topping.map(e => {
       return (
-        <div key={e._id}>
+        <div id="grillaEditCard" key={e._id}>
           <CardSimple
             name={e.name}
             image={e.image}
@@ -143,7 +152,9 @@ export  function ToppingEdit(){
           />
         </div>
       )
-    }):<h1>Cargandoo</h1>
+    }):<div class="spinner-grow text-success" role="status">
+         <span class="visually-hidden">Loading...</span>
+       </div>
   }
   </div>
   )
@@ -159,12 +170,12 @@ export  function BebidasEdit(){
       dispatch(beverages(id))
   },[dispatch,id])
   return (
-    <div>
+    <div id='grillaEditCardContent'>
     {
       beverage ?
       beverage.map(e => {
       return (
-        <div key={e._id}>
+        <div id="grillaEditCard" key={e._id}>
           <CardSimple
             name={e.name}
             image={e.image}
@@ -174,7 +185,9 @@ export  function BebidasEdit(){
           />
         </div>
       )
-    }):<h1>Cargandoo</h1>
+    }):<div class="spinner-grow text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+       </div>
   }
   </div>
   )
@@ -189,12 +202,12 @@ export  function PostresEdit(){
       dispatch(desserts(id))
   },[dispatch,id])
   return (
-    <div>
+    <div id='grillaEditCardContent'>
     {
       dessert ?
       dessert.map(e => {
       return (
-        <div key={e._id}>
+        <div id="grillaEditCard" key={e._id}>
           <CardSimple
             name={e.name}
             image={e.image}
@@ -204,7 +217,10 @@ export  function PostresEdit(){
           />
         </div>
       )
-    }):<h1>Cargandoo</h1>
+    }):
+    <div class="spinner-grow text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+    </div>
   }
   </div>
   )
@@ -220,12 +236,12 @@ export  function MenuEdit(){
       dispatch(Menu(id))
   },[dispatch,id])
   return (
-    <div>
+    <div id='grillaEditCardContent'>
     {
       menu ?
       menu.map(e => {
       return (
-        <div key={e._id}>
+        <div id="grillaEditCard" key={e._id}>
           <CardSimple
             name={e.name}
             image={e.image}
@@ -235,7 +251,9 @@ export  function MenuEdit(){
           />
         </div>
       )
-    }):<h1>Cargandoo</h1>
+    }):<div class="spinner-grow text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+       </div>
   }
   </div>
   )

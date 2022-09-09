@@ -55,6 +55,9 @@ const postEnsaladaMediana = require("./EnsaladasMedianas/posEnsaladasMediana");
 const postEnsaladaGrande = require("./EnsaladasBigs/postEnsaladasBig");
 const agregarAlPedido = require("./Pedidos/agregarAlPedido");
 const postPedidoMenuBig = require("./Pedidos/postPedidoMenuBig");
+const crearLocalStorage = require("./Pedidos/crearPedidoLocalStorage");
+const cargarPedido = require("./Pedidos/cargarPedidos");
+const { getHistorial } = require("./Historial/getHistorial");
 require("../../middlewares/google")
 
 
@@ -83,6 +86,8 @@ router.use('/pedidomenu', postPedidoMenu)
 router.use('/pedidomenubig', postPedidoMenuBig)
 router.use('/eliminarDelPedido', eliminarDelPedido)
 router.use('/agregar', agregarAlPedido )
+router.use('/crearLocalStorage', crearLocalStorage)
+router.use('/cargarPedido', cargarPedido)
 
 
 
@@ -96,6 +101,7 @@ router.get("/menubig", getMenuBig)
 
 // rutas para el modelo de Historial.
 router.use('/crearHistorial', postHistorial)
+router.use('/historial', getHistorial)
 
 
 // rutas para el modelo de EnsaladasMedian.
