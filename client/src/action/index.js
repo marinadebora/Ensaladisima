@@ -588,6 +588,7 @@ export function contactForm(value){
 			console.log(error)
 		}
 	}
+}
 
 export function crearLocalStorage(value){
 	return async function(dispatch){
