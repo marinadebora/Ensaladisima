@@ -1,4 +1,5 @@
-const {Router} = require('express')
+const {Router} = require('express');
+const Pedidos = require('../../modelos/Pedidos');
 const Usuarios = require('../../modelos/Usuarios')
 
 const registro = Router()
@@ -21,6 +22,12 @@ registro.post('/', async (req,res,next)=>{
                 next();
             }
         })}
+        const buscar = await Usuarios.findOne({email})
+        const crear = await Pedidos.create({user:buscar?._id})
+        const actualizar = await Usuarios.findOneAndUpdate({email},{
+            orders:crear?._id
+        })
+        console.log(actualizar)
     } catch (error) {
         console.log(error)
     }
