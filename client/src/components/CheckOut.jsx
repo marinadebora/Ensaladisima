@@ -28,22 +28,15 @@ export default function QuantityEdit()
   //para renderizar bebidas y postres desde localStorage
   let bebidas = JSON.parse(localStorage.getItem('bebidas'))
   let postres = JSON.parse(localStorage.getItem('postres'))
-  let beb=bebidas?.[0]
-  let post=postres?.[0]
 
   //para renderizar ensaladas  desde localStorage
   let ensaladasMed = JSON.parse(localStorage.getItem('medianas'))
   let ensaladasGr = JSON.parse(localStorage.getItem('grandes'))
-  let med=ensaladasMed?.[0]
-  let gran=ensaladasGr?.[0]
 
    //para renderizar ensaladas creadas  desde localStorage
    let ensaladaCreadaM = JSON.parse(localStorage.getItem('ensaladaM'))
    let ensaladaCreadaG = JSON.parse(localStorage.getItem('ensaladaG'))
-   let creadaM=ensaladaCreadaM?.[0]
-   let creadaG=ensaladaCreadaG?.[0]
-   console.log(creadaM)
-   console.log(ensaladaCreadaG)
+   
   // agregar cal carrito
   const agregar = (e)=>{
     const buscarMed = JSON.parse(localStorage.getItem('medianas'))
@@ -187,7 +180,7 @@ export default function QuantityEdit()
   let unicosInicio = [...productosMapArrInicio.values()]
 
   //unir todos los productos
-  let todosLosProductos = [beb,post,med,gran,creadaM,creadaG].flat()
+  let todosLosProductos = [bebidas,postres,ensaladasMed,ensaladasGr,ensaladaCreadaM,ensaladaCreadaG].flat()
   let productosMap = todosLosProductos.map(item=>{
     return [item?._id,item]
   })
@@ -237,14 +230,15 @@ export default function QuantityEdit()
                             <button onClick={(e)=>removeDelCarrito(e)} value={e._id} style={{border:'none',color:'#fff',fontWeight:"bolder", backgroundColor:'red', fontSize:'larger',width:'2rem', marginRight:'0.5rem'}}>
                               -
                             </button>
+                            {/* <p>{armadoCarrito?.producto?.filter(d=> d._id === e._id).length}</p> */}
                               <MDBInput type="number" min="1" defaultValue={armadoCarrito?.producto?.filter(d=> d._id === e._id).length} size="sm"/>
-                              <button onClick={(e)=>agregarAlpedido(e)} value={e._id} style={{border:'none',color:'#fff', backgroundColor:'green',width:'2rem', marginLeft:'0.5rem',fontSize:'larger'}}>
+                             <button onClick={(e)=>agregarAlpedido(e)} value={e._id} style={{border:'none',color:'#fff', backgroundColor:'green',width:'2rem', marginLeft:'0.5rem',fontSize:'larger'}}>
                               +
                             </button>
                             </MDBCol>
                             <MDBCol md="3" lg="2" xl="2" className="text-end">
                               <MDBTypography tag="h6" className="mb-0">
-                                US$ {e?.price /* ? e?.price : e?.median */}
+                                US$ {e?.price }
                               </MDBTypography>
                             </MDBCol>
                             <MDBCol md="2" lg="1" xl="1" className="text-end">
@@ -358,8 +352,10 @@ export default function QuantityEdit()
                             <button onClick={(e)=>remove(e)} value={e?._id} style={{border:'none',color:'#fff',fontWeight:"bolder", backgroundColor:'red', fontSize:'larger',width:'2rem', marginRight:'0.5rem'}}>
                               -
                             </button>
+                           {/*  <p>{productosReales?.filter(d=> d?._id === e?._id).length}</p> */}
+
                               <MDBInput type="number" min="1" defaultValue={productosReales?.filter(d=> d?._id === e?._id).length} size="sm"/>
-                              <button onClick={(e)=>agregar(e)} value={e?._id} style={{border:'none',color:'#fff', backgroundColor:'green',width:'2rem', marginLeft:'0.5rem',fontSize:'larger'}}>
+                             <button onClick={(e)=>agregar(e)} value={e?._id} style={{border:'none',color:'#fff', backgroundColor:'green',width:'2rem', marginLeft:'0.5rem',fontSize:'larger'}}>
                               +
                             </button>
                             </MDBCol>
@@ -374,9 +370,9 @@ export default function QuantityEdit()
                               </MDBTypography> */}
                             </MDBCol>
                             <MDBCol md="1" lg="1" xl="1" className="text-end">
-                              <a href="#!" className="text-muted">
+                              {<a href="#!" className="text-muted">
                                 <MDBIcon fas icon="times" />
-                              </a>
+                              </a>}
                             </MDBCol>
                           </MDBRow>
                         ))
