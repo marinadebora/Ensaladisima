@@ -17,7 +17,6 @@ import Login from './components/Login';
 import Pago from './components/Pago';
 import { ArmandoEnsalada } from './components/ArmandoEnsalada';
 
-
 function App() {
   return (
     <div className="App">

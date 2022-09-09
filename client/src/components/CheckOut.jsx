@@ -425,7 +425,6 @@ export default function QuantityEdit() {
                                     {/* <MDBTypography tag="p" className="mb-0">
                               <button onClick={(e)=>remove(e)} value={e._id} class="buttonChico">X</button>
                               </MDBTypography> */}
-
                                   </MDBCol>
                                   <MDBCol md="1" lg="1" xl="1" className="text-end">
                                     <a href="#!" className="text-muted">
