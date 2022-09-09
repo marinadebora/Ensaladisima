@@ -11,7 +11,6 @@ import {
   MDBRow,
   MDBTypography,
 } from "mdb-react-ui-kit";
-import { useLocalStorage } from '../useLocalStorage'
 import React from "react";
 
 import {
@@ -32,24 +31,21 @@ putPedidocargarPedido} from "../action";
 
 export default function QuantityEdit() {
   //para renderizar bebidas y postres desde localStorage
-  let bebidas = useLocalStorage('bebidas', [])
-  let postres = useLocalStorage('postres', [])
-  let beb = bebidas[0]
-  let post = postres[0]
+  let bebidas = JSON.parse(localStorage.getItem('bebidas'))
+  let postres = JSON.parse(localStorage.getItem('postres'))
+
+  //para renderizar ensaladas  desde localStorage
+  let ensaladasMed = JSON.parse(localStorage.getItem('medianas'))
+  let ensaladasGr = JSON.parse(localStorage.getItem('grandes'))
+
+   //para renderizar ensaladas creadas  desde localStorage
+   let ensaladaCreadaM = JSON.parse(localStorage.getItem('ensaladaM'))
+   let ensaladaCreadaG = JSON.parse(localStorage.getItem('ensaladaG'))
+   
+  
   const pedido = useSelector(state => state.pedidos)
   /* const allUsuarios = useSelector(state => state.usuarios) */
-  //para renderizar ensaladas medianas desde localStorage
-  let ensaladasMed = useLocalStorage('medianas', [])
-  let ensaladasGr = useLocalStorage('grandes', [])
-  let med = ensaladasMed[0]
-  let gran = ensaladasGr[0]
-
-  //para renderizar ensaladas creadas  desde localStorage
-  let ensaladaCreadaM = JSON.parse(localStorage.getItem('ensaladaM'))
-  let ensaladaCreadaG = JSON.parse(localStorage.getItem('ensaladaG'))
-  let creadaM=ensaladaCreadaM
-  let creadaG=ensaladaCreadaG
-
+  
   const [user, setUser] = useState(null)
 
   const todosLosPedidos = pedido?.filter(e => e._id === user?.orders[0])
@@ -237,7 +233,7 @@ export default function QuantityEdit() {
 
 
 
-  let todosLosProductos = [beb,post,med,gran,creadaM,creadaG].flat()
+  let todosLosProductos = [bebidas,postres,ensaladasMed,ensaladasGr,ensaladaCreadaM,ensaladaCreadaG].flat()
   let productosReales = todosLosProductos.filter(e=>e!==undefined&&e!==null)
   console.log(productosReales)
   let total = productosReales?.map(e => e?.price)

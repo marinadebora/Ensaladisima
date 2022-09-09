@@ -576,6 +576,21 @@ export function pedidoPostreLogueado(value){
 	}
 }
 
+
+export function saladMUser(payload){
+	return async function(dispatch){
+		try {
+			const saladM = await axios.post(`/ensaladamed`,payload)
+			return dispatch({
+				type: "SALAD_M_USER",
+				payload: saladM.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
+
 export function contactForm(value){
 	return async function(dispatch){
 		try{
@@ -585,6 +600,19 @@ export function contactForm(value){
 				payload:form
 			})
 		}catch(error){
+			console.log(error)
+		}
+	}
+}
+export function saladGUser(payload){
+	return async function(dispatch){
+		try {
+			const saladG = await axios.post(`/ensaladabig`,payload)
+			return dispatch({
+				type: "SALAD_G_USER",
+				payload: saladG.data
+			})
+		} catch (error) {
 			console.log(error)
 		}
 	}

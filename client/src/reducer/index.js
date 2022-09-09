@@ -141,6 +141,14 @@ function rootReducer( state = initialState, action )
           return {
             ...state
           }
+          case "SALAD_M_USER":
+            return {
+              ...state
+            }
+            case "SALAD_G_USER":
+              return {
+                ...state
+              }      
       case 'CARGA_LOCAL':
         return{
           ...state
