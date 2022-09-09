@@ -41,7 +41,7 @@ let salsa=JSON.parse(localStorage.getItem('salsa'))
 let topping=JSON.parse(localStorage.getItem('topping'))
 
 let ensalada={  
-  id_:2,
+  _id:"2",
   base:base,
   proteinas:proteinas,
   complement:complement,
@@ -87,7 +87,7 @@ let medium = () =>
   let topping=JSON.parse(localStorage.getItem('topping'))
   
   let ensalada={  
-    _id:1,
+    _id:"1",
     base:base,
     proteinas:proteinas,
     complement:complement,
