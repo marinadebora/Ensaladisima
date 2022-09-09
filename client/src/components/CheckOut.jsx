@@ -24,10 +24,6 @@ import { eliminarDelCarrito, getPedidos, agregarAlCarrito,
 putPedidocargarPedido} from "../action";
 
 
-/* import { useState } from "react"; */
-
-
-
 
 
 export default function QuantityEdit() {
@@ -37,7 +33,7 @@ export default function QuantityEdit() {
   let beb = bebidas[0]
   let post = postres[0]
   const pedido = useSelector(state => state.pedidos)
-  /* const allUsuarios = useSelector(state => state.usuarios) */
+  
   //para renderizar ensaladas medianas desde localStorage
   let ensaladasMed = useLocalStorage('medianas', [])
   let ensaladasGr = useLocalStorage('grandes', [])
@@ -61,7 +57,7 @@ export default function QuantityEdit() {
      const buscarPostresM = JSON.parse(localStorage.getItem('postres'))
      const localUser = JSON.parse(localStorage.getItem('loguearUsuario'))
      const buscarPedido = pedido?.filter(e => e._id === localUser.id)
-     /* const todo = [buscarMedianasM, buscarGrandesM, buscarBebidasM, buscarPostresM].flat() */
+     
        if (buscarPedido?._id) {
          if (buscarPedido?.salads === [] && buscarPedido?.beverages === [] && buscarPedido?.desserts === []) {
            const ensladaMenuMediana = buscarMedianasM ? buscarMedianasM?.map(e => e._id): []
@@ -81,7 +77,7 @@ export default function QuantityEdit() {
              adress: localUser?.adress ? localUser?.adress : ''
            }
            const reas = await dispatch(putPedidocargarPedido(data))
-           console.log(reas.payload)
+           
        }
      }
    }
@@ -101,8 +97,7 @@ export default function QuantityEdit() {
     const filtropostre = buscarPostres?.find(a => a._id === e.target.value)
     const filtroEnsaladaM = buscarEnsaladaM?.find(a => a._id === e.target.value )
     const filtroEnsaladaG = buscarEnsaladaG?.find(a => a._id === e.target.value )
-    console.log(buscarEnsaladaG.filter(a =>  a._id === e.target.value))
-    console.log(e.target.value)
+    
     if (filtroMed) {
       const agregar = buscarMed?.push(filtroMed)
       console.log(agregar)
@@ -127,12 +122,12 @@ export default function QuantityEdit() {
       const agregar = buscarEnsaladaM?.push(filtroEnsaladaM)
       console.log(agregar)
       localStorage.setItem('ensaladaM', JSON.stringify(buscarEnsaladaM))
-      /* window.location.reload(false) */
+      window.location.reload(false)
     }else if(filtroEnsaladaG){
       const agregar = buscarEnsaladaG?.push(filtroEnsaladaG)
       console.log(agregar)
       localStorage.setItem('ensaladaG', JSON.stringify(buscarEnsaladaG))
-      /* window.location.reload(false) */
+      window.location.reload(false)
     }
   }
 
@@ -153,7 +148,7 @@ export default function QuantityEdit() {
     const filtropostre = buscarPostres?.find(a => a._id === e.target.value)
     const filtroEnsaladaM = buscarEnsaladaM?.find(a => a._id === e.target.value )
     const filtroEnsaladaG = buscarEnsaladaG?.find(a => a._id === e.target.value )
-    console.log(filtroEnsaladaG)
+    
     if (filtroMed) {
       const borrar = buscarMed?.splice(buscarMed?.indexOf(filtroMed), 1)
       console.log(borrar)
@@ -183,7 +178,7 @@ export default function QuantityEdit() {
       const borrar = buscarEnsaladaG?.splice(buscarEnsaladaG?.indexOf(filtroEnsaladaG), 1)
       console.log(borrar)
       localStorage.setItem('ensaladaG', JSON.stringify(buscarEnsaladaG))
-      /* window.location.reload(false) */
+      window.location.reload(false)
     }
   }
 
@@ -196,11 +191,7 @@ export default function QuantityEdit() {
       const usuario = JSON.parse(localStorage.getItem('loguearUsuario'))
       setUser(usuario)
       dispatch(getPedidos())
-      /* if(usuario.orders.length === 0){
-        crearOrders()
-        window.location.reload()
-        console.log(user)
-      } */
+      
     }
   }, [dispatch])
 
@@ -229,20 +220,13 @@ export default function QuantityEdit() {
   let productosMapArrInicio = new Map(productosMapInicio)
   let unicosInicio = [...productosMapArrInicio.values()]
 
-  // usuario logueado pero sin orders
-  /* const history = useNavigate() */
-  /* const allUsuarios = useSelector(state => state.usuarios) */
-
-
-
-
+  
 
   let todosLosProductos = [beb,post,med,gran,creadaM,creadaG].flat()
   let productosReales = todosLosProductos.filter(e=>e!==undefined&&e!==null)
-  console.log(productosReales)
   let total = productosReales?.map(e => e?.price)
   let suma = total?.reduce((e, i) => e + i, 0)
-  /* console.log(productosReales) */
+  
 
   let productosMap = productosReales.map(item => {
     return [item._id, item]
@@ -337,12 +321,6 @@ export default function QuantityEdit() {
                             ENVÍO
                           </MDBTypography>
                           <div className="mb-4 pb-2">
-                            {/* <select className="select p-2 rounded bg-grey" style={{ width: "100%" }}>
-                          <option value="1">TAKE AWAY</option>
-                          <option value="2">DIRECCION 1</option>
-                          <option value="3">DIRECCION 2</option>
-                          <option value="4">DIRECCION 3</option>
-                        </select> */}
                             <MDBInput size="lg" defaultValue={user?.adress ? user?.adress : ''} placeholder={user?.adress} />
                           </div>
                           <MDBTypography tag="h5" className="text-uppercase mb-3">
@@ -422,9 +400,6 @@ export default function QuantityEdit() {
                                     </MDBTypography>
                                   </MDBCol>
                                   <MDBCol md="2" lg="1" xl="1" className="text-end">
-                                    {/* <MDBTypography tag="p" className="mb-0">
-                              <button onClick={(e)=>remove(e)} value={e._id} class="buttonChico">X</button>
-                              </MDBTypography> */}
                                   </MDBCol>
                                   <MDBCol md="1" lg="1" xl="1" className="text-end">
                                     <a href="#!" className="text-muted">
