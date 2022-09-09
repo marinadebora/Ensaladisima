@@ -12,6 +12,7 @@ import { PideTuEnsalada } from './components/PideTuEnsalada';
 import CrearProduto from './FormPost/Crear Producto';
 import Login from './components/Login';
 import BaseEdit from './FormPut/putBases';
+import { ArmandoEnsalada } from './components/ArmandoEnsalada';
 
 
 
@@ -39,7 +40,7 @@ function App() {
         <Route path= '/adminedit/:id' element={<BaseEdit/>}/>
         {/* <Route path= '/admincrear' element={<EditarProduto/>}/> */}
 
-
+        <Route path= '/cargando' element={<ArmandoEnsalada/>}/>
       </Routes>
 
       <Footer/>
