@@ -13,8 +13,12 @@ import AdminProductos from './components/AdminProductos';
 import AdminOrdenes from './components/AdminOrdenes';
 import AdminUsuarios from './components/AdminUsuarios';
 import BaseEdit from './FormPut/putBases';
+<<<<<<< HEAD
 import Login from './components/Login';
 import Pago from './components/Pago';
+=======
+import { ArmandoEnsalada } from './components/ArmandoEnsalada';
+>>>>>>> e3b45a093fda13ba9854ea0bfd4cb25e3eace1bb
 
 
 
@@ -43,7 +47,13 @@ function App() {
         <Route exact path= '/admin_ordenes' element={<AdminOrdenes />}/>
         <Route exact path= '/admin_usuarios' element={<AdminUsuarios />}/>
         <Route path= '/adminedit/:id' element={<BaseEdit/>}/>
+<<<<<<< HEAD
         
+=======
+        {/* <Route path= '/admincrear' element={<EditarProduto/>}/> */}
+
+        <Route path= '/cargando' element={<ArmandoEnsalada/>}/>
+>>>>>>> e3b45a093fda13ba9854ea0bfd4cb25e3eace1bb
       </Routes>
 
       <Footer/>
