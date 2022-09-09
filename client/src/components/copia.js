@@ -1,16 +1,4 @@
-import {
-  /* MDBBtn, */
-  MDBCard,
-  MDBCardBody,
-  MDBCardImage,
-  MDBCardText,
-  MDBCol,
-  MDBContainer,
-  MDBIcon,
-  MDBInput,
-  MDBRow,
-  MDBTypography,
-} from "mdb-react-ui-kit";
+import {/* MDBBtn, */MDBCard,MDBCardBody,MDBCardImage,MDBCardText,MDBCol,MDBContainer,MDBIcon,MDBInput,MDBRow,MDBTypography,} from "mdb-react-ui-kit";
 import { useLocalStorage } from '../useLocalStorage'
 import React from "react";
 
@@ -32,24 +20,30 @@ putPedidocargarPedido} from "../action";
 
 export default function QuantityEdit() {
   //para renderizar bebidas y postres desde localStorage
-  let bebidas = JSON.parse(localStorage.getItem('bebidas'))
-  let postres = JSON.parse(localStorage.getItem('postres'))
-
-  //para renderizar ensaladas  desde localStorage
-  let ensaladasMed = JSON.parse(localStorage.getItem('medianas'))
-  let ensaladasGr = JSON.parse(localStorage.getItem('grandes'))
-
-   //para renderizar ensaladas creadas  desde localStorage
-   let ensaladaCreadaM = JSON.parse(localStorage.getItem('ensaladaM'))
-   let ensaladaCreadaG = JSON.parse(localStorage.getItem('ensaladaG'))
-   
-  
+  let bebidas = useLocalStorage('bebidas', [])
+  let postres = useLocalStorage('postres', [])
+  let beb = bebidas[0]
+  let post = postres[0]
   const pedido = useSelector(state => state.pedidos)
-  /* const allUsuarios = useSelector(state => state.usuarios) */
-  
+ 
+  //para renderizar ensaladas medianas desde localStorage
+  let ensaladasMed = useLocalStorage('medianas', [])
+  let ensaladasGr = useLocalStorage('grandes', [])
+  let med = ensaladasMed[0]
+  let gran = ensaladasGr[0]
+
+  //para renderizar ensaladas creadas  desde localStorage
+  let ensaladaCreadaM = JSON.parse(localStorage.getItem('ensaladaM'))
+  let ensaladaCreadaG = JSON.parse(localStorage.getItem('ensaladaG'))
+  let creadaM=ensaladaCreadaM?.[0]
+  let creadaG=ensaladaCreadaG?.[0]
+  console.log(creadaM)
+  console.log(ensaladaCreadaG)
+
   const [user, setUser] = useState(null)
 
   const todosLosPedidos = pedido?.filter(e => e._id === user?.orders[0])
+  console.log(todosLosPedidos)
 
   const crearOrders = async () => {
      const buscarMedianasM = JSON.parse(localStorage.getItem('medianas'))
@@ -92,14 +86,13 @@ export default function QuantityEdit() {
     const buscarEnsaladaM = JSON.parse(localStorage.getItem('ensaladaM'))
     const buscarEnsaladaG = JSON.parse(localStorage.getItem('ensaladaG'))
 
-    const filtroMed = buscarMed?.find(a => a._id === e.target.value)
-    const filtroBig = buscarBig?.find(a => a._id === e.target.value)
-    const filtroBebida = buscarBebidas?.find(a => a._id === e.target.value)
-    const filtropostre = buscarPostres?.find(a => a._id === e.target.value)
+    const filtroMed = buscarMed?.find(a => a._id === e.target.value )
+    const filtroBig = buscarBig?.find(a => a._id === e.target.value )
+    const filtroBebida = buscarBebidas?.find(a => a._id === e.target.value )
+    const filtropostre = buscarPostres?.find(a => a._id === e.target.value )
     const filtroEnsaladaM = buscarEnsaladaM?.find(a => a._id === e.target.value )
     const filtroEnsaladaG = buscarEnsaladaG?.find(a => a._id === e.target.value )
-    console.log(buscarEnsaladaG.filter(a =>  a._id === e.target.value))
-    console.log(e.target.value)
+
     if (filtroMed) {
       const agregar = buscarMed?.push(filtroMed)
       console.log(agregar)
@@ -120,17 +113,19 @@ export default function QuantityEdit() {
       console.log(agregar)
       localStorage.setItem('postres', JSON.stringify(buscarPostres))
       window.location.reload(false)
-    }else if(filtroEnsaladaM){
+    }
+    /* else if(filtroEnsaladaM){
       const agregar = buscarEnsaladaM?.push(filtroEnsaladaM)
       console.log(agregar)
       localStorage.setItem('ensaladaM', JSON.stringify(buscarEnsaladaM))
-      /* window.location.reload(false) */
-    }else if(filtroEnsaladaG){
+      window.location.reload(false)
+    }
+    else if(filtroEnsaladaG){
       const agregar = buscarEnsaladaG?.push(filtroEnsaladaG)
       console.log(agregar)
       localStorage.setItem('ensaladaG', JSON.stringify(buscarEnsaladaG))
-      /* window.location.reload(false) */
-    }
+      window.location.reload(false)
+    } */
   }
 
   // eleiminar del carrito
@@ -142,16 +137,16 @@ export default function QuantityEdit() {
     const buscarPostres = JSON.parse(localStorage.getItem('postres'))
     const buscarEnsaladaM = JSON.parse(localStorage.getItem('ensaladaM'))
     const buscarEnsaladaG = JSON.parse(localStorage.getItem('ensaladaG'))
-    
 
-    const filtroMed = buscarMed?.find(a => a._id === e.target.value)
-    const filtroBig = buscarBig?.find(a => a._id === e.target.value)
-    const filtroBebida = buscarBebidas?.find(a => a._id === e.target.value)
-    const filtropostre = buscarPostres?.find(a => a._id === e.target.value)
+    
+    const filtroMed = buscarMed?.find(a => a._id === e.target.value )
+    const filtroBig = buscarBig?.find(a => a._id === e.target.value )
+    const filtroBebida = buscarBebidas?.find(a => a._id === e.target.value )
+    const filtropostre = buscarPostres?.find(a => a._id === e.target.value )
     const filtroEnsaladaM = buscarEnsaladaM?.find(a => a._id === e.target.value )
     const filtroEnsaladaG = buscarEnsaladaG?.find(a => a._id === e.target.value )
-    console.log(filtroEnsaladaG)
-    if (filtroMed) {
+
+    if(filtroMed){
       const borrar = buscarMed?.splice(buscarMed?.indexOf(filtroMed), 1)
       console.log(borrar)
       localStorage.setItem('medianas', JSON.stringify(buscarMed))
@@ -171,7 +166,7 @@ export default function QuantityEdit() {
       console.log(borrar)
       localStorage.setItem('postres', JSON.stringify(buscarPostres))
       window.location.reload(false)
-    }else if(filtroEnsaladaM){
+    }/* else if(filtroEnsaladaM){
       const borrar = buscarEnsaladaM?.splice(buscarEnsaladaM?.indexOf(filtroEnsaladaM), 1)
       console.log(borrar)
       localStorage.setItem('ensaladaM', JSON.stringify(buscarEnsaladaM))
@@ -180,8 +175,8 @@ export default function QuantityEdit() {
       const borrar = buscarEnsaladaG?.splice(buscarEnsaladaG?.indexOf(filtroEnsaladaG), 1)
       console.log(borrar)
       localStorage.setItem('ensaladaG', JSON.stringify(buscarEnsaladaG))
-      /* window.location.reload(false) */
-    }
+      window.location.reload(false)
+    } */
   }
 
   // carrito de usuario registrado
@@ -223,33 +218,28 @@ export default function QuantityEdit() {
   let productosMapInicio = armadoCarrito?.producto?.map(item => {
     return [item._id, item]
   })
+
   let productosMapArrInicio = new Map(productosMapInicio)
   let unicosInicio = [...productosMapArrInicio.values()]
 
-  // usuario logueado pero sin orders
-  /* const history = useNavigate() */
-  /* const allUsuarios = useSelector(state => state.usuarios) */
-
-
-
-
-
-  let todosLosProductos = [bebidas,postres,ensaladasMed,ensaladasGr,ensaladaCreadaM,ensaladaCreadaG].flat()
-  let productosReales = todosLosProductos.filter(e=>e!==undefined&&e!==null)
-  console.log(productosReales)
-  let total = productosReales?.map(e => e?.price)
-  let suma = total?.reduce((e, i) => e + i, 0)
-  /* console.log(productosReales) */
-
-  let productosMap = productosReales.map(item => {
-    return [item._id, item]
+  //unir todos los productos
+  
+  let todosLosProductos = [beb,post,med,gran,creadaM,creadaG].flat()
+  let productosReales=todosLosProductos.filter(e=>e!==undefined&&e!==null)
+  let productosMap = productosReales.map(item=>{
+    return [item?._id,item]
   })
   let productosMapArr = new Map(productosMap)
   let unicos = [...productosMapArr.values()]
 
+  
+  let total = productosReales?.map(e => e?.price)
+  let suma = total?.reduce((e, i) => e + i, 0)
+  console.log(productosReales)
+
+  console.log(suma)
   return (
     <div>
-<<<<<<< Updated upstream
       {user ? /* user?.orders[0] ? */ (
       
         <section className="h-100 h-custom" style={{ backgroundColor: "#94D2DE", paddingTop: "100px" }}>
@@ -336,158 +326,11 @@ export default function QuantityEdit() {
                           </MDBTypography>
                           <div className="mb-4 pb-2">
                             {/* <select className="select p-2 rounded bg-grey" style={{ width: "100%" }}>
-=======
-    {user ? user?.orders[0] ?(
-    <section className="h-100 h-custom" style={{ backgroundColor: "#94D2DE", paddingTop: "100px" }}>
-      <MDBContainer className="py-5 h-100" style={{ backgroundColor: "#94D2DE" }}>
-        <MDBRow className="justify-content-center align-items-center h-100">
-          <MDBCol size="12" style={{ backgroundColor: "#207140", paddingTop: "12px", paddingBottom: "12px" }}>
-            <MDBCard className="card-registration card-registration-2">
-              <MDBCardBody className="p-0">
-                <MDBRow className="g-0">
-                  <MDBCol lg="8">
-                    <div className="p-5">
-                      <div className="d-flex justify-content-between align-items-center mb-5">
-                        <MDBTypography tag="h2" className="fw-bold mb-0 text-black" style={{ color: "#207140", fontFamily: "Tommy-regular" }}>
-                          Pedido usuario con orders
-                        </MDBTypography>
-                        {
-                          armadoCarrito?.producto && <MDBTypography className="mb-0 text-muted">{armadoCarrito?.producto?.length} Productos  </MDBTypography>
-                        }
-                      </div>
-                      <hr className="my-4" />
-                      {
-                        unicosInicio?.map(e => (
-                          <MDBRow key={e._id} className="mb-4 d-flex justify-content-between align-items-center">
-                            <MDBCol md="2" lg="2" xl="2">
-                              <MDBCardImage
-                                src={e?.image}
-                                fluid className="rounded-3" alt={e.name} />
-                            </MDBCol>
-                            <MDBCol md="3" lg="3" xl="3">
-                              <MDBTypography tag="h6" className="text-black mb-0">
-                                {e?.name}
-                              </MDBTypography>
-                            </MDBCol>
-                            <MDBCol md="3" lg="3" xl="3" className="d-flex align-items-center">
-                            <button onClick={(e)=>removeDelCarrito(e)} value={e._id} style={{border:'none',color:'#fff',fontWeight:"bolder", backgroundColor:'red', fontSize:'larger',width:'2rem', marginRight:'0.5rem'}}>
-                              -
-                            </button>
-                            {/* <p>{armadoCarrito?.producto?.filter(d=> d._id === e._id).length}</p> */}
-                              <MDBInput type="number" min="1" defaultValue={armadoCarrito?.producto?.filter(d=> d._id === e._id).length} size="sm"/>
-                             <button onClick={(e)=>agregarAlpedido(e)} value={e._id} style={{border:'none',color:'#fff', backgroundColor:'green',width:'2rem', marginLeft:'0.5rem',fontSize:'larger'}}>
-                              +
-                            </button>
-                            </MDBCol>
-                            <MDBCol md="3" lg="2" xl="2" className="text-end">
-                              <MDBTypography tag="h6" className="mb-0">
-                                US$ {e?.price }
-                              </MDBTypography>
-                            </MDBCol>
-                            <MDBCol md="2" lg="1" xl="1" className="text-end">
-                            </MDBCol>
-                            <MDBCol md="1" lg="1" xl="1" className="text-end">
-                              <a href="#!" className="text-muted">
-                                <MDBIcon fas icon="times" />
-                              </a>
-                            </MDBCol>
-                          </MDBRow>
-                        ))
-                      }
-                      <hr className="my-4" />
-                      <div className="pt-5">
-                        <MDBTypography tag="h6" className="mb-0">
-                          <MDBCardText tag="a" href="#!" className="text-body">
-                            <MDBIcon fas icon="long-arrow-alt-left me-2" />
-                            Volver a la tienda
-                          </MDBCardText>
-                        </MDBTypography>
-                      </div>
-                    </div>
-                  </MDBCol>
-                  <MDBCol lg="4" className="bg-grey">
-                    <div className="p-5">
-                      <MDBTypography tag="h3" className="fw-bold mb-5 mt-2 pt-1" style={{ color: "#207140", fontFamily: "Tommy-regular" }}>
-                        Resumen
-                      </MDBTypography>
-                      <hr className="my-4" />
-                      <div className="d-flex justify-content-between mb-4">
-                        <MDBTypography tag="h5" className="text-uppercase">
-                          {armadoCarrito?.producto?.length} Productos
-                        </MDBTypography>
-                        <MDBTypography tag="h5">US$ {armadoCarrito?.total}</MDBTypography>
-                      </div>
-                      <MDBTypography tag="h5" className="text-uppercase mb-3">
-                        ENVÍO
-                      </MDBTypography>
-                      <div className="mb-4 pb-2">
-                        {/* <select className="select p-2 rounded bg-grey" style={{ width: "100%" }}>
->>>>>>> Stashed changes
                           <option value="1">TAKE AWAY</option>
                           <option value="2">DIRECCION 1</option>
                           <option value="3">DIRECCION 2</option>
                           <option value="4">DIRECCION 3</option>
                         </select> */}
-<<<<<<< Updated upstream
-                            <MDBInput size="lg" defaultValue={user?.adress ? user?.adress : ''} placeholder={user?.adress} />
-                          </div>
-                          <MDBTypography tag="h5" className="text-uppercase mb-3">
-                            Comentarios
-                          </MDBTypography>
-                          <div className="mb-5">
-                            <MDBInput size="lg" />
-                          </div>
-                          <hr className="my-4" />
-                          <div className="d-flex justify-content-between mb-5">
-                            <MDBTypography tag="h5" className="text-uppercase">
-                              Total
-                            </MDBTypography>
-                            <MDBTypography tag="h5">US$ {armadoCarrito?.total}</MDBTypography>
-                          </div>
-                          {user ? <Link class="buttonChico" to="/">Comprar</Link> : <Link class="buttonChico" to="/registro">Registrate</Link>}
-                        </div>
-                      </MDBCol>
-                    </MDBRow>
-                  </MDBCardBody>
-                </MDBCard>
-              </MDBCol>
-            </MDBRow>
-          </MDBContainer>
-        </section>) /* : (
-        <div>
-          <br /><br /><br /><br /><br /><br /><br />
-          <h1>estoy</h1>
-          {{crearOrders()}}
-        </div>)  */: (
-          <section className="h-100 h-custom" style={{ backgroundColor: "#94D2DE", paddingTop: "100px" }}>
-            <MDBContainer className="py-5 h-100" style={{ backgroundColor: "#94D2DE" }}>
-              <MDBRow className="justify-content-center align-items-center h-100">
-                <MDBCol size="12" style={{ backgroundColor: "#207140", paddingTop: "12px", paddingBottom: "12px" }}>
-                  <MDBCard className="card-registration card-registration-2">
-                    <MDBCardBody className="p-0">
-                      <MDBRow className="g-0">
-                        <MDBCol lg="8">
-                          <div className="p-5">
-                            <div className="d-flex justify-content-between align-items-center mb-5">
-                              <MDBTypography tag="h2" className="fw-bold mb-0 text-black" style={{ color: "#207140", fontFamily: "Tommy-regular" }}>
-                                Pedido
-                              </MDBTypography>
-                              {
-                                todosLosProductos && <MDBTypography className="mb-0 text-muted">{todosLosProductos.length} Productos  </MDBTypography>
-                              }
-                            </div>
-                            <hr className="my-4" />
-                            {
-                              unicos?.map(e => (
-                                <MDBRow className="mb-4 d-flex justify-content-between align-items-center">
-                                  <MDBCol md="2" lg="2" xl="2">
-                                    <MDBCardImage
-                                      src={e?.image}
-                                      fluid className="rounded-3" alt="Cotton T-shirt" />
-                                  </MDBCol>
-                                  <MDBCol md="3" lg="3" xl="3">
-                                    {/* <MDBTypography tag="h6" className="text-muted">
-=======
                       <MDBInput size="lg"  defaultValue={armadoCarrito?.direccion?armadoCarrito?.direccion:''} placeholder={armadoCarrito?.direccion}/>
                       </div>
                       <MDBTypography tag="h5" className="text-uppercase mb-3">
@@ -513,11 +356,6 @@ export default function QuantityEdit() {
         </MDBRow>
       </MDBContainer>
     </section>):(
-    <div>
-      <br /><br /><br /><br />
-      <br /><br /><br /><br />
-      <h1>ya iniciamos</h1>
-    </div>):(
     <section className="h-100 h-custom" style={{ backgroundColor: "#94D2DE", paddingTop: "100px" }}>
       <MDBContainer className="py-5 h-100" style={{ backgroundColor: "#94D2DE" }}>
         <MDBRow className="justify-content-center align-items-center h-100">
@@ -537,16 +375,15 @@ export default function QuantityEdit() {
                       </div>
                       <hr className="my-4" />
                       {
-                        productosReales?.map(e => (
-                          <MDBRow className="mb-4 d-flex justify-content-between align-items-center">
-                            <MDBCol md="2" lg="2" xl="2">
-                              <MDBCardImage
-                                src={e?.image}
-                                fluid className="rounded-3" alt={e.name} />
-                            </MDBCol>
-                            <MDBCol md="3" lg="3" xl="3">
-                              {/* <MDBTypography tag="h6" className="text-muted">
->>>>>>> Stashed changes
+                              unicos?.map(e => (
+                                <MDBRow className="mb-4 d-flex justify-content-between align-items-center">
+                                  <MDBCol md="2" lg="2" xl="2">
+                                    <MDBCardImage
+                                      src={e?.image}
+                                      fluid className="rounded-3" alt="Cotton T-shirt" />
+                                  </MDBCol>
+                                  <MDBCol md="3" lg="3" xl="3">
+                                    {/* <MDBTypography tag="h6" className="text-muted">
                                 {e?.name}
                               </MDBTypography> */}
                                     <MDBTypography tag="h6" className="text-black mb-0">
@@ -557,9 +394,9 @@ export default function QuantityEdit() {
                                     <button onClick={(e) => remove(e)} value={e._id} style={{ border: 'none', color: '#fff', fontWeight: "bolder", backgroundColor: 'red', fontSize: 'larger', width: '2rem', marginRight: '0.5rem' }}>
                                       -
                                     </button>
-                                    <MDBInput type="number" min="1" defaultValue={productosReales.filter(d => d._id === e._id).length} size="sm" />
+                                    <MDBInput type="number" min="1" defaultValue={todosLosProductos?.filter(d => d._id === e._id).length} size="sm" />
                                     <button onClick={(e) => agregar(e)} value={e._id} style={{ border: 'none', color: '#fff', backgroundColor: 'green', width: '2rem', marginLeft: '0.5rem', fontSize: 'larger' }}>
-                                      + 
+                                      +
                                     </button>
                                   </MDBCol>
                                   <MDBCol md="3" lg="2" xl="2" className="text-end">

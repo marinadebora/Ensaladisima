@@ -575,6 +575,7 @@ export function pedidoPostreLogueado(value){
 		}
 	}
 }
+<<<<<<< HEAD
 /* [16:33, 9/9/2022] Alexis Piña Pg: /ensaladamed
 [16:34, 9/9/2022] Alexis Piña Pg: /ensaladabig */
 
@@ -587,10 +588,23 @@ export function saladMUser(payload){
 				payload: saladM.data
 			})
 		} catch (error) {
+=======
+
+export function contactForm(value){
+	return async function(dispatch){
+		try{
+			const form = await axios.post("/contactForm",value)
+			return dispatch({
+				type:"CONTACT_FORM",
+				payload:form
+			})
+		}catch(error){
+>>>>>>> 6a877f9b9e126e0365df8368eaf3c2e5d437a7bc
 			console.log(error)
 		}
 	}
 }
+<<<<<<< HEAD
 export function saladGUser(payload){
 	return async function(dispatch){
 		try {
@@ -604,3 +618,25 @@ export function saladGUser(payload){
 		}
 	}
 }
+=======
+
+export function crearLocalStorage(value){
+	return async function(dispatch){
+		const cargar = await axios.post('/crearLocalStorage',value)
+		return dispatch({
+			type: 'CARGA_LOCAL',
+			payload: cargar.data
+		})
+	}
+}
+
+export function putPedidocargarPedido(value){
+	return async function(dispatch){
+		const cargarPedido = await axios.put('/cargarPedido', value)
+		return dispatch({
+			type: 'CARGAR_PEDIDO_DEL_LOCAL', payload: cargarPedido.data
+		})
+	} 
+
+}
+>>>>>>> 6a877f9b9e126e0365df8368eaf3c2e5d437a7bc

@@ -9,7 +9,7 @@ import ensaladaMediana from "../images/ensaladera.png";
 import ensaladaGrande from "../images/ensaladera.png";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { salads,desserts,beverages, saladsBig, menuMediano, menuGrande, pedidoBebidaLogueado, pedidoPostreLogueado } from "../action/index.js";
+import { salads,desserts,beverages, saladsBig, menuMediano, menuGrande, pedidoBebidaLogueado, pedidoPostreLogueado, usuariosRegistrados } from "../action/index.js";
 import "../styles/Menu.css";
 import CarrouselEP from './CarrouselEP';
 import { useLocalStorage } from '../useLocalStorage';
@@ -25,6 +25,8 @@ const Menu = () => {
   const allSaladsBig = useSelector(state => state.saladsBig)
   const allDesserts= useSelector(state=>state.desserts)
   const allBeverages = useSelector(state => state.beverages)
+  
+
 
   const [medianas, setmeMedianas] = useLocalStorage ('medianas',[])
   const [grandes, setmeGrandes] = useLocalStorage ('grandes',[])
@@ -38,11 +40,15 @@ const Menu = () => {
     dispatch(desserts())
     dispatch(beverages())
     dispatch(saladsBig())
+    dispatch(usuariosRegistrados())
     if(localStorage.getItem('loguearUsuario')){
       const usuario = JSON.parse(localStorage.getItem('loguearUsuario'))
       setUser(usuario)
     }
   }, [dispatch]);
+
+  // carga local
+  
   
   
   let medium=(name)=>{
@@ -69,26 +75,15 @@ const Menu = () => {
     if(!user){
       let postre= allDesserts.filter(e=>e.name===name)
       setDessert([...dessert,...postre])
+      let bebidas= allBeverages.filter(e=>e.name===name)
+      setBeverage([...beverage,...bebidas])
     }else{
       let bebidaLogueado = allBeverages?.filter(e=>e.name===name?.bebidas)
       console.log(name)
       console.log(bebidaLogueado)
-      bebidaLogueado?.length ? dispatch(pedidoBebidaLogueado(name)) :/*  postrelogueado ?  */dispatch(pedidoPostreLogueado(name)) /* : alert('esta errado') */
+      bebidaLogueado?.length ? dispatch(pedidoBebidaLogueado(name)) :dispatch(pedidoPostreLogueado(name)) /* : alert('esta errado') */
     }
     
-  let bebidas= allBeverages.filter(e=>e.name===name)
-  setBeverage([...beverage,...bebidas])
-
-
-  // agregar al pedido cuando se esta logueado
-
-  /* let medina = (name)=>{
-    if(user){
-
-      dispatch(menuMediano(name))
-    }
-  } */
-
   }
   
   return (
