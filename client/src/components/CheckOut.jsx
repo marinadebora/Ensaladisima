@@ -250,7 +250,7 @@ export default function QuantityEdit() {
                         <div className="p-5">
                           <div className="d-flex justify-content-between align-items-center mb-5">
                             <MDBTypography tag="h2" className="fw-bold mb-0 text-black" style={{ color: "#207140", fontFamily: "Tommy-regular" }}>
-                              Pedido usuario con orders
+                              Pedido
                             </MDBTypography>
                             {
                               armadoCarrito?.producto && <MDBTypography className="mb-0 text-muted">{armadoCarrito?.producto?.length} Productos  </MDBTypography>
