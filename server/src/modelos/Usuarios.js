@@ -14,7 +14,7 @@ const UsuariosSchema = new Schema({
     admin: { type: Boolean, default: false },
     activo: { type: Boolean, default: true },
     orders: [{ type: Schema.Types.ObjectId, ref: "Pedidos" }],
-    purchaseHistory: [{ type: Schema.Types.ObjectId, ref:"Historial"}],
+    purchaseHistory: [{ type: Schema.Types.ObjectId, ref:"Historials"}],
 })
 UsuariosSchema.pre("save", function(next){
     if(this.isNew|| this.isModified("password")){
