@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { complements, postBases, postBebidas, postComplementos, postMenu, postPostres, postProteinas, postSalsas, postToppings } from "../action";
 import BaseEdit, { BebidasEdit, ComplemetoEdit, MenuEdit, PostresEdit, ProteinaEdit, SalsasEdit, ToppingEdit } from "../components/AdminEdit";
+import '../styles/CrearProducto.css';
 
 
 
@@ -213,45 +214,36 @@ export default function CrearProduto() {
     return (
         <div>
             <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-
-            <div><Link to="/menu"><button>Volver</button></Link></div>
-            <div><h1>Creá o editá tu producto!</h1></div>
-            <form onSubmit={handleSubmit}>
+            
+            <form id="formEdit" onSubmit={handleSubmit}>
                 {/**SELECT PARA CREAR PRODUCTOS */}
                 <div>
-                    <select onChange={hanldeOnChangeSelect}>
-                        <option value="">Seleccioná para Crear</option>
-                        {seleccionar.map(e => {
-                            return (
-                                <option>
-                                    {e}
-                                </option>
-                            )
-                        })}
-                    </select>
+                        <div id="SelectCrearEdit">
+                            <select onChange={hanldeOnChangeSelect}>
+                                <option value="">Seleccioná para Crear</option>
+                                {seleccionar.map(e => {
+                                    return (
+                                        <option>
+                                            {e}
+                                        </option>
+                                    )
+                                })}
+                            </select>
+                        </div>
                     {/**SELECT PARA EDITAR PRODUCTOS */}
-                    <div>
-
-                        <select onChange={hanldeOnChangeSelectEdit}>
-                            <option value="">Seleccioná para Editar</option>
-                            {seleccionarEdit.map(e => {
-                                return (
-                                    <option>
-                                        {e}
-                                    </option>
-                                )
-                            })}
-                        </select>
+                        <div id="SelectCrearEdit">
+                            <select onChange={hanldeOnChangeSelectEdit}>
+                                <option value="">Seleccioná para Editar</option>
+                                {seleccionarEdit.map(e => {
+                                    return (
+                                        <option>
+                                            {e}
+                                        </option>
+                                    )
+                                })}
+                            </select>
                         <div>
+
                              {/**RENDERIZADO DE LAS CARDS */}
                             {
                                 selectEdit === "baseEdit" ? (<BaseEdit />) :
@@ -271,7 +263,7 @@ export default function CrearProduto() {
                 <div>
                     {/**FORMULARIO PARA CREAR BEBIDAS */}
                     {
-                        select === "" ? (<div><h2>selecciona el parametro que vas a crear</h2></div>) :
+                        // select === "" ? (<h2 id="formSubtitle">selecciona el parametr</h2>) :
                             select === "bebidas" ? (<div>
                                 <div>
                                     <label>Nombre: </label><input type="text" value={input.name} name="name" onChange={handleChange} />
@@ -290,7 +282,7 @@ export default function CrearProduto() {
                                     {errors.stock && <p>{errors.stock}</p>}
                                 </div>
 
-                                <button type='submit'>Crear Bebida</button>
+                                <button class="buttonFormAdmin" type='submit'>Crear Bebida</button>
                             </div>) :
 
 
@@ -312,8 +304,7 @@ export default function CrearProduto() {
                                         {errors.stock && <p>{errors.stock}</p>}
                                     </div>
 
-                                    <button type='submit'>Crear Postre</button></div>) :
-
+                                    <button class="buttonFormAdmin" type='submit'>Crear Postre</button></div>) :
 
                                     select === "base" ? (<div>
                                           {/**FORMULARIO PARA CREAR BASES */}
@@ -325,7 +316,7 @@ export default function CrearProduto() {
                                             <label >Imagen(link):</label><input type="url" value={ingredientes.image} name="image" onChange={handleChangeIngredientes} />
                                             {errorsIngredientes.image && <p>{errorsIngredientes.image}</p>}
                                         </div>
-                                        <button type='submit'>Crear Base</button>
+                                        <button class="buttonFormAdmin" type='submit'>Crear Base</button>
                                     </div>) :
 
 
@@ -339,7 +330,7 @@ export default function CrearProduto() {
                                                 <label >Imagen(link):</label><input type="url" value={ingredientes.image} name="image" onChange={handleChangeIngredientes} />
                                                 {errorsIngredientes.image && <p>{errorsIngredientes.image}</p>}
                                             </div>
-                                            <button type='submit'>Crear Complemento</button>
+                                            <button class="buttonFormAdmin" type='submit'>Crear Complemento</button>
                                         </div>) :
 
 
@@ -353,7 +344,7 @@ export default function CrearProduto() {
                                                     <label >Imagen(link):</label><input type="url" value={ingredientes.image} name="image" onChange={handleChangeIngredientes} />
                                                     {errorsIngredientes.image && <p>{errorsIngredientes.image}</p>}
                                                 </div>
-                                                <button type='submit'>Crear Proteina</button>
+                                                <button class="buttonFormAdmin" type='submit'>Crear Proteina</button>
                                             </div>) :
 
 
@@ -367,7 +358,7 @@ export default function CrearProduto() {
                                                         <label >Imagen(link):</label><input type="url" value={ingredientes.image} name="image" onChange={handleChangeIngredientes} />
                                                         {errorsIngredientes.image && <p>{errorsIngredientes.image}</p>}
                                                     </div>
-                                                    <button type='submit'>Crear Topping</button>
+                                                    <button class="buttonFormAdmin" type='submit'>Crear Topping</button>
                                                 </div>) :
 
 
@@ -381,7 +372,7 @@ export default function CrearProduto() {
                                                             <label >Imagen(link):</label><input type="url" value={ingredientes.image} name="image" onChange={handleChangeIngredientes} />
                                                             {errorsIngredientes.image && <p>{errorsIngredientes.image}</p>}
                                                         </div>
-                                                        <button type='submit'>Crear Salsas</button>
+                                                        <button class="buttonFormAdmin" type='submit'>Crear Salsas</button>
                                                     </div>) :
 
 
@@ -418,9 +409,9 @@ export default function CrearProduto() {
                                                             </div>
 
 
-                                                            <button type='submit'>Crear Menu</button>
-                                                        </div>) :
-                                                            (<div><h2>Selecciona el parametro que vas a crear</h2></div>)
+                                                            <button class="buttonFormAdmin" type='submit'>Crear Menu</button>
+                                                        </div>) : ""
+                                                            // (<div><h2>Selecciona el parametro que vas a crear</h2></div>)
 
 
 

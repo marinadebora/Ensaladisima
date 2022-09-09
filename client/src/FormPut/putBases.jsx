@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link,useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { bases, beverages, complements, desserts, Menu, proteins, putBases, putBebidas, putComplemento, putMenu, putPostres, putProteinas, putSalsas, putTopping, sauces, toppings } from "../action";
-
+import "./putBases.css"
 
 
 export default function BaseEdit() {
@@ -171,23 +171,13 @@ export default function BaseEdit() {
 
   return (
     <div>
-      <br />
-      <br />
-      <br />
-
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+     
 
       <div><Link to="/admin"><button>Volver</button></Link></div>
       <div><h1>Editá tus productos!</h1></div>
       <form onSubmit={handleSubmit}>
          {/**FORMULARIO PARA EDITAR BASES/COMPLEMENTOS/SALSAS/TOPPING/ETC */}
-        <div>
+        <div id="marcoProductEdit">
           <label>Nombre: </label><input type="text" value={input.name} placeholder={buscar1?.name ? buscar1.name : buscar2?.name ? buscar2.name : buscar3?.name ? buscar3.name : buscar4?.name ? buscar4.name : buscar5?.name ? buscar5.name : buscar6?.name ? buscar6.name : buscar7?.name ? buscar7.name : buscar8?.name ? buscar8.name : input.name} name="name" onChange={handleChange} />
         </div>
         <div>

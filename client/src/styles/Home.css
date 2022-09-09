@@ -123,28 +123,39 @@
 }
 
 #bloque2{
+   width: auto;
+   height: auto;
    display: block;
 }
 
 #cuadradoText1{
    width: 33%;
-   height: 395px;
+   height: 410px;
    font-family: Tommy-bold;
    background-color: #F18D1D;
    float: left;
    z-index: 2;
 }
 
+#videoMain{
+   width: 34%;
+   margin:0px;
+   padding: 0px;
+   height: 410px;
+   float: left;
+   z-index: 2;
+
+}
+
 #video{
    overflow: hidden;
-   width: 33%;
-   float: left;
+   width: 100%;
    padding: 0px;
 }
 
 #cuadradoText2{
-   width: 34%;
-   height: 395px;
+   width: 33%;
+   height: 410px;
    font-family: Tommy-bold;
    background-color: #FABB4E;
    float: left;

@@ -576,6 +576,20 @@ export function pedidoPostreLogueado(value){
 	}
 }
 
+export function contactForm(value){
+	return async function(dispatch){
+		try{
+			const form = await axios.post("/contactForm",value)
+			return dispatch({
+				type:"CONTACT_FORM",
+				payload:form
+			})
+		}catch(error){
+			console.log(error)
+		}
+	}
+}
+
 export function crearLocalStorage(value){
 	return async function(dispatch){
 		const cargar = await axios.post('/crearLocalStorage',value)
@@ -593,4 +607,5 @@ export function putPedidocargarPedido(value){
 			type: 'CARGAR_PEDIDO_DEL_LOCAL', payload: cargarPedido.data
 		})
 	} 
+
 }
