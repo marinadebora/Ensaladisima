@@ -575,9 +575,7 @@ export function pedidoPostreLogueado(value){
 		}
 	}
 }
-<<<<<<< HEAD
-/* [16:33, 9/9/2022] Alexis Piña Pg: /ensaladamed
-[16:34, 9/9/2022] Alexis Piña Pg: /ensaladabig */
+
 
 export function saladMUser(payload){
 	return async function(dispatch){
@@ -588,7 +586,10 @@ export function saladMUser(payload){
 				payload: saladM.data
 			})
 		} catch (error) {
-=======
+			console.log(error)
+		}
+	}
+}
 
 export function contactForm(value){
 	return async function(dispatch){
@@ -599,12 +600,10 @@ export function contactForm(value){
 				payload:form
 			})
 		}catch(error){
->>>>>>> 6a877f9b9e126e0365df8368eaf3c2e5d437a7bc
 			console.log(error)
 		}
 	}
 }
-<<<<<<< HEAD
 export function saladGUser(payload){
 	return async function(dispatch){
 		try {
@@ -618,7 +617,6 @@ export function saladGUser(payload){
 		}
 	}
 }
-=======
 
 export function crearLocalStorage(value){
 	return async function(dispatch){
@@ -639,4 +637,3 @@ export function putPedidocargarPedido(value){
 	} 
 
 }
->>>>>>> 6a877f9b9e126e0365df8368eaf3c2e5d437a7bc
