@@ -76,7 +76,7 @@ export default function QuantityEdit() {
              delievery: true,
              adress: localUser?.adress ? localUser?.adress : ''
            }
-           const reas = await dispatch(putPedidocargarPedido(data))
+           /* const reas = await */ dispatch(putPedidocargarPedido(data))
            
        }
      }
