@@ -63,6 +63,7 @@ function editar(){
 
                         <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>{/* user.email */}</MDBCardText>
 
+
                       </MDBCol>
                       <MDBCol size="6" className="mb-3">
                         <MDBTypography tag="h6" style={{color:"#207140", fontFamily:"Tommy-regular"}}>Phone</MDBTypography>
