@@ -1,0 +1,38 @@
+@font-face {
+    font-family: Tommy-regular;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+
+    font-family: Tommy-light;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Light_PERSONAL\ USE.ttf);
+}
+
+#cardSimpleFrame{
+    padding: 4px;
+    width: 130px;
+    height: 220px;
+    border: 4px solid #F08D1D;
+    border-bottom: 20px solid #F08D1D;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+
+#ensaladaImagenEdit{
+    width: 70%;
+    margin-top: 5%;
+    margin-left: 14%;
+}
+
+#ensaladaNombreEdit{
+    text-decoration: none;
+    font-family: Tommy-light;
+    color: #207140;
+    font-size: 15px;
+    text-align: center;
+}
+
+
+#linkCardSimple{
+    text-decoration: none;
+
+}

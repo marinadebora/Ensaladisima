@@ -15,16 +15,16 @@ export function Sauce () {
       let handleChange = (event) =>
       {
         event.preventDefault()
-    let info=event.target.value
-        setForm({
+        if(event.target.value!==''){
+          setForm({
           ...form,
-          sauces: [...form.sauces,info ],
+          sauces: [...form.sauces,event.target.value ],
       
         })
-        setSalsa([...form.sauces,info] )
+        setSalsa([...form.sauces,event.target.value] )
         console.log(salsa)
       }
-    
+      }
     
       const handleDelete = (event) =>
       {
@@ -33,7 +33,8 @@ export function Sauce () {
           ...form,
           sauces: form.sauces.filter(e => e !== event)
         })
-        
+        setSalsa([...form.sauces.filter(e => e !== event)] )
+ 
       }
    
       return (
@@ -41,7 +42,7 @@ export function Sauce () {
     <div>
           <div id="checkboxContent" className="contain-bases" >
            
-            <h3 id="h3-bases">ELIGE TUS SALSAS (4)</h3>
+            <h3 id="h3-bases">ELIGE TUS SALSAS</h3>
               {
               allSauces?.map(e => (
                 <div id="contain-bases-card" key={e._id}>
@@ -53,7 +54,7 @@ export function Sauce () {
               ))
             }
               <select onChange={(e) => handleChange(e)} disabled={form.sauces?.length === 4 && true} class="form-select" aria-label="Default select example">
-              <option value=""disabled>seleccione</option>
+              <option value="">seleccione un máximo de 4 salsas</option>
                 {
                   allSauces?.map(e => (
                   <option name={e.name} value={e.name}>{e.name}</option>

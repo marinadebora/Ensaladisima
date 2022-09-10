@@ -24,12 +24,12 @@
 }
 
 #butonCarrouselMain{
+    text-decoration: none;
     border:none;
     margin: 5px;
 }
 
 #butonCarrousel{
-   
     text-decoration: none;
     border: none;
     color: #207140;
