@@ -63,9 +63,9 @@ export function PideTuEnsalada()
     setEnsaladaG([...ensaladaG, ensalada])
     setPartesEnsG({
       base: base,
-      proteinas: proteinas,
+      protein: proteinas,
       complement: complement,
-      salsa: salsa,
+      sauce: salsa,
       topping: topping,
     })
     navigate("/cargando");
