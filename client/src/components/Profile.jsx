@@ -48,7 +48,7 @@ function editar(){
                        ></MDBInput>
                     }
                    
-                  <MDBTypography tag="h5"style={{color:"#207140", fontFamily:"Tommy-light"}}>{usuario?usuario.firstName + ' ' +usuario?.lastName :'usuario'}</MDBTypography>
+                  <MDBTypography tag="h5"style={{color:"#207140", fontFamily:"Tommy-light"}}>{/* user.firstName + ' ' +user?.lastName  */}</MDBTypography>
                   {/* <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>Web Designer</MDBCardText> */}
                   <MDBIcon far icon="edit mb-5" />
                 </MDBCol>
@@ -59,11 +59,11 @@ function editar(){
                     <MDBRow className="pt-1">
                       <MDBCol size="6" className="mb-3">
                         <MDBTypography tag="h6" style={{color:"#207140", fontFamily:"Tommy-regular"}}>Email</MDBTypography>
-                        <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>{usuario.email?usuario.email:'email'}</MDBCardText>
+                        <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>{/* user.email */}</MDBCardText>
                       </MDBCol>
                       <MDBCol size="6" className="mb-3">
                         <MDBTypography tag="h6" style={{color:"#207140", fontFamily:"Tommy-regular"}}>Phone</MDBTypography>
-                        <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>telefono{/* {usuario.phone} */}</MDBCardText>
+                        <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>telefono{/* {user.phone} */}</MDBCardText>
                       </MDBCol>
                     </MDBRow>
 
