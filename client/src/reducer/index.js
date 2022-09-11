@@ -104,7 +104,11 @@ function rootReducer( state = initialState, action )
     case "POST_LOGEO":
       return{
         ...state
-          }    
+          }
+    case "POST_LOGEO_GOOGLE":
+      return{
+        ...state
+          }     
 
     default:
       return {

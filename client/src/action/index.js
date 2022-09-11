@@ -370,3 +370,17 @@ export function PostLogeoUsuario(payload){
 		}
 	}
 }
+
+export function PostLogeoUsuarioGoogle(){
+	return async function(dispatch){
+		try{
+			const logueadoGoogle = await axios("/auth")
+			return dispatch({
+				type:"POST_LOGEO_GOOGLE",
+				payload:logueadoGoogle.data
+			})
+		}catch(error){
+			console.log({message:error.message})
+		}
+	}
+}

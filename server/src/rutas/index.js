@@ -51,6 +51,7 @@ const postHistorial = require("./Historial/postHistorial");
 const { menuBig } = require("../constroladores/cargarBaseDeDatos/controladorDelMenuBig");
 const passport = require("passport");
 const { getMenuBig } = require("./MenuBig/getMenuBig");
+const {loginGoogle} = require("./Usuarios/loginGoogle")
 require("../../middlewares/google")
 
 
@@ -61,13 +62,13 @@ router.use('/usuarios', getUsuarios)
 router.use('/usuario', getIdUsuario)
 router.use('/registro', registro, correo)
 router.use("/autenticar",auth)
-router.use("/autenticargoogle", passport.authenticate("auth-google", {
+/* router.use("/autenticargoogle", passport.authenticate("auth-google", {
     scope: [
         "https://www.googleapis.com/auth/userinfo.profile",
         "https://www.googleapis.com/auth/userinfo.email"
     ],
     session: false
-}), auth)
+}),loginGoogle) */
 router.put("/usuarios/:_id",editarPassword,passwordEditada);
 router.get("/email",getEmail,correoPassword);
 

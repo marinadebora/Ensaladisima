@@ -2,15 +2,47 @@ const Usuarios = require("../../modelos/Usuarios");
 const jwt = require("jsonwebtoken")
 
 const auth = async (req, res) => {
-    const { email, password } = req.body;
-    console.log("HOLA SOY UN CONSOLE.LOG"+ email)
-    const user = await Usuarios.findOne({ email })
+    const { email, password,google } = req.body;
+    
     let firstName = ''
     let lastName = ''
     let adress=''
     let id = ''
     let admin = false
     let orders=[]
+    console.log(google)
+    if (google === true){
+        console.log("entre al if de google, porque es true")
+        const userGoogle = await Usuarios.findOne({email})
+        console.log(userGoogle)
+        if (userGoogle) {
+        
+        firstName = userGoogle.firstName
+        id = userGoogle._id
+        admin = userGoogle.admin
+        lastName = userGoogle.lastName
+        adress = userGoogle.adress
+        orders = userGoogle.orders
+
+        let token = jwt.sign({ userGoogle }, "torombolo", {expiresIn: "10h"})
+        console.log( {email, token, firstName, lastName, id, admin,adress, orders})
+        res.send({ email, token, firstName, lastName, id, admin,adress, orders })
+        }
+        else {
+
+            firstName = req.body.firstName?req.body.firstName:firstName
+            lastName = req.body.lastName?req.body.lastName:lastName
+
+            Usuarios.create({
+                email,password,firstName,lastName
+            })
+            let token = jwt.sign({ userGoogle }, "torombolo", {expiresIn: "10h"})
+            console.log( {email, token, firstName, lastName, id, admin,adress, orders})
+            res.send({ email, token, firstName, lastName, id, admin,adress, orders })
+        }
+    }else{
+        const user = await Usuarios.findOne({ email })
+
     if (user) {
         firstName = user.firstName
         id = user._id
@@ -19,10 +51,9 @@ const auth = async (req, res) => {
         adress = user.adress
         orders = user.orders
     }
-
     const authUser = await Usuarios.findOne({ email })
-    if (authUser.activo !== true) {
-        res.status(404).send('Disculpa pero te encuentras bloqueado')
+
+    if (authUser.activo !== true) { res.status(404).send('Disculpa pero te encuentras bloqueado')
     } else {
     Usuarios.findOne({ email }, (err, Usuarios) => {
         if (err) {
@@ -38,9 +69,7 @@ const auth = async (req, res) => {
                     let token = jwt.sign({ Usuarios }, "torombolo", {
                         expiresIn: "10h"
                     })
-                    /* res.cookie("token", token, { expiresIn: "10h" }); */
                     res.send({ email, token, firstName, lastName, id, admin,adress, orders })
-                    /* console.log(req.headers) */
                 } else {
                     res.status(500).send("Correo y/o contraseña incorrecta")
                 }
@@ -48,11 +77,10 @@ const auth = async (req, res) => {
         }
 
     });
-    }
-    /* console.log(nombre) */
-    
+    }}
+}
 
-};
+
 
 
 
