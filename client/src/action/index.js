@@ -583,7 +583,7 @@ export function saladMUser(payload){
 			const saladM = await axios.post(`/ensaladamed`,payload)
 			return dispatch({
 				type: "SALAD_M_USER",
-				payload: saladM.data
+				payload: saladM
 			})
 		} catch (error) {
 			console.log(error)
@@ -610,7 +610,7 @@ export function saladGUser(payload){
 			const saladG = await axios.post(`/ensaladabig`,payload)
 			return dispatch({
 				type: "SALAD_G_USER",
-				payload: saladG.data
+				payload: saladG
 			})
 		} catch (error) {
 			console.log(error)
