@@ -26,14 +26,10 @@ function validate(loginUser){
   return error
 }
 
-
-
 function Login() {
   const history = useNavigate();
   const dispatch = useDispatch();
   
-  
-  const [user,setUser] = useState({})
   const [loginUser, setLoginUser] = useState({
      email:"",
      password:""
@@ -49,7 +45,6 @@ function Login() {
         password: userObject.email,
         google:true
       }
-      
       const dispatchGoogle = await dispatch(PostLogeoUsuario(usuarioLocal))
         if(!dispatchGoogle) alert("Hay un error en el inicio de sesion")
         alert('Bienvenido a ensaladísima')
@@ -70,11 +65,7 @@ function Login() {
         document.getElementById("signInDiv"),
         {theme: "outline", size:"large"}
       )
-      if(localStorage.getItem('loguearUsuario')){
-          const users = JSON.parse(localStorage.getItem('loguearUsuario'))
-          setUser(users)
-        }
-    }, [])
+    }, [handleCallbackResponse])
     
     const handleInput = (e) => {
       setLoginUser({
@@ -146,7 +137,7 @@ function Login() {
             <button type="submit" class="buttonChico2">Login</button>
             
             </form>
-            <p className="small mb-5 pb-lg-3 ms-5"><a class="text-muted" href="#!">Forgot password?</a></p>
+            <p className="small mb-5 pb-lg-3 ms-5"><a class="text-muted" href="#!">Olvidaste tu contraseña?</a></p>
             <div  id="signInDiv"></div><br />
             <p className='ms-5'>No tienes una cuenta? <a href="/registro" class="link-info">Registrate</a></p>
 

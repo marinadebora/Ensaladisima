@@ -57,7 +57,6 @@ const postPedidoMenuBig = require("./Pedidos/postPedidoMenuBig");
 const crearLocalStorage = require("./Pedidos/crearPedidoLocalStorage");
 const cargarPedido = require("./Pedidos/cargarPedidos");
 const { getHistorial } = require("./Historial/getHistorial");
-require("../../middlewares/google")
 
 
 const router = Router();
