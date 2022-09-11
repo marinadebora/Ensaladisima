@@ -1,10 +1,28 @@
-import React from 'react';
-import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
+import React,{useState} from 'react';
+import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon, MDBInput } from 'mdb-react-ui-kit';
 import loginLogo from "../images/loginLogo.png";
-
+import axios from 'axios';
+import { useLocalStorage } from '../useLocalStorage';
 
 export default function PersonalProfile() {
   const user = JSON.parse(localStorage.getItem('usuarioLogueado'))
+  const usuario=JSON.parse(localStorage.getItem('loguearUsuario'))
+
+  let [imagenCloud, setImagenCloud] = useLocalStorage('imagenClod', '')
+  const [edit, setEdit] = useState(false)
+  console.log(usuario)
+function editar(){
+  setEdit(true)
+}
+  const cloudinary = async (files) =>{
+    const formData = new FormData();
+    formData.append("file", files[0]);
+    formData.append("upload_preset", "qji2i4gs");
+
+    let response = await axios.post("https://api.cloudinary.com/v1_1/deqbqghhq/image/upload",formData)
+    setImagenCloud(response.data.url)
+    setEdit(false)
+  };
 
   const sesion = ()=>{
     return(
@@ -16,9 +34,22 @@ export default function PersonalProfile() {
               <MDBRow className="g-0" >
                 <MDBCol md="4" className="gradient-custom text-center text-white"
                   style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem' }}>
-                  <MDBCardImage src={loginLogo}
+                  <MDBCardImage src={imagenCloud?imagenCloud:loginLogo}
                     alt="Avatar" className="my-5" style={{ width: '80px' }} fluid />
-                  <MDBTypography tag="h5"style={{color:"#207140", fontFamily:"Tommy-light"}}>usuario{/* {user.fistName + " " + user.lastNanme} */}</MDBTypography>
+                    <button id="buttonAddG"onClick={editar}>
+                    <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light", textAlign:"center"}}>Editar</MDBCardText></button>
+  
+                      
+                    {
+                      edit&& <MDBInput
+                      type="file"
+                      size="sm"
+                      onChange={event => cloudinary(event.target.files)}
+                       ></MDBInput>
+                    }
+
+                  <MDBTypography tag="h5"style={{color:"#207140", fontFamily:"Tommy-light"}}>{/* user.firstName + ' ' +user?.lastName  */}</MDBTypography>
+
                   {/* <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>Web Designer</MDBCardText> */}
                   <MDBIcon far icon="edit mb-5" />
                 </MDBCol>
@@ -29,7 +60,10 @@ export default function PersonalProfile() {
                     <MDBRow className="pt-1">
                       <MDBCol size="6" className="mb-3">
                         <MDBTypography tag="h6" style={{color:"#207140", fontFamily:"Tommy-regular"}}>Email</MDBTypography>
-                        <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>email{/* {user.email} */}</MDBCardText>
+
+                        <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>{/* user.email */}</MDBCardText>
+
+
                       </MDBCol>
                       <MDBCol size="6" className="mb-3">
                         <MDBTypography tag="h6" style={{color:"#207140", fontFamily:"Tommy-regular"}}>Phone</MDBTypography>
