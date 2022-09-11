@@ -493,7 +493,7 @@ export function getPedidos(){
 export function eliminarDelCarrito(value){
 	return async function(dispatch){
 		try {
-			const eliminar = await axios.put(`/eliminarDelPedido/`,value)
+			const eliminar = await axios.put(`/eliminarDelPedido`,value)
 			return dispatch({
 				type: "ELIMINAR_DEL_PEDIDO",
 				payload: eliminar.data
@@ -507,7 +507,7 @@ export function eliminarDelCarrito(value){
 export function agregarAlCarrito(value){
 	return async function(dispatch){
 		try {
-			const agregar = await axios.put(`/agregar/`,value)
+			const agregar = await axios.put(`/agregar`,value)
 			return dispatch({
 				type: "AGREGAR_AL_PEDIDO",
 				payload: agregar.data
@@ -583,7 +583,7 @@ export function saladMUser(payload){
 			const saladM = await axios.post(`/ensaladamed`,payload)
 			return dispatch({
 				type: "SALAD_M_USER",
-				payload: saladM.data
+				payload: saladM
 			})
 		} catch (error) {
 			console.log(error)
@@ -610,7 +610,7 @@ export function saladGUser(payload){
 			const saladG = await axios.post(`/ensaladabig`,payload)
 			return dispatch({
 				type: "SALAD_G_USER",
-				payload: saladG.data
+				payload: saladG
 			})
 		} catch (error) {
 			console.log(error)

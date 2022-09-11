@@ -32,8 +32,8 @@ export function PideTuEnsalada()
   let [formM, setFormM] = useState({
     ensalada: []
   })
-  let [partesEnsM, setPartesEnsM] = useLocalStorage('objDBM', {})
-  let [partesEnsG, setPartesEnsG] = useLocalStorage('objDBG', {})
+  let [mediana, setMediana] = useLocalStorage('mediana', {})
+  let [grande, setGrande] = useLocalStorage('grande', {})
 
 
   let big = () =>
@@ -43,6 +43,8 @@ export function PideTuEnsalada()
     let complement = JSON.parse(localStorage.getItem('complement'))
     let salsa = JSON.parse(localStorage.getItem('salsa'))
     let topping = JSON.parse(localStorage.getItem('topping'))
+    let user = JSON.parse(localStorage.getItem('loguearUsuario'))
+
     let ensalada = {
       _id: '2',
       base: base,
@@ -61,11 +63,12 @@ export function PideTuEnsalada()
     })
 
     setEnsaladaG([...ensaladaG, ensalada])
-    setPartesEnsG({
+    setGrande({
+      email:user.email,
       base: base,
       protein: proteinas,
       complement: complement,
-      sauce: salsa,
+      suace: salsa,
       topping: topping,
     })
     navigate("/cargando");
@@ -95,6 +98,8 @@ export function PideTuEnsalada()
     let complement = JSON.parse(localStorage.getItem('complement'))
     let salsa = JSON.parse(localStorage.getItem('salsa'))
     let topping = JSON.parse(localStorage.getItem('topping'))
+    let user = JSON.parse(localStorage.getItem('loguearUsuario'))
+
     let ensalada = {
       _id: '1',
       base: base,
@@ -114,11 +119,12 @@ export function PideTuEnsalada()
     })
     setEnsaladaM([...ensaladaM, ensalada])
    
-    setPartesEnsM({
+    setMediana({
+      email:user.email,
       base: base,
-      proteinas: proteinas,
+      protein: proteinas,
       complement: complement,
-      salsa: salsa,
+      suace: salsa,
       topping: topping,
     })
     navigate("/cargando");
@@ -139,6 +145,8 @@ export function PideTuEnsalada()
       });
 
   }
+  /* console.log(grande)
+  console.log(mediana) */
 
   useEffect(() =>
   {
@@ -149,9 +157,9 @@ export function PideTuEnsalada()
     dispatch(toppings())
     dispatch(salads())
     dispatch(saladsBig())
-    dispatch(saladMUser(partesEnsM))
-    dispatch(saladGUser(partesEnsG))
-  }, [dispatch,partesEnsG,partesEnsM])
+    dispatch(saladMUser(mediana))
+    dispatch(saladGUser(grande))
+  }, [dispatch,grande,mediana])
 
 
 
