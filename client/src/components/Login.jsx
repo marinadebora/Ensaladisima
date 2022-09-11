@@ -13,17 +13,16 @@ import collage from '../images/collage.png';
 import "../styles/Login.css"
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { PostLogeoUsuario, usuariosRegistrados } from "../action";
+import { PostLogeoUsuario } from "../action";
 import { useEffect } from "react";
 import jwt_decode from "jwt-decode"
-
-
+const CLIENT_GOOGLE = "585193864937-33pidddgujvakqmkvulpsvf8t3fhar18.apps.googleusercontent.com"
+//const GOOGLE_SECRET = "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"
 
 function validate(loginUser){
   let error = {}
   if(!loginUser.email) error.email = "Necesitas tu email para iniciar sesión"
   if(!loginUser.password) error.password= "Necesitas tu contraseña para iniciar sesión"
-  // if(!usuarios.filter(e => e.email === loginUser.email))error.email = "No encontramos un perfil con ese email"
   return error
 }
 
@@ -42,7 +41,6 @@ function Login() {
     const [error, setError] = useState({})
       
     async function handleCallbackResponse(response){
-      console.log("JWT ID TOKEN: " + response.credential)
       let userObject = jwt_decode(response.credential)
       let usuarioLocal={ 
         firstName: userObject.given_name,
@@ -58,14 +56,13 @@ function Login() {
         localStorage.setItem("loguearUsuario", JSON.stringify(dispatchGoogle.payload))
         history("/menu")
         window.location.reload() 
-     // setLoginUser()
     }
     
     useEffect( () => {
       /* global google */
       
       google.accounts.id.initialize({
-        client_id:"957119588043-ig515qgobf821lomcuofvpa0mj90ugf0.apps.googleusercontent.com",
+        client_id:CLIENT_GOOGLE,
         callback: handleCallbackResponse
               })
 
@@ -79,11 +76,6 @@ function Login() {
         }
     }, [])
     
-    
-    
-  /*   const responseGoogle = (response) => {
-      console.log(response);
-    } */
     const handleInput = (e) => {
       setLoginUser({
         ...loginUser,
@@ -155,14 +147,6 @@ function Login() {
             
             </form>
             <p className="small mb-5 pb-lg-3 ms-5"><a class="text-muted" href="#!">Forgot password?</a></p>
-            {/* <GoogleLogin
-           
-           clientId="159883423293-opmmnoojb2q5g7grfhk47ci7cuppfafq.apps.googleusercontent.com"
-           buttonText="Login"
-           onSuccess={responseGoogle}
-           onFailure={responseGoogle}
-           cookiePolicy={'single_host_origin'}
-          />, */}
             <div  id="signInDiv"></div><br />
             <p className='ms-5'>No tienes una cuenta? <a href="/registro" class="link-info">Registrate</a></p>
 
