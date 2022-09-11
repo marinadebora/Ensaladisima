@@ -17,7 +17,7 @@ postPedidoMenuBig.post("/", async (req,res,next)=>{
             if(pedido[0]){
                 const anexar = await Pedidos.findOneAndUpdate({ _id: pedido[0]._id }, {
                     $push: {
-                        saladsMenuBig: buscar[0]._id
+                        saladsMenuBig: buscar[0]?._id
                     }
                 })
                 res.send(`La Ensalada ${menu}, se agrego corectamente con el numero ${anexar._id}`)

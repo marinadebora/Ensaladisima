@@ -7,14 +7,15 @@ import Footer from './components/Footer';
 import CheckOut from './components/CheckOut';
 import Registro from './components/Registro';
 import Profile from './components/Profile';
-import Contacto from './components/Contacto';
+import ContactForm from './components/ContactForm';
 import { PideTuEnsalada } from './components/PideTuEnsalada';
-import AdminEdit from './components/AdminEdit';
-import CrearProduto from './FormPost/Crear Producto';
-import Login from './components/Login';
+import AdminProductos from './components/AdminProductos';
+import AdminOrdenes from './components/AdminOrdenes';
+import AdminUsuarios from './components/AdminUsuarios';
 import BaseEdit from './FormPut/putBases';
-
-
+import Login from './components/Login';
+import Pago from './components/Pago';
+import { ArmandoEnsalada } from './components/ArmandoEnsalada';
 
 function App() {
   return (
@@ -25,22 +26,24 @@ function App() {
       <Routes>
 
         <Route exact path= '/' element={<Home/>}/>
-        <Route path= '/menu' element={<Menu/>}/>
-        <Route path= '/pideTuEnsalada' element={<PideTuEnsalada />}/>
+        <Route exact path= '/menu' element={<Menu/>}/>
+        <Route exact path= '/pideTuEnsalada' element={<PideTuEnsalada />}/>
+        <Route exact path= '/checkout' element={<CheckOut/>}/>
+        <Route exact path= '/pago' element={<Pago />}/>
 
-        <Route path= '/checkout' element={<CheckOut/>}/>
-        <Route path= '/login' element={<Login/>}/>
-        <Route path= '/registro' element={<Registro/>}/>
-        <Route path= '/profile' element={<Profile/>}/>
-        <Route path= '/contacto' element={<Contacto/>}/>
+        <Route exact path= '/login' element={<Login/>}/>
+        <Route exact path= '/registro' element={<Registro/>}/>
+        <Route exact path= '/profile' element={<Profile/>}/>
+        <Route exact path= '/contacto' element={<ContactForm/>}/>
+        
 
         {/* rutas para administador */}
-
-        <Route path= '/admincrear' element={<CrearProduto/>}/>  
-        <Route path= '/adminedit' element={<AdminEdit/>}/>
+        <Route exact path= '/admin_productos' element={<AdminProductos />}/>
+        <Route exact path= '/admin_ordenes' element={<AdminOrdenes />}/>
+        <Route exact path= '/admin_usuarios' element={<AdminUsuarios />}/>
         <Route path= '/adminedit/:id' element={<BaseEdit/>}/>
-
-
+        {/* <Route path= '/admincrear' element={<EditarProduto/>}/> */}
+        <Route path= '/cargando' element={<ArmandoEnsalada/>}/>
       </Routes>
 
       <Footer/>

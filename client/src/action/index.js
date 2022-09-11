@@ -170,6 +170,27 @@ export function beverages() {
 
 	}
 }
+// ruta get de menu
+export function Menu() {
+	return async function (dispatch) {
+		try {
+			const menu = await axios(`/menus`)
+
+			return dispatch({
+
+				type: "MENU",
+				payload: menu.data
+
+			})
+		} catch (error) {
+			console.log(error)
+		}
+
+	}
+}
+
+
+
 //ruta get de los postres 
 export function desserts() {
 	return async function (dispatch) {
@@ -284,6 +305,8 @@ export function pedidoBig(payload) {
 	};
 }
 
+
+
 // ruta post de Bases
 export const postBases = (payload) => async () => {
 	let json = await axios.post("/bases", payload);
@@ -343,13 +366,93 @@ export const putBases=(_id,payload)=>async (dispatch)=>{
 	  alert(`el ID: ${_id} no existe`)
 	}
   }
+  //ruta put de menu
+  export const putMenu=(_id,payload)=>async (dispatch)=>{
+	try {
+	   let json= await axios.put(`/menus/${_id}`,payload)
+	   return dispatch(
+		 {type:"PUT_MENU",payload:json.data})
+	   
+	   } catch (error) {
+	  alert(`el ID: ${_id} no existe`)
+	}
+  }
+   //ruta put de Complemento
+   export const putComplemento=(_id,payload)=>async (dispatch)=>{
+	try {
+	   let json= await axios.put(`/complements/${_id}`,payload)
+	   return dispatch(
+		 {type:"PUT_COMPLEMENTOS",payload:json.data})
+	   
+	   } catch (error) {
+	  alert(`el ID: ${_id} no existe`)
+	}
+  }
+  //ruta put de Salsas
+  export const putSalsas=(_id,payload)=>async (dispatch)=>{
+	try {
+	   let json= await axios.put(`/salsas/${_id}`,payload)
+	   return dispatch(
+		 {type:"PUT_SALSAS",payload:json.data})
+	   
+	   } catch (error) {
+	  alert(`el ID: ${_id} no existe`)
+	}
+  }
+  //ruta put de Topping
+  export const putTopping=(_id,payload)=>async (dispatch)=>{
+	try {
+	   let json= await axios.put(`/toppings/${_id}`,payload)
+	   return dispatch(
+		 {type:"PUT_TOPPINGS",payload:json.data})
+	   
+	   } catch (error) {
+	  alert(`el ID: ${_id} no existe`)
+	}
+  }
+   //ruta put de Proteinas
+   export const putProteinas=(_id,payload)=>async (dispatch)=>{
+	try {
+	   let json= await axios.put(`/proteins/${_id}`,payload)
+	   return dispatch(
+		 {type:"PUT_PROTEINAS",payload:json.data})
+	   
+	   } catch (error) {
+	  alert(`el ID: ${_id} no existe`)
+	}
+  }
+     //ruta put de Bebidas
+	 export const putBebidas=(_id,payload)=>async (dispatch)=>{
+		try {
+		   let json= await axios.put(`/bebidas/${_id}`,payload)
+		   return dispatch(
+			 {type:"PUT_BEBIDAS",payload:json.data})
+		   
+		   } catch (error) {
+		  alert(`el ID: ${_id} no existe`)
+		}
+	  }
+	   //ruta put de Postres
+	 export const putPostres=(_id,payload)=>async (dispatch)=>{
+		try {
+		   let json= await axios.put(`/postres/${_id}`,payload)
+		   return dispatch(
+			 {type:"PUT_POSTRES",payload:json.data})
+		   
+		   } catch (error) {
+		  alert(`el ID: ${_id} no existe`)
+		}
+	  }
+
+
+
 export function PostRegistroUsuario(payload){
 	return async function(dispatch){
 		try{
 			const registrado = await axios.post("/registro", payload);
 			return dispatch({
 				type:"POST_REGISTRO",
-				payload: registrado
+				payload: registrado.data
 			})
 		}catch(error){
 			console.log({message:error.message})
@@ -371,16 +474,166 @@ export function PostLogeoUsuario(payload){
 	}
 }
 
-export function PostLogeoUsuarioGoogle(){
+// me traigo todos los pedidos
+
+export function getPedidos(){
 	return async function(dispatch){
-		try{
-			const logueadoGoogle = await axios("/auth")
+		try {
+			const pedido = await axios.get("/pedidos")
 			return dispatch({
-				type:"POST_LOGEO_GOOGLE",
-				payload:logueadoGoogle.data
+				type: "PEDIDOS",
+				payload:pedido.data
 			})
-		}catch(error){
-			console.log({message:error.message})
+		} catch (error) {
+			console.log(error)
 		}
 	}
+}
+
+export function eliminarDelCarrito(value){
+	return async function(dispatch){
+		try {
+			const eliminar = await axios.put(`/eliminarDelPedido`,value)
+			return dispatch({
+				type: "ELIMINAR_DEL_PEDIDO",
+				payload: eliminar.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
+
+export function agregarAlCarrito(value){
+	return async function(dispatch){
+		try {
+			const agregar = await axios.put(`/agregar`,value)
+			return dispatch({
+				type: "AGREGAR_AL_PEDIDO",
+				payload: agregar.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
+
+// rutas para agregar del menu al carrito del usuario logueado
+
+export function menuGrande(value){
+	return async function(dispatch){
+		try {
+			const agregar = await axios.post(`/pedidomenubig`,value)
+			return dispatch({
+				type: "MENU_GRANDE",
+				payload: agregar.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
+
+export function menuMediano(value){
+	return async function(dispatch){
+		try {
+			const agregar = await axios.post(`/pedidomenu`,value)
+			return dispatch({
+				type: "MENU_MDIANO",
+				payload: agregar.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
+
+export function pedidoBebidaLogueado(value){
+	return async function(dispatch){
+		try {
+			const agregar = await axios.post(`/pedidobebida`,value)
+			return dispatch({
+				type: "PEDIDO_DE_BEBIDAS",
+				payload: agregar.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
+
+export function pedidoPostreLogueado(value){
+	return async function(dispatch){
+		try {
+			const agregar = await axios.post(`/pedidopostre`,value)
+			return dispatch({
+				type: "PEDIDO_DE_POSTRES",
+				payload: agregar.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
+
+
+export function saladMUser(payload){
+	return async function(dispatch){
+		try {
+			const saladM = await axios.post(`/ensaladamed`,payload)
+			return dispatch({
+				type: "SALAD_M_USER",
+				payload: saladM.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
+
+export function contactForm(value){
+	return async function(dispatch){
+		try{
+			const form = await axios.post("/contactForm",value)
+			return dispatch({
+				type:"CONTACT_FORM",
+				payload:form
+			})
+		}catch(error){
+			console.log(error)
+		}
+	}
+}
+export function saladGUser(payload){
+	return async function(dispatch){
+		try {
+			const saladG = await axios.post(`/ensaladabig`,payload)
+			return dispatch({
+				type: "SALAD_G_USER",
+				payload: saladG.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
+
+export function crearLocalStorage(value){
+	return async function(dispatch){
+		const cargar = await axios.post('/crearLocalStorage',value)
+		return dispatch({
+			type: 'CARGA_LOCAL',
+			payload: cargar.data
+		})
+	}
+}
+
+export function putPedidocargarPedido(value){
+	return async function(dispatch){
+		const cargarPedido = await axios.put('/cargarPedido', value)
+		return dispatch({
+			type: 'CARGAR_PEDIDO_DEL_LOCAL', payload: cargarPedido.data
+		})
+	} 
+
 }

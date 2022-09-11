@@ -7,7 +7,7 @@ const putBebidas = async (req, res) => {
         const buscar = await Bebidas.findById({ _id });
         if (!buscar) res.status(404).send("No se encontro el ID");
         else {
-            const editar = await Bebidas.updateOne({ _id }, { name, image,price,stock});
+            const editar = await Bebidas.updateOne({ _id }, { name:name?name:buscar.name, image:image?image:buscar.image,price:price?price:buscar.price,stock:stock?stock:buscar.stock});
             res.send("Su bebida se edito correctamente");
 
         }

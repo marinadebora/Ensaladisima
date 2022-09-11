@@ -24,13 +24,6 @@ app.use(passport.initialize())
 
 app.use(morgan("dev"))
 
-app.use("/auth",passport.authenticate("auth-google", {
-    scope: [
-        "https://www.googleapis.com/auth/userinfo.profile",
-        "https://www.googleapis.com/auth/userinfo.email"
-    ],
-    session: false
-}),loginGoogle)
 
 app.post('/checkout', async(req,res)=>{
     try{

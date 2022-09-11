@@ -10,8 +10,10 @@ const initialState = {
   toppings:[],
   beverages:[],
   desserts:[],
+  menu:[],
   pedidoBebidas:[],
-  usuarios:[]
+  usuarios:[],
+  pedidos:[]
 }
 
 
@@ -73,6 +75,11 @@ function rootReducer( state = initialState, action )
         ...state,
         desserts: action.payload
       }
+      case "MENU":
+        return {
+          ...state,
+          menu: action.payload
+        }
     case 'PEDIDO_BEBIDAS':
       return {
         ...state,
@@ -105,11 +112,51 @@ function rootReducer( state = initialState, action )
       return{
         ...state
           }
-    case "POST_LOGEO_GOOGLE":
+    case "PEDIDOS":
       return{
+        ...state,
+        pedidos: action.payload
+      }
+    case "ELIMINAR_DEL_PEDIDO":
+      return {
         ...state
-          }     
-
+      }
+      case "AGREGAR_AL_PEDIDO":
+        return {
+          ...state
+        }
+      case "MENU_MDIANO":
+        return{
+          ...state
+        }
+      case "MENU_GRANDE":
+        return{
+          ...state
+        }
+      case "PEDIDO_DE_BEBIDAS":
+        return{
+          ...state
+        }
+        case "PEDIDO_DE_POSTRES":
+          return {
+            ...state
+          }
+          case "SALAD_M_USER":
+            return {
+              ...state
+            }
+            case "SALAD_G_USER":
+              return {
+                ...state
+              }      
+      case 'CARGA_LOCAL':
+        return{
+          ...state
+        }
+      case 'CARGAR_PEDIDO_DEL_LOCAL':
+        return{
+          ...state
+        }
     default:
       return {
         state

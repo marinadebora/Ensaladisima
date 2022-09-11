@@ -1,14 +1,15 @@
-const {Router} = require('express')
+const {Router} = require('express');
+const Pedidos = require('../../modelos/Pedidos');
 const Usuarios = require('../../modelos/Usuarios')
 
 const registro = Router()
 
 registro.post('/', async (req,res,next)=>{
     const {firstName, lastName, email, password,adress, phone} = req.body;
-    console.log("llego a la ruta")
+    
     try {
         const errorUsuario =await Usuarios.findOne({email}) 
-        console.log(errorUsuario)
+        
         if(errorUsuario) res.status(404).send("el usuario ya existe")
         else{const user = new Usuarios({firstName, lastName, email, password, adress, phone})
         
@@ -21,6 +22,12 @@ registro.post('/', async (req,res,next)=>{
                 next();
             }
         })}
+        const buscar = await Usuarios.findOne({email})
+        const crear = await Pedidos.create({user:buscar?._id})
+        const actualizar = await Usuarios.findOneAndUpdate({email},{
+            orders:crear?._id
+        })
+        console.log(actualizar)
     } catch (error) {
         console.log(error)
     }

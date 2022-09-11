@@ -77,21 +77,26 @@ function Registro() {
       else{
 
         const  dispatchRegister = await dispatch(PostRegistroUsuario(inputUser));
-        if(!dispatchRegister) alert("Tienes errores en los campos")
-        alert(`Se ha registrado correctamente con el email ${inputUser.email}`)
+        console.log(inputUser)
+        if(!dispatchRegister){
+          alert("Tienes errores en los campos")
+        }else{
+          alert(`Se ha registrado correctamente con el email ${inputUser.email}`)
+        setInputUser({
+          firstName:"",
+          lastName:"",
+          email:"",
+          password:"",
+          adress:"",
+          phone:""
+        });
+        
+        history("/login")
+        }
+        
       }  
       
         
-      setInputUser({
-        firstName:"",
-        lastName:"",
-        email:"",
-        password:"",
-        adress:"",
-        phone:""
-      });
-      
-      history("/login")
   }
  
 

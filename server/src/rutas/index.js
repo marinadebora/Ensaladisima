@@ -48,10 +48,15 @@ const { passwordEditada } = require("../Nodemailer/passwordActualizada");
 const eliminarDelPedido  = require("./Pedidos/eliminardelPedido");
 const postPedidoMenu = require("./Pedidos/postPedidoMenu");
 const postHistorial = require("./Historial/postHistorial");
-const { menuBig } = require("../constroladores/cargarBaseDeDatos/controladorDelMenuBig");
-const passport = require("passport");
+// const { menuBig } = require("../constroladores/cargarBaseDeDatos/controladorDelMenuBig");
 const { getMenuBig } = require("./MenuBig/getMenuBig");
-const {loginGoogle} = require("./Usuarios/loginGoogle")
+const postEnsaladaMediana = require("./EnsaladasMedianas/posEnsaladasMediana");
+const postEnsaladaGrande = require("./EnsaladasBigs/postEnsaladasBig");
+const agregarAlPedido = require("./Pedidos/agregarAlPedido");
+const postPedidoMenuBig = require("./Pedidos/postPedidoMenuBig");
+const crearLocalStorage = require("./Pedidos/crearPedidoLocalStorage");
+const cargarPedido = require("./Pedidos/cargarPedidos");
+const { getHistorial } = require("./Historial/getHistorial");
 require("../../middlewares/google")
 
 
@@ -62,13 +67,6 @@ router.use('/usuarios', getUsuarios)
 router.use('/usuario', getIdUsuario)
 router.use('/registro', registro, correo)
 router.use("/autenticar",auth)
-/* router.use("/autenticargoogle", passport.authenticate("auth-google", {
-    scope: [
-        "https://www.googleapis.com/auth/userinfo.profile",
-        "https://www.googleapis.com/auth/userinfo.email"
-    ],
-    session: false
-}),loginGoogle) */
 router.put("/usuarios/:_id",editarPassword,passwordEditada);
 router.get("/email",getEmail,correoPassword);
 
@@ -77,7 +75,11 @@ router.use('/pedidos', getPedidos)
 router.use('/pedidobebida', postPedidoBebida)
 router.use('/pedidopostre', postPedidoPostre)
 router.use('/pedidomenu', postPedidoMenu)
+router.use('/pedidomenubig', postPedidoMenuBig)
 router.use('/eliminarDelPedido', eliminarDelPedido)
+router.use('/agregar', agregarAlPedido )
+router.use('/crearLocalStorage', crearLocalStorage)
+router.use('/cargarPedido', cargarPedido)
 
 
 
@@ -91,14 +93,17 @@ router.get("/menubig", getMenuBig)
 
 // rutas para el modelo de Historial.
 router.use('/crearHistorial', postHistorial)
+router.use('/historial', getHistorial)
 
 
 // rutas para el modelo de EnsaladasMedian.
 router.use('/ensaladamed', crearEnsaladaMed)
+router.use('/mediana', postEnsaladaMediana)
 
 
 // rutas para el modelo de EnsaladasBig.
 router.use('/ensaladabig', crearEnsaladasBigs)
+router.use('/grande', postEnsaladaGrande)
 
 
 // rutas para el modelo de Base.
