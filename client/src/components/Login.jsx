@@ -16,8 +16,8 @@ import { useNavigate } from "react-router-dom";
 import { PostLogeoUsuario } from "../action";
 import { useEffect } from "react";
 import jwt_decode from "jwt-decode"
-const CLIENT_GOOGLE_DEPLOY = "585193864937-33pidddgujvakqmkvulpsvf8t3fhar18.apps.googleusercontent.com"
-const CLIENT_GOOGLE = "957119588043-ig515qgobf821lomcuofvpa0mj90ugf0.apps.googleusercontent.com"
+//const CLIENT_GOOGLE_DEPLOY = "585193864937-33pidddgujvakqmkvulpsvf8t3fhar18.apps.googleusercontent.com"
+//const CLIENT_GOOGLE = "957119588043-ig515qgobf821lomcuofvpa0mj90ugf0.apps.googleusercontent.com"
 //const GOOGLE_SECRET = "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"
 
 function validate(loginUser){
@@ -55,10 +55,9 @@ function Login() {
     }
     
     useEffect( () => {
-     
       
       global.google.accounts.id.initialize({
-        client_id: CLIENT_GOOGLE_DEPLOY||CLIENT_GOOGLE,
+        client_id: "957119588043-ig515qgobf821lomcuofvpa0mj90ugf0.apps.googleusercontent.com",
         callback: handleCallbackResponse
               })
 
