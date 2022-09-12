@@ -18,7 +18,7 @@ const passwordEditada = async (req,res )=>{
             <img src='https://www.woratek.com/wp-content/uploads/2013/08/Alegria-de-hombre-gif-animado.gif' width="600" height="350"/>
             <h3>Tu nueva password es: ${password}</h3>
             <h2>Ingresa Nuevamente desde el siguiente link!</h2>
-            <p>http://localhost:4000/usuarios/${correo[0]._id}</p>
+            <a href=https://ensaladisima.vercel.app/login>Cliquea Aquí</a>
             <br>
             </div>
             `, // html body

@@ -16,6 +16,7 @@ import BaseEdit from './FormPut/putBases';
 import Login from './components/Login';
 import Pago from './components/Pago';
 import { ArmandoEnsalada } from './components/ArmandoEnsalada';
+import SendEmail, { CambioPassword } from './components/CambioPassword';
 
 function App() {
   return (
@@ -44,6 +45,8 @@ function App() {
         <Route path= '/adminedit/:id' element={<BaseEdit/>}/>
         {/* <Route path= '/admincrear' element={<EditarProduto/>}/> */}
         <Route path= '/cargando' element={<ArmandoEnsalada/>}/>
+        <Route path= '/sendEmail' element={<SendEmail/>}/>
+        <Route path= '/password/:_id' element={<CambioPassword/>}/>
       </Routes>
 
       <Footer/>

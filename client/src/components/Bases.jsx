@@ -12,17 +12,14 @@ export function Bases()
   const allBases=useSelector(state=>state.bases)
   let [form, setForm] = useState({
     bases: []
-  
-
   })
- 
-  console.log(form.bases)
 
 
 
   let handleChange = (event) =>
   {
     event.preventDefault()
+    if(event.target.value!==''){
 
     setForm({
       ...form,
@@ -32,7 +29,7 @@ export function Bases()
     setBase([...form.bases, event.target.value])
     console.log(base)
   }
-
+  }
 
   const handleDelete = (event) =>
   {
@@ -40,13 +37,14 @@ export function Bases()
       ...form,
       bases: form.bases.filter(e => e !== event)
     })
-  }
+    setBase([...form.bases.filter(e => e !== event)])
 
+  }
   return (
 
 <div>
       <div id="checkboxContent" className="contain-bases" >
-        <h3 id="h3-bases">ELIGE TUS BASES (2)</h3>
+        <h3 id="h3-bases">ELIGE TUS BASES</h3>
           {
           allBases?.map(e => (
             <div id="contain-bases-card" key={e._id}>
@@ -58,14 +56,14 @@ export function Bases()
           ))
         }
           <select onChange={(e) => handleChange(e)} disabled={form.bases?.length === 2 && true} class="form-select" aria-label="Default select example">
-            <option value="" disabled>seleccione</option>
+            <option value="" >seleccione un máximo de 2 bases</option>
             {
               allBases?.map(e => (
               <option name={e.name} value={e.name}>{e.name}</option>
             ))
             }
           </select>
-         
+
           {form.bases?.map(e =>
             <div id="buttonDeleteMenuContainer">
               <h3 class="buttonDeleteMenu">{e}

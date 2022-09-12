@@ -171,7 +171,13 @@ export default function BaseEdit() {
 
   return (
     <div>
-     
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+
 
       <div><Link to="/admin"><button>Volver</button></Link></div>
       <div><h1>Editá tus productos!</h1></div>
@@ -237,6 +243,17 @@ export default function BaseEdit() {
         <button type='submit'>Editar producto</button>
 
       </form>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
     </div>
 
   )

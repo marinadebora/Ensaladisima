@@ -16,11 +16,12 @@ agregarAlPedido .put('/', async (req,res,next) =>{
         const ensaladaMediana = pedido[0].saladsMed.filter(e => e == _id)
         const menuMediana = pedido[0].saladsMenu.filter(e => e == _id)
         const menuGrande = pedido[0].saladsMenuBig.filter(e => e == _id)
-        console.log(ensaledasGrande)
+        /* console.log(ensaledasGrande)
         console.log(postres)
         console.log(bebidas)
         console.log(ensaladaMediana)
         console.log(menuMediana)
+        console.log(menuGrande) */
 
         if(postres[0]){
             const buscarPostres = await Postres.find({_id})
@@ -67,7 +68,7 @@ agregarAlPedido .put('/', async (req,res,next) =>{
             res.send('La ensalda que elegistes de nuestro menu se elimino del pedido correctamente')
         }else if(menuGrande[0]){
             const borrarSaladsMenuBig = await Pedidos.findOneAndUpdate({_id:id,saladsMenuBig:_id},{
-                $unset:{
+                $push:{
                     saladsMenuBig:_id
                 }
             })

@@ -5,8 +5,12 @@ const bodyParser = require('body-parser');
 const index = require('./rutas/index')
 const bcrypt = require("bcrypt")
 const passport = require("passport")
-const stripe = require("stripe")
-let stripeSecret= "sk_test_51LSmj7J1G02QCFvGG4J3Dib99MeQCelVPlWuhnXkq81ftY0yMucev9ThIR33QQhGk2ZJWnHSyfshdtwRINF98UlW000pzBmNCb"
+const {loginGoogle} = require("./rutas/Usuarios/loginGoogle");
+const auth = require('./rutas/Usuarios/postInicioSesionUsuario');
+const Stripe = require("stripe")
+let stripeSecret= "sk_test_51LTzChGPkJkLR4xlv1bZn2ffH0LhxYp9KKJT1CdWalxRssCJTRetuKAIFyDgZgzTqQceeg684neZorAoA6xv9W0r00H1rdPtmw"
+
+const stripe = new Stripe(stripeSecret)
 
 require('./database')
 
@@ -37,10 +41,9 @@ app.post('/checkout', async(req,res)=>{
 
         catch(error){
             console.log(error)
-res.json({message:error.raw.message})
+            res.json({message:error.raw.message})
         }
 })
-
 
 app.use("/", index)
 

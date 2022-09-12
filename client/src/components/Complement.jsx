@@ -17,14 +17,17 @@ export function Complement()
       let handleChange = (event) =>
       {
         event.preventDefault()
+    if(event.target.value!==''){
+
+      setForm({
+        ...form,
+        complements: [...form.complements, event.target.value],
     
-        setForm({
-          ...form,
-          complements: [...form.complements, event.target.value],
-      
-        })
-        setComplement([...form.complements,event.target.value])
-      }
+      })
+      setComplement([...form.complements,event.target.value])
+    }
+    console.log(complement)
+    }
     
     
       const handleDelete = (event) =>
@@ -33,7 +36,8 @@ export function Complement()
           ...form,
           complements: form.complements.filter(e => e !== event)
         })
-        console.log(complement)
+        setComplement([...form.complements.filter(e => e !== event)])
+
       }
     
       return (
@@ -41,7 +45,7 @@ export function Complement()
     <div>
           <div id="checkboxContent" className="contain-bases" >
            
-            <h3 id="h3-bases">ELIGE TUS COMPLEMENTOS (3)</h3>
+            <h3 id="h3-bases">ELIGE TUS COMPLEMENTOS</h3>
               {
               allcomplements?.map(e => (
                 <div id="contain-bases-card" key={e._id}>
@@ -53,7 +57,7 @@ export function Complement()
               ))
             }
               <select onChange={(e) => handleChange(e)} disabled={form.complements?.length === 3 && true} class="form-select" aria-label="Default select example">
-              <option value=""disabled>seleccione</option>
+              <option value="">seleccione un máximo de 3 complementos</option>
                 {
                   allcomplements?.map(e => (
                   <option name={e.name} value={e.name}>{e.name}</option>

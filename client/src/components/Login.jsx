@@ -13,49 +13,72 @@ import collage from '../images/collage.png';
 import "../styles/Login.css"
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { PostLogeoUsuario, usuariosRegistrados } from "../action";
+import { PostLogeoUsuario } from "../action";
 import { useEffect } from "react";
+import jwt_decode from "jwt-decode"
+const CLIENT_GOOGLE_DEPLOY = "585193864937-33pidddgujvakqmkvulpsvf8t3fhar18.apps.googleusercontent.com"
+const CLIENT_GOOGLE = "957119588043-ig515qgobf821lomcuofvpa0mj90ugf0.apps.googleusercontent.com"
+//const GOOGLE_SECRET = "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"
 
-
-  function validate(loginUser){
+function validate(loginUser){
   let error = {}
   if(!loginUser.email) error.email = "Necesitas tu email para iniciar sesión"
   if(!loginUser.password) error.password= "Necesitas tu contraseña para iniciar sesión"
- // if(!usuarios.filter(e => e.email === loginUser.email))error.email = "No encontramos un perfil con ese email"
   return error
 }
 
- 
- function Login() {
-   const history = useNavigate();
-   const dispatch = useDispatch();
-   
+function Login() {
+  const history = useNavigate();
+  const dispatch = useDispatch();
   
-   const [loginUser, setLoginUser] = useState({
+  const [loginUser, setLoginUser] = useState({
      email:"",
      password:""
     });
     const [error, setError] = useState({})
       
-
+    async function handleCallbackResponse(response){
+      let userObject = jwt_decode(response.credential)
+      let usuarioLocal={ 
+        firstName: userObject.given_name,
+        lastName: userObject.family_name?.length > 0 ? userObject.family_name : "",
+        email:userObject.email,
+        password: userObject.email,
+        google:true
+      }
+      const dispatchGoogle = await dispatch(PostLogeoUsuario(usuarioLocal))
+        if(!dispatchGoogle) alert("Hay un error en el inicio de sesion")
+        alert('Bienvenido a ensaladísima')
+        localStorage.setItem("loguearUsuario", JSON.stringify(dispatchGoogle.payload))
+        history("/menu")
+        window.location.reload()  
+    }
     
     useEffect( () => {
-      dispatch(usuariosRegistrados())
-       
-    }, [dispatch])
-    
-    
+     
+      
+      global.google.accounts.id.initialize({
+        client_id: CLIENT_GOOGLE_DEPLOY||CLIENT_GOOGLE,
+        callback: handleCallbackResponse
+              })
 
-  const handleInput = (e) => {
-    setLoginUser({
-          ...loginUser,
+      global.google.accounts.id.renderButton(
+        document.getElementById("signInDiv"),
+        {theme: "outline", size:"large"}
+      )
+    })
+    
+    const handleInput = (e) => {
+      setLoginUser({
+        ...loginUser,
           [e.target.name]: e.target.value
         })
     setError(validate({
           ...loginUser,
           [e.target.name]:e.target.value
       }))
-    }
+    } 
+
   const handleLogin = async(e) => {
     e.preventDefault();
     try{
@@ -104,7 +127,7 @@ import { useEffect } from "react";
 
           <div className='d-flex flex-column justify-content-center h-custom-1 w-75 pt-2'>
 
-            <h3 className="fw-normal mb-3 ps-5 pb-3" style={{letterSpacing: '1px'}}>Log in</h3>
+            <h3 className="fw-normal mb-3 ps-5 pb-3" style={{letterSpacing: '1px'}}>Inicio de Sesión</h3>
             
             <form onSubmit={handleLogin}>
 
@@ -115,7 +138,10 @@ import { useEffect } from "react";
             <button type="submit" class="buttonChico2">Login</button>
             
             </form>
-            <p className="small mb-5 pb-lg-3 ms-5"><a class="text-muted" href="#!">Forgot password?</a></p>
+
+            <p className="small mb-5 pb-lg-3 ms-5"><a class="text-muted" href="/sendEmail">Olvidaste tu contraseña?</a></p>
+            <div  id="signInDiv"></div><br />
+
             <p className='ms-5'>No tienes una cuenta? <a href="/registro" class="link-info">Registrate</a></p>
 
           </div>
