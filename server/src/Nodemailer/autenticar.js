@@ -17,6 +17,8 @@ const correo = async (req,res )=>{
             <h4>Nombre: ${firstName}</p> <p>Apellido: ${lastName}</h4> 
             <h4>Contraseña: ${password}</p> <p>Direccion: ${adress}</h4>
             <h4>Telefono: ${phone}</h4>
+            <h2>Ingresa desde el siguiente link!</h2>
+            <a href=https://ensaladisima.vercel.app/>Cliquea Aquí</a>
             </div>
             `, // html body
         });

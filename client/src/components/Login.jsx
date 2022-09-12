@@ -115,7 +115,7 @@ import { useEffect } from "react";
             <button type="submit" class="buttonChico2">Login</button>
             
             </form>
-            <p className="small mb-5 pb-lg-3 ms-5"><a class="text-muted" href="#!">Forgot password?</a></p>
+            <p className="small mb-5 pb-lg-3 ms-5"><a class="text-muted" href="/sendEmail">Forgot password?</a></p>
             <p className='ms-5'>No tienes una cuenta? <a href="/registro" class="link-info">Registrate</a></p>
 
           </div>

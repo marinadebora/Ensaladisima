@@ -76,7 +76,7 @@ router.use("/autenticargoogle", passport.authenticate("auth-google", {
     session: false
 }), auth)
 router.put("/usuarios/:_id",editarPassword,passwordEditada);
-router.get("/email",getEmail,correoPassword);
+router.use("/email",getEmail,correoPassword);
 
 // rutas para el modelo de Pedidos.
 router.use('/pedidos', getPedidos)
