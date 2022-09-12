@@ -138,8 +138,10 @@ function Login() {
             <button type="submit" class="buttonChico2">Login</button>
             
             </form>
+
             <p className="small mb-5 pb-lg-3 ms-5"><a class="text-muted" href="#!">Olvidaste tu contraseña?</a></p>
             <div  id="signInDiv"></div><br />
+
             <p className='ms-5'>No tienes una cuenta? <a href="/registro" class="link-info">Registrate</a></p>
 
           </div>
