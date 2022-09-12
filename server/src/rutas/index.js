@@ -49,7 +49,6 @@ const eliminarDelPedido  = require("./Pedidos/eliminardelPedido");
 const postPedidoMenu = require("./Pedidos/postPedidoMenu");
 const postHistorial = require("./Historial/postHistorial");
 // const { menuBig } = require("../constroladores/cargarBaseDeDatos/controladorDelMenuBig");
-const passport = require("passport");
 const { getMenuBig } = require("./MenuBig/getMenuBig");
 const postEnsaladaMediana = require("./EnsaladasMedianas/posEnsaladasMediana");
 const postEnsaladaGrande = require("./EnsaladasBigs/postEnsaladasBig");
@@ -58,7 +57,6 @@ const postPedidoMenuBig = require("./Pedidos/postPedidoMenuBig");
 const crearLocalStorage = require("./Pedidos/crearPedidoLocalStorage");
 const cargarPedido = require("./Pedidos/cargarPedidos");
 const { getHistorial } = require("./Historial/getHistorial");
-require("../../middlewares/google")
 
 
 const router = Router();
@@ -68,13 +66,6 @@ router.use('/usuarios', getUsuarios)
 router.use('/usuario', getIdUsuario)
 router.use('/registro', registro, correo)
 router.use("/autenticar",auth)
-router.use("/autenticargoogle", passport.authenticate("auth-google", {
-    scope: [
-        "https://www.googleapis.com/auth/userinfo.profile",
-        "https://www.googleapis.com/auth/userinfo.email"
-    ],
-    session: false
-}), auth)
 router.put("/usuarios/:_id",editarPassword,passwordEditada);
 router.get("/email",getEmail,correoPassword);
 
