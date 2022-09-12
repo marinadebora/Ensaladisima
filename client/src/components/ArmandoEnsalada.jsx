@@ -1,5 +1,6 @@
 import React from "react";
 import img from '../images/cargando.png'
+
 export const ArmandoEnsalada = () => {
   return(
      <div>
