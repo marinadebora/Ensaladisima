@@ -271,7 +271,7 @@ export default function QuantityEdit() {
                                   </MDBTypography>
                                 </MDBCol>
                                 <MDBCol md="3" lg="3" xl="3" className="d-flex align-items-center">
-                                  <button onClick={(e) => removeDelCarrito(e)} value={e._id} style={{ border: 'none', color: '#fff', fontWeight: "bolder", backgroundColor: 'red', fontSize: 'larger', width: '2rem', marginRight: '0.5rem' }}>
+                                  <button onClick={(e) => removeDelCarrito(e)} value={e._id} style={{ border: 'none',  color: '#fff', fontWeight: "bolder", backgroundColor: 'red', fontSize: 'larger', width: '2rem', marginRight: '0.5rem'}}>
                                     -
                                   </button>
                                   <MDBInput type="number" min="1" defaultValue={armadoCarrito?.producto?.filter(d => d._id === e._id).length} size="sm" />

@@ -1,10 +1,14 @@
 @font-face {
   font-family: Tommy-regular;
   src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+
+  font-family: Tommy-bold;
+  src: url(../fonts/made_tommy/MADE\ TOMMY\ Bold_PERSONAL\ USE.ttf);
 }
 .contain-total{
   padding-top: 3rem;
 }
+
 #h3-bases{
  width: 100%;
   padding: 2%;
@@ -25,9 +29,38 @@
 
 }
 
-.contain-bases{}
+.form-select{
+  width: 100%;
+  margin: 1rem;
+  font-family: Tommy-light;
+  border-radius: 20px;
+  color: #207140;
+  border: 1px solid #207140;
+}
 
+#buttonDeleteMenuContainer{
+  margin-left: 1.5%;
+}
 
+.buttonDeleteMenu{
+    width: 100%;
+    background-color: #207140; 
+    color: white;
+    text-decoration: none;
+    padding: 0.3rem;
+    border-radius: 50px;
+    font-family: Tommy-light;
+    font-size: 1.0rem;
+    
+}
+
+.buttonDeleteMenuX{
+  border: none;
+  font-family:  Tommy-regular;
+  color:  white;
+  background-color: transparent;
+  cursor: pointer;
+}
 
 #contain-bases-card{
  
