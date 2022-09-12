@@ -34,48 +34,59 @@ export function PideTuEnsalada()
   })
   let [mediana, setMediana] = useLocalStorage('mediana', {})
   let [grande, setGrande] = useLocalStorage('grande', {})
-
-
+ 
   let big = () =>
   {
+    let user = JSON.parse(localStorage.getItem('loguearUsuario'))
     let base = JSON.parse(localStorage.getItem('bases'))
     let proteinas = JSON.parse(localStorage.getItem('proteinas'))
     let complement = JSON.parse(localStorage.getItem('complement'))
     let salsa = JSON.parse(localStorage.getItem('salsa'))
     let topping = JSON.parse(localStorage.getItem('topping'))
-    let user = JSON.parse(localStorage.getItem('loguearUsuario'))
+  
+    if(!user){
+      let ensalada = {
+        _id: '2',
+        base: base,
+        proteinas: proteinas,
+        complement: complement,
+        salsa: salsa,
+        topping: topping,
+        price: precioG,
+        image: img,
+        name: 'Tu Ensalada'
+      }
+      setForm({
+        ...form,
+        ensalada: [...form.ensalada, ensalada],
+  
+      })
+  
+      setEnsaladaG([...ensaladaG, ensalada])
+     
 
-    let ensalada = {
-      _id: '2',
-      base: base,
-      proteinas: proteinas,
-      complement: complement,
-      salsa: salsa,
-      topping: topping,
-      price: precioG,
-      image: img,
-      name: 'Tu Ensalada'
+    }else{
+
+      setGrande({
+        email:user?.email,
+        base: base,
+        protein: proteinas,
+        complement: complement,
+        suace: salsa,
+        topping: topping,
+      })
+      localStorage.removeItem('ensaladaG')
     }
-    setForm({
-      ...form,
-      ensalada: [...form.ensalada, ensalada],
-
-    })
-
-    setEnsaladaG([...ensaladaG, ensalada])
-    setGrande({
-      email:user.email,
-      base: base,
-      protein: proteinas,
-      complement: complement,
-      suace: salsa,
-      topping: topping,
-    })
+    localStorage.removeItem('bases')
+    localStorage.removeItem('proteinas')
+    localStorage.removeItem('complement')
+    localStorage.removeItem('salsa')
+    localStorage.removeItem('topping')
     navigate("/cargando");
     Swal.fire({
-      position: 'top-end',
+      position: 'center',
       icon: 'success',
-      title: 'Your work has been saved',
+      title: 'Ensalada creada con exito',
       showConfirmButton: false,
       timer: 1000
     })
@@ -99,39 +110,51 @@ export function PideTuEnsalada()
     let salsa = JSON.parse(localStorage.getItem('salsa'))
     let topping = JSON.parse(localStorage.getItem('topping'))
     let user = JSON.parse(localStorage.getItem('loguearUsuario'))
+    if(!user){
 
-    let ensalada = {
-      _id: '1',
-      base: base,
-      proteinas: proteinas,
-      complement: complement,
-      salsa: salsa,
-      topping: topping,
-      price: precioM,
-      image: img,
-      name: 'Tu Ensalada'
+      let ensalada = {
+        _id: '1',
+        base: base,
+        proteinas: proteinas,
+        complement: complement,
+        salsa: salsa,
+        topping: topping,
+        price: precioM,
+        image: img,
+        name: 'Tu Ensalada'
+      }
+  
+      setFormM({
+        ...formM,
+        ensalada: [...formM.ensalada, ensalada],
+  
+      })
+      setEnsaladaM([...ensaladaM, ensalada])
+    }else{
+
+      setMediana({
+        email:user?.email,
+        base: base,
+        protein: proteinas,
+        complement: complement,
+        suace: salsa,
+        topping: topping,
+      })
+      localStorage.removeItem('ensaladaM')
+
     }
-
-    setFormM({
-      ...formM,
-      ensalada: [...formM.ensalada, ensalada],
-
-    })
-    setEnsaladaM([...ensaladaM, ensalada])
    
-    setMediana({
-      email:user.email,
-      base: base,
-      protein: proteinas,
-      complement: complement,
-      suace: salsa,
-      topping: topping,
-    })
+    localStorage.removeItem('bases')
+    localStorage.removeItem('proteinas')
+    localStorage.removeItem('complement')
+    localStorage.removeItem('salsa')
+    localStorage.removeItem('topping')
+
     navigate("/cargando");
     Swal.fire({
-      position: 'top-end',
+      position: 'center',
       icon: 'success',
-      title: 'Your work has been saved',
+      title: 'Ensalada creada con exito',
       showConfirmButton: false,
       timer: 1000
     })
@@ -179,15 +202,15 @@ export function PideTuEnsalada()
           </div>
           <div class="row" id="addContent">
             <p class="col-3" id="textButtonAdd">Mediana</p>
-            <button onClick={() => medium()} type="button" class="col-1" id="buttonAddG">
+            <button  onClick={() => medium()} type="button" class="col-1" id="buttonAddG">
               <i class="bi bi-plus-circle-fill"></i>
             </button>
 
             <p class="col-3" id="textButtonAdd">Grande</p>
-            <button onClick={() => big()} class="col-1" id="buttonAddG">
+              <button onClick={() => big()} class="col-1" id="buttonAddG">
               <i class="bi bi-plus-circle-fill"></i>
-
-            </button>
+              </button>
+          
           </div>
         </div>
       </div>

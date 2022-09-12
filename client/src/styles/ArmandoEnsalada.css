@@ -1,0 +1,17 @@
+.containerCargando{
+     display: flex;
+    width: 50%;
+    height: 50%;
+    align-items: center;
+}
+.h1Cargando{
+    margin: 5%;
+text-align: center;
+color:#207140;
+padding-top: 10%;
+}
+.imagenCargando{
+    margin: 5%;
+    padding-top: 10%;
+    width: 16%;
+}

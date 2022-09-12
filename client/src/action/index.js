@@ -637,3 +637,13 @@ export function putPedidocargarPedido(value){
 	} 
 
 }
+
+export function getUsuarioId(id){
+	return async function(dispatch){
+		const userId=await axios.put(`/usuario/${id}`)
+		return dispatch({
+			type:'GET_USUARIO_ID',
+			payload:userId
+		})
+	}
+}
