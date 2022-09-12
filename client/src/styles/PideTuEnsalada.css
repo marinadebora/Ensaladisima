@@ -8,6 +8,11 @@
       padding-bottom: 5rem;
       
     }
+
+    .contain-bases{
+      margin-left: 0px;
+    }
+
     #h1-crea{
         padding-top: 0.8rem;
         text-align: center;
@@ -31,5 +36,61 @@
       padding-left: 0px;
       background-color: transparent;
     }
+
+    #addContent{
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      margin-left: 0px;
+    }
+
+    #buttonAddEnsalada{
+      
+      width: 10%;
+      border: 2px solid #207140;
+      border-radius: 20px;
+      padding: 0px;
+      float: left;
+      justify-content: center;
+      background-color: white;
+      margin-right: 2%;
+
+    }
+
+    #buttonAddEnsalada:hover {
+      transition-duration: 0.5s;
+      border: 2px solid #F08D1D;
+      box-shadow: rgba(241,141,29) 0px 3px 3px 0px;
+    }
+
+    #textButtonAddEnsaladaM{
+      background-color:transparent;
+      font-family:  Tommy-regular;
+      color: #207140;
+      text-decoration: none;
+      padding: 0px;
+      margin-bottom: 4%;
+    }
+
+    #textButtonAddEnsaladaG{
+      background-color:transparent;
+      font-family:  Tommy-regular;
+      color: #207140;
+      text-decoration: none;
+      padding: 0px;
+      margin-bottom: 4%;
+    }
+
+    #ensaladeraGreen{
+      margin-top: 6%;
+      background-color: white;
+      width: 40%;
+    }
+
+  
+
+
+
 
      

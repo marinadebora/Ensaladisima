@@ -64,10 +64,10 @@ export function Protein () {
               </select>
              
               {form.proteinas?.map(e =>
-                <div >
-                  <h5 >{e}
-                    <button onClick={() => handleDelete(e)} >X</button>
-                  </h5>
+                <div id="buttonDeleteMenuContainer">
+                  <h3 class="buttonDeleteMenu">{e}
+                    <button  class="buttonDeleteMenuX" onClick={() => handleDelete(e)} >X</button>
+                  </h3>
                 </div>
               )} 
     </div>

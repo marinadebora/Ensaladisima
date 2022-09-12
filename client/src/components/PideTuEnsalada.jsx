@@ -12,6 +12,7 @@ import { Tamaños } from './Tamaños';
 import '../styles/PideTuEnsalada.css'
 import { useLocalStorage } from "../useLocalStorage";
 import img from '../images/ensaladaSola.png'
+import ensaladaMediana from "../images/ensaladeraGreen.png";
 
 export function PideTuEnsalada()
 {
@@ -184,36 +185,41 @@ export function PideTuEnsalada()
     dispatch(saladGUser(grande))
   }, [dispatch,grande,mediana])
 
+  return( 
+  <div>
+      <Tamaños/>
 
+      <div class='container'>
 
+            <div class="row">
 
-  return (
-    <div>
-      <Tamaños />
-      <div class='container-fluid'>
-        <div class="row">
-          <div id='contenedor-1' class='col-sm-9'>
-            <Bases />
-            <Protein />
-            <Complement />
-            <Sauce />
-            <Toppings />
+              <div id='contenedor-1' class='col-sm-12'>
+                <Bases /> 
+                <Protein /> 
+                <Complement />  
+                <Sauce />
+                <Toppings /> 
+              </div>
 
-          </div>
-          <div class="row" id="addContent">
-            <p class="col-3" id="textButtonAdd">Mediana</p>
-            <button  onClick={() => medium()} type="button" class="col-1" id="buttonAddG">
-              <i class="bi bi-plus-circle-fill"></i>
-            </button>
+            <div id="addContent">
 
-            <p class="col-3" id="textButtonAdd">Grande</p>
-              <button onClick={() => big()} class="col-1" id="buttonAddG">
-              <i class="bi bi-plus-circle-fill"></i>
+              <button onClick={()=>medium()} type="button" id="buttonAddEnsalada">
+              <img src={ensaladaMediana} alt="img" id="ensaladeraGreen" />
+              <p id="textButtonAddEnsaladaM">Mediana</p>
               </button>
-          
-          </div>
+
+              <button onClick={()=>big()} id="buttonAddEnsalada">
+              <img src={ensaladaMediana} alt="img" id="ensaladeraGreen" />
+              <p id="textButtonAddEnsaladaG">Grande</p>
+              </button>
+
+            </div>
+
+    </div>
+
         </div>
-      </div>
+
+  
     </div>
 
   );
