@@ -58,7 +58,7 @@ function Login() {
      
       
       global.google.accounts.id.initialize({
-        client_id: CLIENT_GOOGLE_DEPLOY,
+        client_id: CLIENT_GOOGLE_DEPLOY||CLIENT_GOOGLE,
         callback: handleCallbackResponse
               })
 
