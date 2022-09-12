@@ -55,14 +55,14 @@ function Login() {
     }
     
     useEffect( () => {
-      /* global google */
+     
       
-      google.accounts.id.initialize({
-        client_id:CLIENT_GOOGLE||CLIENT_GOOGLE_DEPLOY,
+      global.google.accounts.id.initialize({
+        client_id: CLIENT_GOOGLE_DEPLOY,
         callback: handleCallbackResponse
               })
 
-      google.accounts.id.renderButton(
+      global.google.accounts.id.renderButton(
         document.getElementById("signInDiv"),
         {theme: "outline", size:"large"}
       )
