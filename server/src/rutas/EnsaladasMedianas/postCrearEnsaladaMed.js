@@ -26,7 +26,7 @@ crearEnsaladaMed.post('/', async (req, res, next) =>{
                 suace,
                 topping
             })
-            if(use[0].orders.length){
+            if(use[0]?.orders?.length){
                 const pedidoExite = await Pedidos.findOneAndUpdate({_id:use[0].orders},{
                     $push:{
                         saladsMed:ensalada[0]._id,

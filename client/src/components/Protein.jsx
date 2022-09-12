@@ -17,7 +17,8 @@ export function Protein () {
       let handleChange = (event) =>
       {
         event.preventDefault()
-    
+        if(event.target.value!==''){
+
         setForm({
           ...form,
           proteinas: [...form.proteinas, event.target.value],
@@ -26,7 +27,7 @@ export function Protein () {
         setProteinas([...form.proteinas, event.target.value])
         console.log(proteinas)
       }
-    
+      }
     
       const handleDelete = (event) =>
       {
@@ -34,7 +35,7 @@ export function Protein () {
           ...form,
           proteinas: form.proteinas.filter(e => e !== event)
         })
-        setProteinas([...form.bases,event.target.value])
+        setProteinas([...form.proteinas.filter(e => e !== event)])
       }
     
       return (
@@ -42,7 +43,7 @@ export function Protein () {
     <div>
           <div id="checkboxContent" className="contain-bases" >
           
-            <h3 id="h3-bases">ELIGE TUS PROTEINAS (2)</h3>
+            <h3 id="h3-bases">ELIGE TUS PROTEINAS</h3>
               {
               allProteins?.map(e => (
                 <div id="contain-bases-card" key={e._id}>
@@ -54,7 +55,7 @@ export function Protein () {
               ))
             }
               <select onChange={(e) => handleChange(e)} disabled={form.proteinas?.length === 2 && true} class="form-select" aria-label="Default select example">
-              <option value=""disabled>seleccione</option>
+              <option value="">seleccione un máximo de 2 proteinas</option>
                 {
                   allProteins?.map(e => (
                   <option name={e.name} value={e.name}>{e.name}</option>

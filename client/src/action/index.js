@@ -493,7 +493,7 @@ export function getPedidos(){
 export function eliminarDelCarrito(value){
 	return async function(dispatch){
 		try {
-			const eliminar = await axios.put(`/eliminarDelPedido/`,value)
+			const eliminar = await axios.put(`/eliminarDelPedido`,value)
 			return dispatch({
 				type: "ELIMINAR_DEL_PEDIDO",
 				payload: eliminar.data
@@ -507,7 +507,7 @@ export function eliminarDelCarrito(value){
 export function agregarAlCarrito(value){
 	return async function(dispatch){
 		try {
-			const agregar = await axios.put(`/agregar/`,value)
+			const agregar = await axios.put(`/agregar`,value)
 			return dispatch({
 				type: "AGREGAR_AL_PEDIDO",
 				payload: agregar.data
@@ -576,6 +576,21 @@ export function pedidoPostreLogueado(value){
 	}
 }
 
+
+export function saladMUser(payload){
+	return async function(dispatch){
+		try {
+			const saladM = await axios.post(`/ensaladamed`,payload)
+			return dispatch({
+				type: "SALAD_M_USER",
+				payload: saladM
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
+
 export function contactForm(value){
 	return async function(dispatch){
 		try{
@@ -585,6 +600,19 @@ export function contactForm(value){
 				payload:form
 			})
 		}catch(error){
+			console.log(error)
+		}
+	}
+}
+export function saladGUser(payload){
+	return async function(dispatch){
+		try {
+			const saladG = await axios.post(`/ensaladabig`,payload)
+			return dispatch({
+				type: "SALAD_G_USER",
+				payload: saladG
+			})
+		} catch (error) {
 			console.log(error)
 		}
 	}
@@ -608,4 +636,14 @@ export function putPedidocargarPedido(value){
 		})
 	} 
 
+}
+
+export function getUsuarioId(id){
+	return async function(dispatch){
+		const userId=await axios.put(`/usuario/${id}`)
+		return dispatch({
+			type:'GET_USUARIO_ID',
+			payload:userId
+		})
+	}
 }

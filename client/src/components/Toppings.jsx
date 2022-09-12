@@ -17,7 +17,8 @@ export function Toppings () {
       let handleChange = (event) =>
       {
         event.preventDefault()
-    
+        if(event.target.value!==''){
+
         setForm({
           ...form,
           toppings: [...form.toppings, event.target.value],
@@ -26,7 +27,7 @@ export function Toppings () {
         setTopping([...form.toppings,event.target.value])
         console.log(topping)
       }
-    
+      }
     
       const handleDelete = (event) =>
       {
@@ -34,7 +35,7 @@ export function Toppings () {
           ...form,
           toppings: form.toppings.filter(e => e !== event)
         })
-        setTopping([...form.toppings,event.target.value])
+        setTopping([...form.toppings.filter(e => e !== event)])
       }
     
       return (
@@ -42,7 +43,7 @@ export function Toppings () {
     <div>
           <div id="checkboxContent" className="contain-bases" >
            
-            <h3 id="h3-bases">ELIGE TUS TOPPINGS (5)</h3>
+            <h3 id="h3-bases">ELIGE TUS TOPPINGS</h3>
               {
               allToppings?.map(e => (
                 <div id="contain-bases-card" key={e._id}>
@@ -54,7 +55,7 @@ export function Toppings () {
               ))
             }
               <select onChange={(e) => handleChange(e)} disabled={form.toppings?.length === 5 && true} class="form-select" aria-label="Default select example">
-              <option value=""disabled>seleccione</option>
+              <option value="">seleccione un máximo de 5 toppings</option>
                 {
                   allToppings?.map(e => (
                   <option name={e.name} value={e.name}>{e.name}</option>

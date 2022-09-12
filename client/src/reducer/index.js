@@ -2,33 +2,34 @@
 
 const initialState = {
   salads: [],
-  saladsBig:[],
+  saladsBig: [],
   bases: [],
-  proteins:[],
-  complements:[],
-  sauces:[],
-  toppings:[],
-  beverages:[],
-  desserts:[],
-  menu:[],
-  pedidoBebidas:[],
-  usuarios:[],
-  pedidos:[]
+  proteins: [],
+  complements: [],
+  sauces: [],
+  toppings: [],
+  beverages: [],
+  desserts: [],
+  menu: [],
+  pedidoBebidas: [],
+  usuarios: [],
+  pedidos: [],
+  userId: {}
 }
 
 
-function rootReducer( state = initialState, action )
+function rootReducer(state = initialState, action)
 {
   switch (action.type) {
     case "USUARIOS":
-      return{
+      return {
         ...state,
         usuarios: action.payload
       }
-     case "VACIAR_U":
-      return{
+    case "VACIAR_U":
+      return {
         ...state,
-        usuarios:[]
+        usuarios: []
       }
     case 'SALADS':
       return {
@@ -36,7 +37,7 @@ function rootReducer( state = initialState, action )
         salads: action.payload
       }
     case "SALADS_BIG":
-      return{
+      return {
         ...state,
         saladsBig: action.payload
       }
@@ -75,11 +76,11 @@ function rootReducer( state = initialState, action )
         ...state,
         desserts: action.payload
       }
-      case "MENU":
-        return {
-          ...state,
-          menu: action.payload
-        }
+    case "MENU":
+      return {
+        ...state,
+        menu: action.payload
+      }
     case 'PEDIDO_BEBIDAS':
       return {
         ...state,
@@ -105,15 +106,15 @@ function rootReducer( state = initialState, action )
         ...state,
       }
     case "POST_REGISTRO":
-      return{
+      return {
         ...state
-          }
+      }
     case "POST_LOGEO":
-      return{
+      return {
         ...state
-          }
+      }
     case "PEDIDOS":
-      return{
+      return {
         ...state,
         pedidos: action.payload
       }
@@ -121,34 +122,47 @@ function rootReducer( state = initialState, action )
       return {
         ...state
       }
-      case "AGREGAR_AL_PEDIDO":
-        return {
-          ...state
-        }
-      case "MENU_MDIANO":
-        return{
-          ...state
-        }
-      case "MENU_GRANDE":
-        return{
-          ...state
-        }
-      case "PEDIDO_DE_BEBIDAS":
-        return{
-          ...state
-        }
-        case "PEDIDO_DE_POSTRES":
-          return {
-            ...state
-          }
-      case 'CARGA_LOCAL':
-        return{
-          ...state
-        }
-      case 'CARGAR_PEDIDO_DEL_LOCAL':
-        return{
-          ...state
-        }
+    case "AGREGAR_AL_PEDIDO":
+      return {
+        ...state
+      }
+    case "MENU_MDIANO":
+      return {
+        ...state
+      }
+    case "MENU_GRANDE":
+      return {
+        ...state
+      }
+    case "PEDIDO_DE_BEBIDAS":
+      return {
+        ...state
+      }
+    case "PEDIDO_DE_POSTRES":
+      return {
+        ...state
+      }
+    case "SALAD_M_USER":
+      return {
+        ...state
+      }
+    case "SALAD_G_USER":
+      return {
+        ...state
+      }
+    case 'CARGA_LOCAL':
+      return {
+        ...state
+      }
+    case 'CARGAR_PEDIDO_DEL_LOCAL':
+      return {
+        ...state
+      }
+    case 'GET_USUARIO_ID':
+      return {
+        ...state,
+        userId: action.payload
+      }
     default:
       return {
         state
