@@ -32,7 +32,7 @@ const CARD_ELEMENT_OPTIONS = {
   },
 };
 
-const stripePromise = loadStripe("<your public key here>");
+const stripePromise = loadStripe("pk_test_51LSmj7J1G02QCFvGIp6Q0A7s2iF2hodQSpEJTlyOo4vlbVA09cB2oxGnR8ODzTVvOxvTXdKVQ8cYiDepTD75FpY600Z8kIW44N");
 
 const CheckoutForm = () => {
   const stripe = useStripe();

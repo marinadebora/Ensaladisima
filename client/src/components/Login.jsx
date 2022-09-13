@@ -57,7 +57,7 @@ function Login() {
     useEffect( () => {
       
       global.google.accounts.id.initialize({
-        client_id: "957119588043-ig515qgobf821lomcuofvpa0mj90ugf0.apps.googleusercontent.com",
+        client_id: "957119588043-ig515qgobf821lomcuofvpa0mj90ugf0.apps.googleusercontent.com"||"585193864937-33pidddgujvakqmkvulpsvf8t3fhar18.apps.googleusercontent.com",
         callback: handleCallbackResponse
               })
 
