@@ -27,13 +27,27 @@ function validate(loginUser){
   return error
 }
 
-function Login() {
-  const history = useNavigate();
-  const dispatch = useDispatch();
+ 
+ function Login() {
+   const history = useNavigate();
+   const dispatch = useDispatch();
+   
+   const buscarMed = JSON.parse(localStorage.getItem('medianas'))
+    const buscarBig = JSON.parse(localStorage.getItem('grandes'))
+    const buscarBebidas = JSON.parse(localStorage.getItem('bebidas'))
+    const buscarPostres = JSON.parse(localStorage.getItem('postres'))
+    const buscarEnsaladaM = JSON.parse(localStorage.getItem('ensaladaM'))
+    const buscarEnsaladaG = JSON.parse(localStorage.getItem('ensaladaG'))
   
   const [loginUser, setLoginUser] = useState({
      email:"",
-     password:""
+     password:"",
+     saladsMenu: buscarMed ? buscarMed?.map(e=> e._id): [],
+     saladsMenuBig: buscarBig ? buscarBig?.map(e=> e._id): [],
+     beverages: buscarBebidas ? buscarBebidas?.map(e=> e._id): [],
+     desserts: buscarPostres ? buscarPostres?.map(e=> e._id): [],
+     saladsMed: buscarEnsaladaM ? buscarEnsaladaM?.map(e=> e): [],
+     saladsBig: buscarEnsaladaG ? buscarEnsaladaG?.map(e=> e): []
     });
     const [error, setError] = useState({})
       

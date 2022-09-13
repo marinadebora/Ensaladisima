@@ -1,20 +1,22 @@
 const Usuarios = require("../../modelos/Usuarios");
 const jwt = require("jsonwebtoken")
 
-const auth = async (req, res) => {
-    const { email, password,google } = req.body;
-    
+const auth = async (req, res, next) => {
+    const { email, password, saladsMenu, saladsMenuBig, saladsMed, saladsBig, beverages, desserts ,google} = req.body;
+    /* console.log({email, password, saladsMenu, saladsMenuBig, saladsMed, saladsBig, beverages, desserts}) */
+    /* console.log("HOLA SOY UN CONSOLE.LOG"+ email) */
+    const user = await Usuarios.findOne({ email })
     let firstName = ''
     let lastName = ''
     let adress=''
     let id = ''
     let admin = false
     let orders=[]
-    console.log(google)
+    /* console.log(google) */
     if (google === true){
         
         const userGoogle = await Usuarios.findOne({email})
-        console.log(userGoogle)
+        /* console.log(userGoogle) */
         if (userGoogle) {
         
         firstName = userGoogle.firstName
@@ -32,13 +34,14 @@ const auth = async (req, res) => {
 
             firstName = req.body.firstName?req.body.firstName:firstName
             lastName = req.body.lastName?req.body.lastName:lastName
-
+            
             Usuarios.create({
                 email,password,firstName,lastName
             })
-            let token = jwt.sign({ userGoogle }, "torombolo", {expiresIn: "10h"})
             
+            let token = jwt.sign({ userGoogle }, "torombolo", {expiresIn: "10h"})
             res.send({ email, token, firstName, lastName, id, admin,adress, orders })
+            next()
         }
     }else{
         const user = await Usuarios.findOne({ email })
@@ -70,6 +73,8 @@ const auth = async (req, res) => {
                         expiresIn: "10h"
                     })
                     res.send({ email, token, firstName, lastName, id, admin,adress, orders })
+                    next()
+                    /* console.log(req.headers) */
                 } else {
                     res.status(500).send("Correo y/o contraseña incorrecta")
                 }
