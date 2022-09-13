@@ -74,7 +74,7 @@ getUsuarios.get('/', async (req,res,next) =>{
         })
 
     if(nombre) {  
-        const usuariosBuscados = results.filter(e=>e.name.includes(nombre.toLocaleLowerCase()))
+        const usuariosBuscados = results?.filter(e=>e.name.includes(nombre.toLocaleLowerCase()))
         res.send(usuariosBuscados.length?usuariosBuscados:"Ese nombre no coincide D:")
     }else{
     res.send(results)
