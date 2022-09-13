@@ -12,6 +12,7 @@ import { Tamaños } from './Tamaños';
 import '../styles/PideTuEnsalada.css'
 import { useLocalStorage } from "../useLocalStorage";
 import img from '../images/ensaladaSola.png'
+import ensaladaMediana from "../images/ensaladeraGreen.png";
 
 export function PideTuEnsalada()
 {
@@ -32,47 +33,61 @@ export function PideTuEnsalada()
   let [formM, setFormM] = useState({
     ensalada: []
   })
-  let [partesEnsM, setPartesEnsM] = useLocalStorage('objDBM', {})
-  let [partesEnsG, setPartesEnsG] = useLocalStorage('objDBG', {})
-
-
+  let [mediana, setMediana] = useLocalStorage('mediana', {})
+  let [grande, setGrande] = useLocalStorage('grande', {})
+ 
   let big = () =>
   {
+    let user = JSON.parse(localStorage.getItem('loguearUsuario'))
     let base = JSON.parse(localStorage.getItem('bases'))
     let proteinas = JSON.parse(localStorage.getItem('proteinas'))
     let complement = JSON.parse(localStorage.getItem('complement'))
     let salsa = JSON.parse(localStorage.getItem('salsa'))
     let topping = JSON.parse(localStorage.getItem('topping'))
-    let ensalada = {
-      _id: '2',
-      base: base,
-      proteinas: proteinas,
-      complement: complement,
-      salsa: salsa,
-      topping: topping,
-      price: precioG,
-      image: img,
-      name: 'Tu Ensalada'
+  
+    if(!user){
+      let ensalada = {
+        _id: '2',
+        base: base,
+        proteinas: proteinas,
+        complement: complement,
+        salsa: salsa,
+        topping: topping,
+        price: precioG,
+        image: img,
+        name: 'Tu Ensalada'
+      }
+      setForm({
+        ...form,
+        ensalada: [...form.ensalada, ensalada],
+  
+      })
+  
+      setEnsaladaG([...ensaladaG, ensalada])
+     
+
+    }else{
+
+      setGrande({
+        email:user?.email,
+        base: base,
+        protein: proteinas,
+        complement: complement,
+        suace: salsa,
+        topping: topping,
+      })
+      localStorage.removeItem('ensaladaG')
     }
-    setForm({
-      ...form,
-      ensalada: [...form.ensalada, ensalada],
-
-    })
-
-    setEnsaladaG([...ensaladaG, ensalada])
-    setPartesEnsG({
-      base: base,
-      protein: proteinas,
-      complement: complement,
-      sauce: salsa,
-      topping: topping,
-    })
+    localStorage.removeItem('bases')
+    localStorage.removeItem('proteinas')
+    localStorage.removeItem('complement')
+    localStorage.removeItem('salsa')
+    localStorage.removeItem('topping')
     navigate("/cargando");
     Swal.fire({
-      position: 'top-end',
+      position: 'center',
       icon: 'success',
-      title: 'Your work has been saved',
+      title: 'Ensalada creada con exito',
       showConfirmButton: false,
       timer: 1000
     })
@@ -95,37 +110,52 @@ export function PideTuEnsalada()
     let complement = JSON.parse(localStorage.getItem('complement'))
     let salsa = JSON.parse(localStorage.getItem('salsa'))
     let topping = JSON.parse(localStorage.getItem('topping'))
-    let ensalada = {
-      _id: '1',
-      base: base,
-      proteinas: proteinas,
-      complement: complement,
-      salsa: salsa,
-      topping: topping,
-      price: precioM,
-      image: img,
-      name: 'Tu Ensalada'
+    let user = JSON.parse(localStorage.getItem('loguearUsuario'))
+    if(!user){
+
+      let ensalada = {
+        _id: '1',
+        base: base,
+        proteinas: proteinas,
+        complement: complement,
+        salsa: salsa,
+        topping: topping,
+        price: precioM,
+        image: img,
+        name: 'Tu Ensalada'
+      }
+  
+      setFormM({
+        ...formM,
+        ensalada: [...formM.ensalada, ensalada],
+  
+      })
+      setEnsaladaM([...ensaladaM, ensalada])
+    }else{
+
+      setMediana({
+        email:user?.email,
+        base: base,
+        protein: proteinas,
+        complement: complement,
+        suace: salsa,
+        topping: topping,
+      })
+      localStorage.removeItem('ensaladaM')
+
     }
-
-    setFormM({
-      ...formM,
-      ensalada: [...formM.ensalada, ensalada],
-
-    })
-    setEnsaladaM([...ensaladaM, ensalada])
    
-    setPartesEnsM({
-      base: base,
-      proteinas: proteinas,
-      complement: complement,
-      salsa: salsa,
-      topping: topping,
-    })
+    localStorage.removeItem('bases')
+    localStorage.removeItem('proteinas')
+    localStorage.removeItem('complement')
+    localStorage.removeItem('salsa')
+    localStorage.removeItem('topping')
+
     navigate("/cargando");
     Swal.fire({
-      position: 'top-end',
+      position: 'center',
       icon: 'success',
-      title: 'Your work has been saved',
+      title: 'Ensalada creada con exito',
       showConfirmButton: false,
       timer: 1000
     })
@@ -139,6 +169,8 @@ export function PideTuEnsalada()
       });
 
   }
+  /* console.log(grande)
+  console.log(mediana) */
 
   useEffect(() =>
   {
@@ -149,40 +181,45 @@ export function PideTuEnsalada()
     dispatch(toppings())
     dispatch(salads())
     dispatch(saladsBig())
-    dispatch(saladMUser(partesEnsM))
-    dispatch(saladGUser(partesEnsG))
-  }, [dispatch,partesEnsG,partesEnsM])
+    dispatch(saladMUser(mediana))
+    dispatch(saladGUser(grande))
+  }, [dispatch,grande,mediana])
 
+  return( 
+  <div>
+      <Tamaños/>
 
+      <div class='container'>
 
+            <div class="row">
 
-  return (
-    <div>
-      <Tamaños />
-      <div class='container-fluid'>
-        <div class="row">
-          <div id='contenedor-1' class='col-sm-9'>
-            <Bases />
-            <Protein />
-            <Complement />
-            <Sauce />
-            <Toppings />
+              <div id='contenedor-1' class='col-sm-12'>
+                <Bases /> 
+                <Protein /> 
+                <Complement />  
+                <Sauce />
+                <Toppings /> 
+              </div>
 
-          </div>
-          <div class="row" id="addContent">
-            <p class="col-3" id="textButtonAdd">Mediana</p>
-            <button onClick={() => medium()} type="button" class="col-1" id="buttonAddG">
-              <i class="bi bi-plus-circle-fill"></i>
-            </button>
+            <div id="addContent">
 
-            <p class="col-3" id="textButtonAdd">Grande</p>
-            <button onClick={() => big()} class="col-1" id="buttonAddG">
-              <i class="bi bi-plus-circle-fill"></i>
+              <button onClick={()=>medium()} type="button" id="buttonAddEnsalada">
+              <img src={ensaladaMediana} alt="img" id="ensaladeraGreen" />
+              <p id="textButtonAddEnsaladaM">Mediana</p>
+              </button>
 
-            </button>
-          </div>
+              <button onClick={()=>big()} id="buttonAddEnsalada">
+              <img src={ensaladaMediana} alt="img" id="ensaladeraGreen" />
+              <p id="textButtonAddEnsaladaG">Grande</p>
+              </button>
+
+            </div>
+
+    </div>
+
         </div>
-      </div>
+
+  
     </div>
 
   );

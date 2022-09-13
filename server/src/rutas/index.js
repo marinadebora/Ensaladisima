@@ -49,7 +49,6 @@ const eliminarDelPedido  = require("./Pedidos/eliminardelPedido");
 const postPedidoMenu = require("./Pedidos/postPedidoMenu");
 const postHistorial = require("./Historial/postHistorial");
 // const { menuBig } = require("../constroladores/cargarBaseDeDatos/controladorDelMenuBig");
-const passport = require("passport");
 const { getMenuBig } = require("./MenuBig/getMenuBig");
 const postEnsaladaMediana = require("./EnsaladasMedianas/posEnsaladasMediana");
 const postEnsaladaGrande = require("./EnsaladasBigs/postEnsaladasBig");
@@ -60,7 +59,7 @@ const cargarPedido = require("./Pedidos/cargarPedidos");
 const { getHistorial } = require("./Historial/getHistorial");
 const { usuarioMidelwere } = require("./Usuarios/Midelwer/usuarioMidelwer");
 const { sesionMidelwere } = require("./Usuarios/Midelwer/sesionMidelwere");
-require("../../middlewares/google")
+const { correoContacto } = require("../Nodemailer/correoContacto");
 
 
 const router = Router();
@@ -70,15 +69,8 @@ router.use('/usuarios', getUsuarios)
 router.use('/usuario', getIdUsuario)
 router.use('/registro', registro,usuarioMidelwere, correo)
 router.use("/autenticar",auth, sesionMidelwere)
-router.use("/autenticargoogle", passport.authenticate("auth-google", {
-    scope: [
-        "https://www.googleapis.com/auth/userinfo.profile",
-        "https://www.googleapis.com/auth/userinfo.email"
-    ],
-    session: false
-}), auth)
 router.put("/usuarios/:_id",editarPassword,passwordEditada);
-router.get("/email",getEmail,correoPassword);
+router.use("/email",getEmail,correoPassword);
 
 // rutas para el modelo de Pedidos.
 router.use('/pedidos', getPedidos)
@@ -151,6 +143,9 @@ router.put("/bebidas/:_id",putBebidas);
 router.get("/postres",getPostres);
 router.post("/postres",postPostres);
 router.put("/postres/:_id",putPostres);
+
+//ruta formulario de contacto
+router.post("/contactform", correoContacto)
 
 // rutas para cargar los modelos de la base de datos
 /* router.get('/menudb', menu);

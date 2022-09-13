@@ -32,7 +32,7 @@ const CARD_ELEMENT_OPTIONS = {
   },
 };
 
-const stripePromise = loadStripe("<your public key here>");
+const stripePromise = loadStripe("pk_test_51LSmj7J1G02QCFvGIp6Q0A7s2iF2hodQSpEJTlyOo4vlbVA09cB2oxGnR8ODzTVvOxvTXdKVQ8cYiDepTD75FpY600Z8kIW44N");
 
 const CheckoutForm = () => {
   const stripe = useStripe();
@@ -48,8 +48,11 @@ const CheckoutForm = () => {
       card: elements.getElement(CardElement),
     });
     setLoading(true);
+    
+    console.log(paymentMethod)
 
     if (!error) {
+      
       // console.log(paymentMethod)
       const { id } = paymentMethod;
       try {
@@ -66,11 +69,11 @@ const CheckoutForm = () => {
       } catch (error) {
         console.log(error);
       }
-      setLoading(false);
+      // setLoading(false);
     }
   };
 
-  console.log(!stripe || loading);
+  // console.log(!stripe || loading);
 
   return (
     <div id="paymentMain"className="container">

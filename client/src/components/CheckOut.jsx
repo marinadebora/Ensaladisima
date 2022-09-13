@@ -3,7 +3,6 @@ import {
   MDBCard,
   MDBCardBody,
   MDBCardImage,
-  MDBCardText,
   MDBCol,
   MDBContainer,
   MDBIcon,
@@ -276,7 +275,7 @@ export default function QuantityEdit() {
                                   </MDBTypography>
                                 </MDBCol>
                                 <MDBCol md="3" lg="3" xl="3" className="d-flex align-items-center">
-                                  <button onClick={(e) => removeDelCarrito(e)} value={e._id} style={{ border: 'none', color: '#fff', fontWeight: "bolder", backgroundColor: 'red', fontSize: 'larger', width: '2rem', marginRight: '0.5rem' }}>
+                                  <button onClick={(e) => removeDelCarrito(e)} value={e._id} style={{ border: 'none',  color: '#fff', fontWeight: "bolder", backgroundColor: 'red', fontSize: 'larger', width: '2rem', marginRight: '0.5rem'}}>
                                     -
                                   </button>
                                   <MDBInput type="number" min="1" defaultValue={armadoCarrito?.producto?.filter(d => d._id === e._id).length} size="sm" />
@@ -301,12 +300,9 @@ export default function QuantityEdit() {
                           }
                           <hr className="my-4" />
                           <div className="pt-5">
-                            <MDBTypography tag="h6" className="mb-0">
-                              <MDBCardText tag="a" href="#!" className="text-body">
-                                <MDBIcon fas icon="long-arrow-alt-left me-2" />
-                                Volver a la tienda
-                              </MDBCardText>
-                            </MDBTypography>
+                          <Link id="butonCarrouselMain" to="/menu">
+                            <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"> Volver a la tienda</i>
+                          </Link>
                           </div>
                         </div>
                       </MDBCol>
@@ -341,7 +337,7 @@ export default function QuantityEdit() {
                             </MDBTypography>
                             <MDBTypography tag="h5">US$ {armadoCarrito?.total}</MDBTypography>
                           </div>
-                          {user ? <Link class="buttonChico" to="/">Comprar</Link> : <Link class="buttonChico" to="/registro">Registrate</Link>}
+                          {user ? <Link class="buttonChico" to="/pago">Comprar</Link> : <Link class="buttonChico" to="/registro">Registrate</Link>}
                         </div>
                       </MDBCol>
                     </MDBRow>
@@ -416,12 +412,9 @@ export default function QuantityEdit() {
                             }
                             <hr className="my-4" />
                             <div className="pt-5">
-                              <MDBTypography tag="h6" className="mb-0">
-                                <MDBCardText tag="a" href="#!" className="text-body">
-                                  <MDBIcon fas icon="long-arrow-alt-left me-2" />
-                                  Volver a la tienda
-                                </MDBCardText>
-                              </MDBTypography>
+                            <Link id="butonCarrouselMain" to="/menu">
+                                <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"> Volver a la tienda</i>
+                            </Link>
                             </div>
                           </div>
                         </MDBCol>

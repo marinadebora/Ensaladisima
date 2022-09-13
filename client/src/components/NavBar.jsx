@@ -28,7 +28,7 @@ const NavBar = () => {
                       <i class="bi bi-person-circle"></i>  </Link>
                 
                   <Link to="/profile" class="nav-link-Main"><p>Hola {user.firstName}</p></Link>
-                  <button onClick={logOut}> Cerrar sesión</button>
+                  <button class="buttonCloseSesion" onClick={logOut}> Cerrar sesión</button>
                 </div> 
         
       )
@@ -54,7 +54,7 @@ const NavBar = () => {
     <Link class="nav-link-Main" to="/">
       <img src={Logo} alt="img" id="logoNavBar"/>
     </Link>
-
+  
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
