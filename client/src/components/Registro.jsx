@@ -6,7 +6,7 @@ import {
   MDBRow,
   MDBCol,
   MDBCard,
-  MDBCardBody,MDBInput,MDBBtn,MDBCheckbox 
+  MDBCardBody,MDBInput,MDBBtn
 }
 from 'mdb-react-ui-kit';
 import collage1 from '../images/collage1.png';

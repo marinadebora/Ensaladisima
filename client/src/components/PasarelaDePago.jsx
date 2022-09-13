@@ -47,7 +47,7 @@ const CheckoutForm = () => {
       type: "card",
       card: elements.getElement(CardElement),
     });
-    // setLoading(true);
+    setLoading(true);
     
     console.log(paymentMethod)
 
@@ -63,7 +63,7 @@ const CheckoutForm = () => {
             amount: 10000, //cents
           }
         );
-        //console.log(data);
+        console.log(data);
 
         elements.getElement(CardElement).clear();
       } catch (error) {

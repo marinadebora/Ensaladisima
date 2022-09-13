@@ -1,5 +1,4 @@
 import React from "react";
-import img from '../images/bolsa.png'
 import '../styles/Bebidas.css'
 import '../styles/Bases.css'
 

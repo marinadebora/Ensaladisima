@@ -1,6 +1,5 @@
 import React from "react";
-import '../styles/Bases.css'
-import img from '../images/bolsa.png'
+import '../styles/Bases.css';
 
 
 
