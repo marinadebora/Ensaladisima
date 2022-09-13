@@ -26,6 +26,30 @@
     height: auto;
     border-radius: 20px;
   }
+
+  .contactFormPasword {
+    border: 2px solid #207140;
+    margin:  auto;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 70px;
+    padding-left: 6%;
+    width: 500px;
+    height: 400px;
+    border-radius: 20px;
+  }
+
+  .contactFormPasword1 {
+    border: 2px solid #207140;
+    margin:  auto;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 50px;
+    padding-left: 3%;
+    width: 500px;
+    height: 400px;
+    border-radius: 20px;
+  }
   
   .error {
     color: red;
@@ -75,9 +99,36 @@
     font-family: Tommy-bold;
     font-size: 1.0rem;
     cursor: pointer;
- 
  }
 
+ .buttonChico2:hover{
+  background-color: #94D2DE;
+  color: white;
+  transition: all 20ms;
+}
+
+ .buttonChicoPassword{
+    
+    width: 60%;
+    margin-top: 10%;
+    margin-left: 3%;
+    margin-right: 4%;
+    background-color: #207140; 
+    color: white;
+    text-decoration: none;
+    border:3px  solid white;
+    padding: 0.3rem;
+    border-radius: 50px;
+    font-family: Tommy-bold;
+    font-size: 1.0rem;
+    cursor: pointer;
+ }
+
+ .buttonChicoPassword:hover{
+  background-color: #94D2DE;
+  color: white;
+  transition: all 20ms;
+}
   
   
   
