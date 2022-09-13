@@ -58,6 +58,8 @@ const postPedidoMenuBig = require("./Pedidos/postPedidoMenuBig");
 const crearLocalStorage = require("./Pedidos/crearPedidoLocalStorage");
 const cargarPedido = require("./Pedidos/cargarPedidos");
 const { getHistorial } = require("./Historial/getHistorial");
+const { usuarioMidelwere } = require("./Usuarios/Midelwer/usuarioMidelwer");
+const { sesionMidelwere } = require("./Usuarios/Midelwer/sesionMidelwere");
 require("../../middlewares/google")
 
 
@@ -66,8 +68,8 @@ const router = Router();
 // rutas para el modelo de Usuarios.
 router.use('/usuarios', getUsuarios)
 router.use('/usuario', getIdUsuario)
-router.use('/registro', registro, correo)
-router.use("/autenticar",auth)
+router.use('/registro', registro,usuarioMidelwere, correo)
+router.use("/autenticar",auth, sesionMidelwere)
 router.use("/autenticargoogle", passport.authenticate("auth-google", {
     scope: [
         "https://www.googleapis.com/auth/userinfo.profile",

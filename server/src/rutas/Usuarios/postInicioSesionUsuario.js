@@ -1,8 +1,9 @@
 const Usuarios = require("../../modelos/Usuarios");
 const jwt = require("jsonwebtoken")
 
-const auth = async (req, res) => {
-    const { email, password } = req.body;
+const auth = async (req, res, next) => {
+    const { email, password, saladsMenu, saladsMenuBig, saladsMed, saladsBig, beverages, desserts } = req.body;
+    /* console.log({email, password, saladsMenu, saladsMenuBig, saladsMed, saladsBig, beverages, desserts}) */
     console.log("HOLA SOY UN CONSOLE.LOG"+ email)
     const user = await Usuarios.findOne({ email })
     let firstName = ''
@@ -40,6 +41,7 @@ const auth = async (req, res) => {
                     })
                     /* res.cookie("token", token, { expiresIn: "10h" }); */
                     res.send({ email, token, firstName, lastName, id, admin,adress, orders })
+                    next()
                     /* console.log(req.headers) */
                 } else {
                     res.status(500).send("Correo y/o contraseña incorrecta")
