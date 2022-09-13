@@ -111,13 +111,10 @@ function Registro() {
         </MDBCol>
       
         <MDBCard className='ms-5' style={{maxWidth: '600px', border: "none", padding: "0px"}}>
-        <MDBCardBody className='px-5'>
+        <MDBCardBody className='px-4'>
           <h2 className="text-center mb-5" style={{fontFamily:"Tommy-regular", color:"#207140"}}>Crea tu cuenta</h2>
 
-       
-
-          <h1>Registro</h1>
-
+        
           <form onSubmit={handleSubmit}>
           
           <MDBInput wrapperClass='mb-2' name = "firstName" value={inputUser.firstName} placeholder='Nombre*' size='lg' id='form1' type='text'onChange={handleChange}/>
@@ -133,7 +130,7 @@ function Registro() {
           <MDBInput wrapperClass='mb-2' name = "adress" value={inputUser.adress} placeholder='Direccion' size='lg' id='form4' type='text' onChange={handleChange}/> 
           {errors.adress && <p>{errors.adress}</p>}
  <div className='d-flex flex-row justify-content-center mb-4'>
-  <MDBCheckbox name='flexCheck' id='flexCheckDefault' placeholder='I agree all statements in Terms of service' />
+  
 </div> 
 
                {/*  <input type="email" placeholder="email"  onChange={handleChange}/>
@@ -145,7 +142,7 @@ function Registro() {
  */}
            <button type="submit" class="buttonChico2">Registrar</button>
             </form>
-            <p className='ms-5 mt-5'>Have already an account?<a href="/login" class="link-info"> Login</a></p>
+            <p className='ms-5 mt-3'>Have already an account?  <a href="/login" class="link-info"> Login</a></p>
 
         </MDBCardBody>
       </MDBCard>

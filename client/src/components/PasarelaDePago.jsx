@@ -53,7 +53,7 @@ const CheckoutForm = () => {
 
     if (!error) {
       
-      console.log(paymentMethod)
+      // console.log(paymentMethod)
       const { id } = paymentMethod;
       try {
         const { data } = await axios.post(
@@ -63,7 +63,7 @@ const CheckoutForm = () => {
             amount: 10000, //cents
           }
         );
-        console.log(data);
+        //console.log(data);
 
         elements.getElement(CardElement).clear();
       } catch (error) {

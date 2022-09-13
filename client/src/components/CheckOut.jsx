@@ -408,12 +408,9 @@ export default function QuantityEdit() {
                             }
                             <hr className="my-4" />
                             <div className="pt-5">
-                              <MDBTypography tag="h6" className="mb-0">
-                                <MDBCardText tag="a" href="#!" className="text-body">
-                                  <MDBIcon fas icon="long-arrow-alt-left me-2" />
-                                  Volver a la tienda
-                                </MDBCardText>
-                              </MDBTypography>
+                            <Link id="butonCarrouselMain" to="/menu">
+                                <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"> Volver a la tienda</i>
+                            </Link>
                             </div>
                           </div>
                         </MDBCol>
