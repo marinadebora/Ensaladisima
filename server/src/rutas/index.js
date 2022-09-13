@@ -57,6 +57,7 @@ const postPedidoMenuBig = require("./Pedidos/postPedidoMenuBig");
 const crearLocalStorage = require("./Pedidos/crearPedidoLocalStorage");
 const cargarPedido = require("./Pedidos/cargarPedidos");
 const { getHistorial } = require("./Historial/getHistorial");
+const { correoContacto } = require("../Nodemailer/correoContacto");
 
 
 const router = Router();
@@ -140,6 +141,9 @@ router.put("/bebidas/:_id",putBebidas);
 router.get("/postres",getPostres);
 router.post("/postres",postPostres);
 router.put("/postres/:_id",putPostres);
+
+//ruta formulario de contacto
+router.post("/contactform", correoContacto)
 
 // rutas para cargar los modelos de la base de datos
 /* router.get('/menudb', menu);

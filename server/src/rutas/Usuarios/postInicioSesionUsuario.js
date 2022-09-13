@@ -12,7 +12,7 @@ const auth = async (req, res) => {
     let orders=[]
     console.log(google)
     if (google === true){
-        console.log("entre al if de google, porque es true")
+        
         const userGoogle = await Usuarios.findOne({email})
         console.log(userGoogle)
         if (userGoogle) {
@@ -25,7 +25,7 @@ const auth = async (req, res) => {
         orders = userGoogle.orders
 
         let token = jwt.sign({ userGoogle }, "torombolo", {expiresIn: "10h"})
-        console.log( {email, token, firstName, lastName, id, admin,adress, orders})
+        
         res.send({ email, token, firstName, lastName, id, admin,adress, orders })
         }
         else {
@@ -37,7 +37,7 @@ const auth = async (req, res) => {
                 email,password,firstName,lastName
             })
             let token = jwt.sign({ userGoogle }, "torombolo", {expiresIn: "10h"})
-            console.log( {email, token, firstName, lastName, id, admin,adress, orders})
+            
             res.send({ email, token, firstName, lastName, id, admin,adress, orders })
         }
     }else{

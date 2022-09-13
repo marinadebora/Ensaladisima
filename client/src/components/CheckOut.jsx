@@ -361,7 +361,7 @@ export default function QuantityEdit() {
                                 Pedido
                               </MDBTypography>
                               {
-                                todosLosProductos && <MDBTypography className="mb-0 text-muted">{todosLosProductos.length} Productos  </MDBTypography>
+                                productosReales && <MDBTypography className="mb-0 text-muted">{productosReales.length} Productos  </MDBTypography>
                               }
                             </div>
                             <hr className="my-4" />
@@ -421,7 +421,7 @@ export default function QuantityEdit() {
                             <hr className="my-4" />
                             <div className="d-flex justify-content-between mb-4">
                               <MDBTypography tag="h5" className="text-uppercase">
-                                {todosLosProductos.length} Productos
+                                {productosReales.length} Productos
                               </MDBTypography>
                               <MDBTypography tag="h5">US$ {suma}</MDBTypography>
                             </div>

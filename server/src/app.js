@@ -5,10 +5,8 @@ const bodyParser = require('body-parser');
 const index = require('./rutas/index')
 const bcrypt = require("bcrypt")
 const passport = require("passport")
-const {loginGoogle} = require("./rutas/Usuarios/loginGoogle");
-const auth = require('./rutas/Usuarios/postInicioSesionUsuario');
 const Stripe = require("stripe")
-let stripeSecret= "sk_test_51LTzChGPkJkLR4xlv1bZn2ffH0LhxYp9KKJT1CdWalxRssCJTRetuKAIFyDgZgzTqQceeg684neZorAoA6xv9W0r00H1rdPtmw"
+let stripeSecret= "sk_test_51LSmj7J1G02QCFvGG4J3Dib99MeQCelVPlWuhnXkq81ftY0yMucev9ThIR33QQhGk2ZJWnHSyfshdtwRINF98UlW000pzBmNCb"
 
 const stripe = new Stripe(stripeSecret)
 
@@ -37,7 +35,7 @@ app.post('/checkout', async(req,res)=>{
             payment_method: id,
             confirm: true
         })
-        console.log("pagoooooo back",payment )
+        console.log("pagoooooo back",payment.status )
         res.send({message:"Pago recibido exitosamente"})
     }
 
