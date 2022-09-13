@@ -590,13 +590,14 @@ export function saladMUser(payload) {
 	}
 }
 
-export function contactForm(value) {
-	return async function (dispatch) {
-		try {
-			const form = await axios.post("/contactForm", value)
+export function contactForm(value){
+	return async function(dispatch){
+		try{
+			const form = await axios.post("/contactform",value)
+			console.log(form)
 			return dispatch({
-				type: "CONTACT_FORM",
-				payload: form
+				type:"CONTACT_FORM",
+				payload:form.data
 			})
 		} catch (error) {
 			console.log(error)
