@@ -28,7 +28,7 @@ const NavBar = () => {
                       <i class="bi bi-person-circle"></i>  </Link>
                 
                   <Link to="/profile" class="nav-link-Main"><p>Hola {user.firstName}</p></Link>
-                  <button onClick={logOut}> Cerrar sesión</button>
+                  <button class="buttonCloseSesion" onClick={logOut}> Cerrar sesión</button>
                 </div> 
         
       )

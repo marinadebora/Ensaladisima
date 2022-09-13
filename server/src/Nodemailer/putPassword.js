@@ -16,7 +16,7 @@ const correoPassword = async (req,res )=>{
             <h2> Recibimos un cambio de password!! </h2>
             <img src='https://www.woratek.com/wp-content/uploads/2013/08/Alegria-de-hombre-gif-animado.gif' width="600" height="350"/>
             <h3>Para cambiar la password ingresa aqui!!:</h3>
-            <p>http://localhost:4000/usuarios/${correo[0]._id}</p>
+            <a href=https://ensaladisima.vercel.app/password/${correo[0]._id}>Cliquea Aquí</a>
             <br>
             <h1> Si no fuiste tu ignora este mensaje!<h1>
             </div>

@@ -66,10 +66,10 @@ export function Complement()
               </select>
              
               {form.complements?.map(e =>
-                <div >
-                  <h5 class="badge text-bg-secondary">{e}
-                    <button class="btn btn-outline-success" onClick={() => handleDelete(e)} >X</button>
-                  </h5>
+                <div id="buttonDeleteMenuContainer">
+                  <h3 class="buttonDeleteMenu">{e}
+                    <button class="buttonDeleteMenuX" onClick={() => handleDelete(e)} >X</button>
+                  </h3>
                 </div>
               )} 
     </div>

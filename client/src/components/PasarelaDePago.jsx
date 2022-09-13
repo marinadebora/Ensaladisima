@@ -48,8 +48,11 @@ const CheckoutForm = () => {
       card: elements.getElement(CardElement),
     });
     setLoading(true);
+    
+    console.log(paymentMethod)
 
     if (!error) {
+      
       // console.log(paymentMethod)
       const { id } = paymentMethod;
       try {
@@ -66,11 +69,11 @@ const CheckoutForm = () => {
       } catch (error) {
         console.log(error);
       }
-      setLoading(false);
+      // setLoading(false);
     }
   };
 
-  console.log(!stripe || loading);
+  // console.log(!stripe || loading);
 
   return (
     <div id="paymentMain"className="container">
