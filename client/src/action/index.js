@@ -673,3 +673,20 @@ export const putPassword = (_id, payload) => async (dispatch) => {
 		alert(`el ID: ${_id} no existe`)
 	}
 }
+
+
+export const searchBar= (nombre)=>async (dispatch)=>{
+	try {
+		const buscar = await axios(`/usuarios?nombre=${nombre}`)
+		if(nombre){
+			return dispatch(
+			{
+				type:"BUSCAR_USUARIO",payload:buscar.data
+			}
+		)
+		}
+		
+	} catch (error) {
+		alert("No se encontro el usuario")
+	}
+}

@@ -49,8 +49,8 @@ getUsuarios.get('/', async (req,res,next) =>{
         const results = usuarios.map(e =>{
             return{
                 _id: e._id,
-                firstName: e.firstName,
-                lastName: e.lastName,
+                name: e.firstName + " " + e.lastName,
+                // lastName: e.lastName,
                 email: e.email,
                 /* password: e.password, */
                 adress: e.adress,
@@ -73,8 +73,8 @@ getUsuarios.get('/', async (req,res,next) =>{
             }
         })
 
-    if(nombre) {
-        const usuariosBuscados = results.filter(e=>e.firstName.includes(nombre.toLocaleLowerCase()))
+    if(nombre) {  
+        const usuariosBuscados = results.filter(e=>e.name.includes(nombre.toLocaleLowerCase()))
         res.send(usuariosBuscados.length?usuariosBuscados:"Ese nombre no coincide D:")
     }else{
     res.send(results)
