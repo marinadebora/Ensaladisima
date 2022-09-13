@@ -138,7 +138,9 @@ function Login() {
             
             </form>
 
-           <p className="small mb-5 pb-lg-3 ms-5"><a class="text-muted" href="/sendEmail">Olvidaste tu contraseña?</a></p>
+
+            <p className="small mb-5 pb-lg-3 ms-5"><a class="text-muted" href="/sendEmail">Olvidaste tu contraseña?</a></p>
+            <div  id="signInDiv"></div><br />
 
             <p className='ms-5'>No tienes una cuenta? <a href="/registro" class="link-info">Registrate</a></p>
 
