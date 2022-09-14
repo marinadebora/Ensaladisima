@@ -35,70 +35,80 @@ export function PideTuEnsalada()
   })
   let [mediana, setMediana] = useLocalStorage('mediana', {})
   let [grande, setGrande] = useLocalStorage('grande', {})
- 
+
   let big = () =>
   {
+
     let user = JSON.parse(localStorage.getItem('loguearUsuario'))
     let base = JSON.parse(localStorage.getItem('bases'))
     let proteinas = JSON.parse(localStorage.getItem('proteinas'))
     let complement = JSON.parse(localStorage.getItem('complement'))
     let salsa = JSON.parse(localStorage.getItem('salsa'))
     let topping = JSON.parse(localStorage.getItem('topping'))
-  
-    if(!user){
-      let ensalada = {
-        _id: '2',
-        base: base,
-        proteinas: proteinas,
-        complement: complement,
-        salsa: salsa,
-        topping: topping,
-        price: precioG,
-        image: img,
-        name: 'Tu Ensalada'
-      }
-      setForm({
-        ...form,
-        ensalada: [...form.ensalada, ensalada],
-  
-      })
-  
-      setEnsaladaG([...ensaladaG, ensalada])
-     
 
-    }else{
+    if(base&&complement){
 
-      setGrande({
-        email:user?.email,
-        base: base,
-        protein: proteinas,
-        complement: complement,
-        suace: salsa,
-        topping: topping,
-      })
-      localStorage.removeItem('ensaladaG')
-    }
-    localStorage.removeItem('bases')
-    localStorage.removeItem('proteinas')
-    localStorage.removeItem('complement')
-    localStorage.removeItem('salsa')
-    localStorage.removeItem('topping')
-    navigate("/cargando");
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Ensalada creada con exito',
-      showConfirmButton: false,
-      timer: 1000
-    })
-      .then((value) =>
-      {
-        switch (value) {
-          default:
-            navigate("/pideTuEnsalada");
-            break
+      if (!user) {
+        let ensalada = {
+          _id: '2',
+          base: base,
+          proteinas: proteinas,
+          complement: complement,
+          salsa: salsa,
+          topping: topping,
+          price: precioG,
+          image: img,
+          name: 'Tu Ensalada'
         }
-      });
+        setForm({
+          ...form,
+          ensalada: [...form.ensalada, ensalada],
+  
+        })
+  
+        setEnsaladaG([...ensaladaG, ensalada])
+  
+      } else {
+  
+        setGrande({
+          email: user?.email,
+          base: base,
+          protein: proteinas,
+          complement: complement,
+          suace: salsa,
+          topping: topping,
+        })
+        localStorage.removeItem('ensaladaG')
+      }
+      localStorage.removeItem('bases')
+      localStorage.removeItem('proteinas')
+      localStorage.removeItem('complement')
+      localStorage.removeItem('salsa')
+      localStorage.removeItem('topping')
+  
+      navigate("/cargando");
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Ensalada creada con exito',
+        showConfirmButton: false,
+        timer: 1200
+      })
+        .then((value) =>
+        {
+          switch (value) {
+            default:
+              navigate("/pideTuEnsalada");
+              break
+          }
+        });
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title:'😫' ,
+        text: 'Sin base ni complemento no tienes 🥗',
+      })
+    }
 
 
   }
@@ -111,69 +121,78 @@ export function PideTuEnsalada()
     let salsa = JSON.parse(localStorage.getItem('salsa'))
     let topping = JSON.parse(localStorage.getItem('topping'))
     let user = JSON.parse(localStorage.getItem('loguearUsuario'))
-    if(!user){
+    if(base&&complement){
 
-      let ensalada = {
-        _id: '1',
-        base: base,
-        proteinas: proteinas,
-        complement: complement,
-        salsa: salsa,
-        topping: topping,
-        price: precioM,
-        image: img,
-        name: 'Tu Ensalada'
-      }
+      if (!user) {
   
-      setFormM({
-        ...formM,
-        ensalada: [...formM.ensalada, ensalada],
-  
-      })
-      setEnsaladaM([...ensaladaM, ensalada])
-    }else{
-
-      setMediana({
-        email:user?.email,
-        base: base,
-        protein: proteinas,
-        complement: complement,
-        suace: salsa,
-        topping: topping,
-      })
-      localStorage.removeItem('ensaladaM')
-
-    }
-   
-    localStorage.removeItem('bases')
-    localStorage.removeItem('proteinas')
-    localStorage.removeItem('complement')
-    localStorage.removeItem('salsa')
-    localStorage.removeItem('topping')
-
-    navigate("/cargando");
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Ensalada creada con exito',
-      showConfirmButton: false,
-      timer: 1000
-    })
-      .then((value) =>
-      {
-        switch (value) {
-          default:
-            navigate("/pideTuEnsalada");
-            break
+        let ensalada = {
+          _id: '1',
+          base: base,
+          proteinas: proteinas,
+          complement: complement,
+          salsa: salsa,
+          topping: topping,
+          price: precioM,
+          image: img,
+          name: 'Tu Ensalada'
         }
-      });
+  
+        setFormM({
+          ...formM,
+          ensalada: [...formM.ensalada, ensalada],
+  
+        })
+        setEnsaladaM([...ensaladaM, ensalada])
+      } else {
+  
+        setMediana({
+          email: user?.email,
+          base: base,
+          protein: proteinas,
+          complement: complement,
+          suace: salsa,
+          topping: topping,
+        })
+        localStorage.removeItem('ensaladaM')
+  
+      }
+      localStorage.removeItem('bases')
+      localStorage.removeItem('proteinas')
+      localStorage.removeItem('complement')
+      localStorage.removeItem('salsa')
+      localStorage.removeItem('topping')
+      navigate("/cargando");
+      
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Ensalada creada con exito',
+            showConfirmButton: false,
+            timer: 1200
+          })
+            .then((value) =>
+            {
+              switch (value) {
+                default:
+                  navigate("/pideTuEnsalada");
+                  break
+              }
+            });
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title:'😫' ,
+        text: 'Sin base ni complemento no tienes 🥗',
+      })
+    }
+
 
   }
-  /* console.log(grande)
-  console.log(mediana) */
+
 
   useEffect(() =>
   {
+
     dispatch(bases())
     dispatch(proteins())
     dispatch(complements())
@@ -183,43 +202,45 @@ export function PideTuEnsalada()
     dispatch(saladsBig())
     dispatch(saladMUser(mediana))
     dispatch(saladGUser(grande))
-  }, [dispatch,grande,mediana])
+  }, [dispatch, grande, mediana])
 
-  return( 
-  <div>
-      <Tamaños/>
+  return (
+    <div>
+      <Tamaños />
 
       <div class='container'>
 
-            <div class="row">
+        <div class="row">
 
-              <div id='contenedor-1' class='col-sm-12'>
-                <Bases /> 
-                <Protein /> 
-                <Complement />  
-                <Sauce />
-                <Toppings /> 
-              </div>
+          <div id='contenedor-1' class='col-sm-12'>
+            <Bases />
+            <Protein />
+            <Complement />
+            <Sauce />
+            <Toppings />
+          </div>
 
-            <div id="addContent">
+          <div id="addContent">
 
-              <button onClick={()=>medium()} type="button" id="buttonAddEnsalada">
+            <button onClick={() => medium()} type="button" id="buttonAddEnsalada">
               <img src={ensaladaMediana} alt="img" id="ensaladeraGreen" />
               <p id="textButtonAddEnsaladaM">Mediana</p>
-              </button>
+            </button>
 
-              <button onClick={()=>big()} id="buttonAddEnsalada">
+            <button onClick={() => big()} id="buttonAddEnsalada">
               <img src={ensaladaMediana} alt="img" id="ensaladeraGreen" />
-              <p id="textButtonAddEnsaladaG">Grande</p>
-              </button>
+              <p id="textButtonAddEnsaladaG">Grande</p> </button>
 
-            </div>
 
-    </div>
+
+
+          </div>
 
         </div>
 
-  
+      </div>
+
+
     </div>
 
   );
