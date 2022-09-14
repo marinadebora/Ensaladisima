@@ -24,10 +24,11 @@ app.use(passport.initialize())
 
 app.use(morgan("dev"))
 
-
 app.post('/checkout', async(req,res)=>{
     try{
         const {id, amount}= req.body
+
+        console.log(amount)
     
         const payment = await stripe.paymentIntents.create({
             amount,
@@ -42,7 +43,7 @@ app.post('/checkout', async(req,res)=>{
 
         catch(error){
             console.log(error)
-            res.json({message:error.raw.message})
+            // res.json({message:error.raw.message})
         }
 })
 

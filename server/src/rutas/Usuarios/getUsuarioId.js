@@ -5,6 +5,7 @@ const getIdUsuario = Router();
 
 getIdUsuario.get('/:id', async (req,res,next) =>{
     const {id} = req.params;
+    console.log(id)
     try {
         
         if(id.length > 24 || id.length < 24){

@@ -8,7 +8,7 @@ import { searchBar } from "../action"
 
 
 const Admin_clientes = () => {
-    const { usuarios } = useSelector(state => state)
+    const  usuarioss  = useSelector(state => state.usuarios)
     const dispatch = useDispatch()
     const [input, setInput] = useState("");
 
@@ -19,6 +19,9 @@ const Admin_clientes = () => {
     function handleSearch(e) {
         setInput(e.target.value)
         dispatch(searchBar(e.target.value))
+    }
+    function handleClick (){
+        setInput("")
     }
 
     return (
@@ -59,8 +62,8 @@ const Admin_clientes = () => {
                         <div class="col-5" id="searchBarAdminComponent">
                             <form id="searchBarForm" class="d-flex" role="search">
                                 {/* <input class="form-control me-3" type="search" placeholder="Search" aria-label="Search" /> */}
-                                {/* <button class="btn btn-outline-light" type="submit">Search</button> */}
                                 <input class="form-control me-3" type="search" placeholder='Buscar...' value={input} onChange={(e) => handleSearch(e)} />
+                                <button class="btn btn-outline-light" type="submit" onClick={handleClick}>Todos</button>
                             </form>
                         </div>
 
@@ -71,8 +74,8 @@ const Admin_clientes = () => {
 
                     </div>
                     {
-                        usuarios?
-                            usuarios.map(e => {
+                        usuarioss?
+                            usuarioss.map(e => {
                                 return (
                                     <div key={e._id}>
                                         <CardUsuarios
@@ -80,10 +83,11 @@ const Admin_clientes = () => {
                                             email={e.email}
                                             phone={e.phone}
                                             adress={e.adress}
+                                            _id= {e._id}
                                         />
                                     </div>
                                 )
-                            }) : <div><h1>Cargando</h1> </div>
+                            }) : <h1>Cargando</h1>
                     }
 
 

@@ -15,7 +15,8 @@ const initialState = {
   usuarios: [],
   pedidos: [],
   userId: {},
-  allUsuarios:{}
+  allUsuarios:{},
+  detail:[]
 }
 
 
@@ -168,8 +169,14 @@ function rootReducer(state = initialState, action)
       case "BUSCAR_USUARIO" :
           return{
             ...state,
-            usuarios: action.payload
+            usuarios: action.payload ? action.payload :[]
           }
+          case 'USUARIO_ID':
+            return {
+              ...state,
+              detail: action.payload
+            }
+          
         
     default:
       return {

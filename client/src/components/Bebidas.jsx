@@ -1,5 +1,4 @@
 import React from "react";
-import img from '../images/bolsa.png'
 import '../styles/Bebidas.css'
 import '../styles/Bases.css'
 
@@ -13,9 +12,10 @@ export const Bebidas = ({id,image,name,price,select}) =>
             <div key={id} id="contain-bases-card">
               <label class="checkeable">
                 <img id="img-bases" src={image} alt={name} />
-                <p>US$ {price}</p>
+                <p id="priceMenu">US$ {price}</p>
               <button type='button' className='btn-bolsa' name={name} value='selecciona' onClick={select}>
-              <img className='img-bolsa' src={img} alt="bolsa" /></button>
+              <i id="buttoonPlus" class="bi bi-check-square-fill"></i>
+              </button>
               </label>
               <h2 id="h2-bases">{name?.toUpperCase()}</h2>
             </div>

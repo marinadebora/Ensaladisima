@@ -1,5 +1,6 @@
 import React from 'react';
 import "../styles/Card.css";
+import '../styles/Bebidas.css'
 
 
 
@@ -19,12 +20,12 @@ const Ensaladas = ({image, name, base, protein, complement, sauce, topping, medi
 
             <p  class="col-3" id="textButtonAdd">Mediana</p>
             <button onClick={medium} class="col-1" id="buttonAddM">
-            <i class="bi bi-plus-circle-fill"></i>
+            <i id="buttoonPlus" class="bi bi-plus-circle-fill"></i>
             </button>
 
             <p class="col-3" id="textButtonAdd">Grande</p>
             <button onClick={big} class="col-1" id="buttonAddG">
-            <i class="bi bi-plus-circle-fill"></i>
+            <i id="buttoonPlus" class="bi bi-plus-circle-fill"></i>
             </button>
           </div>
           <h2 id="nombreEnsalada">{name.toUpperCase()}</h2>

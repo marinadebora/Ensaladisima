@@ -1,7 +1,76 @@
-.img-bolsa{
-    width: 1.5rem;
-    height: 1.5rem;
+@font-face {
+    font-family: Tommy-regular;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+  
+    font-family: Tommy-bold;
+    src: url(../fonts/made_tommy/MADE\ TOMMY\ Bold_PERSONAL\ USE.ttf);
+  }
+
+#priceMenu{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    float: right;
+    font-family: Tommy-bold;
+
 }
+
 .btn-bolsa{
     border: none;
 }
+
+#buttoonPlus{
+    color: #207140;
+   
+}
+
+#buttoonPlus{
+    color: #207140;
+    position: relative;
+    cursor:pointer;
+    user-select:none;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s; /* Safari */
+  }
+  
+  #buttoonPlus:hover {
+    transition-duration: 0.1s;
+    color:#D77511;
+  }
+  
+  #buttoonPlus:after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 4em;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.5s;
+    box-shadow: 0 0 10px 40px white;
+  }
+  
+  #buttoonPlus:active:after {
+    box-shadow: 0 0 0 0 white;
+    position: absolute;
+    border-radius: 4em;
+    left: 0;
+    top:0;
+    opacity: 1;
+    transition: 0s;
+  }
+  
+  #buttoonPlus:active {
+    top: 1px;
+  }
+  
+  
+  
+
+

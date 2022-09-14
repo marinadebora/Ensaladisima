@@ -687,6 +687,21 @@ export const searchBar= (nombre)=>async (dispatch)=>{
 		}
 		
 	} catch (error) {
-		alert("No se encontro el usuario")
+	console.log(error)
 	}
+}
+
+
+export const usuariosId= (_id)=> async (dispatch)=>{
+try {
+	if(_id){
+		const buscar = await axios(`/usuario/${_id}`)
+		return dispatch({
+		type:"USUARIO_ID",payload:buscar.data
+	})
+	}
+	
+} catch (error) {
+	console.log(error)
+}
 }
