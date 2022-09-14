@@ -22,7 +22,7 @@ getPedidos.get("/", async (req,res)=>{
         const pedido = buscar.map(d=>{
             return {
                 _id: d._id,
-                user: d.user,
+                user: d.user[0],
                 salads: d.saladsMenu.concat(d.saladsMenuBig).concat(d.saladsMed).concat(d.saladsBig),
                 beverages: d.beverages.map(e => e)? d.beverages.map(e => e): [],
                 desserts:d.desserts.map(e => e)? d.desserts.map(e => e):[],

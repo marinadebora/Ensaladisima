@@ -9,11 +9,12 @@ import "./../styles/ContactForm.css"
 const ContactForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
-  const [submitted, setSubmitted] = useState(false);
+  //const [submitted, setSubmitted] = useState(false);
   const [data, setData] = useState({
-    nombre:'',
+    name:'',
     email:'',
-    message:""
+    message:'',
+    telefono:''
   })
   
   const handleOnChange = (e)=>{
@@ -30,13 +31,13 @@ const ContactForm = () => {
     alert('Consulta enviada exitosamente')
     navigate("/menu")
    
-    setTimeout(() => {
+/*     setTimeout(() => {
       setSubmitted(true);
-    }, 100);
+    }, 100); */
   };
 
 
-  if (submitted) {
+/*   if (submitted) {
    return (
      <>
       <div id="mainContainerContactOK">
@@ -46,12 +47,9 @@ const ContactForm = () => {
        </div>
      </>
    );
- }
+ } */
 
-//  const volver = () =>
-//   {
-//     navigate(-1)
-//   }
+
 
  return (
     <div id="contactFormMain">
@@ -67,7 +65,7 @@ const ContactForm = () => {
             <input
             type="text"
             placeholder="Your name"
-            name="nombre"
+            name="name"
             onChange={handleOnChange}
             required
             />
@@ -79,6 +77,17 @@ const ContactForm = () => {
             type="email"
             placeholder="Email"
             name="email"
+            onChange={handleOnChange}
+            required
+            />
+        </div>
+        <div className="mb-3 pt-0">
+        <label>Telefono: </label>
+            <input
+
+            type="text"
+            placeholder="11111111111111"
+            name="telefono"
             onChange={handleOnChange}
             required
             />

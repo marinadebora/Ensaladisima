@@ -3,6 +3,7 @@ import { Link, useParams} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getMailUsuario, putPassword, usuariosRegistrados } from "../action";
 import { useNavigate } from "react-router-dom";
+import "./../styles/ContactForm.css"
 
 /// funcion para enviar el mail de confirmacion para cambiar la password
 
@@ -43,20 +44,18 @@ export default function SendEmail(){
 
 }
 return(
-    <div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <div><Link to="/menu"><button>Volver</button></Link></div>
-        <div><h1>Ingresa tu email</h1></div>
-        <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email: </label><input type="text" value={input.email}  name="email" onChange={handleChange} />
+    <div id="contactFormMain">
+        <div class="contactFormPasword">
+            
+            <div id="tittleContactForm"><h1>Ingresa tu email</h1></div>
+            <form onSubmit={handleSubmit}>
+            <div>
+            <label>Email: </label><input type="text" value={input.email}  name="email" onChange={handleChange} />
+            </div>
+            <button class="buttonChicoPassword" type='submit'>Enviar correo</button>
+            <Link class="buttonChicoPassword" to="/menu">Volver</Link>
+            </form>
         </div>
-        <button type='submit'>Enviar correo</button>
-        </form>
     </div>
 )
 
@@ -108,26 +107,25 @@ export  function CambioPassword(){
     }
 }
 return(
-    <div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <div><Link to="/menu"><button>Volver</button></Link></div>
-        <div><h1>Completa los campos</h1></div>
-        <form onSubmit={handleSubmit}>
-        {/* <div>
-          <label>Email: </label><input type="text" value={input.email}  name="email" onChange={handleChange} />
+    <div id="contactFormMain">
+        <div class="contactFormPasword1">
+
+            <div id="tittleContactForm"><h1>Completa los campos</h1></div>
+            <form onSubmit={handleSubmit}>
+            {/* <div>
+            <label>Email: </label><input type="text" value={input.email}  name="email" onChange={handleChange} />
         </div> */}
-        <div>
-          <label>Password: </label><input type="text" value={input.password}  name="password" onChange={handleChange} />
+            <div>
+            <label>Nuveva contraseña: </label><input type="text" value={input.password}  name="password" onChange={handleChange} />
+            </div>
+            <div>
+            <label>Repite contraseña: </label><input type="text" value={input.password1}  name="password1" onChange={handleChange} />
+            </div>
+            <button class="buttonChicoPassword" type='submit'>Actualizar password</button>
+            <Link class="buttonChicoPassword" to="/menu">Volver</Link>
+            </form>
+
         </div>
-        <div>
-          <label>Password: </label><input type="text" value={input.password1}  name="password1" onChange={handleChange} />
-        </div>
-        <button type='submit'>Actualizar password</button>
-        </form>
     </div>
 )
 
