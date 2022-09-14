@@ -60,6 +60,7 @@ const { getHistorial } = require("./Historial/getHistorial");
 const { usuarioMidelwere } = require("./Usuarios/Midelwer/usuarioMidelwer");
 const { sesionMidelwere } = require("./Usuarios/Midelwer/sesionMidelwere");
 const { correoContacto } = require("../Nodemailer/correoContacto");
+const { crearPedidoMidelwere } = require("./Usuarios/Midelwer/crearPedidoMidelwere");
 
 
 const router = Router();
@@ -68,7 +69,7 @@ const router = Router();
 router.use('/usuarios', getUsuarios)
 router.use('/usuario', getIdUsuario)
 router.use('/registro', registro,usuarioMidelwere, correo)
-router.use("/autenticar",auth, sesionMidelwere)
+router.use("/autenticar",auth, crearPedidoMidelwere, sesionMidelwere)
 router.put("/usuarios/:_id",editarPassword,passwordEditada);
 router.use("/email",getEmail,correoPassword);
 

@@ -7,8 +7,9 @@ const sesionMidelwere = async (req,res,next)=>{
     const { email, saladsMenu, saladsMenuBig, saladsMed, saladsBig, beverages, desserts } = req.body;
     try {
         const usuario = await Usuarios.find({email})
-        console.log( usuario )
+        /* console.log( usuario ) */
         const buscarPedido = await Pedidos.find({user: usuario[0]._id})
+        console.log(buscarPedido[0]._id)
         if(!buscarPedido[0].saladsMenu[0] || !buscarPedido[0].saladsMenuBig[0] || !buscarPedido[0].saladsMed[0] || !buscarPedido[0].saladsBig[0] || !buscarPedido[0].beverages[0] || !buscarPedido[0].desserts[0]){
             /* const crearMedianas = saladsMed ? saladsMed.map( async( e )=>{
                 const llamar = await EnsaladaMed.findOrCreate({
@@ -39,7 +40,7 @@ const sesionMidelwere = async (req,res,next)=>{
                 /* saladsMed: buscarEnsaladaM ? buscarEnsaladaM?.map(e=> e): [],
                 saladsBig: buscarEnsaladaG ? buscarEnsaladaG?.map(e=> e): [] */
             })
-            
+            console.log(saladsMenu)
         }else{
             const BuscarUsuario = await Usuarios.find({email})
         }
