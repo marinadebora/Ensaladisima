@@ -35,7 +35,6 @@ export function PideTuEnsalada()
   })
   let [mediana, setMediana] = useLocalStorage('mediana', {})
   let [grande, setGrande] = useLocalStorage('grande', {})
-  let ok = JSON.parse(localStorage.getItem('ok'))
 
   let big = () =>
   {

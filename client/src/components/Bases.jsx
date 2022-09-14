@@ -9,7 +9,6 @@ import { useLocalStorage } from "../useLocalStorage";
 export function Bases()
 {
   const [base, setBase] = useLocalStorage('bases',[])
-  const [ok,setOk]=useLocalStorage('ok',[])
   const allBases=useSelector(state=>state.bases)
   let [form, setForm] = useState({
     bases: []
@@ -30,7 +29,6 @@ export function Bases()
     setBase([...form.bases, event.target.value])
     console.log(base)
   }
-  setOk(true)
   }
 
   const handleDelete = (event) =>
@@ -40,7 +38,6 @@ export function Bases()
       bases: form.bases.filter(e => e !== event)
     })
     setBase([...form.bases.filter(e => e !== event)])
-    setOk(false)
   }
   
 
