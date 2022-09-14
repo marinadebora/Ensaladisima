@@ -61,7 +61,7 @@ getUsuarios.get('/', async (req,res,next) =>{
                     return{
                         _id: d._id,
                             user: d.user,
-                            salads: d.saladsMenu.concat(d.saladsMed).concat(d.saladsBig),
+                            salads: d.saladsMenu.concat(d.saladsMed).concat(d.saladsBig).concat(d.saladsMenuBig),
                             beverages: d.beverages.map(a => a)? d.beverages.map(a => a): [],
                             desserts: d.desserts.map(a => a)? d.desserts.map(a => a):[],
                             totalPayable: d.saladsMenu.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.saladsMed.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.saladsBig.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.beverages.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.desserts.map(a => a.price).reduce((sum, current) => sum + current, 0),

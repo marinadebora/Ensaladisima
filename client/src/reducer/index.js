@@ -16,7 +16,8 @@ const initialState = {
   pedidos: [],
   userId: {},
   allUsuarios:{},
-  detail:[]
+  detail:[],
+  comentarios: []
 }
 
 
@@ -178,6 +179,12 @@ function rootReducer(state = initialState, action)
             }
           
         
+    case 'EDITAR_COMENTARIOS':
+      return {
+        ...state,
+        comentarios: action.payload
+
+      }
     default:
       return {
         state

@@ -38,8 +38,9 @@ export function Bases()
       bases: form.bases.filter(e => e !== event)
     })
     setBase([...form.bases.filter(e => e !== event)])
-
   }
+  
+
   return (
 
 <div>
