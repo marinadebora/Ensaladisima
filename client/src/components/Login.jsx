@@ -58,7 +58,13 @@ function validate(loginUser){
         lastName: userObject.family_name?.length > 0 ? userObject.family_name : "",
         email:userObject.email,
         password: userObject.email,
-        google:true
+        google:true,
+        saladsMenu: buscarMed ? buscarMed?.map(e=> e._id): [],
+        saladsMenuBig: buscarBig ? buscarBig?.map(e=> e._id): [],
+        beverages: buscarBebidas ? buscarBebidas?.map(e=> e._id): [],
+        desserts: buscarPostres ? buscarPostres?.map(e=> e._id): [],
+        saladsMed: buscarEnsaladaM ? buscarEnsaladaM?.map(e=> e): [],
+        saladsBig: buscarEnsaladaG ? buscarEnsaladaG?.map(e=> e): []
       }
       const dispatchGoogle = await dispatch(PostLogeoUsuario(usuarioLocal))
         if(!dispatchGoogle) alert("Hay un error en el inicio de sesion")

@@ -29,6 +29,7 @@ const auth = async (req, res, next) => {
         let token = jwt.sign({ userGoogle }, "torombolo", {expiresIn: "10h"})
         
         res.send({ email, token, firstName, lastName, id, admin,adress, orders })
+        next()
         }
         else {
 
