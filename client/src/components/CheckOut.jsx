@@ -47,15 +47,15 @@ export default function QuantityEdit() {
 
   const [user, setUser] = useState(null)
 
-  const todosLosPedidos = pedido?.filter(e => e._id === user?.orders[0])
+  /* const todosLosPedidos = pedido?.filter(e => e._id === user?.orders[0]) */
 
-  const crearOrders = async () => {
+  const crearOrders = () => {
      const buscarMedianasM = JSON.parse(localStorage.getItem('medianas'))
      const buscarGrandesM = JSON.parse(localStorage.getItem('grandes'))
      const buscarBebidasM = JSON.parse(localStorage.getItem('bebidas'))
      const buscarPostresM = JSON.parse(localStorage.getItem('postres'))
      const localUser = JSON.parse(localStorage.getItem('loguearUsuario'))
-     const buscarPedido = pedido?.filter(e => e._id === localUser.id)
+     const buscarPedido = pedido?.filter(e => e._id === localUser?.orders[0])
      
        if (buscarPedido?._id) {
          if (buscarPedido?.salads === [] && buscarPedido?.beverages === [] && buscarPedido?.desserts === []) {
@@ -75,9 +75,14 @@ export default function QuantityEdit() {
              delievery: true,
              adress: localUser?.adress ? localUser?.adress : ''
            }
+           console.log(data)
            /* const reas = await */ dispatch(putPedidocargarPedido(data))
            
+       }else{
+        localStorage.getItem('loguearUsuario')
        }
+     }else{
+      localStorage.getItem('loguearUsuario')
      }
    }
 
@@ -238,7 +243,7 @@ export default function QuantityEdit() {
       {user ? /* user?.orders[0] ? */ (
       
         <section className="h-100 h-custom" style={{ backgroundColor: "#94D2DE", paddingTop: "100px" }}>
-          {todosLosPedidos?.salads === [] && todosLosPedidos?.beverages === [] && todosLosPedidos?.desserts === [] ? crearOrders(): <></>}
+          {productosReales?.salads === [] && productosReales?.beverages === [] && productosReales?.desserts === [] ? crearOrders(): <></>}
           <MDBContainer className="py-5 h-100" style={{ backgroundColor: "#94D2DE" }}>
             <MDBRow className="justify-content-center align-items-center h-100">
               <MDBCol size="12" style={{ backgroundColor: "#207140", paddingTop: "12px", paddingBottom: "12px" }}>
