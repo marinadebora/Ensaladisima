@@ -674,3 +674,20 @@ export const putPassword = (_id, payload) => async (dispatch) => {
 		alert(`el ID: ${_id} no existe`)
 	}
 }
+
+
+//ruta para agregar los comentarios y la calificacion a la tienda
+
+export function editarComentarios(id, payload){
+	return async function(dispatch){
+		try {									//ver que va aca
+			const comentario = await axios.put(`/comentario/${id}`,payload)
+			return dispatch({
+				type:'EDITAR_COMENTARIOS',
+				payload:comentario
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	} 
+}
