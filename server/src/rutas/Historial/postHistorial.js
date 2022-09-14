@@ -9,7 +9,7 @@ postHistorial.post('/', async (req,res,next) =>{
     const {_id} = req.body
     try {
         const usuario = await Usuarios.find({_id})
-        if(usuario[0].orders){
+        if(usuario[0]?.orders){
             const crearHistorial = await Historial.create({
                 user: usuario[0]._id,
                 orders: usuario[0].orders[0]
