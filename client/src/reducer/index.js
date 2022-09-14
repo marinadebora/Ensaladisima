@@ -15,6 +15,8 @@ const initialState = {
   usuarios: [],
   pedidos: [],
   userId: {},
+  allUsuarios:{},
+  detail:[],
   comentarios: []
 }
 
@@ -25,7 +27,8 @@ function rootReducer(state = initialState, action)
     case "USUARIOS":
       return {
         ...state,
-        usuarios: action.payload
+        usuarios: action.payload,
+        allUsuarios:action.payload
       }
     case "VACIAR_U":
       return {
@@ -164,6 +167,18 @@ function rootReducer(state = initialState, action)
         ...state,
         userId: action.payload
       }
+      case "BUSCAR_USUARIO" :
+          return{
+            ...state,
+            usuarios: action.payload ? action.payload :[]
+          }
+          case 'USUARIO_ID':
+            return {
+              ...state,
+              detail: action.payload
+            }
+          
+        
     case 'EDITAR_COMENTARIOS':
       return {
         ...state,

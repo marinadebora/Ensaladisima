@@ -179,7 +179,7 @@ export default function BaseEdit() {
       <br/>
 
 
-      <div><Link to="/admin"><button>Volver</button></Link></div>
+      <div><Link to="/admin_productos"><button>Volver</button></Link></div>
       <div><h1>Editá tus productos!</h1></div>
       <form onSubmit={handleSubmit}>
          {/**FORMULARIO PARA EDITAR BASES/COMPLEMENTOS/SALSAS/TOPPING/ETC */}
