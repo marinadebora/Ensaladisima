@@ -3,6 +3,7 @@ import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCar
 import loginLogo from "../images/loginLogo.png";
 import axios from 'axios';
 import { useLocalStorage } from '../useLocalStorage';
+import "../styles/Profile.css"
 
 export default function PersonalProfile() {
   const user = JSON.parse(localStorage.getItem('usuarioLogueado'))
@@ -35,13 +36,14 @@ function editar(){
                 <MDBCol md="4" className="gradient-custom text-center text-white"
                   style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem' }}>
                   <MDBCardImage src={imagenCloud?imagenCloud:loginLogo}
-                    alt="Avatar" className="my-5" style={{ width: '80px' }} fluid />
-                    <button id="buttonAddG"onClick={editar}>
-                    <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light", textAlign:"center"}}>Editar</MDBCardText></button>
+                    alt="Avatar" className="my-5 mb-3" style={{ borderRadius:"100px", width: '80px', height:'80px' }} fluid />
+                    <button id="buttonEdit" onClick={editar}>
+                    <MDBCardText style={{backgroundColor:"transparent", color:"white", fontFamily:"Tommy-light", textAlign:"center"}}>Editar</MDBCardText></button>
   
                       
                     {
                       edit&& <MDBInput
+                      id="inputEdit"
                       type="file"
                       size="sm"
                       onChange={event => cloudinary(event.target.files)}
