@@ -15,20 +15,25 @@ const initialState = {
   usuarios: [],
   pedidos: [],
   userId: {},
-  allUsuarios:{},
-  detail:[],
-  comentarios: []
+  comentarios: [],
+  historial:[],
+  allhistorial:[],
+  mediana:{},
+  grande:{},
+  totalG:[],
+  totalM:[],
+  allUsuarios: {},
+  detail: [],
 }
 
 
-function rootReducer(state = initialState, action)
-{
+function rootReducer(state = initialState, action) {
   switch (action.type) {
     case "USUARIOS":
       return {
         ...state,
         usuarios: action.payload,
-        allUsuarios:action.payload
+        allUsuarios: action.payload
       }
     case "VACIAR_U":
       return {
@@ -167,24 +172,61 @@ function rootReducer(state = initialState, action)
         ...state,
         userId: action.payload
       }
-      case "BUSCAR_USUARIO" :
-          return{
-            ...state,
-            usuarios: action.payload ? action.payload :[]
-          }
-          case 'USUARIO_ID':
-            return {
-              ...state,
-              detail: action.payload
-            }
-          
-        
+    case "BUSCAR_USUARIO":
+      return {
+        ...state,
+        usuarios: action.payload ? action.payload : []
+      }
+    case 'USUARIO_ID':
+      return {
+        ...state,
+        detail: action.payload
+      }
+    case 'PUT_ADMIN':
+      return {
+        ...state,
+        detail: action.payload
+      }
+    case 'PUT_ACTIVO':
+      return {
+        ...state,
+        detail: action.payload
+      }
+
+
     case 'EDITAR_COMENTARIOS':
+      return {
+        ...state,
+      }
+      case 'REVIEW':
       return {
         ...state,
         comentarios: action.payload
 
       }
+    case 'HISTORIAL_COMPRA':
+      return {
+        ...state,
+        historial: action.payload,
+        allhistorial: action.payload,
+      }
+      case "MEDIANA":
+        let ensaladaMediana=state.totalM?state.totalM:[]
+        localStorage.setItem('ensaladaM', JSON.stringify([...ensaladaMediana,action.payload]))
+
+        return {
+          ...state,
+          mediana:action.payload,
+          totalM:[...ensaladaMediana,action.payload]
+        }
+      case "GRANDE":
+        let ensaladaGrande= state.totalG?state.totalG:[]
+        localStorage.setItem('ensaladaG', JSON.stringify([...ensaladaGrande,action.payload]))
+        return {
+          ...state,
+          grande:action.payload,
+          totalG:[...ensaladaGrande,action.payload]
+        }
     default:
       return {
         state

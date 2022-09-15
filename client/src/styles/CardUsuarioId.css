@@ -1,0 +1,64 @@
+@font-face {
+    font-family: Tommy-regular;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+
+    font-family: Tommy-light;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Light_PERSONAL\ USE.ttf);
+}
+
+#usuarioDetailMain{
+    border: 2px solid #207140;
+    margin:  auto;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding: 20px;
+    width: 600px;
+    height: auto;
+    border-radius: 20px;
+}
+
+#userLabel{
+    display: flex;
+    justify-content: flex-start;
+    font-family: Tommy-bold;
+    font-size: 20px;
+    color: #207140;
+    padding: 0px;
+    margin: 0px;
+    padding-left: 3%;
+    padding-bottom: 1%;
+}
+
+#userData{
+    width: auto;
+    font-family: Tommy-light;
+    font-size: 15px;
+    padding: 0px;
+    margin: 0px;
+}
+
+#userDataEdit{
+    display: flex;
+    justify-content:flex-start;
+    margin-left: 1%;
+    cursor: pointer;
+}
+
+#pencil{
+    color: #207140;
+    font-size: 20px;
+}
+
+#pencilContent{
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#pencilB{
+
+    width: auto;
+    border: none;
+}

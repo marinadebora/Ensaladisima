@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from 'react-redux';
+//import { useDispatch } from 'react-redux';
 import { useNavigate} from 'react-router-dom';
 // import { editarComentarios } from "../action";
 import Swal from 'sweetalert2'
@@ -7,7 +7,7 @@ import '../styles/Review.css'
 
 export const Review = () =>
 {
-  const dispatch = useDispatch()
+  //const dispatch = useDispatch()
   const navigate = useNavigate()
   const usuario = JSON.parse(localStorage.getItem("loguearUsuario")) || JSON.parse(localStorage.getItem("logueadoGoogle"));
 
@@ -29,10 +29,10 @@ export const Review = () =>
     })
   }
 
-  // function handleSubmit(e)
-  // {
-  //   e.preventDefault()
-  //   dispatch(editarComentarios(review))
+   function handleSubmit(e)
+   {
+    e.preventDefault()
+    //dispatch(editarComentarios(review))
 
     return (
       Swal.fire({
@@ -42,8 +42,8 @@ export const Review = () =>
         showConfirmButton: false,
         timer: 1500
       }))
-
-  }
+    }
+  
   function handleChange(e)
   {
     setReview({
@@ -102,4 +102,4 @@ export const Review = () =>
 
     </div>
   )
-//};
+};
