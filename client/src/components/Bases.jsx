@@ -9,6 +9,7 @@ import { useLocalStorage } from "../useLocalStorage";
 export function Bases()
 {
   const [base, setBase] = useLocalStorage('bases',[])
+  const [state, setstate] = useState(false)
   const allBases=useSelector(state=>state.bases)
   let [form, setForm] = useState({
     bases: []
@@ -27,6 +28,7 @@ export function Bases()
   
     })
     setBase([...form.bases, event.target.value])
+
     console.log(base)
   }
   }
@@ -38,6 +40,10 @@ export function Bases()
       bases: form.bases.filter(e => e !== event)
     })
     setBase([...form.bases.filter(e => e !== event)])
+    setstate(true)
+  }
+  if(base?.length===0){
+    localStorage.removeItem('bases')
   }
   
 
@@ -60,7 +66,7 @@ export function Bases()
             <option value="" >seleccione un máximo de 2 bases</option>
             {
               allBases?.map(e => (
-              <option name={e.name} value={e.name}>{e.name}</option>
+              <option name={!state?e.name:''} value={e.name}>{e.name}</option>
             ))
             }
           </select>
