@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
+import { useSelector, useDispatch } from "react-redux";
 import "../styles/PasarelaDePago.css";
+
+import { getUsuarioId} from "../action";
 
 import { loadStripe } from "@stripe/stripe-js";
 import {
@@ -35,6 +38,19 @@ const CARD_ELEMENT_OPTIONS = {
 const stripePromise = loadStripe("pk_test_51LSmj7J1G02QCFvGIp6Q0A7s2iF2hodQSpEJTlyOo4vlbVA09cB2oxGnR8ODzTVvOxvTXdKVQ8cYiDepTD75FpY600Z8kIW44N");
 
 const CheckoutForm = () => {
+
+  const loguearUser = JSON.parse(localStorage.getItem("loguearUsuario"))
+  const userID =loguearUser?.id
+  const myUserDetail = useSelector(state => state?.userId);
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(getUsuarioId(userID))
+    },[dispatch,userID])
+
+  console.log(myUserDetail);
+
+  
   const stripe = useStripe();
   const elements = useElements();
 
