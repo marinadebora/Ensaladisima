@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Admin.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { usuariosRegistrados } from '../action';
 import { searchBar } from "../action"
 import AdminUsuariosId from './AdminUsuarioId';
 
 
 const Admin_clientesDetail = () => {
-    const  usuarioss  = useSelector(state => state.usuarios)
+    
     const dispatch = useDispatch()
     const [input, setInput] = useState("");
 

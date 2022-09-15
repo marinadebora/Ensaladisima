@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate }from 'react-router-dom';
 import { contactForm } from "../action/index";
 import "./../styles/ContactForm.css"
+import NavBar from "./NavBar";
 
 //const FORM_ENDPOINT = ""; // TODO - fill on the later step
 
@@ -52,6 +53,8 @@ const ContactForm = () => {
 
 
  return (
+  <div>
+    <NavBar/>
     <div id="contactFormMain">
         <form className="contactForm"
         //   action={FORM_ENDPOINT}
@@ -114,6 +117,7 @@ const ContactForm = () => {
             <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"> Volver a la tienda</i>
         </Link>
         </form>
+    </div>
     </div>
   );
 };

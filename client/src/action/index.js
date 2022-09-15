@@ -706,6 +706,32 @@ try {
 	console.log(error)
 }
 }
+//ruta para cambiar de true a false el admin
+export const putAdmin=(_id,payload)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/userAdmin/${_id}`,payload);
+			return dispatch({
+				type:"PUT_ADMIN",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+//ruta para banear al usuario
+export const putActivo=(_id,payload)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/userActivo/${_id}`,payload);
+			return dispatch({
+				type:"PUT_ACTIVO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
 //ruta para agregar los comentarios y la calificacion a la tienda
 
 // export function editarComentarios(id, payload){
