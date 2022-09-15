@@ -2,20 +2,52 @@ import React, { useEffect, useState } from 'react';
 import '../styles/NavBar.css';
 import Logo from "../images/ensaladisimaLogo1.png";
 import { Link } from 'react-router-dom';
+import { useLocalStorage } from '../useLocalStorage';
+import { getPedidos } from '../action';
+import { useDispatch, useSelector } from "react-redux"
 
 
 
 const NavBar = () => {
-
-
+  const dispatch = useDispatch()
   const [user,setUser] = useState(null)
+  const pedido = useSelector(state => state.pedidos)
+
+  // inf del local storage
+  let bebidas = useLocalStorage('bebidas', [])
+  let postres = useLocalStorage('postres', [])
+  let ensaladaCreadaM = JSON.parse(localStorage.getItem('ensaladaM'))
+  let ensaladaCreadaG = JSON.parse(localStorage.getItem('ensaladaG'))
+  let ensaladasMed = useLocalStorage('medianas', [])
+  let ensaladasGr = useLocalStorage('grandes', [])
+  let med = ensaladasMed[0]
+  let gran = ensaladasGr[0]
+  let beb = bebidas[0]
+  let post = postres[0]
+  let creadaM=ensaladaCreadaM
+  let creadaG=ensaladaCreadaG
+
+  let todosLosProductos = [beb,post,med,gran,creadaM,creadaG].flat()
+  let productosReales = todosLosProductos.filter(e=>e!==undefined&&e!==null)
+
+  const resultado = pedido?.find(e => e._id === user?.orders[0])
+  const armadoCarrito = {
+    _id: resultado?._id,
+    user: resultado?.user?.email,
+    producto: resultado?.salads?.map(e => e).concat(resultado?.beverages?.map(e => e)).concat(resultado?.desserts?.map(e => e)),
+    total: resultado?.totalPayable,
+    direccion: resultado?.adress
+  }
+  
+
 
   useEffect(()=>{
     if(localStorage.getItem('loguearUsuario')){
       const users = JSON.parse(localStorage.getItem('loguearUsuario'))
       setUser(users)
+      dispatch(getPedidos())
     }    
-  },[])
+  },[dispatch])
   
   const logOut =()=>{ 
     localStorage.removeItem("loguearUsuario")
@@ -67,7 +99,7 @@ const NavBar = () => {
         
         <Link to="/checkout" class="nav-link-Main">
           <i class="bi bi-bag-fill"></i>
-          <span class="badge rounded-pill badge-notification" >2</span>
+          <span class="badge rounded-pill badge-notification" >{user ? armadoCarrito?.producto?.length : productosReales?.length}</span>
         </Link> 
 
         

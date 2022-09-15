@@ -63,6 +63,8 @@ const { correoContacto } = require("../Nodemailer/correoContacto");
 const { crearPedidoMidelwere } = require("./Usuarios/Midelwer/crearPedidoMidelwere");
 const { putAdmin } = require("./Usuarios/putAdmin");
 const { putActivo } = require("./Usuarios/putActivo");
+const getReview = require("./Review/getReview");
+const postCrearReview = require("./Review/postCrearReview");
 
 
 const router = Router();
@@ -163,5 +165,9 @@ router.get("/bebida",bebidas);
 router.get("/postre",postres);
 router.get("/MenuBig", menuBig )*/
 
+
+// rutas de las review
+router.use('/review', getReview)
+router.use('/reviewCreada', postCrearReview)
 
 module.exports = router
