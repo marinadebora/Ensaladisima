@@ -29,25 +29,14 @@ export default function AdminUsuarioId() {
     return (
         
         <div>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <div><Link to="/admin_usuarios"><button>Volver</button></Link></div>
+            
             {
                 detail ?
-                    (
-                        <div>
+                (
+                    <div>
                             <CardUsuariosId
                                 firstName={detail.firstName}
+                                lastName={detail.lastName}
                                 email={detail.email}
                                 phone={detail.phone}
                                 adress={detail.adress}
@@ -58,9 +47,17 @@ export default function AdminUsuarioId() {
                         </div>
                     )
                     : <h1>Cargando</h1>
-            }
-            <button onClick={handleSubmitActivo}>Activo Si/No</button>
-            <button onClick={handleSubmitAdmin}>Admin Si/No</button>
+
+                 }
+                    <button onClick={handleSubmitActivo}>Activo Si/No</button>
+                    <button onClick={handleSubmitAdmin}>Admin Si/No</button>
+                
+                
+                <Link id="butonCarrouselMain" to="/admin_usuarios">
+                    <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"> Volver</i>
+                </Link>
+              
+
         </div>
     )
 

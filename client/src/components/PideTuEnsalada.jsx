@@ -13,6 +13,7 @@ import '../styles/PideTuEnsalada.css'
 import { useLocalStorage } from "../useLocalStorage";
 import img from '../images/ensaladaSola.png'
 import ensaladaMediana from "../images/ensaladeraGreen.png";
+import NavBar from "./NavBar";
 
 export function PideTuEnsalada()
 {
@@ -206,6 +207,7 @@ export function PideTuEnsalada()
 
   return (
     <div>
+      <NavBar/>
       <Tamaños />
 
       <div class='container'>
