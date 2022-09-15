@@ -4,7 +4,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const index = require('./rutas/index')
 const bcrypt = require("bcrypt")
-const passport = require("passport")
 const Stripe = require("stripe")
 let stripeSecret= "sk_test_51LSmj7J1G02QCFvGG4J3Dib99MeQCelVPlWuhnXkq81ftY0yMucev9ThIR33QQhGk2ZJWnHSyfshdtwRINF98UlW000pzBmNCb"
 
@@ -17,8 +16,6 @@ const app = express();
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 app.use(bodyParser.json({ limit: '50mb' }));
-
-app.use(passport.initialize())
 
 app.use(morgan("dev"))
 

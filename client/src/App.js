@@ -18,6 +18,8 @@ import Pago from './components/Pago';
 import { ArmandoEnsalada } from './components/ArmandoEnsalada';
 import SendEmail, { CambioPassword } from './components/CambioPassword';
 import ConfirmacionPago from './components/ConfirmacionPago'
+import AdminUsuarioId from './components/AdminUsuarioId';
+
 function App() {
   return (
     <div className="App">
@@ -48,6 +50,7 @@ function App() {
         <Route path= '/cargando' element={<ArmandoEnsalada/>}/>
         <Route path= '/sendEmail' element={<SendEmail/>}/>
         <Route path= '/password/:_id' element={<CambioPassword/>}/>
+        <Route path= "/adminId/:id" element={<AdminUsuarioId/>}/>
       </Routes>
 
       <Footer/>

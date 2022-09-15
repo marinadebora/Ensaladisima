@@ -13,6 +13,7 @@ import {
 import axios from "axios";
 import { useEffect } from "react";
 import { getPedidos, postHistorialDeCompra } from "../action";
+import { useNavigate } from "react-router-dom";
 const stripePromise = loadStripe("pk_test_51LSmj7J1G02QCFvGIp6Q0A7s2iF2hodQSpEJTlyOo4vlbVA09cB2oxGnR8ODzTVvOxvTXdKVQ8cYiDepTD75FpY600Z8kIW44N");
 
 const CARD_ELEMENT_OPTIONS = {
@@ -43,19 +44,19 @@ const CARD_ELEMENT_OPTIONS = {
 
 const CheckoutForm = () => {
 const user = JSON.parse(localStorage.getItem("loguearUsuario"))
-
+const dispatch =useDispatch()
+const history = useNavigate()
 
 
 
   useEffect(() => {
   dispatch(getPedidos())
-}, [])
+}, [dispatch])
 const orders = useSelector(state=>state.pedidos)
 
-let preciototal = orders?.find(e =>e._id == user.orders[0]).totalPayable
+let preciototal = orders?.find(e =>e._id === user.orders[0]).totalPayable
 
 console.log(preciototal)
-  const dispatch =useDispatch()
   const stripe = useStripe();
   const elements = useElements();
   
@@ -97,6 +98,8 @@ console.log(preciototal)
           timer: 1500
         })
         dispatch(postHistorialDeCompra({_id:user.id}))
+        history("/ConfirmacionPago")
+        
       } catch (error) {
         alert("Los datos no concuerdan");
       }

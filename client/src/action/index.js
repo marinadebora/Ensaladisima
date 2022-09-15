@@ -688,3 +688,49 @@ export function postHistorialDeCompra(_id) {
 		}
 	}
 }
+
+export const searchBar= (nombre)=>async (dispatch)=>{
+	try {
+		const buscar = await axios(`/usuarios?nombre=${nombre}`)
+		if(nombre){
+			return dispatch(
+			{
+				type:"BUSCAR_USUARIO",payload:buscar.data
+			}
+		)
+		}
+		
+	} catch (error) {
+	console.log(error)
+	}
+}
+
+
+export const usuariosId= (_id)=> async (dispatch)=>{
+try {
+	if(_id){
+		const buscar = await axios(`/usuario/${_id}`)
+		return dispatch({
+		type:"USUARIO_ID",payload:buscar.data
+	})
+	}
+	
+} catch (error) {
+	console.log(error)
+}
+}
+//ruta para agregar los comentarios y la calificacion a la tienda
+
+// export function editarComentarios(id, payload){
+// 	return async function(dispatch){
+// 		try {										
+// 			const comentario = await axios.put(`/comentario/${id}`,payload)
+// 			return dispatch({
+// 				type:'EDITAR_COMENTARIOS',
+// 				payload:comentario
+// 			})
+// 		} catch (error) {
+// 			console.log(error)
+// 		}
+// 	} 
+// }
