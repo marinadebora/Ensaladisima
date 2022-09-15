@@ -8,6 +8,7 @@ const HistorialSchema = new Schema({
     processing: { type: Boolean, default: false },
     received : { type: Boolean, default: false },
     canceled: { type: Boolean, default: false },
+    facheyhora:{type:Date, default: Date()}
 })
 
 module.exports = mongoose.model("Historials", HistorialSchema)
