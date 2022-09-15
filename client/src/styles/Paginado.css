@@ -1,0 +1,77 @@
+
+@font-face {
+    font-family: Tommy-regular;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+
+    font-family: Tommy-light;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Light_PERSONAL\ USE.ttf);
+}
+
+#containerPaginado{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+#containerMostrarMas{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.loadMore{
+    background-color: #207140; 
+    color: white;
+    text-decoration: none;
+    border:3px  solid white;
+    padding: 0.3rem;
+    border-radius: 50px;
+    font-family: Tommy-bold;
+    font-size: 1.0rem;
+    cursor: pointer;
+}
+
+.pageNumbers{
+    font-family: Tommy-regular;
+    color:#207140;
+    list-style: none;
+    display: flex;  
+}
+
+.pageNumbers li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height:30px;
+    margin: 2%;
+    border-radius: 10px;
+    border: 1px solid  #207140;
+    cursor: pointer;
+}
+
+.pageNumbers li.active{
+    width: 60px;
+    height:30px;
+    overflow: hidden;
+    background-color: #FABC4E;
+    color:black;
+}
+
+.pageNumbers li button{
+    background-color: transparent;
+    border: none;
+    color:#207140;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.pageNumbers li button:hover{
+   
+    color: black;
+}
+
+.pageNumbers li button:focus{
+    outline: none;
+}

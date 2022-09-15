@@ -15,9 +15,15 @@ const initialState = {
   usuarios: [],
   pedidos: [],
   userId: {},
+  comentarios: [],
+  historial:[],
+  allhistorial:[],
+  mediana:{},
+  grande:{},
+  totalG:[],
+  totalM:[],
   allUsuarios: {},
   detail: [],
-  comentarios: []
 }
 
 
@@ -191,9 +197,36 @@ function rootReducer(state = initialState, action) {
     case 'EDITAR_COMENTARIOS':
       return {
         ...state,
+      }
+      case 'REVIEW':
+      return {
+        ...state,
         comentarios: action.payload
 
       }
+    case 'HISTORIAL_COMPRA':
+      return {
+        ...state,
+        historial: action.payload,
+        allhistorial: action.payload,
+      }
+      case "MEDIANA":
+        let ensaladaMediana=state.totalM?state.totalM:[]
+        localStorage.setItem('ensaladaM', JSON.stringify([...ensaladaMediana,action.payload]))
+
+        return {
+          ...state,
+          mediana:action.payload,
+          totalM:[...ensaladaMediana,action.payload]
+        }
+      case "GRANDE":
+        let ensaladaGrande= state.totalG?state.totalG:[]
+        localStorage.setItem('ensaladaG', JSON.stringify([...ensaladaGrande,action.payload]))
+        return {
+          ...state,
+          grande:action.payload,
+          totalG:[...ensaladaGrande,action.payload]
+        }
     default:
       return {
         state

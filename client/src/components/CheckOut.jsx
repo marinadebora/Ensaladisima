@@ -27,6 +27,13 @@ import NavBar from "./NavBar";
 
 
 export default function QuantityEdit() {
+//estados globales de arrays de ensaladas creadas por el usuario con id
+  let ensaladaMed= useLocalStorage('ensaladaM',[])
+  let ensaladaGr= useLocalStorage('ensaladaG',[])
+ let ensaladaMediana=ensaladaMed[0]
+ let ensaladaGrande=ensaladaGr[0]
+ //imagen para ensaladas creadas por el usuario 
+ //https://res.cloudinary.com/deqbqghhq/image/upload/v1663241770/ensaladas/ensaladaCreada_ags3pn.png
   //para renderizar bebidas y postres desde localStorage
   let bebidas = useLocalStorage('bebidas', [])
   let postres = useLocalStorage('postres', [])
@@ -40,14 +47,8 @@ export default function QuantityEdit() {
   let med = ensaladasMed[0]
   let gran = ensaladasGr[0]
 
-  //para renderizar ensaladas creadas  desde localStorage
-  let ensaladaCreadaM = JSON.parse(localStorage.getItem('ensaladaM'))
-  let ensaladaCreadaG = JSON.parse(localStorage.getItem('ensaladaG'))
-  let creadaM=ensaladaCreadaM
-  let creadaG=ensaladaCreadaG
-
   const [user, setUser] = useState(null)
-
+ 
   /* const todosLosPedidos = pedido?.filter(e => e._id === user?.orders[0]) */
 
   const crearOrders = () => {
@@ -227,7 +228,7 @@ export default function QuantityEdit() {
 
   
 
-  let todosLosProductos = [beb,post,med,gran,creadaM,creadaG].flat()
+  let todosLosProductos = [beb,post,med,gran,ensaladaMediana,ensaladaGrande].flat()
   let productosReales = todosLosProductos.filter(e=>e!==undefined&&e!==null)
   let total = productosReales?.map(e => e?.price)
   let suma = total?.reduce((e, i) => e + i, 0)

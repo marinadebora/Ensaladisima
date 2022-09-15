@@ -1,0 +1,46 @@
+
+
+  .contenedorReview {
+	width: 45rem;
+	height: 12rem;
+	margin: 3.1rem auto;
+	padding: 1.25rem;
+	background: #fff;
+	overflow: auto;
+	font-family: 'Open Sans';
+	border-radius: 0.25rem;
+}
+
+.contenedorReview h1 {
+	font-size: 2.3rem;
+	font-weight: 600;
+	color: #000;
+}
+
+.contenedorReview hr {
+	background: #ff9d00;
+	width: 20%;
+	height: 0.3rem;
+	border: none;
+	margin: 1.25rem 0;
+	border-radius: 3.12rem;
+}
+
+.pReview {
+	margin-bottom: 1.25rem;
+	line-height: 1.75rem;
+	font-size: 1rem;
+	color: #414141;
+}
+
+/* Scroll Personalizado */
+
+.contenedorReview::-webkit-scrollbar {
+	width: 0.5rem;
+}
+
+.contenedorReview::-webkit-scrollbar-thumb {
+	background: #ff9d00;
+	border-radius: 0.3rem;
+}
+  

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import "../styles/PasarelaDePago.css";
-
+import Swal from 'sweetalert2'
 import { loadStripe } from "@stripe/stripe-js";
 import {
   Elements,
@@ -10,6 +11,10 @@ import {
 } from "@stripe/react-stripe-js";
 
 import axios from "axios";
+import { useEffect } from "react";
+import { getPedidos, postHistorialDeCompra } from "../action";
+import { useNavigate } from "react-router-dom";
+const stripePromise = loadStripe("pk_test_51LSmj7J1G02QCFvGIp6Q0A7s2iF2hodQSpEJTlyOo4vlbVA09cB2oxGnR8ODzTVvOxvTXdKVQ8cYiDepTD75FpY600Z8kIW44N");
 
 const CARD_ELEMENT_OPTIONS = {
   iconStyle: "solid",
@@ -32,22 +37,39 @@ const CARD_ELEMENT_OPTIONS = {
   },
 };
 
-const stripePromise = loadStripe("pk_test_51LSmj7J1G02QCFvGIp6Q0A7s2iF2hodQSpEJTlyOo4vlbVA09cB2oxGnR8ODzTVvOxvTXdKVQ8cYiDepTD75FpY600Z8kIW44N");
+
+
+
+
 
 const CheckoutForm = () => {
+const user = JSON.parse(localStorage.getItem("loguearUsuario"))
+const dispatch =useDispatch()
+const history = useNavigate()
+
+
+
+  useEffect(() => {
+  dispatch(getPedidos())
+}, [dispatch])
+const orders = useSelector(state=>state.pedidos)
+
+let preciototal = orders?.find(e =>e._id === user.orders[0]).totalPayable
+
+console.log(preciototal)
   const stripe = useStripe();
   const elements = useElements();
-
+  
   const [loading, setLoading] = useState(false);
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+      setLoading(true);
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card: elements.getElement(CardElement),
     });
-    setLoading(true);
+  
     
     console.log(paymentMethod)
 
@@ -60,16 +82,28 @@ const CheckoutForm = () => {
           "http://localhost:4000/checkout",
           {
             id,
-            amount: 10000, //cents
+            amount: preciototal*100, //cents
           }
         );
-        console.log(data);
 
+        console.log(data);
+        
         elements.getElement(CardElement).clear();
+        setLoading(false)
+        Swal.fire({
+          position: 'center',
+          icon: "success",
+          title: 'Pago realizado con exito',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        dispatch(postHistorialDeCompra({_id:user.id}))
+        history("/ConfirmacionPago")
+        
       } catch (error) {
-        console.log(error);
+        alert("Los datos no concuerdan");
       }
-      // setLoading(false);
+      setLoading(false);
     }
   };
 
@@ -82,7 +116,7 @@ const CheckoutForm = () => {
     <form className="card card-body" onSubmit={handleSubmit}>
       {/* Product Information */}
       
-      <h3 className="text-center my-2">Price: 100$</h3>
+      <h3 className="text-center my-2">Price: ${preciototal}</h3>
 
       {/* User Card Input */}
       <div className="form-group">
@@ -91,11 +125,12 @@ const CheckoutForm = () => {
 
       <button disabled={!stripe} className="btn btn-success">
         {loading ? (
-          <div className="spinner-border text-light" role="status">
-            <span className="sr-only">Loading...</span>
-          </div>
+          <button class="btn btn-success" type="button" disabled>
+          <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+          Procesando...
+        </button>
         ) : (
-          "Buy"
+          "Comprar"
         )}
       </button>
     </form>
