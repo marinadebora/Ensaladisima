@@ -17,7 +17,7 @@ import Login from './components/Login';
 import Pago from './components/Pago';
 import { ArmandoEnsalada } from './components/ArmandoEnsalada';
 import SendEmail, { CambioPassword } from './components/CambioPassword';
-
+import ConfirmacionPago from './components/ConfirmacionPago'
 function App() {
   return (
     <div className="App">
@@ -31,6 +31,7 @@ function App() {
         <Route exact path= '/pideTuEnsalada' element={<PideTuEnsalada />}/>
         <Route exact path= '/checkout' element={<CheckOut/>}/>
         <Route exact path= '/pago' element={<Pago />}/>
+        <Route exact path= '/confirmacionPago' element={<ConfirmacionPago />}/>
 
         <Route exact path= '/login' element={<Login/>}/>
         <Route exact path= '/registro' element={<Registro/>}/>

@@ -674,3 +674,17 @@ export const putPassword = (_id, payload) => async (dispatch) => {
 		alert(`el ID: ${_id} no existe`)
 	}
 }
+
+export function postHistorialDeCompra(_id) {
+	return async function (dispatch) {
+		try {
+			const agregar = await axios.post(`/crearHistorial`, _id)
+			return dispatch({
+				type: "POST_HISTORIAL",
+				payload: agregar.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}

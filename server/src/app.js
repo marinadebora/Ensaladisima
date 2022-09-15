@@ -35,7 +35,7 @@ app.post('/checkout', async(req,res)=>{
             payment_method: id,
             confirm: true
         })
-        console.log("pagoooooo back",payment.status )
+        console.log("pago back",payment.status )
         res.send({message:"Pago recibido exitosamente"})
     }
 
