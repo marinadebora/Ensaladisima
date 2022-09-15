@@ -690,4 +690,66 @@ export function editarComentarios(id, payload){
 			console.log(error)
 		}
 	} 
+} 
+export function getReview() {
+	return async function (dispatch) {
+		try {
+			const comentarios = await axios.get("/review")
+			return dispatch({
+				type: "REVIEW",
+				payload: comentarios.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
+
+
+
+//ruta de historial de compra
+export function historialCompra(){
+	return async function(dispatch){
+		try{
+
+			const histComp= await axios(`/historias`)
+			
+			return dispatch({
+				type:'HISTORIAL_COMPRA',
+				payload:histComp.data
+			})
+		}
+		catch(error){
+console.log(error)
+		}
+	}
+}
+
+export function saladMediana(payload) {
+	return async function (dispatch) {
+		try {
+			const mediana = await axios.post(`/mediana`, payload)
+			return dispatch({
+				type: "MEDIANA",
+				payload: mediana.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
+
+
+export function saladGrande(payload) {
+	return async function (dispatch) {
+		try {
+			const grande = await axios.post(`/grande`, payload)
+			return dispatch({
+				type: "GRANDE",
+				payload: grande.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
 }

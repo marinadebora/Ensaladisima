@@ -13,6 +13,7 @@ import { salads,desserts,beverages, saladsBig, menuMediano, menuGrande, pedidoBe
 import "../styles/Menu.css";
 import CarrouselEP from './CarrouselEP';
 import { useLocalStorage } from '../useLocalStorage';
+import NavBar from './NavBar';
 
 
 
@@ -88,6 +89,7 @@ const Menu = () => {
   
   return (
     <div>
+      <NavBar />
       <NavBarMenu/>
     <div class="container">
         <CarrouselEP/>
