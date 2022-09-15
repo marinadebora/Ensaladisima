@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-//import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate} from 'react-router-dom';
-// import { editarComentarios } from "../action";
+ import { reviewCreada } from "../action";
 import Swal from 'sweetalert2'
 import '../styles/Review.css'
 
 export const Review = () =>
 {
-  //const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const navigate = useNavigate()
-  const usuario = JSON.parse(localStorage.getItem("loguearUsuario")) || JSON.parse(localStorage.getItem("logueadoGoogle"));
+  const usuario = JSON.parse(localStorage.getItem("loguearUsuario"))
 
   const [review, setReview] = useState({
     firstName: usuario.firstName,
@@ -19,7 +19,7 @@ export const Review = () =>
     comentarios: ''
 
   })
-
+console.log(review)
   function puntuacion(e)
   {
 
@@ -32,16 +32,18 @@ export const Review = () =>
    function handleSubmit(e)
    {
     e.preventDefault()
-    //dispatch(editarComentarios(review))
+    dispatch(reviewCreada(review))
 
-    return (
+  
       Swal.fire({
         position: 'center',
         icon: 'success',
         title: 'Calificacion enviada con exito ',
         showConfirmButton: false,
         timer: 1500
-      }))
+      })
+
+      navigate(`/`)
     }
   
   function handleChange(e)
@@ -50,7 +52,7 @@ export const Review = () =>
       ...review,
       [e.target.name]: e.target.value,
     })
-
+   
 
   }
   function cancel(e)
