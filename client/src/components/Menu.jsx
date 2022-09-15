@@ -14,11 +14,8 @@ import "../styles/Menu.css";
 import CarrouselEP from './CarrouselEP';
 import { useLocalStorage } from '../useLocalStorage';
 import NavBar from './NavBar';
-<<<<<<< HEAD
-=======
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
->>>>>>> 5cbc248579d307eb19c2f26e19f307d7557dc146
 
 
 
