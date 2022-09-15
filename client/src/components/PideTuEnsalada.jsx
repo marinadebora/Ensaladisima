@@ -173,7 +173,7 @@ export function PideTuEnsalada()
 
   return (
     <div>
-      <NavBar />
+      <NavBar/>
       <Tamaños />
 
       <div class='container'>

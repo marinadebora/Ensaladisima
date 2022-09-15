@@ -21,19 +21,19 @@ const initialState = {
   mediana:{},
   grande:{},
   totalG:[],
-  totalM:[]
- 
-
+  totalM:[],
+  allUsuarios: {},
+  detail: [],
 }
 
 
-function rootReducer(state = initialState, action)
-{
+function rootReducer(state = initialState, action) {
   switch (action.type) {
     case "USUARIOS":
       return {
         ...state,
-        usuarios: action.payload
+        usuarios: action.payload,
+        allUsuarios: action.payload
       }
     case "VACIAR_U":
       return {
@@ -172,6 +172,28 @@ function rootReducer(state = initialState, action)
         ...state,
         userId: action.payload
       }
+    case "BUSCAR_USUARIO":
+      return {
+        ...state,
+        usuarios: action.payload ? action.payload : []
+      }
+    case 'USUARIO_ID':
+      return {
+        ...state,
+        detail: action.payload
+      }
+    case 'PUT_ADMIN':
+      return {
+        ...state,
+        detail: action.payload
+      }
+    case 'PUT_ACTIVO':
+      return {
+        ...state,
+        detail: action.payload
+      }
+
+
     case 'EDITAR_COMENTARIOS':
       return {
         ...state,

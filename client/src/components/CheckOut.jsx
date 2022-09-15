@@ -242,7 +242,7 @@ export default function QuantityEdit() {
 
   return (
     <div>
-      <NavBar />
+      <NavBar/>
       {user ? /* user?.orders[0] ? */ (
       
         <section className="h-100 h-custom" style={{ backgroundColor: "#94D2DE", paddingTop: "100px" }}>
