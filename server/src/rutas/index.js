@@ -61,6 +61,8 @@ const { usuarioMidelwere } = require("./Usuarios/Midelwer/usuarioMidelwer");
 const { sesionMidelwere } = require("./Usuarios/Midelwer/sesionMidelwere");
 const { correoContacto } = require("../Nodemailer/correoContacto");
 const { crearPedidoMidelwere } = require("./Usuarios/Midelwer/crearPedidoMidelwere");
+const { putAdmin } = require("./Usuarios/putAdmin");
+const { putActivo } = require("./Usuarios/putActivo");
 const getReview = require("./Review/getReview");
 const postCrearReview = require("./Review/postCrearReview");
 
@@ -74,6 +76,8 @@ router.use('/registro', registro,usuarioMidelwere, correo)
 router.use("/autenticar",auth, crearPedidoMidelwere, sesionMidelwere)
 router.put("/usuarios/:_id",editarPassword,passwordEditada);
 router.use("/email",getEmail,correoPassword);
+router.put("/userAdmin/:_id",putAdmin);
+router.put("/userActivo/:_id",putActivo);
 
 // rutas para el modelo de Pedidos.
 router.use('/pedidos', getPedidos)
