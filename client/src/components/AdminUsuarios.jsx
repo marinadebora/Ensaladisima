@@ -19,7 +19,7 @@ const Admin_clientes = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItempsPerPage] = useState(6);
 
-    const [pageNumberLimit, setPageNumberLimit] = useState(5);
+    const [pageNumberLimit] = useState(5);
     const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(10);
     const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
