@@ -21,6 +21,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { eliminarDelCarrito, getPedidos, agregarAlCarrito,
 putPedidocargarPedido} from "../action";
+import NavBar from "./NavBar";
 
 
 
@@ -240,6 +241,7 @@ export default function QuantityEdit() {
 
   return (
     <div>
+      <NavBar/>
       {user ? /* user?.orders[0] ? */ (
       
         <section className="h-100 h-custom" style={{ backgroundColor: "#94D2DE", paddingTop: "100px" }}>
