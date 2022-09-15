@@ -37,8 +37,8 @@ const sesionMidelwere = async (req,res,next)=>{
                 saladsMenuBig: saladsMenuBig ? saladsMenuBig: [],
                 beverages: beverages ? beverages: [],
                 desserts: desserts ? desserts: [],
-                /* saladsMed: buscarEnsaladaM ? buscarEnsaladaM?.map(e=> e): [],
-                saladsBig: buscarEnsaladaG ? buscarEnsaladaG?.map(e=> e): [] */
+                saladsMed: saladsMed ? saladsMed: [],
+                saladsBig: saladsBig ? saladsBig: []
             })
             console.log(saladsMenu)
         }else{
