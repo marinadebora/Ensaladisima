@@ -734,16 +734,78 @@ export const putActivo=(_id,payload)=>async (dispatch)=>{
 }
 //ruta para agregar los comentarios y la calificacion a la tienda
 
-// export function editarComentarios(id, payload){
-// 	return async function(dispatch){
-// 		try {										
-// 			const comentario = await axios.put(`/comentario/${id}`,payload)
-// 			return dispatch({
-// 				type:'EDITAR_COMENTARIOS',
-// 				payload:comentario
-// 			})
-// 		} catch (error) {
-// 			console.log(error)
-// 		}
-// 	} 
-// }
+export function editarComentarios(id, payload){
+	return async function(dispatch){
+		try {									//ver que va aca
+			const comentario = await axios.put(`/comentario/${id}`,payload)
+			return dispatch({
+				type:'EDITAR_COMENTARIOS',
+				payload:comentario
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	} 
+} 
+export function getReview() {
+	return async function (dispatch) {
+		try {
+			const comentarios = await axios.get("/review")
+			return dispatch({
+				type: "REVIEW",
+				payload: comentarios.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
+
+
+
+//ruta de historial de compra
+export function historialCompra(){
+	return async function(dispatch){
+		try{
+
+			const histComp= await axios(`/historias`)
+			
+			return dispatch({
+				type:'HISTORIAL_COMPRA',
+				payload:histComp.data
+			})
+		}
+		catch(error){
+console.log(error)
+		}
+	}
+}
+
+export function saladMediana(payload) {
+	return async function (dispatch) {
+		try {
+			const mediana = await axios.post(`/mediana`, payload)
+			return dispatch({
+				type: "MEDIANA",
+				payload: mediana.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
+
+
+export function saladGrande(payload) {
+	return async function (dispatch) {
+		try {
+			const grande = await axios.post(`/grande`, payload)
+			return dispatch({
+				type: "GRANDE",
+				payload: grande.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
