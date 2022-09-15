@@ -46,7 +46,7 @@ const NavBar = () => {
       const users = JSON.parse(localStorage.getItem('loguearUsuario'))
       setUser(users)
       dispatch(getPedidos())
-    }    
+    }
   },[dispatch])
   
   const logOut =()=>{ 
@@ -78,7 +78,6 @@ const NavBar = () => {
 
   return (
     <div>
-   
   <nav id="navBarMain" class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
       

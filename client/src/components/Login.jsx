@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 import { PostLogeoUsuario } from "../action";
 import { useEffect } from "react";
 import jwt_decode from "jwt-decode"
+import NavBar from "./NavBar";
 //const CLIENT_GOOGLE_DEPLOY = "585193864937-33pidddgujvakqmkvulpsvf8t3fhar18.apps.googleusercontent.com"
 //const CLIENT_GOOGLE = "957119588043-ig515qgobf821lomcuofvpa0mj90ugf0.apps.googleusercontent.com"
 //const GOOGLE_SECRET = "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"
@@ -128,7 +129,8 @@ function validate(loginUser){
   
   
   return (
-    
+    <div>
+      <NavBar/>
     <MDBContainer fluid>
       <MDBRow style={{paddingTop:"130px"}}>
 
@@ -173,7 +175,7 @@ function validate(loginUser){
       </MDBRow>
 
     </MDBContainer>
-
+</div>
    
   );
 }
