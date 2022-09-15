@@ -12,6 +12,7 @@ const PedidosSchema = new Schema({
     totalPayable: { type: Number, default: 0},
     delievery: { type: Boolean, default :true},
     adress: { type: String, default: ''},
+    facheyhora:{type:Date, default: Date()}
 })
 
 module.exports = mongoose.model("Pedidos", PedidosSchema)

@@ -52,7 +52,6 @@ getUsuarios.get('/', async (req,res,next) =>{
                 name: e.firstName + " " + e.lastName,
                 // lastName: e.lastName,
                 email: e.email,
-                /* password: e.password, */
                 adress: e.adress,
                 phone: e.phone,
                 admin: e.admin,
@@ -66,10 +65,11 @@ getUsuarios.get('/', async (req,res,next) =>{
                             desserts: d.desserts.map(a => a)? d.desserts.map(a => a):[],
                             totalPayable: d.saladsMenu.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.saladsMed.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.saladsBig.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.beverages.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.desserts.map(a => a.price).reduce((sum, current) => sum + current, 0),
                             delievery: d.delievery,
-                            adress: d.adress
+                            adress: d.adress,
+                            facheyhora: d.facheyhora
                     }
                 }),
-                purchaseHistory: e.purchaseHistory
+                purchaseHistory: e.purchaseHistory.map(e=>e)
             }
         })
 
