@@ -240,7 +240,7 @@ export default function QuantityEdit() {
   let productosMapArr = new Map(productosMap)
   let unicos = [...productosMapArr.values()]
 
-  const borrarDelCarrito = (value)=>{
+  /* const borrarDelCarrito = (value)=>{
     if(resultado?.beverages?.filter(a=> a._id === value)){
       resultado = resultado?.beverages?.filter(a=> a._id !== value)
     }else if(resultado?.salads?.filter(a=> a._id === value)){
@@ -248,7 +248,7 @@ export default function QuantityEdit() {
     }else if(resultado?.salads?.filter(a=> a._id === value)){
       resultado?.salads?.filter(a=> a._id !== value)
     }
-  }
+  } */
 
   return (
     <div>
@@ -303,7 +303,7 @@ export default function QuantityEdit() {
                                 </MDBCol>
                                 <MDBCol md="3" lg="2" xl="2" className="text-end">
                                   <MDBTypography tag="h6" className="mb-0">
-                                    <button class="buttonChico" value={e._id} onClick={borrarDelCarrito(e._id)}>X</button>
+                                    <button class="buttonChico" value={e._id} /* onClick={borrarDelCarrito(e._id) */>X</button>
                                   </MDBTypography>
                                 </MDBCol>
                                 <MDBCol md="2" lg="1" xl="1" className="text-end">

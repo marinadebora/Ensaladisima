@@ -10,12 +10,12 @@ eliminarDelPedido .put('/', async (req,res,next) =>{
     const {_id,id} = req.body;
     try {
         const pedido = await Pedidos.find({_id:id})
-        const postres = pedido[0].desserts.filter(e => e == _id)
-        const bebidas = pedido[0].beverages.filter(e => e == _id)
-        const ensaledasGrande = pedido[0].saladsBig.filter(e => e ==_id)
-        const ensaladaMediana = pedido[0].saladsMed.filter(e => e == _id)
-        const menuMediana = pedido[0].saladsMenu.filter(e => e == _id)
-        const menuGrande = pedido[0].saladsMenuBig.filter(e => e == _id)
+        const postres = pedido[0]?.desserts.filter(e => e === _id)
+        const bebidas = pedido[0]?.beverages.filter(e => e === _id)
+        const ensaledasGrande = pedido[0]?.saladsBig.filter(e => e ===_id)
+        const ensaladaMediana = pedido[0]?.saladsMed.filter(e => e === _id)
+        const menuMediana = pedido[0]?.saladsMenu.filter(e => e === _id)
+        const menuGrande = pedido[0]?.saladsMenuBig.filter(e => e === _id)
         console.log(ensaledasGrande)
         console.log(postres)
         console.log(bebidas)
