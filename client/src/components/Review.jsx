@@ -10,7 +10,6 @@ export const Review = () =>
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const usuario = JSON.parse(localStorage.getItem("loguearUsuario"))
-
   const [review, setReview] = useState({
     firstName: usuario.firstName,
     lastName: usuario.lastName,
@@ -22,8 +21,7 @@ export const Review = () =>
 console.log(review)
   function puntuacion(e)
   {
-
-    setReview({
+      setReview({
       ...review,
       [e.target.name]: e.target.value
     })
@@ -33,17 +31,25 @@ console.log(review)
  async function handleSubmit(e)
   {
     e.preventDefault()
-    dispatch(reviewCreada(review))
+    if(review.comentarios&&review.estrellas){
+      dispatch(reviewCreada(review))
+      await  Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Calificacion enviada con exito ',
+          showConfirmButton: false,
+          timer: 1500
+        })
+       navigate('/')//ver a donde quiero que me lleve esto
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: '😫',
+        text: 'faltan completar campos',
+      })
+    }
   
     
-    await  Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Calificacion enviada con exito ',
-        showConfirmButton: false,
-        timer: 1500
-      })
-     navigate('/')//ver a donde quiero que me lleve esto
   }
   function handleChange(e)
   {
@@ -60,6 +66,7 @@ console.log(review)
     navigate(`/`)//ver a donde quiero que me lleve esto
   }
   console.log(review)
+
 
   return (
     <div>
