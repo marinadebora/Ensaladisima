@@ -159,7 +159,7 @@ const Menu = () => {
   }
 
   const userPostres = (name)=>{
-    (pedidoPostreLogueado(name))
+    dispatch(pedidoPostreLogueado(name))
     history("/cargando")
       Swal.fire({
         position: 'center',
@@ -200,6 +200,13 @@ const Menu = () => {
               break
           }
         });history("/cargando")
+    }else{
+      let bebidaLogueado = allBeverages?.filter(e=>e.name===name?.bebidas)
+      console.log(name)
+      console.log(bebidaLogueado)
+      bebidaLogueado?.length ? userbebidas(name)/* dispatch(pedidoBebidaLogueado(name)) */ :
+      userPostres(name)/* dispatch(pedidoPostreLogueado(name)) */ 
+      history("/cargando")
       Swal.fire({
         position: 'center',
         icon: 'success',
@@ -214,13 +221,7 @@ const Menu = () => {
               history("/menu");
               break
           }
-        });
-    }else{
-      let bebidaLogueado = allBeverages?.filter(e=>e.name===name?.bebidas)
-      console.log(name)
-      console.log(bebidaLogueado)
-      bebidaLogueado?.length ? userbebidas(name)/* dispatch(pedidoBebidaLogueado(name)) */ :
-      userPostres(name)/* dispatch(pedidoPostreLogueado(name)) */ 
+        });history("/cargando")
     }
     
   }

@@ -6,6 +6,7 @@ import { VerReview } from './VerReview';
 
 
 const Footer = () => {
+
   return (
     
         <div class="container-fluid" id="footerInfo" >
