@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { useNavigate} from 'react-router-dom';
- import { reviewCreada } from "../action";
+import { reviewCreada } from "../action";
 import Swal from 'sweetalert2'
 import '../styles/Review.css'
 
@@ -15,7 +15,7 @@ export const Review = () =>
     firstName: usuario.firstName,
     lastName: usuario.lastName,
     email: usuario.email,
-    estrellas: '',
+    estrellas: 0,
     comentarios: ''
 
   })
@@ -27,25 +27,24 @@ console.log(review)
       ...review,
       [e.target.name]: e.target.value
     })
+
   }
 
-   function handleSubmit(e)
-   {
+ async function handleSubmit(e)
+  {
     e.preventDefault()
     dispatch(reviewCreada(review))
-
   
-      Swal.fire({
+    
+    await  Swal.fire({
         position: 'center',
         icon: 'success',
         title: 'Calificacion enviada con exito ',
         showConfirmButton: false,
         timer: 1500
       })
-
-      navigate(`/`)
-    }
-  
+     navigate('/')//ver a donde quiero que me lleve esto
+  }
   function handleChange(e)
   {
     setReview({
