@@ -281,7 +281,7 @@ export default function QuantityEdit() {
                                   <button onClick={(e) => removeDelCarrito(e)} value={e._id} style={{ border: 'none',  color: '#fff', fontWeight: "bolder", backgroundColor: 'red', fontSize: 'larger', width: '2rem', marginRight: '0.5rem'}}>
                                     -
                                   </button>
-                                  <MDBInput type="number" min="1" defaultValue={armadoCarrito?.producto?.filter(d => d._id === e._id).length} size="sm" />
+                                  <p style={{marginLeft:'10%', marginRight:'10%',marginTop:'10%'}}>{armadoCarrito?.producto?.filter(d => d._id === e._id).length} </p>
                                   <button onClick={(e) => agregarAlpedido(e)} value={e._id} style={{ border: 'none', color: '#fff', backgroundColor: 'green', width: '2rem', marginLeft: '0.5rem', fontSize: 'larger' }}>
                                     +
                                   </button>
@@ -393,7 +393,7 @@ export default function QuantityEdit() {
                                     <button onClick={(e) => remove(e)} value={e._id} style={{ border: 'none', color: '#fff', fontWeight: "bolder", backgroundColor: 'red', fontSize: 'larger', width: '2rem', marginRight: '0.5rem' }}>
                                       -
                                     </button>
-                                    <MDBInput type="number" min="1" defaultValue={productosReales.filter(d => d._id === e._id).length} size="sm" />
+                                    <p style={{marginLeft:'10%', marginRight:'10%',marginTop:'10%'}}>{productosReales.filter(d => d._id === e._id).length}</p>
                                     <button onClick={(e) => agregar(e)} value={e._id} style={{ border: 'none', color: '#fff', backgroundColor: 'green', width: '2rem', marginLeft: '0.5rem', fontSize: 'larger' }}>
                                       + 
                                     </button>
@@ -433,7 +433,7 @@ export default function QuantityEdit() {
                               </MDBTypography>
                               <MDBTypography tag="h5">US$ {suma}</MDBTypography>
                             </div>
-                            <MDBTypography tag="h5" className="text-uppercase mb-3">
+                            {/* <MDBTypography tag="h5" className="text-uppercase mb-3">
                               ENVÍO
                             </MDBTypography>
                             <div className="mb-4 pb-2">
@@ -446,16 +446,16 @@ export default function QuantityEdit() {
                             </div>
                             <MDBTypography tag="h5" className="text-uppercase mb-3">
                               Comentarios
-                            </MDBTypography>
+                            </MDBTypography> */}
                             <div className="mb-5">
-                              <MDBInput size="lg" />
+                              <h5 size="lg">Para poder realizar tu compra inicia sesion.</h5> 
                             </div>
                             <hr className="my-4" />
                             <div className="d-flex justify-content-between mb-5">
-                              <MDBTypography tag="h5" className="text-uppercase">
+                              {/* <MDBTypography tag="h5" className="text-uppercase">
                                 Total
                               </MDBTypography>
-                              <MDBTypography tag="h5">US$ {suma}</MDBTypography>
+                              <MDBTypography tag="h5">US$ {suma}</MDBTypography> */}
                             </div>
                             {user ? <Link class="buttonChico" to="/">Comprar</Link> : <Link class="buttonChico" to="/registro">Registrate</Link>}
                           </div>
