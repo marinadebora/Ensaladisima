@@ -751,7 +751,7 @@ export function reviewCreada( payload){
 export function getReview() {
 	return async function (dispatch) {
 		try {
-			const comentarios = await axios.get("/review")
+			const comentarios = await axios("/review")
 			return dispatch({
 				type: "REVIEW",
 				payload: comentarios.data

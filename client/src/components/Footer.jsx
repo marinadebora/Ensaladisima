@@ -19,7 +19,6 @@ const Footer = () => {
             <i class="bi bi-facebook" id="igLogo"/>
             <i class="bi bi-tiktok" id="igLogo"/>
           </div>
-         <VerReview />
         </div>
   )
 }
