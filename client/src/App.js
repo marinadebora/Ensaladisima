@@ -97,7 +97,7 @@ function App() {
       <Route path= '/sendEmail' element={<SendEmail/>}/>
       <Route path= '/password/:_id' element={<CambioPassword/>}/>
       <Route path= '/review' element={<Review/>}/>
-      {/* <Route path= '/verReview' element={<VerReview/>}/> */}
+      <Route path= '/verReview' element={<VerReview/>}/>
     </Routes>
 
     <Footer/>
