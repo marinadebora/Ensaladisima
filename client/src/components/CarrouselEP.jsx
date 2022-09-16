@@ -1,21 +1,24 @@
 
 import React, { useEffect } from "react";
 import { useDispatch} from "react-redux";
-import {usuariosId} from '../action/'
+import {getUsuarioId} from '../action/'
 import { imag } from '../imagenes';
 import "../styles/Card.css";
 
 const CarrouselEP = () => {
     const dispatch=useDispatch()
     const loguearUser = JSON.parse(localStorage.getItem("loguearUsuario"))
+    const loguearUserGoogle=JSON.parse(localStorage.getItem("logueadoGoogle"))
     const userID =loguearUser?.id
+    const userIDGoogle=loguearUserGoogle?.id
+    //const myUserDetail = useSelector(state => state?.userId);
 
 
 
 
     useEffect(()=>{
-        dispatch(usuariosId(userID))
-        },[dispatch,userID])
+        dispatch(getUsuarioId(userID||userIDGoogle))
+        },[dispatch,userID,userIDGoogle])
 
 
   return( 
