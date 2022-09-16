@@ -11,7 +11,7 @@ const CarrouselEP = () => {
     const loguearUserGoogle=JSON.parse(localStorage.getItem("logueadoGoogle"))
     const userID =loguearUser?.id
     const userIDGoogle=loguearUserGoogle?.id
-    const myUserDetail = useSelector(state => state?.userId);
+    //const myUserDetail = useSelector(state => state?.userId);
 
 
 
