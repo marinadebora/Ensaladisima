@@ -19,13 +19,13 @@ export default function AdminUsuarioId() {
     
     // console.log(detail.activo)
     function handleSubmitActivo(){
-            dispatch(putActivo(id))
+        dispatch(putActivo(id))
         alert("Activo editado")
     }
     function handleSubmitAdmin(){
         dispatch(putAdmin(id))
-    alert("Admin editado")
-}
+        alert("Admin editado")
+    }
     return (
         
         <div>
@@ -34,6 +34,7 @@ export default function AdminUsuarioId() {
                 detail ?
                 (
                     <div>
+                       { console.log(detail)}
                             <CardUsuariosId
                                 firstName={detail.firstName}
                                 lastName={detail.lastName}
@@ -43,7 +44,8 @@ export default function AdminUsuarioId() {
                                 admin={detail.admin}
                                 activo={detail.activo}
                                 id={detail._id}
-                            />
+                                purchaseHistory={detail.purchaseHistory}
+                                />
                         </div>
                     )
                     : <h1>Cargando</h1>

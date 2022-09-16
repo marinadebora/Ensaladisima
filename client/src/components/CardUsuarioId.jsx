@@ -4,7 +4,7 @@ import "../styles/CardUsuarioId.css"
 
 
 
-export default function CardUsuariosId({ firstName,lastName,email,phone,adress,activo,admin}){
+export default function CardUsuariosId({ firstName,lastName,email,phone,adress,activo,admin,purchaseHistory}){
   return (
     
      <div id="usuarioDetailMain" className="container">
@@ -20,6 +20,7 @@ export default function CardUsuariosId({ firstName,lastName,email,phone,adress,a
          <p class="col-6" id="userLabel">Direccion: </p><p class="col-6" id="userData">{adress}</p>
          <p class="col-6" id="userLabel">Admin: </p><p class="col-6" id="userData">{admin?"Si":"No"}</p>
          <p class="col-6" id="userLabel">Activo: </p><p class="col-6" id="userData">{activo?"Si":"No"}</p>
+         <p class="col-6" id="userLabel">Historial: </p><p class="col-6" id="userData">{purchaseHistory.length}</p>
          </div>
          
      </div>
