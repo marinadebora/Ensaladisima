@@ -641,9 +641,10 @@ export function putPedidocargarPedido(value) {
 export function getUsuarioId(id) {
 	return async function (dispatch) {
 		const userId = await axios.put(`/usuario/${id}`)
+		console.log(userId)
 		return dispatch({
 			type: 'GET_USUARIO_ID',
-			payload: userId
+			payload: userId.data
 		})
 	}
 }
@@ -747,10 +748,10 @@ export const putActivo=(_id,payload)=>async (dispatch)=>{
 }
 //ruta para agregar los comentarios y la calificacion a la tienda
 
-export function editarComentarios(id, payload){
+export function reviewCreada( payload){
 	return async function(dispatch){
-		try {									//ver que va aca
-			const comentario = await axios.put(`/comentario/${id}`,payload)
+		try {									
+			const comentario = await axios.post(`/reviewCreada`,payload)
 			return dispatch({
 				type:'EDITAR_COMENTARIOS',
 				payload:comentario
@@ -763,7 +764,7 @@ export function editarComentarios(id, payload){
 export function getReview() {
 	return async function (dispatch) {
 		try {
-			const comentarios = await axios.get("/review")
+			const comentarios = await axios("/review")
 			return dispatch({
 				type: "REVIEW",
 				payload: comentarios.data

@@ -1,25 +1,25 @@
 import React, { useState } from "react";
-//import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate} from 'react-router-dom';
-// import { editarComentarios } from "../action";
+import { reviewCreada } from "../action";
 import Swal from 'sweetalert2'
 import '../styles/Review.css'
 
 export const Review = () =>
 {
-  //const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const navigate = useNavigate()
-  const usuario = JSON.parse(localStorage.getItem("loguearUsuario")) || JSON.parse(localStorage.getItem("logueadoGoogle"));
+  const usuario = JSON.parse(localStorage.getItem("loguearUsuario"))
 
   const [review, setReview] = useState({
     firstName: usuario.firstName,
     lastName: usuario.lastName,
     email: usuario.email,
-    estrellas: '',
+    estrellas: 0,
     comentarios: ''
 
   })
-
+console.log(review)
   function puntuacion(e)
   {
 
@@ -27,30 +27,31 @@ export const Review = () =>
       ...review,
       [e.target.name]: e.target.value
     })
+
   }
 
-   function handleSubmit(e)
-   {
+ async function handleSubmit(e)
+  {
     e.preventDefault()
-    //dispatch(editarComentarios(review))
-
-    return (
-      Swal.fire({
+    dispatch(reviewCreada(review))
+  
+    
+    await  Swal.fire({
         position: 'center',
         icon: 'success',
         title: 'Calificacion enviada con exito ',
         showConfirmButton: false,
         timer: 1500
-      }))
-    }
-  
+      })
+     navigate('/')//ver a donde quiero que me lleve esto
+  }
   function handleChange(e)
   {
     setReview({
       ...review,
       [e.target.name]: e.target.value,
     })
-
+   
 
   }
   function cancel(e)
