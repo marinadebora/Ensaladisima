@@ -16,17 +16,16 @@ import Login from './components/Login';
 import Pago from './components/Pago';
 import { ArmandoEnsalada } from './components/ArmandoEnsalada';
 import SendEmail, { CambioPassword } from './components/CambioPassword';
+import { Review } from './components/Review';
+import { VerReview } from './components/VerReview';
 import ConfirmacionPago from './components/ConfirmacionPago'
-/* import { Review } from './components/Review';
-import { VerReview } from './components/VerReview'; */
 import { useEffect } from 'react'
 import {  useDispatch ,} from 'react-redux'
-import { getUsuarioId } from './action';
+import { usuariosId } from './action';
 import { ErrorAdmin } from './components/ErrorAdmin';
 
 import AdminUsuariosDetail from './components/AdminUsuariosDetail';
-import { Review } from './components/Review';
-import { VerReview } from './components/VerReview';
+
 
 function App() {
   const dispatch = useDispatch()
@@ -36,7 +35,7 @@ function App() {
   //const myUserDetail = useSelector(state => state?.userId);
 
   useEffect(() => {
-    dispatch(getUsuarioId(id))
+    dispatch(usuariosId(id))
   }, [dispatch,id]);
   return (
     localSt?
