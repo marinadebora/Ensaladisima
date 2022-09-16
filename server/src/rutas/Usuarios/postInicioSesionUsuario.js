@@ -1,5 +1,6 @@
 const Usuarios = require("../../modelos/Usuarios");
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
+const Pedidos = require("../../modelos/Pedidos");
 
 const auth = async (req, res, next) => {
     const { email, password, saladsMenu, saladsMenuBig, saladsMed, saladsBig, beverages, desserts ,google} = req.body;
@@ -36,10 +37,14 @@ const auth = async (req, res, next) => {
             firstName = req.body.firstName?req.body.firstName:firstName
             lastName = req.body.lastName?req.body.lastName:lastName
             
-            Usuarios.create({
+            const creado = await Usuarios.create({
                 email,password,firstName,lastName
             })
-            
+            console.log(creado)
+            const pedidoagregado = await Pedidos.create({user: creado._id})
+            orders = [pedidoagregado._id]
+            const Persona = await Usuarios.findOneAndUpdate({_id:creado._id},{orders: pedidoagregado._id})
+            console.log(Persona)
             let token = jwt.sign({ userGoogle }, "torombolo", {expiresIn: "10h"})
             res.send({ email, token, firstName, lastName, id, admin,adress, orders })
             next()
