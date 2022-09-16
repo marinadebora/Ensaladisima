@@ -14,12 +14,14 @@ import "../styles/Menu.css";
 import CarrouselEP from './CarrouselEP';
 import { useLocalStorage } from '../useLocalStorage';
 import NavBar from './NavBar';
-
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 
 
 
 const Menu = () => {
+  const history = useNavigate()
   const dispatch = useDispatch();
   const allSalads = useSelector((state) => state.salads);
   const allSaladsBig = useSelector(state => state.saladsBig)
@@ -82,7 +84,22 @@ const Menu = () => {
 
   const userPostres = (name)=>{
     dispatch(pedidoPostreLogueado(name))
- 
+    history("/cargando")
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Se agrego correctamente',
+        showConfirmButton: false,
+        timer: 1200
+      })
+        .then((value) =>
+        {
+          switch (value) {
+            default:
+              history("/menu");
+              break
+          }
+        });
   }
 
   let select=(name)=>{
@@ -91,13 +108,44 @@ const Menu = () => {
       setDessert([...dessert,...postre])
       let bebidas= allBeverages.filter(e=>e.name===name)
       setBeverage([...beverage,...bebidas])
-     
+      history("/cargando")
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Se agrego correctamente',
+        showConfirmButton: false,
+        timer: 1200
+      })
+        .then((value) =>
+        {
+          switch (value) {
+            default:
+              history("/menu");
+              break
+          }
+        });history("/cargando")
     }else{
       let bebidaLogueado = allBeverages?.filter(e=>e.name===name?.bebidas)
       console.log(name)
       console.log(bebidaLogueado)
       bebidaLogueado?.length ? userbebidas(name)/* dispatch(pedidoBebidaLogueado(name)) */ :
       userPostres(name)/* dispatch(pedidoPostreLogueado(name)) */ 
+      history("/cargando")
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Se agrego correctamente',
+        showConfirmButton: false,
+        timer: 1200
+      })
+        .then((value) =>
+        {
+          switch (value) {
+            default:
+              history("/menu");
+              break
+          }
+        });history("/cargando")
     }
     
   }
