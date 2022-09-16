@@ -2,7 +2,7 @@ import React, { useState, useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "../styles/PasarelaDePago.css";
 
-import { getUsuarioId} from "../action";
+import { usuariosId} from "../action";
 
 import { loadStripe } from "@stripe/stripe-js";
 import {
@@ -45,7 +45,7 @@ const CheckoutForm = () => {
   const dispatch = useDispatch();
 
   useEffect(()=>{
-    dispatch(getUsuarioId(userID))
+    dispatch(usuariosId(userID))
     },[dispatch,userID])
 
   console.log(myUserDetail);

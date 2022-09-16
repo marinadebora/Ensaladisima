@@ -638,16 +638,6 @@ export function putPedidocargarPedido(value) {
 
 }
 
-export function getUsuarioId(id) {
-	return async function (dispatch) {
-		const userId = await axios.put(`/usuario/${id}`)
-		console.log(userId)
-		return dispatch({
-			type: 'GET_USUARIO_ID',
-			payload: userId.data
-		})
-	}
-}
 
 //ruta Put para buscar el mail de un usuario
 export const getMailUsuario = (input) => async (dispatch) => {
@@ -739,12 +729,13 @@ export function reviewCreada( payload){
 	return async function(dispatch){
 		try {									
 			const comentario = await axios.post(`/reviewCreada`,payload)
+			console.log(comentario)
 			return dispatch({
 				type:'EDITAR_COMENTARIOS',
 				payload:comentario
 			})
 		} catch (error) {
-			console.log(error)
+			console.log(error.message)
 		}
 	} 
 } 
