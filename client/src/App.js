@@ -25,6 +25,8 @@ import { getUsuarioId } from './action';
 import { ErrorAdmin } from './components/ErrorAdmin';
 
 import AdminUsuariosDetail from './components/AdminUsuariosDetail';
+import { Review } from './components/Review';
+import { VerReview } from './components/VerReview';
 
 function App() {
   const dispatch = useDispatch()
@@ -64,7 +66,8 @@ function App() {
         <Route path= '/cargando' element={<ArmandoEnsalada/>}/>
         <Route path= '/sendEmail' element={<ErrorAdmin/>}/>
         <Route path= '/password/:_id' element={<CambioPassword/>}/>
-      
+        <Route path= '/review' element={<Review/>}/>
+
       </Routes>
 
       <Footer/>
@@ -95,7 +98,8 @@ function App() {
       <Route path= '/cargando' element={<ArmandoEnsalada/>}/>
       <Route path= '/sendEmail' element={<SendEmail/>}/>
       <Route path= '/password/:_id' element={<CambioPassword/>}/>
-      
+      <Route path= '/review' element={<Review/>}/>
+      <Route path= '/verReview' element={<VerReview/>}/>
     </Routes>
 
     <Footer/>

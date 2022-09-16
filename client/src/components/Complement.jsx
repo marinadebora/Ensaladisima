@@ -37,7 +37,9 @@ export function Complement()
           complements: form.complements.filter(e => e !== event)
         })
         setComplement([...form.complements.filter(e => e !== event)])
-
+      }
+      if(complement.length===0){
+        localStorage.removeItem('complement')
       }
     
       return (
