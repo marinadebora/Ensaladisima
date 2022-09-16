@@ -201,8 +201,8 @@ export default function QuantityEdit() {
     }
   }, [dispatch])
 
-  const resultado = pedido?.find(e => e._id === user?.orders[0])
-  const armadoCarrito = {
+  let resultado = pedido?.find(e => e._id === user?.orders[0])
+  let armadoCarrito = {
     _id: resultado?._id,
     user: resultado?.user?.email,
     producto: resultado?.salads?.map(e => e).concat(resultado?.beverages?.map(e => e)).concat(resultado?.desserts?.map(e => e)),
@@ -239,6 +239,16 @@ export default function QuantityEdit() {
   })
   let productosMapArr = new Map(productosMap)
   let unicos = [...productosMapArr.values()]
+
+  const borrarDelCarrito = (value)=>{
+    if(resultado?.beverages?.filter(a=> a._id === value)){
+      resultado = resultado?.beverages?.filter(a=> a._id !== value)
+    }else if(resultado?.salads?.filter(a=> a._id === value)){
+      resultado?.salads?.filter(a=> a._id !== value)
+    }else if(resultado?.salads?.filter(a=> a._id === value)){
+      resultado?.salads?.filter(a=> a._id !== value)
+    }
+  }
 
   return (
     <div>
@@ -289,6 +299,11 @@ export default function QuantityEdit() {
                                 <MDBCol md="3" lg="2" xl="2" className="text-end">
                                   <MDBTypography tag="h6" className="mb-0">
                                     US$ {e?.price ? e?.price : e?.median}
+                                  </MDBTypography>
+                                </MDBCol>
+                                <MDBCol md="3" lg="2" xl="2" className="text-end">
+                                  <MDBTypography tag="h6" className="mb-0">
+                                    <button class="buttonChico" value={e._id} onClick={borrarDelCarrito(e._id)}>X</button>
                                   </MDBTypography>
                                 </MDBCol>
                                 <MDBCol md="2" lg="1" xl="1" className="text-end">
