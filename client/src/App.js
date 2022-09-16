@@ -18,6 +18,7 @@ import { ArmandoEnsalada } from './components/ArmandoEnsalada';
 import SendEmail, { CambioPassword } from './components/CambioPassword';
 import { Review } from './components/Review';
 import { VerReview } from './components/VerReview';
+import ConfirmacionPago from './components/ConfirmacionPago'
 import { useEffect } from 'react'
 import {  useDispatch ,} from 'react-redux'
 import { usuariosId } from './action';
@@ -47,6 +48,7 @@ function App() {
         <Route exact path= '/pideTuEnsalada' element={<PideTuEnsalada />}/>
         <Route exact path= '/checkout' element={<CheckOut/>}/>
         <Route exact path= '/pago' element={<Pago />}/>
+        <Route exact path= '/confirmacionPago' element={<ConfirmacionPago />}/>
 
         <Route exact path= '/login' element={<Login/>}/>
         <Route exact path= '/registro' element={<Registro/>}/>
