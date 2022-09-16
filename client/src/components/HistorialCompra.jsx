@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {usuariosId} from '../action/'
+import {getUsuarioId} from '../action/'
 
 
 export function HistorialCompras()  { 
@@ -14,7 +14,7 @@ export function HistorialCompras()  {
 
 
   useEffect(()=>{
-  dispatch(usuariosId(userID))
+  dispatch(getUsuarioId(userID))
   },[dispatch,userID])
 
     return (

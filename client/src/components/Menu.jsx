@@ -20,6 +20,7 @@ import Swal from 'sweetalert2'
 
 
 
+
 const Menu = () => {
   const history = useNavigate()
   const dispatch = useDispatch();
@@ -57,10 +58,40 @@ const Menu = () => {
     if(!user){
       let ensaladaM=allSalads.filter(e=>e.name===name)
       setmeMedianas([...medianas,...ensaladaM])
-   
+      history("/cargando")
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Se agrego correctamente',
+        showConfirmButton: false,
+        timer: 1200
+      })
+        .then((value) =>
+        {
+          switch (value) {
+            default:
+              history("/menu");
+              break
+          }
+        });
     }else{
       dispatch(menuMediano(name))
-    
+      history("/cargando")
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Se agrego correctamente",
+        showConfirmButton: false,
+        timer: 500
+      })
+        .then((value) =>
+        {
+          switch (value) {
+            default:
+              history("/menu");
+              break
+          }
+        });
     }
     
 
@@ -69,17 +100,62 @@ const Menu = () => {
     if(!user){
       let ensaladaG=allSaladsBig.filter(e=>e.name===name)
       setmeGrandes([...grandes,...ensaladaG])
-   
+      history("/cargando")
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Se agrego correctamente',
+        showConfirmButton: false,
+        timer: 1200
+      })
+        .then((value) =>
+        {
+          switch (value) {
+            default:
+              history("/menu");
+              break
+          }
+        });
     }else{
       dispatch(menuGrande(name))
-    
+      history("/cargando")
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Se agrego correctamente',
+        showConfirmButton: false,
+        timer: 1200
+      })
+        .then((value) =>
+        {
+          switch (value) {
+            default:
+              history("/menu");
+              break
+          }
+        });
     }
     
   }
 
   const userbebidas = (name)=>{
     dispatch(pedidoBebidaLogueado(name))
-
+    history("/cargando")
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Se agrego correctamente',
+        showConfirmButton: false,
+        timer: 1200
+      })
+        .then((value) =>
+        {
+          switch (value) {
+            default:
+              history("/menu");
+              break
+          }
+        });
   }
 
   const userPostres = (name)=>{
@@ -205,7 +281,6 @@ const Menu = () => {
             image={e.image}
             name={e.name}
             price={e.price}
-            stock={e.stock}
             select={()=>select(!user ? e.name:{usuario:user?.email, bebidas:e.name})}
             />
             ))
@@ -227,7 +302,6 @@ const Menu = () => {
               image={e.image}
               name={e.name}
               price={e.price}
-              stock={e.stock}
               select={()=>select(!user?e.name:{usuario:user?.email,postres:e.name})}
               />
             ))
