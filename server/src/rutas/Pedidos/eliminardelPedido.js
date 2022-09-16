@@ -8,19 +8,23 @@ const eliminarDelPedido = Router()
 eliminarDelPedido .put('/', async (req,res,next) =>{
     /* const {id} = req.params;  */
     const {_id,id} = req.body;
+    
     try {
+        console.log(id)
         const pedido = await Pedidos.find({_id:id})
-        const postres = pedido[0].desserts.filter(e => e == _id)
-        const bebidas = pedido[0].beverages.filter(e => e == _id)
-        const ensaledasGrande = pedido[0].saladsBig.filter(e => e ==_id)
-        const ensaladaMediana = pedido[0].saladsMed.filter(e => e == _id)
-        const menuMediana = pedido[0].saladsMenu.filter(e => e == _id)
-        const menuGrande = pedido[0].saladsMenuBig.filter(e => e == _id)
+        console.log(pedido)
+        const postres = pedido[0]?.desserts.filter(e => e == _id)
+        const bebidas = pedido[0]?.beverages.filter(e => e == _id)
+        const ensaledasGrande = pedido[0]?.saladsBig.filter(e => e ==_id)
+        const ensaladaMediana = pedido[0]?.saladsMed.filter(e => e == _id)
+        const menuMediana = pedido[0]?.saladsMenu.filter(e => e == _id)
+        const menuGrande = pedido[0]?.saladsMenuBig.filter(e => e == _id)
         console.log(ensaledasGrande)
         console.log(postres)
         console.log(bebidas)
         console.log(ensaladaMediana)
         console.log(menuMediana)
+        console.log(menuGrande)
 
         if(postres[0]){
             const buscarPostres = await Postres.find({_id})
@@ -29,9 +33,11 @@ eliminarDelPedido .put('/', async (req,res,next) =>{
                     "desserts.$":_id
                 }
             })
+            console.log(borrarDesserts)
             const stockDesserts = await Postres.findOneAndUpdate({_id:_id},{
                 stock: buscarPostres[0].stock + 1
             })
+            console.log(stockDesserts)
             res.send('El postre se elimino del pedido correctamente')
         }else if(bebidas[0]){
             const buscarBebidas = await Bebidas.find({_id:_id})
@@ -40,6 +46,7 @@ eliminarDelPedido .put('/', async (req,res,next) =>{
                     "beverages.$":_id
                 }
             })
+            console.log(borrarBeverages)
             const stockBeverages = await Bebidas.findOneAndUpdate({_id:_id},{
                 stock: buscarBebidas[0].stock + 1
             })

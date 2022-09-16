@@ -9,7 +9,7 @@ export const VerReview = () => {
   const dispatch=useDispatch()
   useEffect(()=>{
 dispatch(getReview())
-  })
+  },[dispatch])
 
   return(
     
