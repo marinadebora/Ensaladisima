@@ -28,7 +28,8 @@ getPedidos.get("/", async (req,res)=>{
                 desserts:d.desserts.map(e => e)? d.desserts.map(e => e):[],
                 totalPayable: d.saladsMenu.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.saladsMed.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.saladsBig.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.beverages.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.desserts.map(a => a.price).reduce((sum, current) => sum + current, 0) + d.saladsMenuBig.map(a => a.price).reduce((sum, current) => sum + current, 0),
                 delievery: d.delievery,
-                adress: d.adress
+                adress: d.adress,
+                facheyhora:d.facheyhora
             }
         })
         

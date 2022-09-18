@@ -1,18 +1,32 @@
 
-import React from 'react';
+import React, { useEffect } from "react";
+import { useDispatch} from "react-redux";
+import {usuariosId} from '../action/'
 import { imag } from '../imagenes';
 import "../styles/Card.css";
 
 const CarrouselEP = () => {
+    const dispatch=useDispatch()
+    const loguearUser = JSON.parse(localStorage.getItem("loguearUsuario"))
+    const userID =loguearUser?.id
+
+
+
+
+    useEffect(()=>{
+        dispatch(usuariosId(userID))
+        },[dispatch,userID])
+
+
   return( 
     
     <div class="container mt-2">
-
+        
         <div class="row">
             <div class="col-10">
                 <h3 class="mb-3" id="carrouselTitle">Tus ultimas ensaladas</h3>
             </div>
-            
+    
             <div class="col-2 ml-2">
                 <button id="butonCarrouselMain" href="#carouselExampleIndicators2" data-slide="prev">
                 <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"></i>
