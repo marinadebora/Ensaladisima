@@ -4,6 +4,7 @@ import  logoWhite  from '../images/ensaladisimaLogoWhite.png'
 
 
 
+
 const Footer = () => {
   return (
     
@@ -18,7 +19,6 @@ const Footer = () => {
             <i class="bi bi-facebook" id="igLogo"/>
             <i class="bi bi-tiktok" id="igLogo"/>
           </div>
-         
         </div>
   )
 }

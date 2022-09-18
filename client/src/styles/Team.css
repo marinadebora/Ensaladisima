@@ -1,0 +1,132 @@
+@font-face {
+    font-family: Tommy-regular;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+
+    font-family: Tommy-light;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Light_PERSONAL\ USE.ttf);
+}
+
+
+#Main{
+   
+}
+
+#titleContent{
+
+}
+
+#titleH1{
+    display: flex;
+    justify-content: center;
+    font-family: Tommy-regular;
+    font-size: 80px;
+    color: #207140;
+}
+
+#titleH3{
+    display: flex;
+    justify-content: center;
+    font-family: Tommy-regular;
+    color: #207140;
+}
+
+#teamContent{
+   
+}
+
+#picContent{
+    display: flex;
+    flex-direction: column;    
+}
+
+#name{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    font-family: Tommy-regular;
+    color: #F18D1D;
+}
+
+#picContentA{
+    display: flex;
+    justify-content: center;
+}
+
+#teamGroup{
+    margin-top: 3%;
+    margin-bottom: 10%;
+}
+
+#teamPicA{
+   border-radius: 100px;
+   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+   margin-left: 28%;
+   width: 200px;
+   height: 200px;
+}
+
+
+
+#teamPicB{
+    border-radius: 100px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    margin-left: 35%;
+    width: 200px;
+    height: 200px;
+}
+
+#text{
+    border: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    font-family: Tommy-regular;
+    color: #207140;
+}
+
+#tecnologias{
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    align-items: center;
+}
+
+#logoContent{
+    
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+#logo{
+    width: 100px;
+   
+}
+
+#buttonChicoTeamContent{
+    display: flex;
+    margin-bottom: 2%;
+    justify-content: center;
+}
+
+#buttonChicoTeam{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    background-color: #207140; 
+    color: white;
+    text-decoration: none;
+    border:3px  solid white;
+    padding: 0.5rem;
+    border-radius: 50px;
+    font-family: Tommy-bold;
+    font-size: 1.0rem;
+    cursor: pointer;
+}
+
+#buttonChicoTeam:hover{
+    background-color: #94D2DE;
+    color: white;
+    transition: all 20ms;
+  }
