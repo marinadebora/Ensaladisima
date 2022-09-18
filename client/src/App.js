@@ -14,6 +14,7 @@ import AdminUsuarios from './components/AdminUsuarios';
 import BaseEdit from './FormPut/putBases';
 import Login from './components/Login';
 import Pago from './components/Pago';
+import Team from './components/Team';
 import { ArmandoEnsalada } from './components/ArmandoEnsalada';
 import SendEmail, { CambioPassword } from './components/CambioPassword';
 import { Review } from './components/Review';
@@ -42,6 +43,7 @@ function App() {
     !localSt?.admin  ?
         //renderiza si estas logueado pero no sos admin
     <div className="App">
+
       <Routes>
         <Route exact path= '/' element={<Home/>}/>
         <Route exact path= '/menu' element={<Menu/>}/>
@@ -54,6 +56,8 @@ function App() {
         <Route exact path= '/registro' element={<Registro/>}/>
         <Route exact path= '/profile' element={<Profile/>}/>
         <Route exact path= '/contacto' element={<ContactForm/>}/>
+        <Route exact path= '/team' element={<Team/>}/>
+        
 
         {/* rutas para administador */}
         <Route exact path= '/admin_productos' element={<ErrorAdmin />}/>
