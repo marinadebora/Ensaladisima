@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 export const ErrorAdmin = () => {
   return (
   <div style={{width:'100%', height: '80%', marginBottom:'0%'}}>
