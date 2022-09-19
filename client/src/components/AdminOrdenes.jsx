@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Admin.css';
+import NavBar from "./NavBar";
 import { useEffect } from 'react';
 import { getPedidos } from '../action';
 import { useDispatch, useSelector } from 'react-redux';
+
 
 
 const Admin_ordenes= () => {
@@ -19,7 +21,7 @@ const Admin_ordenes= () => {
 
     return (
        <div id="container">
-        
+        <NavBar/>
          <div class="row">
 
             <div class="col-2" id="sideBar">

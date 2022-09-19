@@ -89,7 +89,7 @@ const ContactForm = () => {
             <input
 
             type="text"
-            placeholder="11111111111111"
+            placeholder=""
             name="telefono"
             onChange={handleOnChange}
             required

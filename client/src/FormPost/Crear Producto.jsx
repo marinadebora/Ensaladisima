@@ -235,6 +235,7 @@ export default function CrearProduto() {
 
 			<form style={{justifyContent:"center",alignContent:"center",display:"flow",width:"50%"}} id="formEdit" onSubmit={handleSubmit}>
 				{/**SELECT PARA CREAR PRODUCTOS */}
+
 				<div style={{display:"flow", flexWrap:"wrap",justifyContent:"space-evenly",textAlign:"center",width:"80%"}}>
 					
 					{/**SELECT PARA EDITAR PRODUCTOS */}
