@@ -5,8 +5,7 @@ import "../styles/CardUsuarioId.css"
 
 export default function CardDetalleHistorial({name,base,protein,sauce,complement,topping,price}){
   return (
-    
-      <div id="usuarioDetailMain" className="container">
+    <div id="usuarioDetailMain" className="container">
       <div class="row">
 
          <div class="row"  id="pencilContent">
