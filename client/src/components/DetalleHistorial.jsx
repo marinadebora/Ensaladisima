@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
@@ -10,10 +10,8 @@ import CardDetalleHistorialBebidas from "./CardDetailBebidas";
 
 
 export default function DetalleHistorial() {
-  const historiall = useSelector(state => state.historial)
   const { pedidos } = useSelector(state => state)
   const { historialDetail } = useSelector(state => state)
-  // console.log(historial)
   const dispatch = useDispatch()
   const { _id } = useParams()
   useEffect(() => {
