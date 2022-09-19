@@ -65,6 +65,7 @@ const { putAdmin } = require("./Usuarios/putAdmin");
 const { putActivo } = require("./Usuarios/putActivo");
 const getReview = require("./Review/getReview");
 const postCrearReview = require("./Review/postCrearReview");
+const pedidoSlice = require("./Pedidos/putAgregaEnsaladasDeSlice");
 const { editarProcessing } = require("./Historial/editarProcessing");
 const { editarReceived } = require("./Historial/editarReceived");
 const { editarCanceled } = require("./Historial/editarCanceled");
@@ -177,5 +178,9 @@ router.get("/MenuBig", menuBig )*/
 // rutas de las review
 router.use('/review', getReview)
 router.use('/reviewCreada', postCrearReview)
+
+// ruta alternativas
+
+router.use('/modificarpedido', pedidoSlice)
 
 module.exports = router

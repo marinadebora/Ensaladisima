@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Admin.css';
 import CrearProduto from '../FormPost/Crear Producto';
-
+import NavBar from "./NavBar";
 
 const Admin_productos = () => {
 
 
     return (
        <div id="container">
-        
+         <NavBar/>
          <div class="row">
 
             <div class="col-2" id="sideBar">
@@ -42,28 +42,13 @@ const Admin_productos = () => {
 
             <div class="col-10" id="adminContent">
                 <div class="row" id="searchBarAdmin">
-
-                    <div class="col-5" id="searchBarAdminComponent">
-                        <form id="searchBarForm" class="d-flex" role="search">
-                            <input class="form-control me-3" type="search" placeholder="Search" aria-label="Search"/>
-                            <button class="btn btn-outline-light" type="submit">Search</button>
-                        </form>
-                    </div>
-
-                    <div class="col-7" id="adminTittle">ADMIN</div>
-
-                        
-                   
+                    <div class="col" id="adminTittle">ADMIN</div>  
                 </div>
 
                 <div class="row">
                 <CrearProduto/>
                     <Link to="/menu"><button>Volver</button></Link>
                 </div>
-
-
-
-
             </div>
 
 

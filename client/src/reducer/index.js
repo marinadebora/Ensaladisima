@@ -228,10 +228,17 @@ function rootReducer(state = initialState, action) {
           totalG:[...ensaladaGrande,action.payload]
         }
         case "HISTORIAL_ID":
+          
           return{
             ...state,
             historialDetail:action.payload
           }
+        case 'MODIFICAR_PEDIDO':
+          return {
+            ...state,
+           
+          }
+       
     default:
       return {
         state

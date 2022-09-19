@@ -52,13 +52,13 @@ export default function AdminUsuarioId() {
 
                  }
             
+                <div id="containerActive">
+                <button id="activeButton" onClick={handleSubmitActivo}>Activo Si/No</button>
+                <button id="activeButton" onClick={handleSubmitAdmin}>Admin Si/No</button>
+                </div>
                 <Link id="butonCarrouselMain" to="/admin_usuarios">
                     <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"> Volver</i>
                 </Link>
-                <div id="containerActive">
-                <button onClick={handleSubmitActivo}>Activo Si/No</button>
-                <button onClick={handleSubmitAdmin}>Admin Si/No</button>
-                </div>
               
 
         </div>

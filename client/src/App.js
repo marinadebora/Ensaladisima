@@ -60,7 +60,6 @@ function App() {
         <Route exact path= '/contacto' element={<ContactForm/>}/>
         <Route exact path= '/team' element={<Team/>}/>
         
-
         {/* rutas para administador */}
         <Route exact path= '/admin_productos' element={<ErrorAdmin />}/>
         <Route exact path= '/admin_ordenes' element={<ErrorAdmin />}/>
@@ -91,6 +90,7 @@ function App() {
       <Route exact path= '/registro' element={<Registro/>}/>
       <Route exact path= '/profile' element={<Profile/>}/>
       <Route exact path= '/contacto' element={<ContactForm/>}/>
+      <Route exact path= '/team' element={<Team/>}/>
       
 
       {/* rutas para administador */}
@@ -123,6 +123,7 @@ function App() {
     <Route exact path= '/registro' element={<Registro/>}/>
     <Route exact path= '/profile' element={<ErrorAdmin/>}/>
     <Route exact path= '/contacto' element={<ContactForm/>}/>
+    <Route exact path= '/team' element={<Team/>}/>
     
 
     {/* rutas para administador */}

@@ -15,7 +15,7 @@ export default function HistorialDelUsuario() {
 
     return (
        <div id="container">
-        
+        <NavBar/>
          <div class="row">
 
             <div class="col-2" id="sideBar">
