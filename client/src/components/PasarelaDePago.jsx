@@ -54,7 +54,7 @@ const history = useNavigate()
 }, [dispatch])
 const orders = useSelector(state=>state.pedidos)
 
-let preciototal = orders?.find(e =>e._id === user.orders[0]).totalPayable
+let preciototal = orders?.find(e =>e._id === user.orders[0])?.totalPayable
 
 console.log(preciototal)
   const stripe = useStripe();
@@ -97,7 +97,7 @@ console.log(preciototal)
           showConfirmButton: false,
           timer: 1500
         })
-        dispatch(postHistorialDeCompra({_id:user.id}))
+        dispatch(postHistorialDeCompra({_id:user.id,totalPayable:preciototal}))
         history("/ConfirmacionPago")
         
       } catch (error) {

@@ -65,6 +65,11 @@ const { putAdmin } = require("./Usuarios/putAdmin");
 const { putActivo } = require("./Usuarios/putActivo");
 const getReview = require("./Review/getReview");
 const postCrearReview = require("./Review/postCrearReview");
+const pedidoSlice = require("./Pedidos/putAgregaEnsaladasDeSlice");
+const { editarProcessing } = require("./Historial/editarProcessing");
+const { editarReceived } = require("./Historial/editarReceived");
+const { editarCanceled } = require("./Historial/editarCanceled");
+const { getHistorialId } = require("./Historial/getHistorialID");
 
 
 const router = Router();
@@ -103,6 +108,10 @@ router.get("/menubig", getMenuBig)
 // rutas para el modelo de Historial.
 router.use('/crearHistorial', postHistorial)
 router.use('/historial', getHistorial)
+router.put("/estadoProcessing/:_id",editarProcessing);
+router.put("/estadoReceived/:_id",editarReceived);
+router.put("/estadoCanceled/:_id",editarCanceled);
+router.get("/historials/:_id",getHistorialId);
 
 
 // rutas para el modelo de EnsaladasMedian.
@@ -169,5 +178,9 @@ router.get("/MenuBig", menuBig )*/
 // rutas de las review
 router.use('/review', getReview)
 router.use('/reviewCreada', postCrearReview)
+
+// ruta alternativas
+
+router.use('/modificarpedido', pedidoSlice)
 
 module.exports = router

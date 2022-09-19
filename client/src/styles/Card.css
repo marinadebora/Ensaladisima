@@ -154,4 +154,53 @@ float: right;
    margin-bottom: 0px;
     font-weight: bold;
 }
+#buttoonPlus2{
+    border: none;
+    color: #207140;
+   
+}
 
+#buttoonPlus2{
+    color: #207140;
+    position: relative;
+    cursor:pointer;
+    user-select:none;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s; /* Safari */
+  }
+  
+  #buttoonPlus2:hover {
+    transition-duration: 0.1s;
+    color:#D77511;
+  }
+  
+  #buttoonPlus2:after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 4em;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.5s;
+    box-shadow: 0 0 10px 40px white;
+  }
+  
+  #buttoonPlus2:active:after {
+    box-shadow: 0 0 0 0 white;
+    position: absolute;
+    border-radius: 4em;
+    left: 0;
+    top:0;
+    opacity: 1;
+    transition: 0s;
+  }
+  
+  #buttoonPlus2:active {
+    top: 1px;
+  }

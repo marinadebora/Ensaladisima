@@ -47,11 +47,8 @@ const Admin_productos = () => {
 
                 <div class="row">
                 <CrearProduto/>
+                    <Link to="/menu"><button>Volver</button></Link>
                 </div>
-
-
-
-
             </div>
 
 
