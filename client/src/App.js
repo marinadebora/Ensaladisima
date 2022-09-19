@@ -26,6 +26,7 @@ import { usuariosId } from './action';
 import { ErrorAdmin } from './components/ErrorAdmin';
 
 import AdminUsuariosDetail from './components/AdminUsuariosDetail';
+import { HistorialCompras } from './components/HistorialCompra';
 
 
 function App() {
@@ -70,7 +71,7 @@ function App() {
         <Route path= '/sendEmail' element={<ErrorAdmin/>}/>
         <Route path= '/password/:_id' element={<CambioPassword/>}/>
         <Route path= '/review' element={<Review/>}/>
-
+        <Route path= '/historial' element={<HistorialCompras/>}/>
       </Routes>
 
       <Footer/>
