@@ -954,3 +954,19 @@ export function saladGrande(payload) {
 		}
 	}
 }
+
+//ruta para cargar la ensaladas que el usuario vuelve a comprar
+export function modificarPedido(payload) {
+	return async function (dispatch) {
+		try {
+			const modificar = await axios.put(`/modificarpedido`, payload)
+			console.log(modificar)
+			return dispatch({
+				type: "MODIFICAR_PEDIDO",
+				payload: modificar
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
