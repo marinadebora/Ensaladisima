@@ -6,14 +6,15 @@ const Pedidos = require('../../modelos/Pedidos')
 const postHistorial = Router()
 
 postHistorial.post('/', async (req,res,next) =>{
-    const {_id} = req.body
+    const {_id, totalPayable} = req.body
     try {
         const usuario = await Usuarios.find({_id})
         console.log(usuario[0])
         if(usuario[0].orders[0]){
             const crearHistorial = await Historial.create({
                 user: usuario[0]._id,
-                orders: usuario[0].orders[0]
+                orders: usuario[0].orders[0],
+                totalPayable:totalPayable
             })
             const modificar = await Usuarios.findOneAndUpdate({_id},{
                 orders:[],

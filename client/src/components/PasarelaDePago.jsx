@@ -75,7 +75,7 @@ console.log(preciototal)
 
     if (!error) {
       
-      // console.log(paymentMethod)
+
       const { id } = paymentMethod;
       try {
         const { data } = await axios.post(
@@ -97,7 +97,7 @@ console.log(preciototal)
           showConfirmButton: false,
           timer: 1500
         })
-        dispatch(postHistorialDeCompra({_id:user.id}))
+        dispatch(postHistorialDeCompra({_id:user.id,totalPayable:preciototal}))
         history("/ConfirmacionPago")
         
       } catch (error) {

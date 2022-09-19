@@ -65,6 +65,16 @@ const { putAdmin } = require("./Usuarios/putAdmin");
 const { putActivo } = require("./Usuarios/putActivo");
 const getReview = require("./Review/getReview");
 const postCrearReview = require("./Review/postCrearReview");
+const putPedidosDelivery = require("./Usuarios/putDelivery");
+const { putActivoMenu } = require("./Menu/putActivoMenu");
+const { putActivoMenuB } = require("./MenuBig/putActivoMenuBig");
+const { putActivoBase } = require("./Base/putActivoBases");
+const { putActivoProtein } = require("./Proteina/putReviewActivo");
+const { putActivoComplemento } = require("./Complementos/putActivoComplemento");
+const { putActivoSalsas } = require("./Salsa/putActivoSalsas");
+const { putActivoTopping } = require("./Topping/putActivoTopping");
+const { putActivoBebidas } = require("./Bebidas/putActivoBebidas");
+const { putActivoPostres } = require("./Postres/putActivoPostres");
 
 
 const router = Router();
@@ -89,20 +99,23 @@ router.use('/eliminarDelPedido', eliminarDelPedido)
 router.use('/agregar', agregarAlPedido )
 router.use('/crearLocalStorage', crearLocalStorage)
 router.use('/cargarPedido', cargarPedido)
-
+router.use("/putpedidodelivery",putPedidosDelivery)
 
 
 // rutas para el modelo de Menu.
 router.get("/menus", getMenu)
 router.post("/menus",postMenu);
 router.put("/menus/:_id",putMenu);
+router.put("/menusActivo/:_id",putActivoMenu);
 
 //rutas para el modelo de MenuBig
 router.get("/menubig", getMenuBig)
+router.put("/menubigActivo/:_id",putActivoMenuB);
 
 // rutas para el modelo de Historial.
 router.use('/crearHistorial', postHistorial)
 router.use('/historial', getHistorial)
+
 
 
 // rutas para el modelo de EnsaladasMedian.
@@ -119,37 +132,44 @@ router.use('/grande', postEnsaladaGrande)
 router.get("/bases", getBase)
 router.post("/bases",postBase);
 router.put("/bases/:_id",putBase);
+router.put("/basesActivo/:_id",putActivoBase);
 
 // rutas para el modelo de Protein.
 router.get("/proteins", getProteins)
 router.post("/proteins", postProteins);
 router.put("/proteins/:_id", putProteins);
+router.put("/proteinsActivo/:_id",putActivoProtein);
 
 // rutas para el modelo de Complement.
 router.get("/complements", getComplements)
 router.post("/complements",postComplementos);
 router.put("/complements/:_id",putComplementos);
+router.put("/complementsActivo/:_id",putActivoComplemento);
 
 // rutas para el modelo de Suace.
 router.use('/salsas', getSalsas)
 router.post('/salsas', postSalsas);
 router.put('/salsas/:_id', putSalsas);
+router.put("/salsasActivo/:_id",putActivoSalsas);
 
 
 // rutas para el modelo de Topping
 router.use('/toppings', getToppings)
 router.post('/toppings', postToppings);
 router.put('/toppings/:_id', putToppings);
+router.put("/toppingsActivo/:_id",putActivoTopping);
 
 //rutas para el modelo de Beverages
 router.get("/bebidas",getBebidas);
 router.post("/bebidas",postBebidas);
 router.put("/bebidas/:_id",putBebidas);
+router.put("/bebidasActivo/:_id",putActivoBebidas);
 
 //rutas para el modelo de Desserts
 router.get("/postres",getPostres);
 router.post("/postres",postPostres);
 router.put("/postres/:_id",putPostres);
+router.put("/postresActivo/:_id",putActivoPostres);
 
 //ruta formulario de contacto
 router.post("/contactform", correoContacto)
