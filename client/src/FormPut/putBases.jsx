@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link,useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import NavBar from "../components/NavBar";
 import { bases, beverages, complements, desserts, Menu, proteins, putBases, putBebidas, putComplemento, putMenu, putPostres, putProteinas, putSalsas, putTopping, sauces, toppings } from "../action";
 import "./putBases.css"
 
@@ -170,18 +171,51 @@ export default function BaseEdit() {
 
 
   return (
-    <div>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+ 
+      <div id="container">
+            <NavBar/>
+
+            <div class="row">
+
+                <div class="col-2" id="sideBar">
+                    <div class="col" id="mainButtonContentAdmin">
+                        <Link id="butonSideBarAdmin" to="/admin_ordenes">
+                            <i id="butonOrders" class="bi bi-clipboard-check-fill"> Ordenes</i>
+                        </Link>
+                    </div>
+
+                    <div class="col" id="mainButtonContentAdmin">
+                        <Link id="butonSideBarAdmin" to="/admin_usuarios">
+                            <i id="butonOrders" class="bi bi-people-fill"> Usuarios</i>
+                        </Link>
+                    </div>
+                    <div class="col" id="mainButtonContentAdmin">
+                        <Link id="butonSideBarAdmin" to="/admin_productos">
+                            <i id="butonOrders" class="bi bi-file-earmark-plus-fill"> Productos</i>
+                        </Link>
+                    </div>
+                    <div class="col" id="mainButtonContentAdmin">
+                        <Link id="butonSideBarAdmin" to="#">
+                            <i id="butonOrders" class="bi bi-clipboard-check-fill"> Caja</i>
+                        </Link>
+                    </div>
 
 
-      <div><Link to="/admin_productos"><button>Volver</button></Link></div>
-      <div><h1>Editá tus productos!</h1></div>
-      <form onSubmit={handleSubmit}>
+
+                </div>
+
+                <div class="col-10" id="adminContent">
+                    <div class="row" id="searchBarAdmin">
+                        <div class="col" id="adminTittle">ADMIN</div>
+                    </div>
+
+      
+
+
+        {/* /----------------------------- INICIO EDIT ----------------------------------/ */}
+      
+      <h1 id="titleUsuariosRegistrados">Editá tu productos!</h1>
+      <form id="usuarioDetailMain" onSubmit={handleSubmit}>
          {/**FORMULARIO PARA EDITAR BASES/COMPLEMENTOS/SALSAS/TOPPING/ETC */}
         <div id="marcoProductEdit">
           <label>Nombre: </label><input type="text" value={input.name} placeholder={buscar1?.name ? buscar1.name : buscar2?.name ? buscar2.name : buscar3?.name ? buscar3.name : buscar4?.name ? buscar4.name : buscar5?.name ? buscar5.name : buscar6?.name ? buscar6.name : buscar7?.name ? buscar7.name : buscar8?.name ? buscar8.name : input.name} name="name" onChange={handleChange} />
@@ -238,22 +272,20 @@ export default function BaseEdit() {
           buscar8 && <div> <label >Topping:</label><input type="text" value={input.topping} placeholder={buscar8?.topping ? buscar8.topping : input.topping} name="topping" onChange={handleChange} />
           </div>
         }
-
-
-        <button type='submit'>Editar producto</button>
+        <div id="buttonEditConfirmContent">
+        <button id="buttonEditConfirm" type='submit'>Editar producto</button>
+        </div>
 
       </form>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+        <Link id="butonCarrouselMain" to="/admin_productos">
+            <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"> Volver</i>
+        </Link>
+
+      {/* /----------------------------- FIN EDIT ----------------------------------/ */}
+      
+    </div>
+
+    </div>
     </div>
 
   )

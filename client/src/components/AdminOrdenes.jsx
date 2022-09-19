@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Admin.css';
 import CrearProduto from '../FormPost/Crear Producto';
-
+import NavBar from "./NavBar";
 
 const Admin_ordenes= () => {
 
 
     return (
        <div id="container">
-        
+        <NavBar/>
          <div class="row">
 
             <div class="col-2" id="sideBar">

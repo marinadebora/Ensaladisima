@@ -249,7 +249,7 @@ export default function CrearProduto()
 			<form id="formEdit" onSubmit={handleSubmit}>
 				{/**SELECT PARA CREAR PRODUCTOS */}
 				<div>
-					<div id="SelectCrearEdit">
+					<div id="SelectCrearCrear">
 						<select onChange={hanldeOnChangeSelect}>
 							<option value="">Seleccioná para Crear</option>
 							{seleccionar.map(e =>
