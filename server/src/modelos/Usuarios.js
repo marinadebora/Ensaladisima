@@ -9,7 +9,7 @@ const UsuariosSchema = new Schema({
     lastName: { type: String, default:"", lowercase:true },
     email: { type: String, required: true, lowercase:true },
     password: { type: String, require: true},
-    adress: { type: String, default:"", lowercase:true, default:''},
+    adress: { type: Array, default:[""]},
     phone: { type: String, default: ''},
     admin: { type: Boolean, default: false },
     activo: { type: Boolean, default: true },

@@ -338,6 +338,18 @@
         {
             "Nombre": "tofu",
             "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910175/ensaladas/base/proteina/tofu_msia2z.png"
+        },
+        {
+            "Nombre": "huevo",
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910338/ensaladas/base/proteina/complementos/huevos_ofcsaa.png"
+        },
+        {
+            "Nombre": "arvejas",
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910342/ensaladas/base/proteina/complementos/arvejas_ijof6u.png"
+        },
+        {
+            "Nombre": "arvejas",
+            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1663597826/ensaladas/base/proteina/lentejas_laftjs.png"
         }
     ],
 
@@ -366,10 +378,7 @@
             "Nombre": "tomates cherry",
             "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910340/ensaladas/base/proteina/complementos/tomates-cherry_w3ytt8.png"
         },
-        {
-            "Nombre": "huevo",
-            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910338/ensaladas/base/proteina/complementos/huevos_ofcsaa.png"
-        },
+        
         {
             "Nombre": "zanahoria",
             "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910340/ensaladas/base/proteina/complementos/zanahoria_jof40u.png"
@@ -386,10 +395,7 @@
             "Nombre": "rabano",
             "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910340/ensaladas/base/proteina/complementos/rabano_r5pqfs.png"
         },
-        {
-            "Nombre": "arvejas",
-            "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910342/ensaladas/base/proteina/complementos/arvejas_ijof6u.png"
-        },
+        
         {
             "Nombre": "choclo",
             "img": "https://res.cloudinary.com/deqbqghhq/image/upload/v1660910342/ensaladas/base/proteina/complementos/choclo_hwkovm.png"

@@ -27,8 +27,8 @@ const getHistorial= async (req,res)=>{
             __v:0,
             admin:0,
             activo:0
-        })
-        console.log(buscar.map(e => e.orders?._id))
+        });
+        
         /* const suma = buscar?.map( e=>{
             return {
                 _id: e._id,

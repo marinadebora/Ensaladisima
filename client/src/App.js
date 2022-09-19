@@ -14,14 +14,15 @@ import AdminUsuarios from './components/AdminUsuarios';
 import BaseEdit from './FormPut/putBases';
 import Login from './components/Login';
 import Pago from './components/Pago';
+import Team from './components/Team';
 import { ArmandoEnsalada } from './components/ArmandoEnsalada';
 import SendEmail, { CambioPassword } from './components/CambioPassword';
+import { Review } from './components/Review';
+import { VerReview } from './components/VerReview';
 import ConfirmacionPago from './components/ConfirmacionPago'
-/* import { Review } from './components/Review';
-import { VerReview } from './components/VerReview'; */
 import { useEffect } from 'react'
 import {  useDispatch ,} from 'react-redux'
-import { getUsuarioId } from './action';
+import { usuariosId } from './action';
 import { ErrorAdmin } from './components/ErrorAdmin';
 
 import AdminUsuariosDetail from './components/AdminUsuariosDetail';
@@ -29,6 +30,8 @@ import { Review } from './components/Review';
 import { VerReview } from './components/VerReview';
 import HistorialDelUsuario from './components/HistorialDelUsuario';
 import DetalleHistorial from './components/DetalleHistorial';
+import { HistorialCompras } from './components/HistorialCompra';
+
 
 function App() {
   const dispatch = useDispatch()
@@ -38,13 +41,14 @@ function App() {
   //const myUserDetail = useSelector(state => state?.userId);
 
   useEffect(() => {
-    dispatch(getUsuarioId(id))
+    dispatch(usuariosId(id))
   }, [dispatch,id]);
   return (
     localSt?
     !localSt?.admin  ?
     //renderiza si estas logueado pero no sos admin
     <div className="App">
+
       <Routes>
         <Route exact path= '/' element={<Home/>}/>
         <Route exact path= '/menu' element={<Menu/>}/>
@@ -57,6 +61,8 @@ function App() {
         <Route exact path= '/registro' element={<Registro/>}/>
         <Route exact path= '/profile' element={<Profile/>}/>
         <Route exact path= '/contacto' element={<ContactForm/>}/>
+        <Route exact path= '/team' element={<Team/>}/>
+        
 
         {/* rutas para administador */}
         <Route exact path= '/admin_productos' element={<ErrorAdmin />}/>
@@ -69,7 +75,7 @@ function App() {
         <Route path= '/sendEmail' element={<ErrorAdmin/>}/>
         <Route path= '/password/:_id' element={<CambioPassword/>}/>
         <Route path= '/review' element={<Review/>}/>
-
+        <Route path= '/historial' element={<HistorialCompras/>}/>
       </Routes>
 
       <Footer/>
