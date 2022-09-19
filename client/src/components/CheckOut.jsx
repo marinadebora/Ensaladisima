@@ -249,7 +249,7 @@ export default function QuantityEdit() {
   let productosMapArr = new Map(productosMap)
   let unicos = [...productosMapArr.values()]
 
-  const borrarDelCarrito = (e)=>{
+  /* const borrarDelCarrito = (e)=>{
     console.log(e.target.value)
     console.log(resultado?.beverages?.find(a=> a._id === e.target.value))
     if(resultado?.beverages?.find(a=> a._id === e.target.value)){
@@ -260,7 +260,7 @@ export default function QuantityEdit() {
     }else if(resultado?.desserts?.find(a=> a._id === e.target.value)){
       resultado?.desserts?.find(a=> a._id !== e.target.value)
     }
-  }
+  } */
 
   return (
     <div>
