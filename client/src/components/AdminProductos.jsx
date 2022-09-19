@@ -52,13 +52,13 @@ const Admin_productos = () => {
 
                     <div class="col-7" id="adminTittle">ADMIN</div>
 
-                    
                         
                    
                 </div>
 
                 <div class="row">
                 <CrearProduto/>
+                    <Link to="/menu"><button>Volver</button></Link>
                 </div>
 
 

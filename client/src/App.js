@@ -26,6 +26,8 @@ import { usuariosId } from './action';
 import { ErrorAdmin } from './components/ErrorAdmin';
 
 import AdminUsuariosDetail from './components/AdminUsuariosDetail';
+import HistorialDelUsuario from './components/HistorialDelUsuario';
+import DetalleHistorial from './components/DetalleHistorial';
 import { HistorialCompras } from './components/HistorialCompra';
 
 
@@ -42,7 +44,7 @@ function App() {
   return (
     localSt?
     !localSt?.admin  ?
-        //renderiza si estas logueado pero no sos admin
+    //renderiza si estas logueado pero no sos admin
     <div className="App">
 
       <Routes>
@@ -104,6 +106,8 @@ function App() {
       <Route path= '/password/:_id' element={<CambioPassword/>}/>
       <Route path= '/review' element={<Review/>}/>
       <Route path= '/verReview' element={<VerReview/>}/>
+    <Route path='/historialUser' element={<HistorialDelUsuario/>}/>
+    <Route path='/detalleHistorial/:_id' element={<DetalleHistorial/>}/>
     </Routes>
 
     <Footer/>

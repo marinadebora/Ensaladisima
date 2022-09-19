@@ -785,6 +785,19 @@ console.log(error)
 		}
 	}
 }
+export const historialId=(_id)=>async(dispatch)=>{
+try {
+	const buscar= await axios(`/historials/${_id}`)
+	if(_id){
+		return dispatch({
+		type:"HISTORIAL_ID",payload:buscar.data
+	})
+	}
+	
+} catch (error) {
+	console.error(error)
+}
+}
 
 export function saladMediana(payload) {
 	return async function (dispatch) {
