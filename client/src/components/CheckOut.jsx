@@ -19,28 +19,30 @@ import {
 } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { eliminarDelCarrito, getPedidos, agregarAlCarrito,
-putPedidocargarPedido} from "../action";
+import {
+  eliminarDelCarrito, getPedidos, agregarAlCarrito,
+  putPedidocargarPedido
+} from "../action";
 import NavBar from "./NavBar";
 
 
 
 
 export default function QuantityEdit() {
-//estados globales de arrays de ensaladas creadas por el usuario con id
-  let ensaladaMed= useLocalStorage('ensaladaM',[])
-  let ensaladaGr= useLocalStorage('ensaladaG',[])
- let ensaladaMediana=ensaladaMed[0]
- let ensaladaGrande=ensaladaGr[0]
- //imagen para ensaladas creadas por el usuario 
- //https://res.cloudinary.com/deqbqghhq/image/upload/v1663241770/ensaladas/ensaladaCreada_ags3pn.png
+  //estados globales de arrays de ensaladas creadas por el usuario con id
+  let ensaladaMed = useLocalStorage('ensaladaM', [])
+  let ensaladaGr = useLocalStorage('ensaladaG', [])
+  let ensaladaMediana = ensaladaMed[0]
+  let ensaladaGrande = ensaladaGr[0]
+  //imagen para ensaladas creadas por el usuario 
+  //https://res.cloudinary.com/deqbqghhq/image/upload/v1663241770/ensaladas/ensaladaCreada_ags3pn.png
   //para renderizar bebidas y postres desde localStorage
   let bebidas = useLocalStorage('bebidas', [])
   let postres = useLocalStorage('postres', [])
   let beb = bebidas[0]
   let post = postres[0]
   const pedido = useSelector(state => state.pedidos)
-  
+
   //para renderizar ensaladas medianas desde localStorage
   let ensaladasMed = useLocalStorage('medianas', [])
   let ensaladasGr = useLocalStorage('grandes', [])
@@ -48,45 +50,45 @@ export default function QuantityEdit() {
   let gran = ensaladasGr[0]
 
   const [user, setUser] = useState(null)
- 
+
   /* const todosLosPedidos = pedido?.filter(e => e._id === user?.orders[0]) */
 
   const crearOrders = () => {
-     const buscarMedianasM = JSON.parse(localStorage.getItem('medianas'))
-     const buscarGrandesM = JSON.parse(localStorage.getItem('grandes'))
-     const buscarBebidasM = JSON.parse(localStorage.getItem('bebidas'))
-     const buscarPostresM = JSON.parse(localStorage.getItem('postres'))
-     const localUser = JSON.parse(localStorage.getItem('loguearUsuario'))
-     const buscarPedido = pedido?.filter(e => e._id === localUser?.orders[0])
-     
-       if (buscarPedido?._id) {
-         if (buscarPedido?.salads === [] && buscarPedido?.beverages === [] && buscarPedido?.desserts === []) {
-           const ensladaMenuMediana = buscarMedianasM ? buscarMedianasM?.map(e => e._id): []
-           const ensladaMenuGrande = buscarGrandesM ? buscarGrandesM?.map(e => e._id): []
-           const bebidasMenus = buscarBebidasM ? buscarBebidasM?.map(e => e._id): []
-           const postreMenus = buscarPostresM ? buscarPostresM?.map(e => e._id): []
-           const data = {
-             user:localUser.id,
-             saladsMenu: ensladaMenuMediana,
-             saladsMenuBig: ensladaMenuGrande,
-             saladsMed: [],
-             saladsBig: [],
-             beverages: bebidasMenus,
-             desserts: postreMenus,
-             totalPayable: 0,
-             delievery: true,
-             adress: localUser?.adress ? localUser?.adress : ''
-           }
-           console.log(data)
+    const buscarMedianasM = JSON.parse(localStorage.getItem('medianas'))
+    const buscarGrandesM = JSON.parse(localStorage.getItem('grandes'))
+    const buscarBebidasM = JSON.parse(localStorage.getItem('bebidas'))
+    const buscarPostresM = JSON.parse(localStorage.getItem('postres'))
+    const localUser = JSON.parse(localStorage.getItem('loguearUsuario'))
+    const buscarPedido = pedido?.filter(e => e._id === localUser?.orders[0])
+
+    if (buscarPedido?._id) {
+      if (buscarPedido?.salads === [] && buscarPedido?.beverages === [] && buscarPedido?.desserts === []) {
+        const ensladaMenuMediana = buscarMedianasM ? buscarMedianasM?.map(e => e._id) : []
+        const ensladaMenuGrande = buscarGrandesM ? buscarGrandesM?.map(e => e._id) : []
+        const bebidasMenus = buscarBebidasM ? buscarBebidasM?.map(e => e._id) : []
+        const postreMenus = buscarPostresM ? buscarPostresM?.map(e => e._id) : []
+        const data = {
+          user: localUser.id,
+          saladsMenu: ensladaMenuMediana,
+          saladsMenuBig: ensladaMenuGrande,
+          saladsMed: [],
+          saladsBig: [],
+          beverages: bebidasMenus,
+          desserts: postreMenus,
+          totalPayable: 0,
+          delievery: true,
+          adress: localUser?.adress ? localUser?.adress : ''
+        }
+        console.log(data)
            /* const reas = await */ dispatch(putPedidocargarPedido(data))
-           
-       }else{
+
+      } else {
         localStorage.getItem('loguearUsuario')
-       }
-     }else{
+      }
+    } else {
       localStorage.getItem('loguearUsuario')
-     }
-   }
+    }
+  }
 
   // agregar cal carrito
   const agregar = (e) => {
@@ -101,9 +103,9 @@ export default function QuantityEdit() {
     const filtroBig = buscarBig?.find(a => a._id === e.target.value)
     const filtroBebida = buscarBebidas?.find(a => a._id === e.target.value)
     const filtropostre = buscarPostres?.find(a => a._id === e.target.value)
-    const filtroEnsaladaM = buscarEnsaladaM?.find(a => a._id === e.target.value )
-    const filtroEnsaladaG = buscarEnsaladaG?.find(a => a._id === e.target.value )
-    
+    const filtroEnsaladaM = buscarEnsaladaM?.find(a => a._id === e.target.value)
+    const filtroEnsaladaG = buscarEnsaladaG?.find(a => a._id === e.target.value)
+
     if (filtroMed) {
       const agregar = buscarMed?.push(filtroMed)
       console.log(agregar)
@@ -124,12 +126,12 @@ export default function QuantityEdit() {
       console.log(agregar)
       localStorage.setItem('postres', JSON.stringify(buscarPostres))
       window.location.reload(false)
-    }else if(filtroEnsaladaM){
+    } else if (filtroEnsaladaM) {
       const agregar = buscarEnsaladaM?.push(filtroEnsaladaM)
       console.log(agregar)
       localStorage.setItem('ensaladaM', JSON.stringify(buscarEnsaladaM))
       window.location.reload(false)
-    }else if(filtroEnsaladaG){
+    } else if (filtroEnsaladaG) {
       const agregar = buscarEnsaladaG?.push(filtroEnsaladaG)
       console.log(agregar)
       localStorage.setItem('ensaladaG', JSON.stringify(buscarEnsaladaG))
@@ -146,15 +148,15 @@ export default function QuantityEdit() {
     const buscarPostres = JSON.parse(localStorage.getItem('postres'))
     const buscarEnsaladaM = JSON.parse(localStorage.getItem('ensaladaM'))
     const buscarEnsaladaG = JSON.parse(localStorage.getItem('ensaladaG'))
-    
+
 
     const filtroMed = buscarMed?.find(a => a._id === e.target.value)
     const filtroBig = buscarBig?.find(a => a._id === e.target.value)
     const filtroBebida = buscarBebidas?.find(a => a._id === e.target.value)
     const filtropostre = buscarPostres?.find(a => a._id === e.target.value)
-    const filtroEnsaladaM = buscarEnsaladaM?.find(a => a._id === e.target.value )
-    const filtroEnsaladaG = buscarEnsaladaG?.find(a => a._id === e.target.value )
-    
+    const filtroEnsaladaM = buscarEnsaladaM?.find(a => a._id === e.target.value)
+    const filtroEnsaladaG = buscarEnsaladaG?.find(a => a._id === e.target.value)
+
     if (filtroMed) {
       const borrar = buscarMed?.splice(buscarMed?.indexOf(filtroMed), 1)
       console.log(borrar)
@@ -175,12 +177,12 @@ export default function QuantityEdit() {
       console.log(borrar)
       localStorage.setItem('postres', JSON.stringify(buscarPostres))
       window.location.reload(false)
-    }else if(filtroEnsaladaM){
+    } else if (filtroEnsaladaM) {
       const borrar = buscarEnsaladaM?.splice(buscarEnsaladaM?.indexOf(filtroEnsaladaM), 1)
       console.log(borrar)
       localStorage.setItem('ensaladaM', JSON.stringify(buscarEnsaladaM))
       window.location.reload(false)
-    }else if(filtroEnsaladaG){
+    } else if (filtroEnsaladaG) {
       const borrar = buscarEnsaladaG?.splice(buscarEnsaladaG?.indexOf(filtroEnsaladaG), 1)
       console.log(borrar)
       localStorage.setItem('ensaladaG', JSON.stringify(buscarEnsaladaG))
@@ -197,7 +199,7 @@ export default function QuantityEdit() {
       const usuario = JSON.parse(localStorage.getItem('loguearUsuario'))
       setUser(usuario)
       dispatch(getPedidos())
-      
+
     }
   }, [dispatch])
 
@@ -218,6 +220,15 @@ export default function QuantityEdit() {
   const removeDelCarrito = (e) => {
     dispatch(eliminarDelCarrito({ id: resultado?._id, _id: e.target.value }))
     window.location.reload(false)
+    /* console.log(e.target.value)
+    console.log(armadoCarrito?.producto?.filter(e => e._id ) === toString(e.target.value)).length )
+    if(resultado?.salads?.filter(e => e._id == e.target.value) .length > 1 ){
+      dispatch(eliminarDelCarrito({ id: resultado?._id, _id: e.target.value }))
+      window.location.reload(false)
+    }else{
+      alert('no puede borrar todo el carrito')
+    } */
+
   }
 
   let productosMapInicio = armadoCarrito?.producto?.map(item => {
@@ -226,13 +237,13 @@ export default function QuantityEdit() {
   let productosMapArrInicio = new Map(productosMapInicio)
   let unicosInicio = [...productosMapArrInicio.values()]
 
-  
 
-  let todosLosProductos = [beb,post,med,gran,ensaladaMediana,ensaladaGrande].flat()
-  let productosReales = todosLosProductos.filter(e=>e!==undefined&&e!==null)
+
+  let todosLosProductos = [beb, post, med, gran, ensaladaMediana, ensaladaGrande].flat()
+  let productosReales = todosLosProductos.filter(e => e !== undefined && e !== null)
   let total = productosReales?.map(e => e?.price)
   let suma = total?.reduce((e, i) => e + i, 0)
-  
+
 
   let productosMap = productosReales.map(item => {
     return [item._id, item]
@@ -240,23 +251,38 @@ export default function QuantityEdit() {
   let productosMapArr = new Map(productosMap)
   let unicos = [...productosMapArr.values()]
 
-  /* const borrarDelCarrito = (value)=>{
-    if(resultado?.beverages?.filter(a=> a._id === value)){
-      resultado = resultado?.beverages?.filter(a=> a._id !== value)
-    }else if(resultado?.salads?.filter(a=> a._id === value)){
-      resultado?.salads?.filter(a=> a._id !== value)
-    }else if(resultado?.salads?.filter(a=> a._id === value)){
-      resultado?.salads?.filter(a=> a._id !== value)
+  /* const borrarDelCarrito = (e)=>{
+    console.log(e.target.value)
+    console.log(resultado?.beverages?.find(a=> a._id === e.target.value))
+    if(resultado?.beverages?.find(a=> a._id === e.target.value)){
+      resultado = resultado?.beverages?.find(a=> a._id !== e.target.value)
+      console.log(resultado)
+    }else if(resultado?.salads?.find(a=> a._id === e.target.value)){
+      resultado?.salads?.find(a=> a._id !== e.target.value)
+    }else if(resultado?.desserts?.find(a=> a._id === e.target.value)){
+      resultado?.desserts?.find(a=> a._id !== e.target.value)
     }
   } */
 
+  const [envio, setEnvio] = useState(true)
+
+
+  const handleClick = (e) => {
+    setEnvio(e.target.value)
+    console.log(envio)
+  }
+
+  const direction = new Set(user?.adress)
+  console.log(direction)
+  const totales= [...direction]
+  console.log(totales)
   return (
     <div>
-      <NavBar/>
+      <NavBar />
       {user ? /* user?.orders[0] ? */ (
-      
+
         <section className="h-100 h-custom" style={{ backgroundColor: "#94D2DE", paddingTop: "100px" }}>
-          {productosReales?.salads === [] && productosReales?.beverages === [] && productosReales?.desserts === [] ? crearOrders(): <></>}
+          {productosReales?.salads === [] && productosReales?.beverages === [] && productosReales?.desserts === [] ? crearOrders() : <></>}
           <MDBContainer className="py-5 h-100" style={{ backgroundColor: "#94D2DE" }}>
             <MDBRow className="justify-content-center align-items-center h-100">
               <MDBCol size="12" style={{ backgroundColor: "#207140", paddingTop: "12px", paddingBottom: "12px" }}>
@@ -288,10 +314,10 @@ export default function QuantityEdit() {
                                   </MDBTypography>
                                 </MDBCol>
                                 <MDBCol md="3" lg="3" xl="3" className="d-flex align-items-center">
-                                  <button onClick={(e) => removeDelCarrito(e)} value={e._id} style={{ border: 'none',  color: '#fff', fontWeight: "bolder", backgroundColor: 'red', fontSize: 'larger', width: '2rem', marginRight: '0.5rem'}}>
+                                  <button onClick={(e) => removeDelCarrito(e)} value={e._id} style={{ border: 'none', color: '#fff', fontWeight: "bolder", backgroundColor: 'red', fontSize: 'larger', width: '2rem', marginRight: '0.5rem' }}>
                                     -
                                   </button>
-                                  <p style={{marginLeft:'10%', marginRight:'10%',marginTop:'10%'}}>{armadoCarrito?.producto?.filter(d => d._id === e._id).length} </p>
+                                  <p style={{ marginLeft: '10%', marginRight: '10%', marginTop: '10%' }}>{armadoCarrito?.producto?.filter(d => d._id === e._id).length} </p>
                                   <button onClick={(e) => agregarAlpedido(e)} value={e._id} style={{ border: 'none', color: '#fff', backgroundColor: 'green', width: '2rem', marginLeft: '0.5rem', fontSize: 'larger' }}>
                                     +
                                   </button>
@@ -303,7 +329,7 @@ export default function QuantityEdit() {
                                 </MDBCol>
                                 <MDBCol md="3" lg="2" xl="2" className="text-end">
                                   <MDBTypography tag="h6" className="mb-0">
-                                    <button class="buttonChico" value={e._id} /* onClick={borrarDelCarrito(e._id) */>X</button>
+                                    <button class="buttonChico" value={e._id} /* onClick={borrarDelCarrito} */>X</button>
                                   </MDBTypography>
                                 </MDBCol>
                                 <MDBCol md="2" lg="1" xl="1" className="text-end">
@@ -318,9 +344,9 @@ export default function QuantityEdit() {
                           }
                           <hr className="my-4" />
                           <div className="pt-5">
-                          <Link id="butonCarrouselMain" to="/menu">
-                            <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"> Volver a la tienda</i>
-                          </Link>
+                            <Link id="butonCarrouselMain" to="/menu">
+                              <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"> Volver a la tienda</i>
+                            </Link>
                           </div>
                         </div>
                       </MDBCol>
@@ -340,14 +366,56 @@ export default function QuantityEdit() {
                             ENVÍO
                           </MDBTypography>
                           <div className="mb-4 pb-2">
-                            <MDBInput size="lg" defaultValue={user?.adress ? user?.adress : ''} placeholder={user?.adress} />
+                            <spam style={{ fontSize: '1.7em' }}>Delivery</spam>
+
+                            <label class="toggleSwitch nolabel" onclick="">
+                              <span>
+                                {envio === true ?
+                                  <div>
+                                    <input onClick={handleClick} value={false} style={{ width: '1em' }} type="checkbox" />
+                                    <span style={{ marginLeft: '0.2rem', fontSize: '1.5em' }}>no</span>
+                                  </div> : envio === false ?
+                                  <div>
+                                    <input onClick={handleClick} value={true} style={{ width: '1em' }} type="checkbox" />
+                                    <span style={{ marginLeft: '0.2rem', fontSize: '1.5em' }}>si</span>
+                                  </div> : envio === true
+                                }
+
+                              </span>
+                            </label>
+                            {envio === true ?
+                              <div>
+                                <select name="Direccion" >
+                                  <option>Selecciona</option>
+                                  {totales?.map(e => {
+                                    return (
+                                      <option>{e}</option>
+                                    )
+                                  })}
+                                </select>
+                                <MDBInput size="lg" defaultValue={user?.adress ? user?.adress[0] : ''} placeholder='Ingresar Direccion' />
+                                <MDBTypography tag="h5" className="text-uppercase mb-3">
+                                  Comentarios
+                                </MDBTypography>
+                                <div className="mb-5">
+                                  <MDBInput size="lg" />
+                                </div>
+                              </div> :
+                              <div>
+                                <MDBTypography tag="h5" className="text-uppercase mb-3">
+                                  Comentarios
+                                </MDBTypography>
+                                <div className="mb-5">
+                                  <MDBInput size="lg" />
+                                </div></div>
+                            }
                           </div>
-                          <MDBTypography tag="h5" className="text-uppercase mb-3">
+                          {/* <MDBTypography tag="h5" className="text-uppercase mb-3">
                             Comentarios
                           </MDBTypography>
                           <div className="mb-5">
                             <MDBInput size="lg" />
-                          </div>
+                          </div> */}
                           <hr className="my-4" />
                           <div className="d-flex justify-content-between mb-5">
                             <MDBTypography tag="h5" className="text-uppercase">
@@ -408,9 +476,9 @@ export default function QuantityEdit() {
                                     <button onClick={(e) => remove(e)} value={e._id} style={{ border: 'none', color: '#fff', fontWeight: "bolder", backgroundColor: 'red', fontSize: 'larger', width: '2rem', marginRight: '0.5rem' }}>
                                       -
                                     </button>
-                                    <p style={{marginLeft:'10%', marginRight:'10%',marginTop:'10%'}}>{productosReales.filter(d => d._id === e._id).length}</p>
+                                    <p style={{ marginLeft: '10%', marginRight: '10%', marginTop: '10%' }}>{productosReales.filter(d => d._id === e._id).length}</p>
                                     <button onClick={(e) => agregar(e)} value={e._id} style={{ border: 'none', color: '#fff', backgroundColor: 'green', width: '2rem', marginLeft: '0.5rem', fontSize: 'larger' }}>
-                                      + 
+                                      +
                                     </button>
                                   </MDBCol>
                                   <MDBCol md="3" lg="2" xl="2" className="text-end">
@@ -430,9 +498,9 @@ export default function QuantityEdit() {
                             }
                             <hr className="my-4" />
                             <div className="pt-5">
-                            <Link id="butonCarrouselMain" to="/menu">
+                              <Link id="butonCarrouselMain" to="/menu">
                                 <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"> Volver a la tienda</i>
-                            </Link>
+                              </Link>
                             </div>
                           </div>
                         </MDBCol>
@@ -463,7 +531,7 @@ export default function QuantityEdit() {
                               Comentarios
                             </MDBTypography> */}
                             <div className="mb-5">
-                              <h5 size="lg">Para poder realizar tu compra inicia sesion.</h5> 
+                              <h5 size="lg">Para poder realizar tu compra inicia sesion.</h5>
                             </div>
                             <hr className="my-4" />
                             <div className="d-flex justify-content-between mb-5">

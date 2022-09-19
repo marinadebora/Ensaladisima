@@ -20,8 +20,15 @@ const getHistorial= async (req,res)=>{
         }).populate({
             path:"orders",
             populate:{path:"desserts"}
+        }).populate('user',{
+            password:0,
+            orders:0,
+            purchaseHistory:0,
+            __v:0,
+            admin:0,
+            activo:0
         });
-        console.log(buscar.map(e => e.orders?._id))
+        
         /* const suma = buscar?.map( e=>{
             return {
                 _id: e._id,

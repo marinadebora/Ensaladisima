@@ -49,13 +49,14 @@ export default function AdminUsuarioId() {
                     : <h1>Cargando</h1>
 
                  }
-                    <button onClick={handleSubmitActivo}>Activo Si/No</button>
-                    <button onClick={handleSubmitAdmin}>Admin Si/No</button>
-                
-                
+            
                 <Link id="butonCarrouselMain" to="/admin_usuarios">
                     <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"> Volver</i>
                 </Link>
+                <div id="containerActive">
+                <button onClick={handleSubmitActivo}>Activo Si/No</button>
+                <button onClick={handleSubmitAdmin}>Admin Si/No</button>
+                </div>
               
 
         </div>
