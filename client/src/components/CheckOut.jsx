@@ -217,7 +217,16 @@ export default function QuantityEdit() {
 
   const removeDelCarrito = (e) => {
     dispatch(eliminarDelCarrito({ id: resultado?._id, _id: e.target.value }))
-    window.location.reload(false)
+      window.location.reload(false)
+    /* console.log(e.target.value)
+    console.log(armadoCarrito?.producto?.filter(e => e._id ) === toString(e.target.value)).length )
+    if(resultado?.salads?.filter(e => e._id == e.target.value) .length > 1 ){
+      dispatch(eliminarDelCarrito({ id: resultado?._id, _id: e.target.value }))
+      window.location.reload(false)
+    }else{
+      alert('no puede borrar todo el carrito')
+    } */
+    
   }
 
   let productosMapInicio = armadoCarrito?.producto?.map(item => {
@@ -240,15 +249,18 @@ export default function QuantityEdit() {
   let productosMapArr = new Map(productosMap)
   let unicos = [...productosMapArr.values()]
 
-  /* const borrarDelCarrito = (value)=>{
-    if(resultado?.beverages?.filter(a=> a._id === value)){
-      resultado = resultado?.beverages?.filter(a=> a._id !== value)
-    }else if(resultado?.salads?.filter(a=> a._id === value)){
-      resultado?.salads?.filter(a=> a._id !== value)
-    }else if(resultado?.salads?.filter(a=> a._id === value)){
-      resultado?.salads?.filter(a=> a._id !== value)
+  const borrarDelCarrito = (e)=>{
+    console.log(e.target.value)
+    console.log(resultado?.beverages?.find(a=> a._id === e.target.value))
+    if(resultado?.beverages?.find(a=> a._id === e.target.value)){
+      resultado = resultado?.beverages?.find(a=> a._id !== e.target.value)
+      console.log(resultado)
+    }else if(resultado?.salads?.find(a=> a._id === e.target.value)){
+      resultado?.salads?.find(a=> a._id !== e.target.value)
+    }else if(resultado?.desserts?.find(a=> a._id === e.target.value)){
+      resultado?.desserts?.find(a=> a._id !== e.target.value)
     }
-  } */
+  }
 
   return (
     <div>
@@ -303,7 +315,7 @@ export default function QuantityEdit() {
                                 </MDBCol>
                                 <MDBCol md="3" lg="2" xl="2" className="text-end">
                                   <MDBTypography tag="h6" className="mb-0">
-                                    <button class="buttonChico" value={e._id} /* onClick={borrarDelCarrito(e._id) */>X</button>
+                                    <button class="buttonChico" value={e._id} /* onClick={borrarDelCarrito} */>X</button>
                                   </MDBTypography>
                                 </MDBCol>
                                 <MDBCol md="2" lg="1" xl="1" className="text-end">

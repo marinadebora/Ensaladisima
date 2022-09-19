@@ -55,15 +55,22 @@ const NavBar = () => {
   }
   const logeado = ()=>{
     return (
-                <div style={{display : "flex", flexdirection: "row" }}>
-                  <Link to="/profile" class="nav-link-Main">
-                      <i class="bi bi-person-circle"></i>  </Link>
-                
-                  <Link to="/profile" class="nav-link-Main"><p>Hola {user.firstName}</p></Link>
-                  <button class="buttonCloseSesion" onClick={logOut}> Cerrar sesión</button>
-                </div> 
-        
-      )
+      <div>
+        {user?.admin === true ? <div style={{ display: "flex", flexdirection: "row" }}>
+          <Link to="/admin_productos" class="nav-link-Main"><p>Admin</p></Link>
+          <Link to="/profile" class="nav-link-Main">
+            <i class="bi bi-person-circle"></i></Link>
+          <Link to="/profile" class="nav-link-Main"><p>Hola {user.firstName}</p></Link>
+          <button class="buttonCloseSesion" onClick={logOut}> Cerrar sesión</button>
+        </div> : <div style={{ display: "flex", flexdirection: "row" }}>
+          <Link to="/profile" class="nav-link-Main">
+            <i class="bi bi-person-circle"></i></Link>
+          <Link to="/profile" class="nav-link-Main"><p>Hola {user.firstName}</p></Link>
+          <button class="buttonCloseSesion" onClick={logOut}> Cerrar sesión</button>
+        </div>}
+      </div>
+
+    )
   }
 
   const noLogeado=()=>{
