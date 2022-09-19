@@ -26,8 +26,6 @@ import { usuariosId } from './action';
 import { ErrorAdmin } from './components/ErrorAdmin';
 
 import AdminUsuariosDetail from './components/AdminUsuariosDetail';
-import { Review } from './components/Review';
-import { VerReview } from './components/VerReview';
 import HistorialDelUsuario from './components/HistorialDelUsuario';
 import DetalleHistorial from './components/DetalleHistorial';
 import { HistorialCompras } from './components/HistorialCompra';
