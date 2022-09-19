@@ -1,35 +1,63 @@
-
+@font-face {
+	font-family: Tommy-regular;
+	src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+	font-family: Tommy-bold;
+	src: url(../fonts//made_tommy/MADE\ TOMMY\ Bold_PERSONAL\ USE.ttf);
+ }
+ @font-face {
+	font-family: Tommy-outline;
+	src: url(../fonts//made_tommy/MADE\ TOMMY\ Bold\ Outline_PERSONAL\ USE.ttf);
+ }
 
   .contenedorReview {
-	width: 45rem;
-	height: 12rem;
-	margin: 3.1rem auto;
-	padding: 1.25rem;
-	background: #fff;
+	width: 40rem;
+	height: 15rem;
+	margin: 1rem;
+	padding-top: 0.5rem;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	border: 4px solid white;
+	background: #FFF2DB;
 	overflow: auto;
-	font-family: 'Open Sans';
 	border-radius: 0.25rem;
+	
 }
 
-.contenedorReview h1 {
-	font-size: 2.3rem;
-	font-weight: 600;
+.contenedorReview h3 {
+	font-family: Tommy-bold;
+	font-size: 1.2rem;
 	color: #000;
+	margin-bottom: 0px;
+	padding-top: 0.3rem;
 }
 
+.estrellas{
+	list-style: none;
+	color: #F18D1D;
+	
+}
 .contenedorReview hr {
 	background: #ff9d00;
 	width: 20%;
 	height: 0.3rem;
 	border: none;
-	margin: 1.25rem 0;
+	margin: 1rem 0;
 	border-radius: 3.12rem;
 }
 
+#contenedorReview1{
+	border: 2px solid #ff9d00;
+	overflow: hidden;
+	border-radius: 5rem;
+	padding-left: 2rem;
+	margin-bottom: 0.5rem;
+}
+
 .pReview {
-	margin-bottom: 1.25rem;
-	line-height: 1.75rem;
+	margin-bottom: 0.3rem;
+	line-height: 1rem;
 	font-size: 1rem;
+	font-family: Tommy-light;
 	color: #414141;
 }
 

@@ -638,16 +638,6 @@ export function putPedidocargarPedido(value) {
 
 }
 
-export function getUsuarioId(id) {
-	return async function (dispatch) {
-		const userId = await axios.put(`/usuario/${id}`)
-		console.log(userId)
-		return dispatch({
-			type: 'GET_USUARIO_ID',
-			payload: userId.data
-		})
-	}
-}
 
 //ruta Put para buscar el mail de un usuario
 export const getMailUsuario = (input) => async (dispatch) => {
@@ -734,10 +724,126 @@ export const putAdmin=(_id,payload)=>async (dispatch)=>{
 	}
 }
 //ruta para banear al usuario
-export const putActivo=(_id,payload)=>async (dispatch)=>{
+export const putActivo=(_id)=>async (dispatch)=>{
 	try {
 		if(_id){
-			const editar= await axios.put(`/userActivo/${_id}`,payload);
+			const editar= await axios.put(`/userActivo/${_id}`);
+			return dispatch({
+				type:"PUT_ACTIVO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+//rutas para borrado logico
+export const putActivoBase=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/basesActivo/${_id}`);
+			return dispatch({
+				type:"PUT_ACTIVO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+export const putActivoMenu=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/menusActivo/${_id}`);
+			return dispatch({
+				type:"PUT_ACTIVO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+
+export const putActivoMenuB=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/menubigActivo/${_id}`);
+			return dispatch({
+				type:"PUT_ACTIVO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+
+export const putActivoProteina=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/proteinsActivo/${_id}`);
+			return dispatch({
+				type:"PUT_ACTIVO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+
+export const putActivoComplementos=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/complementsActivo/${_id}`);
+			return dispatch({
+				type:"PUT_ACTIVO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+
+export const putActivoSalsas=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/salsasActivo/${_id}`);
+			return dispatch({
+				type:"PUT_ACTIVO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+
+export const putActivoToppings=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/toppingsActivo/${_id}`);
+			return dispatch({
+				type:"PUT_ACTIVO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+
+export const putActivoPostres=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/postresActivo/${_id}`);
+			return dispatch({
+				type:"PUT_ACTIVO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+
+export const putActivoBebidas=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/bebidasActivo/${_id}`);
 			return dispatch({
 				type:"PUT_ACTIVO",payload:editar.data
 			})
@@ -752,12 +858,13 @@ export function reviewCreada( payload){
 	return async function(dispatch){
 		try {									
 			const comentario = await axios.post(`/reviewCreada`,payload)
+			console.log(comentario)
 			return dispatch({
 				type:'EDITAR_COMENTARIOS',
 				payload:comentario
 			})
 		} catch (error) {
-			console.log(error)
+			console.log(error.message)
 		}
 	} 
 } 
@@ -775,14 +882,25 @@ export function getReview() {
 	}
 }
 
-
+export const putActivoReview=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/reviewActivo/${_id}`);
+			return dispatch({
+				type:"PUT_ACTIVO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
 
 //ruta de historial de compra
 export function historialCompra(){
 	return async function(dispatch){
 		try{
 
-			const histComp= await axios(`/historias`)
+			const histComp= await axios(`/historial`)
 			
 			return dispatch({
 				type:'HISTORIAL_COMPRA',
@@ -793,6 +911,19 @@ export function historialCompra(){
 console.log(error)
 		}
 	}
+}
+export const historialId=(_id)=>async(dispatch)=>{
+try {
+	const buscar= await axios(`/historials/${_id}`)
+	if(_id){
+		return dispatch({
+		type:"HISTORIAL_ID",payload:buscar.data
+	})
+	}
+	
+} catch (error) {
+	console.error(error)
+}
 }
 
 export function saladMediana(payload) {

@@ -29,7 +29,7 @@ export function PideTuEnsalada()
     let salsa = JSON.parse(localStorage.getItem('salsa'))
     let topping = JSON.parse(localStorage.getItem('topping'))
 
-    if (base && complement) {
+    if (base && proteinas) {
 
       if (!user) {
 
@@ -81,7 +81,7 @@ export function PideTuEnsalada()
       Swal.fire({
         icon: 'error',
         title: '😫',
-        text: 'Sin base ni complemento no tienes 🥗',
+        text: 'Sin base ni proteina no tienes 🥗',
       })
     }
 
@@ -97,7 +97,7 @@ export function PideTuEnsalada()
     let topping = JSON.parse(localStorage.getItem('topping'))
     let user = JSON.parse(localStorage.getItem('loguearUsuario'))
 
-    if (base && complement) {
+    if (base && proteinas) {
 
       if (!user) {
         let ensalada = {
@@ -150,7 +150,7 @@ export function PideTuEnsalada()
       Swal.fire({
         icon: 'error',
         title: '😫',
-        text: 'Sin base ni complemento no tienes 🥗',
+        text: 'Sin base ni Proteina no tienes 🥗',
       })
     }
 

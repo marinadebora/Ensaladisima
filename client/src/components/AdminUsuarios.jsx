@@ -6,6 +6,7 @@ import CardUsuarios from './CardUsuario';
 import { useDispatch, useSelector } from 'react-redux';
 import { usuariosRegistrados } from '../action';
 import { searchBar } from "../action"
+import NavBar from "./NavBar";
 
 
 const Admin_clientes = () => {
@@ -112,6 +113,7 @@ const Admin_clientes = () => {
 
     return (
         <div id="container">
+            <NavBar/>
 
             <div class="row">
 
@@ -156,9 +158,10 @@ const Admin_clientes = () => {
                         <div class="col-7" id="adminTittle">ADMIN</div>
                     
                     </div>
+                                <Link to="/menu"><button>Volver</button></Link>
 
                     <h2 id="titleUsuariosRegistrados"> Usuarios Registrados</h2>
-
+                    
                     {
                         
                         usuarioss?

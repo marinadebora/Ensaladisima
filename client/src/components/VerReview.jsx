@@ -14,11 +14,12 @@ dispatch(getReview())
   return(
     
   <div className="contenedorReview">
-    
+      
     {
+      
       comentarios?.map(e=>(
-        <div>
-        <h4 >{e.firstName} {e.lastName}  </h4>
+        <div id="contenedorReview1">
+        <h3 >{e.firstName} {e.lastName}  </h3>
         {
           e?.estrellas=== 1?<li className="estrellas">★</li>:e?.estrellas=== 2
           ?<li className="estrellas">★★</li>:e?.estrellas=== 3
@@ -26,7 +27,7 @@ dispatch(getReview())
           ?<li className="estrellas">★★★★</li>:e?.estrellas=== 5
           &&<li className="estrellas">★★★★★</li>
         }
-        <p className="pReview">{e.comentarios}</p>.
+        <p className="pReview">{e.comentarios}</p>
         </div>
       ))
     }

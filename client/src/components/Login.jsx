@@ -77,12 +77,12 @@ function validate(loginUser){
     
     useEffect( () => {
       
-      global.google.accounts.id.initialize({
+      global.google?.accounts.id.initialize({
         client_id: "957119588043-ig515qgobf821lomcuofvpa0mj90ugf0.apps.googleusercontent.com"||"585193864937-33pidddgujvakqmkvulpsvf8t3fhar18.apps.googleusercontent.com",
         callback: handleCallbackResponse
               })
 
-      global.google.accounts.id.renderButton(
+      global.google?.accounts.id.renderButton(
         document.getElementById("signInDiv"),
         {theme: "outline", size:"large"}
       )

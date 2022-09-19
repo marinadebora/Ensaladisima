@@ -24,10 +24,13 @@ const initialState = {
   totalM:[],
   allUsuarios: {},
   detail: [],
+  historialDetail:{},
+  ensBLS:[]
 }
 
 
 function rootReducer(state = initialState, action) {
+    
   switch (action.type) {
     case "USUARIOS":
       return {
@@ -167,11 +170,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state
       }
-    case 'GET_USUARIO_ID':
-      return {
-        ...state,
-        userId: action.payload
-      }
+    
     case "BUSCAR_USUARIO":
       return {
         ...state,
@@ -205,6 +204,7 @@ function rootReducer(state = initialState, action) {
 
       }
     case 'HISTORIAL_COMPRA':
+      //console.log(state.historial)
       return {
         ...state,
         historial: action.payload,
@@ -227,6 +227,11 @@ function rootReducer(state = initialState, action) {
           grande:action.payload,
           totalG:[...ensaladaGrande,action.payload]
         }
+        case "HISTORIAL_ID":
+          return{
+            ...state,
+            historialDetail:action.payload
+          }
     default:
       return {
         state

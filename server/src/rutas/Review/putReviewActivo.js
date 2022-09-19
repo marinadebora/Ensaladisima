@@ -1,5 +1,5 @@
 
-const Reviews = require("../../modelos/reviews");
+const Reviews = require("../../modelos/Review");
 
 
 

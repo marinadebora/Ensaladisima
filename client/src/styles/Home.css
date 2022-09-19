@@ -207,4 +207,38 @@
 }
 
 
+#EquipoContent{
+   display: flex;
+   justify-content: center;
+   background-color: #94D2DE;
+   width: 50px;
+   cursor: pointer;
+ }
+
+ #Equipo{
+   display: flex;
+   justify-content: center;
+   background-color:  #94D2DE;
+   align-items: center;
+   border-radius: 100px;
+   border: 3px solid black;
+   width: 70px;
+   height: 70px;
+   margin: 1%;
+   
+   
+ }
+
+
+ #nosotros{
+   font-family: Tommy-light;
+   font-size: 50px;
+   color: #207140;
+   background-color:  #94D2DE;
+   margin: 0px;
+   padding-top: 1%;
+   display: flex;
+   justify-content: center;
+ }
+
 

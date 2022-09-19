@@ -281,6 +281,7 @@ const Menu = () => {
             image={e.image}
             name={e.name}
             price={e.price}
+            stock={e.stock}
             select={()=>select(!user ? e.name:{usuario:user?.email, bebidas:e.name})}
             />
             ))
@@ -302,6 +303,7 @@ const Menu = () => {
               image={e.image}
               name={e.name}
               price={e.price}
+              stock={e.stock}
               select={()=>select(!user?e.name:{usuario:user?.email,postres:e.name})}
               />
             ))

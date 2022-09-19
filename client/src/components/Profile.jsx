@@ -3,7 +3,8 @@ import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCar
 import loginLogo from "../images/loginLogo.png";
 import axios from 'axios';
 import { useLocalStorage } from '../useLocalStorage';
-import "../styles/Profile.css"
+import "../styles/Profile.css";
+import NavBar from './NavBar';
 
 export default function PersonalProfile() {
   const user = JSON.parse(localStorage.getItem('usuarioLogueado'))
@@ -103,6 +104,7 @@ function editar(){
   }
   return (
     <div >
+      <NavBar/>
     {
       !user?
       sesion():
