@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { putActivo, putAdmin, usuariosId } from "../action";
 import CardUsuariosId from "./CardUsuarioId";
+// import HistorialDelUsuario from "./HistorialDelUsuario";
 
 
 
@@ -11,21 +12,21 @@ export default function AdminUsuarioId() {
     const dispatch = useDispatch();
     const { detail } = useSelector(state => state);
     let { id } = useParams();
-    
-    
+   
     useEffect(() => {
         dispatch(usuariosId(id));
     }, [dispatch, id]);
+    // console.log(detail?.purchaseHistory[0].facheyhora) 
     
     // console.log(detail.activo)
     function handleSubmitActivo(){
-            dispatch(putActivo(id))
+        dispatch(putActivo(id))
         alert("Activo editado")
     }
     function handleSubmitAdmin(){
         dispatch(putAdmin(id))
-    alert("Admin editado")
-}
+        alert("Admin editado")
+    }
     return (
         
         <div>
@@ -34,6 +35,7 @@ export default function AdminUsuarioId() {
                 detail ?
                 (
                     <div>
+                       { console.log(detail)}
                             <CardUsuariosId
                                 firstName={detail.firstName}
                                 lastName={detail.lastName}
@@ -43,7 +45,8 @@ export default function AdminUsuarioId() {
                                 admin={detail.admin}
                                 activo={detail.activo}
                                 id={detail._id}
-                            />
+                                purchaseHistory={detail.purchaseHistory[1]}
+                                />
                         </div>
                     )
                     : <h1>Cargando</h1>

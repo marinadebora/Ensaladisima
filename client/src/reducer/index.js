@@ -24,6 +24,7 @@ const initialState = {
   totalM:[],
   allUsuarios: {},
   detail: [],
+  historialDetail:{},
   ensBLS:[]
 }
 
@@ -226,8 +227,11 @@ function rootReducer(state = initialState, action) {
           grande:action.payload,
           totalG:[...ensaladaGrande,action.payload]
         }
-
-       
+        case "HISTORIAL_ID":
+          return{
+            ...state,
+            historialDetail:action.payload
+          }
     default:
       return {
         state

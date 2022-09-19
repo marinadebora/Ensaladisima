@@ -6,8 +6,7 @@ import BaseEdit, { BebidasEdit, ComplemetoEdit, MenuEdit, PostresEdit, ProteinaE
 import '../styles/CrearProducto.css';
 import axios from "axios";
 
-function validate(input)
-{
+function validate(input) {
 	let errors = {}
 	if (!input.name) errors.name = "Campo Obligatorio"
 	// if (!(/^[a-zA-Z-\s]+$/).test(input.name)) errors.name = "No puede contener numeros ni caracteres especiales"
@@ -16,16 +15,14 @@ function validate(input)
 	if (!input.stock) errors.stock = "Campo Obligatorio"
 	return errors
 }
-function validateIngredientes(ingredientes)
-{
+function validateIngredientes(ingredientes) {
 	let errorsIngredientes = {}
 	if (!ingredientes.name) errorsIngredientes.name = "Campo Obligatorio"
 	// if (!(/^[a-zA-Z-\s]+$/).test(input.name)) errors.name = "No puede contener numeros ni caracteres especiales"
 	if (!ingredientes.image) errorsIngredientes.image = "Campo Obligatorio"
 	return errorsIngredientes
 }
-function validateMenu(menu)
-{
+function validateMenu(menu) {
 	let errorsMenu = {}
 	if (!menu.name) errorsMenu.name = "Campo Obligatorio"
 	if (!menu.image) errorsMenu.image = "Campo Obligatorio"
@@ -39,8 +36,7 @@ function validateMenu(menu)
 }
 
 
-export default function CrearProduto()
-{
+export default function CrearProduto() {
 	const dispatch = useDispatch()
 	// const navigate = useNavigate()
 	const seleccionar = ["base", "complemento", "proteina", "topping", "salsas", "postre", "bebidas", "menu"];
@@ -68,8 +64,7 @@ export default function CrearProduto()
 	const [errorsMenu, setErrorsMenu] = useState({})
 	const [errors, setErrors] = useState({})
 	const [errorsIngredientes, setErrorsIngredientes] = useState({})
-	function handleChange(e)
-	{
+	function handleChange(e) {
 		setInput({
 			...input,
 			[e.target.name]: e.target.value,
@@ -80,8 +75,7 @@ export default function CrearProduto()
 			[e.target.name]: e.target.value
 		}))
 	}
-	function handleChangeIngredientes(e)
-	{
+	function handleChangeIngredientes(e) {
 		setIngredientes({
 			...ingredientes,
 			[e.target.name]: e.target.value,
@@ -92,8 +86,7 @@ export default function CrearProduto()
 			[e.target.name]: e.target.value
 		}))
 	}
-	function handleChangeMenu(e)
-	{
+	function handleChangeMenu(e) {
 		setMenu({
 			...menu,
 			[e.target.name]: e.target.value,
@@ -104,8 +97,7 @@ export default function CrearProduto()
 			[e.target.name]: e.target.value
 		}))
 	}
-	function handleSubmit(e)
-	{
+	function handleSubmit(e) {
 		e.preventDefault()
 		if (select === "bebidas") {
 			if (errors.name || errors.price || errors.stock || !input.name) {
@@ -136,7 +128,7 @@ export default function CrearProduto()
 			}
 
 		} else if (select === "base") {
-			if (errorsIngredientes.name  || !ingredientes.name) {
+			if (errorsIngredientes.name || !ingredientes.name) {
 				alert("No se pudo crear la Base,por favor completa los campos")
 			} else {
 				dispatch(postBases(ingredientes))
@@ -147,7 +139,7 @@ export default function CrearProduto()
 				})
 			}
 		} else if (select === "complemento") {
-			if (errorsIngredientes.name  || !ingredientes.name) {
+			if (errorsIngredientes.name || !ingredientes.name) {
 				alert("No se pudo crear el Complemento, por favor completa los campos")
 			} else {
 				dispatch(postComplementos(ingredientes))
@@ -158,7 +150,7 @@ export default function CrearProduto()
 				})
 			}
 		} else if (select === "proteina") {
-			if (errorsIngredientes.name  || !ingredientes.name) {
+			if (errorsIngredientes.name || !ingredientes.name) {
 				alert("No se pudo crear la Proteina, por favor completa los campos")
 			} else {
 				dispatch(postProteinas(ingredientes))
@@ -180,7 +172,7 @@ export default function CrearProduto()
 				})
 			}
 		} else if (select === "salsas") {
-			if (errorsIngredientes.name  || !ingredientes.name) {
+			if (errorsIngredientes.name || !ingredientes.name) {
 				alert("No se pudo crear la Salsa, por favor completa los campos")
 			} else {
 				dispatch(postSalsas(ingredientes))
@@ -210,17 +202,14 @@ export default function CrearProduto()
 
 	}
 
-	function hanldeOnChangeSelect(e)
-	{
+	function hanldeOnChangeSelect(e) {
 		setSelect(e.target.value)
 	}
 
-	function hanldeOnChangeSelectEdit(e)
-	{
+	function hanldeOnChangeSelectEdit(e) {
 		setSelectEdit(e.target.value)
 	}
-	useEffect(() =>
-	{
+	useEffect(() => {
 		dispatch(complements(id))
 	}, [dispatch, id])
 
@@ -228,9 +217,8 @@ export default function CrearProduto()
 	let [imagenInput, setImagenInput] = useState([])
 	let [imagenMenu, setImagenMenu] = useState([])
 	let [imagenIngredientes, setImagenIngredientes] = useState([])
-	
-	const cloudinary = async (files) =>
-	{
+
+	const cloudinary = async (files) => {
 
 		const formData = new FormData();
 		formData.append("file", files[0]);
@@ -243,31 +231,17 @@ export default function CrearProduto()
 
 	};
 	return (
-		<div>
-			<br />
+		<div style={{width:"100%",justifyContent:"center",alignContent:"center",display:"flow"}}>
 
-			<form id="formEdit" onSubmit={handleSubmit}>
+			<form style={{justifyContent:"center",alignContent:"center",display:"flow",width:"50%"}} id="formEdit" onSubmit={handleSubmit}>
 				{/**SELECT PARA CREAR PRODUCTOS */}
-				<div>
-					<div id="SelectCrearEdit">
-						<select onChange={hanldeOnChangeSelect}>
-							<option value="">Seleccioná para Crear</option>
-							{seleccionar.map(e =>
-							{
-								return (
-									<option>
-										{e}
-									</option>
-								)
-							})}
-						</select>
-					</div>
+				<div style={{display:"flow", flexWrap:"wrap",justifyContent:"space-evenly",textAlign:"center",width:"80%"}}>
+					
 					{/**SELECT PARA EDITAR PRODUCTOS */}
 					<div id="SelectCrearEdit">
 						<select onChange={hanldeOnChangeSelectEdit}>
 							<option value="">Seleccioná para Editar</option>
-							{seleccionarEdit.map(e =>
-							{
+							{seleccionarEdit.map(e => {
 								return (
 									<option>
 										{e}
@@ -292,8 +266,24 @@ export default function CrearProduto()
 							}
 						</div>
 					</div>
-				</div>
-				<div>
+					</div>
+					</form>
+					<form style={{width:"40%"}}> 
+						<div style={{display:"flow",justifyContent:"space-evenly",textAlign:"center"}}>
+					<div>
+					
+					<div id="SelectCrearEdit">
+						<select onChange={hanldeOnChangeSelect}>
+							<option value="">Seleccioná para Crear</option>
+							{seleccionar.map(e => {
+								return (
+									<option>
+										{e}
+									</option>
+								)
+							})}
+						</select>
+						<div>
 					{/**FORMULARIO PARA CREAR BEBIDAS */}
 					{
 						// select === "" ? (<h2 id="formSubtitle">selecciona el parametr</h2>) :
@@ -326,7 +316,7 @@ export default function CrearProduto()
 							</div>
 								<div>
 									<label >Imagen: </label><input type="file" onChange={event => cloudinary(event.target.files)} />
-									<img className="imgenCloud"src={input.image} alt="" />
+									<img className="imgenCloud" src={input.image} alt="" />
 								</div>
 								<div>
 									<label>Price: </label><input type="number" value={input.price} name="price" onChange={handleChange} />
@@ -349,7 +339,7 @@ export default function CrearProduto()
 										<label>Nombre: </label><input type="text" value={ingredientes.name} name="name" onChange={handleChangeIngredientes} />
 										{errorsIngredientes.name && <p>{errorsIngredientes.name}</p>}
 									</div>
-								
+
 									<button class="buttonFormAdmin" type='submit'>Crear Base</button>
 								</div>) :
 
@@ -357,14 +347,14 @@ export default function CrearProduto()
 									select === "complemento" ? (<div>
 										{/**FORMULARIO PARA CREAR COMPLEMENTOS */}
 										<div>
-											<label >Imagen: </label><input  type="file" onChange={event => cloudinary(event.target.files)} />
+											<label >Imagen: </label><input type="file" onChange={event => cloudinary(event.target.files)} />
 											<img className="imgenCloud" src={ingredientes.image} alt="" />
 										</div>
 										<div>
 											<label>Nombre: </label><input type="text" value={ingredientes.name} name="name" onChange={handleChangeIngredientes} />
 											{errorsIngredientes.name && <p>{errorsIngredientes.name}</p>}
 										</div>
-										
+
 										<button class="buttonFormAdmin" type='submit'>Crear Complemento</button>
 									</div>) :
 
@@ -372,14 +362,14 @@ export default function CrearProduto()
 										select === "proteina" ? (<div>
 											{/**FORMULARIO PARA CREAR PROTEINAS */}
 											<div>
-												<label >Imagen: </label><input  type="file" onChange={event => cloudinary(event.target.files)} />
+												<label >Imagen: </label><input type="file" onChange={event => cloudinary(event.target.files)} />
 												<img className="imgenCloud" src={ingredientes.image} alt="" />
 											</div>
 											<div>
 												<label>Nombre: </label><input type="text" value={ingredientes.name} name="name" onChange={handleChangeIngredientes} />
 												{errorsIngredientes.name && <p>{errorsIngredientes.name}</p>}
 											</div>
-										
+
 											<button class="buttonFormAdmin" type='submit'>Crear Proteina</button>
 										</div>) :
 
@@ -394,14 +384,14 @@ export default function CrearProduto()
 													<label>Nombre: </label><input type="text" value={ingredientes.name} name="name" onChange={handleChangeIngredientes} />
 													{errorsIngredientes.name && <p>{errorsIngredientes.name}</p>}
 												</div>
-												
+
 												<button class="buttonFormAdmin" type='submit'>Crear Topping</button>
 											</div>) :
 
 
 												select === "salsas" ? (<div>
 													{/**FORMULARIO PARA CREAR SALSAS */}
-													
+
 													<div>
 														<label >Imagen: </label><input type="file" onChange={event => cloudinary(event.target.files)} />
 														<img className="imgenCloud" src={ingredientes.image} alt="" />
@@ -454,7 +444,15 @@ export default function CrearProduto()
 
 
 					}
-
+					</div>
+					</div>
+					
+					<div>
+					
+				</div>
+					</div>
+				{/* </div> */}
+				
 				</div>
 			</form>
 		</div>
