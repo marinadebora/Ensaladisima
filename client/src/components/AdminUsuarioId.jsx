@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { putActivo, putAdmin, usuariosId } from "../action";
 import CardUsuariosId from "./CardUsuarioId";
+import HistorialDelUsuario from "./HistorialDelUsuario";
 
 
 
@@ -11,11 +12,11 @@ export default function AdminUsuarioId() {
     const dispatch = useDispatch();
     const { detail } = useSelector(state => state);
     let { id } = useParams();
-    
-    
+   
     useEffect(() => {
         dispatch(usuariosId(id));
     }, [dispatch, id]);
+    // console.log(detail?.purchaseHistory[0].facheyhora) 
     
     // console.log(detail.activo)
     function handleSubmitActivo(){
@@ -44,7 +45,7 @@ export default function AdminUsuarioId() {
                                 admin={detail.admin}
                                 activo={detail.activo}
                                 id={detail._id}
-                                purchaseHistory={detail.purchaseHistory}
+                                purchaseHistory={detail.purchaseHistory[1]}
                                 />
                         </div>
                     )

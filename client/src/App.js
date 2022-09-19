@@ -27,6 +27,8 @@ import { ErrorAdmin } from './components/ErrorAdmin';
 import AdminUsuariosDetail from './components/AdminUsuariosDetail';
 import { Review } from './components/Review';
 import { VerReview } from './components/VerReview';
+import HistorialDelUsuario from './components/HistorialDelUsuario';
+import DetalleHistorial from './components/DetalleHistorial';
 
 function App() {
   const dispatch = useDispatch()
@@ -41,7 +43,7 @@ function App() {
   return (
     localSt?
     !localSt?.admin  ?
-        //renderiza si estas logueado pero no sos admin
+    //renderiza si estas logueado pero no sos admin
     <div className="App">
       <Routes>
         <Route exact path= '/' element={<Home/>}/>
@@ -100,6 +102,8 @@ function App() {
       <Route path= '/password/:_id' element={<CambioPassword/>}/>
       <Route path= '/review' element={<Review/>}/>
       <Route path= '/verReview' element={<VerReview/>}/>
+    <Route path='/historialUser' element={<HistorialDelUsuario/>}/>
+    <Route path='/detalleHistorial/:_id' element={<DetalleHistorial/>}/>
     </Routes>
 
     <Footer/>

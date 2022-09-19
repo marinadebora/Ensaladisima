@@ -1,8 +1,11 @@
 const  Historials = require("../../modelos/Historial")
 
-const getHistorial= async (req,res)=>{
+const getHistorialId= async (req,res)=>{
+    const {_id}=req.params;
+    console.log(_id)
     try {
-        const buscar = await Historials.find({}).populate({
+        if(!_id) res.status(404).send("no se encontro el id")
+        const buscar = await Historials.findById({_id:_id}).populate({
             path:"orders",
             populate:{path:"saladsMenu"}
         }).populate({
@@ -28,7 +31,7 @@ const getHistorial= async (req,res)=>{
             admin:0,
             activo:0
         })
-        console.log(buscar.map(e => e.orders?._id))
+        // console.log(buscar.map(e => e.orders?._id))
         /* const suma = buscar?.map( e=>{
             return {
                 _id: e._id,
@@ -43,4 +46,4 @@ const getHistorial= async (req,res)=>{
         console.log(error)
     }
 }
-module.exports={getHistorial}
+module.exports={getHistorialId}
