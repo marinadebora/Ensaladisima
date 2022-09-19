@@ -1,14 +1,17 @@
-import React, { useState } from "react";
-import { useDispatch } from 'react-redux';
+import React, { useState,useEffect } from "react";
+import { useDispatch,useSelector } from 'react-redux';
 import { useNavigate} from 'react-router-dom';
-import { reviewCreada } from "../action";
+import { getReview, reviewCreada } from "../action";
 import Swal from 'sweetalert2'
 import '../styles/Review.css'
+import NavBar from "./NavBar";
 
 export const Review = () =>
 {
+  const comentarios=useSelector(state=>state.comentarios)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
   const usuario = JSON.parse(localStorage.getItem("loguearUsuario"))
   const [review, setReview] = useState({
     firstName: usuario.firstName,
@@ -18,7 +21,16 @@ export const Review = () =>
     comentarios: ''
 
   })
-console.log(review)
+
+  let comentariosUser=comentarios?.filter(e=>e._id===usuario._id)
+  console.log(comentariosUser?.length)
+  useEffect(()=>{
+dispatch(getReview())
+  },[dispatch])
+
+
+
+
   function puntuacion(e)
   {
       setReview({
@@ -31,22 +43,32 @@ console.log(review)
  async function handleSubmit(e)
   {
     e.preventDefault()
-    if(review.comentarios&&review.estrellas){
-      dispatch(reviewCreada(review))
-      await  Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Calificacion enviada con exito ',
-          showConfirmButton: false,
-          timer: 1500
-        })
-       navigate('/')//ver a donde quiero que me lleve esto
-    }else{
-      Swal.fire({
+    if(comentariosUser){
+      await Swal.fire({
         icon: 'error',
-        title: '😫',
-        text: 'faltan completar campos',
+        title: '🚨',
+        text: 'ya nos calificaste',
       })
+      navigate('/')
+    }else{
+
+      if(review.comentarios&&review.estrellas){
+        dispatch(reviewCreada(review))
+        await  Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Calificacion enviada con exito ',
+            showConfirmButton: false,
+            timer: 1500
+          })
+         navigate('/')//ver a donde quiero que me lleve esto
+      }else{
+        Swal.fire({
+          icon: 'error',
+          title: '😫',
+          text: 'faltan completar campos',
+        })
+      }
     }
   
     
@@ -70,6 +92,7 @@ console.log(review)
 
   return (
     <div>
+     <NavBar /> 
       {
         <div>
           <br /><br /><br /><br /><br />

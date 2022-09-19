@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { historialCompra } from '../action/'
+import { historialCompra, modificarPedido } from '../action/'
 import { imag } from '../imagenes';
 import "../styles/Card.css";
 
@@ -13,22 +13,25 @@ const CarrouselEP = () =>
   const myHistorial = useSelector(state => state?.historial);
   let myHistorialCompra = myHistorial?.filter(e => e.user[0]._id === userID)
 
-  let comprar = (id, base, protein, complement, suace, topping) =>
+
+  let comprarM = (id, orders) =>
   {
     let repetirEnsalada = {
-      id: id,
-      base: base,
-      protein: protein,
-      complement: complement,
-      sauce: suace,
-      topping: topping
+      id:id,
+      orders:orders
     }
-    let localStorag = JSON.parse(localStorage.getItem('repetirEnsalada'))
-    let todas = [localStorag, repetirEnsalada].flat()
-    let filtrar = todas?.filter(e => e !== null)
-    localStorage.setItem('repetirEnsalada', JSON.stringify(filtrar))
+    dispatch(modificarPedido(repetirEnsalada))
+    console.log(repetirEnsalada)
   }
-
+  let comprarG = (id, orders) =>
+  {
+    let repetirEnsalada = {
+      id:id,
+      orders:orders
+    }
+    dispatch(modificarPedido(repetirEnsalada))
+    console.log(repetirEnsalada)
+  }
   let arrayM = []
   myHistorialCompra?.map(e => (
     e.orders?.map(e => (
@@ -106,7 +109,13 @@ const CarrouselEP = () =>
                                         ))
                                       }
                                     </ul>
-                                    <button id="buttoonPlus2" onClick={() => comprar(e._id, e.base, e.protein, e.complement, e.suace, e.topping)}>Comprar</button>
+                                    {
+                                      e.name==='Tu Ensalada Grande'&&<button id="buttoonPlus2" onClick={() => comprarM(e._id,loguearUser.orders[0])}>Comprar</button>
+                                    }
+                                    {
+                                     e.name==='Tu Ensalada Mediana'&&<button id="buttoonPlus2" onClick={() => comprarG(e._id,loguearUser.orders[0])}>Comprar</button>
+                                    }
+                                    
                                   </div>
                                 </div>
                               </div>
