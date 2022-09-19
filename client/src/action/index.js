@@ -773,7 +773,7 @@ export function historialCompra(){
 	return async function(dispatch){
 		try{
 
-			const histComp= await axios(`/historias`)
+			const histComp= await axios(`/historial`)
 			
 			return dispatch({
 				type:'HISTORIAL_COMPRA',
