@@ -1,13 +1,29 @@
-#footerInfo{
+#footerContent{
   
     background-color: #207140;
     width: 100%;
-    height: 20%;
     margin-top: auto;
     
     
  }
- 
+
+ #footerInfo{
+  
+   background-color: #207140;
+   width: 100%;
+   height: 22rem;
+   margin-top: auto;
+   
+}
+
+#footerInfoContent{
+   padding-left: 3rem;
+   padding-top: 5rem;
+   background-color: #207140;
+   
+}
+
+
  #logocontent{
     background-color: #207140;
     margin-left: 2%;
@@ -17,7 +33,7 @@
  #logoWhite{
     margin-top: 10%;
     background-color: #207140;
-    width: 40%;
+    width: 70%;
     margin-bottom: 5%;
     
  }
@@ -31,13 +47,48 @@
  }
  
  #igLogo{
+   background-color: #207140;
     background-color: transparent;
     color: white;
-    font-size: 260%;
-    margin-right: 5%;
+    font-size: 200%;
+    margin-right: 15%;
+    
  }
  
- #logoGroup{
-    background-color: transparent;
-    margin-left: 2%;
+ #logoGroupContent{
+   background-color: #207140;
+   
+ }
+
+ #logoGroupContent1{
+   background-color: #207140;
+   margin-left: 2%;
+ }
+
+ #review{
+   background-color: #207140;
+   margin: 0px;
+   padding: 0px;
+ }
+
+ #reviewTitle{
+   padding-top: 1rem;
+   width: 40rem;
+   margin: 0px;
+   padding-left: 0.9rem;
+   font-family: Tommy-bold;
+   color: white;
+   background: transparent;
+ }
+
+ 
+
+ #mapTitle{
+   padding-top: 1rem;
+   width: 40rem;
+   margin: 0px;
+   padding-left: 0.9rem;
+   font-family: Tommy-bold;
+   color: white;
+   background: transparent;
  }
