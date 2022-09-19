@@ -5,6 +5,7 @@ import { VerReview } from './VerReview';
 
 
 
+
 const Footer = () => {
 
   return (
