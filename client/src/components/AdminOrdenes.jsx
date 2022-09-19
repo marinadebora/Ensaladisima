@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Admin.css';
-import CrearProduto from '../FormPost/Crear Producto';
 import NavBar from "./NavBar";
 import { useEffect } from 'react';
 import { getPedidos } from '../action';
