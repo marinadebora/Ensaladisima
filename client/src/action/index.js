@@ -827,3 +827,44 @@ export function saladGrande(payload) {
 		}
 	}
 }
+
+// para cambiar el estado a procesado
+export const putProcesado=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/estadoProcessing/${_id}`);
+			return dispatch({
+				type:"PUT_PROCESADO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+
+// para cambiar el estado a Recibido
+export const putRecibido=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/estadoReceived/${_id}`);
+			return dispatch({
+				type:"PUT_RECIBIDO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+// para cambiar el estado a Cancelado
+export const putCancelado=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/estadoCanceled/${_id}`);
+			return dispatch({
+				type:"PUT_Cancelado",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}

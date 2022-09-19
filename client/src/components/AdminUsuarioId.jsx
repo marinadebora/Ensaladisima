@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { putActivo, putAdmin, usuariosId } from "../action";
 import CardUsuariosId from "./CardUsuarioId";
-// import HistorialDelUsuario from "./HistorialDelUsuario";
 
 
 

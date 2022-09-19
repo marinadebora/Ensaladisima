@@ -26,7 +26,6 @@ import { usuariosId } from './action';
 import { ErrorAdmin } from './components/ErrorAdmin';
 
 import AdminUsuariosDetail from './components/AdminUsuariosDetail';
-import HistorialDelUsuario from './components/HistorialDelUsuario';
 import DetalleHistorial from './components/DetalleHistorial';
 import { HistorialCompras } from './components/HistorialCompra';
 
@@ -106,8 +105,7 @@ function App() {
       <Route path= '/password/:_id' element={<CambioPassword/>}/>
       <Route path= '/review' element={<Review/>}/>
       <Route path= '/verReview' element={<VerReview/>}/>
-    <Route path='/historialUser' element={<HistorialDelUsuario/>}/>
-    <Route path='/detalleHistorial/:_id' element={<DetalleHistorial/>}/>
+      <Route path='/detalleHistorial/:_id' element={<DetalleHistorial/>}/>
     </Routes>
 
     <Footer/>
