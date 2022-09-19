@@ -4,6 +4,7 @@ import '../styles/Admin.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { historialCompra} from "../action";
 import CardHistorial from "./CardHistorial";
+import NavBar from "./NavBar";
 
 export default function HistorialDelUsuario() {
     const {historial} = useSelector(state=>state)
