@@ -10,7 +10,8 @@ const MenuBigSchema = new Schema({
     protein: { type: Array },
     complement: { type: Array },
     sauce: { type: Array },
-    topping: { type: Array }
+    topping: { type: Array },
+    activo: { type: Boolean, default: true }
     // La ensalada Grande Contiene 1/2 porcion mas de cada ingrediente
 })
 
