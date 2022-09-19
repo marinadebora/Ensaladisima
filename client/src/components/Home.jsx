@@ -7,6 +7,8 @@ import healtyFood from '../images/healtyFood.jpeg';
 import collage2 from '../images/collage1.png';
 import NavBar from './NavBar';
 import { Link } from 'react-router-dom';
+import Equipo from '../images/TeamPics/equipo.png'
+
 
 
 
@@ -62,6 +64,14 @@ const Home = () => {
               <img class="col" src={healtyFood} id="healtyFood" alt="img"/>
               <img class="col" src={collage1}  id="collage1" alt="img"/>
         </div>
+        <div class="row">
+          <h4 class="col" id="nosotros">CONOCE</h4>
+          <Link class="col"id="EquipoContent" to="/team">
+            <img src={Equipo} alt="img" id="Equipo"/> 
+          </Link>
+          <h4 class="col" id="nosotros">AL EQUIPO</h4>
+        </div>
+         
 
 
       </div>
