@@ -92,6 +92,7 @@ function App() {
       <Route exact path= '/profile' element={<Profile/>}/>
       <Route exact path= '/contacto' element={<ContactForm/>}/>
       <Route exact path= '/team' element={<Team/>}/>
+      <Route path= '/historial' element={<HistorialCompras/>}/>
       
 
       {/* rutas para administador */}
@@ -138,6 +139,7 @@ function App() {
     <Route path= '/cargando' element={<ArmandoEnsalada/>}/>
     <Route path= '/sendEmail' element={<ErrorAdmin/>}/>
     <Route path= '/password/:_id' element={<ErrorAdmin/>}/>
+    <Route path= '/historial' element={<HistorialCompras/>}/>
    
   </Routes>
 
