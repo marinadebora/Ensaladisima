@@ -158,7 +158,6 @@ const Admin_clientes = () => {
                         <div class="col-7" id="adminTittle">ADMIN</div>
                     
                     </div>
-                                <Link to="/menu"><button>Volver</button></Link>
 
                     <h2 id="titleUsuariosRegistrados"> Usuarios Registrados</h2>
                     

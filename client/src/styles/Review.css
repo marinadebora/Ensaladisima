@@ -1,15 +1,45 @@
-.contenedor{
-    width:40%;
-    height: 40%;
-    margin:2% 5% ;
-    align-items:flex-end;
-    justify-content:flex-start;
-    background-color: #fff;
-    box-shadow: 0 3px 13px 1px rgb(0 0 0 / 9%);
+@font-face {
+  font-family: Tommy-regular;
+  src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+
+  font-family: Tommy-light;
+  src: url(../fonts//made_tommy/MADE\ TOMMY\ Light_PERSONAL\ USE.ttf);
+} 
+
+#titleReview{
+  display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    font-family: Tommy-regular;
+    padding-bottom: 1%;
+    color: #207140;
+    padding-top: 10rem;
 }
+
+#mainReviewContainer{
+  
+  display: flex;
+  justify-content: center;
+}
+
+#contenedor{
+  border: 2px solid #207140;
+  margin:  auto;
+  margin-top: 10px;
+  
+  padding: 20px;
+  width: 500px;
+  height: auto;
+  border-radius: 20px;
+}
+
+#buttonBackContent{
+  margin-bottom: 5rem;
+}
+
 .textArea{
     margin:2%;
-    font-family: Garamond,verdana;font-size: 15pt;font-weight: bold;letter-spacing: 2px ;
+    font-family: Tommy-light;font-size: 15pt;font-weight: bold;letter-spacing: 2px ;
     width:500px;
     height:80px;
     border: 1px solid #207140;
@@ -35,6 +65,8 @@
   }
   
   .clasificacion {
+    display: flex;
+    justify-content: center;
     direction: rtl;
     unicode-bidi: bidi-override;
   }
@@ -49,25 +81,31 @@
   }
   
   
-  .buttonCalificar{
-    width: 10%;
-    margin-left: 4.2rem;
+  #buttonCalificar{
+    width: 50%;
     background-color: #207140; 
     color: white;
     text-decoration: none;
-    border:0.5rem  solid white;
+    border:0.2rem  solid white;
     padding: 0.5rem;
     border-radius: 2rem;
+    margin-top: 2rem;
     font-family: Tommy-bold;
     font-size: 1.0rem;
     cursor: pointer;
- 
  }
+ 
+ #buttonCalificarContent{
+    display: flex;
+    justify-content: center;
+ }
+
  #close{
     height:  3rem;
     position: relative;
   
  }
+
  #labelCalificar{
     margin-left: 1rem;
  }

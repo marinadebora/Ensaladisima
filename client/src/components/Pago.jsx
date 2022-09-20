@@ -36,14 +36,14 @@ function Pago() {
 
           <div className='d-flex flex-column justify-content-center h-custom-1 w-100 pt-2'>
 
-            <h3 id="titleConfirm" className="fw-normal mb-3 ps-5 pb-3" style={{letterSpacing: '1px'}}>Pago</h3>
+            <h3 id="titleConfirm1" className="fw-normal mb-5 ps-4 pb-3" style={{letterSpacing: '1px'}}>Pago</h3>
 
 
           
 
 
             <PasarelaDePago/>
-            <Link id="butonPagoBack" to="/checkout">
+            <Link id="butonPagoBck" to="/checkout">
                  <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"> Volver</i>
             </Link>
 

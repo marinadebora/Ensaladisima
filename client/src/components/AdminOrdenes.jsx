@@ -49,26 +49,21 @@ export default function HistorialDelUsuario() {
             </div>
 
             <div class="col-10" id="adminContent">
-                <div class="row" id="searchBarAdmin">
+                
 
-                    <div class="col-5" id="searchBarAdminComponent">
-                        <form id="searchBarForm" class="d-flex" role="search">
-                            {/* <input class="form-control me-3" type="search" placeholder="Search" aria-label="Search"/>
-                            <button class="btn btn-outline-light" type="submit">Search</button> */}
-                            <Link to="/menu"><button>Volver</button></Link>
-                        </form>
+                    <div class="row" id="searchBarAdmin">
+                        <div class="col" id="adminTittle">ADMIN</div>  
                     </div>
 
-                    <div class="col-7" id="adminTittle">ADMIN</div>
-
-                    
+                
                         
                    
-                </div>
+               
 
                 <div class="row">
                 {/* <CrearProduto/> */}
                 <div>
+                <h2 id="titleUsuariosRegistrados">Ordenes</h2>
                 {
             historial?
             historial?.map(e=>{
