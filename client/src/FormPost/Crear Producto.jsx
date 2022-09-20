@@ -289,10 +289,10 @@ export default function CrearProduto() {
 	return (
 		<div style={{width:"100%",justifyContent:"center",alignContent:"center",display:"flow"}}>
 
-			<form style={{justifyContent:"center",alignContent:"center",display:"flow",width:"50%"}} id="formEdit" onSubmit={handleSubmit}>
+			<form id="formEdit" onSubmit={handleSubmit}>
 				{/**SELECT PARA CREAR PRODUCTOS */}
 
-				<div style={{display:"flow", flexWrap:"wrap",justifyContent:"space-evenly",textAlign:"center",width:"80%"}}>
+				<div style={{display:"flow", flexWrap:"wrap",justifyContent:"space-evenly",textAlign:"center",width:"100%"}}>
 					
 					{/**SELECT PARA EDITAR PRODUCTOS */}
 					<div id="SelectCrearEdit">
@@ -325,6 +325,7 @@ export default function CrearProduto() {
 					</div>
 					</div>
 					</form>
+
 					<form style={{width:"40%"}}  id="formCrear" onSubmit={handleSubmit}> 
 						<div style={{display:"flow",justifyContent:"space-evenly",textAlign:"center"}}>
 					<div>
@@ -555,6 +556,8 @@ export default function CrearProduto() {
 				
 				</div>
 			</form>
+
+
 		</div>
 	)
 }
