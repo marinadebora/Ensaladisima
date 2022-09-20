@@ -1,0 +1,186 @@
+@font-face {
+    font-family: Tommy-regular;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+
+    font-family: Tommy-light;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Light_PERSONAL\ USE.ttf);
+}
+
+#ordereMainContainer{
+    overflow: hidden;
+    border: 3px solid #207140;
+    margin:  auto;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding: 0.5rem;
+    width: 90%;
+    height: auto;
+    border-radius: 20px;
+}
+
+#userLabelOrder{
+    float: left;
+    width: 50%;
+    font-family: Tommy-bold;
+    font-size: 20px;
+    color: #207140;
+    padding: 0px;
+    margin: 0px;
+    padding-left: 3%;
+    padding-bottom: 1%;
+}
+
+#userDataOrder{
+    float: right;
+    width: 50%;
+    font-family: Tommy-bold;
+    font-size: 15px;
+    padding: 0px;
+    margin: 0px;
+}
+
+#statesContent{
+    width: 40%;
+    overflow: hidden;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    margin-left: 1.5rem;
+    border-radius: 20px;
+    border: 1px solid #207140;
+}
+
+#stateLabel{
+    font-size: 20px;
+    font-family: Tommy-light;
+    margin-bottom: 0px;
+    padding-bottom: 0.3rem;
+}
+
+
+#stateData{
+    font-size: 20px;
+    font-family: Tommy-light;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+#psi{
+    margin-bottom: 0px;
+    padding-bottom: 0px;  
+}
+
+#check{
+  float: right;
+  font-size: 25px;
+  color:#207140
+}
+
+#buttonState{
+    margin-left: 20%;
+    background-color: #207140; 
+    color: white;
+    text-decoration: none;
+    border:2px  solid white;
+    width: 15%;
+    height: 60%;
+    border-radius: 50px;
+    font-family: Tommy-light;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+#buttonDetail{
+    background-color: #207140; 
+    color: white;
+    text-decoration: none;
+    border:2px  solid white;
+    width: 30%;
+    height: 50%;
+    border-radius: 50px;
+    font-family: Tommy-bold;
+    font-size: 1rem;
+    cursor: pointer;
+    
+}
+
+#buttonDetailContent{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    height: 50%;
+    text-decoration: none;
+}
+
+#priceContent{
+    display: flex;
+    justify-content: center;
+   
+}
+
+#priceLabel{
+    color: #207140;
+    font-size: 30px;
+    font-family: Tommy-Bold;
+    height: 50%;
+    margin-bottom: 0px;
+}
+
+#priceData{
+    display: flex;
+    justify-content: center;
+    color: #207140;
+    font-size: 30px;
+    font-family: Tommy-Bold;
+    height: 40%; 
+    margin-bottom: 0px;
+}
+
+
+#userDataEdit{
+    display: flex;
+    justify-content:flex-start;
+    margin-left: 1%;
+    cursor: pointer;
+}
+
+#pencil{
+    color: #207140;
+    font-size: 20px;
+}
+
+#pencilContent{
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#pencilB{
+
+    width: auto;
+    border: none;
+}
+
+#containerActive{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+   
+}
+
+#activeButton{
+    background-color: #207140; 
+    color: white;
+    text-decoration: none;
+    border:2px  solid white;
+    padding: 0.5rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    border-radius: 50px;
+    margin-right: 0.5rem;
+    font-family: Tommy-light;
+    font-size: 1.0rem;
+    cursor: pointer;
+}
