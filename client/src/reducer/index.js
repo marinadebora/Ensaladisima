@@ -45,54 +45,65 @@ function rootReducer(state = initialState, action) {
         usuarios: []
       }
     case 'SALADS':
+      const filterSalads=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        salads: action.payload
+        salads: filterSalads
       }
     case "SALADS_BIG":
+      const filterSaladsBig=action.payload?.filter(e=>e.activo===true)
+
       return {
         ...state,
-        saladsBig: action.payload
+        saladsBig: filterSaladsBig
       }
     case 'BASES':
+      const filterBases=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        bases: action.payload
+        bases: filterBases
       }
     case 'PROTEINS':
+      const filterProteins=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        proteins: action.payload
+        proteins: filterProteins
       }
     case 'COMPLEMENTS':
+      const filterComplements=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        complements: action.payload
+        complements: filterComplements
       }
     case 'SAUCES':
+      const filterSauces=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        sauces: action.payload
+        sauces: filterSauces
       }
     case 'TOPPINGS':
+      const filterToppings=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        toppings: action.payload
+        toppings: filterToppings
       }
     case 'BEVERAGES':
+      const filterBeverages=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        beverages: action.payload
+        beverages: filterBeverages
       }
     case 'DESSERTS':
+      const filterDesserts=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        desserts: action.payload
+        desserts: filterDesserts
       }
     case "MENU":
+      const filterMenu=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        menu: action.payload
+        menu: filterMenu
       }
     case 'PEDIDO_BEBIDAS':
       return {
@@ -199,9 +210,11 @@ function rootReducer(state = initialState, action) {
         ...state,
       }
       case 'REVIEW':
+        const filterComentarios=action.payload?.filter(e=>e.activo===true)
+  
       return {
         ...state,
-        comentarios: action.payload
+        comentarios: filterComentarios
 
       }
     case 'HISTORIAL_COMPRA':

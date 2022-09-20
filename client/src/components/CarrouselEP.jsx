@@ -13,7 +13,7 @@ const CarrouselEP = () =>
   const myHistorial = useSelector(state => state?.historial);
   let myHistorialCompra = myHistorial?.filter(e => e.user[0]?._id === userID)
 
-
+  console.log(myHistorial)
   let comprar = (id, orders) =>
   {
     let repetirEnsalada = {
@@ -40,7 +40,7 @@ const CarrouselEP = () =>
 
   let ensalada = [...arrayM, ...arrayG]
   let ensaladas = ensalada.slice(ensalada?.length - 6, ensalada?.length)
-
+  
   useEffect(() =>
   {
     dispatch(historialCompra())
@@ -51,17 +51,12 @@ const CarrouselEP = () =>
   return (
     <div class="container ">
       <div class="row">
-        <div class="col-10">
+      { loguearUser&&ensaladas?.length>0&&
+       <div class="col-10">
           <h3 class="mb-3" id="carrouselTitle">Tus ultimas ensaladas</h3>
         </div>
-        {/* <div class="col-2 ml-2">
-          <button id="butonCarrouselMain" href="#carouselExampleIndicators2" data-slide="prev">
-            <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"></i>
-          </button>
-          <button id="butonCarrouselMain" href="#carouselExampleIndicators2" data-slide="next">
-            <i id="butonCarrousel" class="bi bi-arrow-right-circle-fill"></i>
-          </button>
-        </div> */}
+      }
+      
         <div class="col-12">
           <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
