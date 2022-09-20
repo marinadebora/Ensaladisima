@@ -348,11 +348,11 @@ export const postMenu = (payload) => async () => {
 	const json = await axios.post("/menus", payload);
 	return json;
 }
-// ruta post big
-// export const postBig = (payload)=> async ()=>{
-// 	const json = await axios.post("/ensaladabig",payload);
-// 	return json;
-// }
+// ruta post MenuBig
+ export const postMenuBig = (payload)=> async ()=>{
+ 	const json = await axios.post("/menuBig",payload);
+ 	return json;
+ }
 
 //ruta put de bases
 export const putBases = (_id, payload) => async (dispatch) => {
