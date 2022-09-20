@@ -11,7 +11,7 @@ export function HistorialCompras()  {
   const userID =loguearUser?.id
   const myHistorial = useSelector(state => state?.historial);
  // cost buscarUser=myHistorial?.map(e=>e.user[])
-let historialUser=myHistorial?.filter(e=>e.user[0]._id===userID)
+let historialUser=myHistorial?.filter(e=>e.user[0]?._id===userID)
 
 console.log(historialUser)
   useEffect(()=>{
