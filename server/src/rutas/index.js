@@ -81,6 +81,7 @@ const { editarProcessing } = require("./Historial/editarProcessing");
 const { editarReceived } = require("./Historial/editarReceived");
 const { editarCanceled } = require("./Historial/editarCanceled");
 const { getHistorialId } = require("./Historial/getHistorialID");
+const { postMenuBig } = require("./MenuBig/postMenuBig");
 
 
 const router = Router();
@@ -116,6 +117,7 @@ router.put("/menusActivo/:_id",putActivoMenu);//
 
 //rutas para el modelo de MenuBig
 router.get("/menubig", getMenuBig)
+router.post("/menuBig",postMenuBig);
 router.put("/menubigActivo/:_id",putActivoMenuB);//
 
 // rutas para el modelo de Historial.
