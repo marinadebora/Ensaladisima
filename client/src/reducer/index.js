@@ -250,7 +250,10 @@ function rootReducer(state = initialState, action) {
         case 'MODIFICAR_PEDIDO':
           return {
             ...state,
-           
+          }
+        case "PEDIDO_DELIVERY_PUT":
+          return {
+            ...state
           }
           case 'FITRO_HISTORIAL':
       const estadoTotal =state.allhistorial
