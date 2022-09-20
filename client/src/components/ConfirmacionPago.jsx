@@ -17,10 +17,10 @@ let usuario = JSON.parse(localStorage.getItem("loguearUsuario"))
 const todosPedidos = useSelector(state =>state.pedidos)
 
 console.log(todosPedidos)
-const pedidosUsuario = todosPedidos?.filter(pedido=>pedido.user?._id === usuario.id )
+const pedidosUsuario = todosPedidos?.filter(pedido=>pedido?.user?._id === usuario?.id )
 console.log(pedidosUsuario)
 const nuevoPedido = pedidosUsuario?.find(pedido=> pedido?.salads?.length === 0 && pedido?.beverages?.length === 0  && pedido?.desserts?.length === 0)
-console.log(nuevoPedido)
+console.log(nuevoPedido?._id)
 
 
   console.log(usuario)
@@ -34,7 +34,6 @@ console.log(nuevoPedido)
     orders: [nuevoPedido?._id],
     token: usuario?.token 
   }
-  console.log(usuarioLocalStorage)
   function handleClick(){
     localStorage.removeItem("postres")
     localStorage.removeItem("bebidas")
@@ -42,6 +41,7 @@ console.log(nuevoPedido)
     localStorage.removeItem("ensaladaG")
     localStorage.removeItem("medianas")
     localStorage.removeItem("grandes")
+    console.log(usuarioLocalStorage)
     const usuario = localStorage.setItem("loguearUsuario",JSON.stringify(usuarioLocalStorage))
     console.log(usuario)
     history("/menu")

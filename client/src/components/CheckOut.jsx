@@ -368,7 +368,7 @@ export default function QuantityEdit() {
                           <div className="mb-4 pb-2">
                             <spam style={{ fontSize: '1.7em' }}>Delivery</spam>
 
-                            <label class="toggleSwitch nolabel" onclick="">
+                            <label class="toggleSwitch nolabel" onClick="">
                               <span>
                                 {envio === true ?
                                   <div>

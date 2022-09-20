@@ -98,7 +98,7 @@ console.log(preciototal)
           timer: 1500
         })
         dispatch(postHistorialDeCompra({_id:user.id,totalPayable:preciototal}))
-        history("/ConfirmacionPago")
+        history("/confirmacionPago")
         
       } catch (error) {
         alert("Los datos no concuerdan");
@@ -123,7 +123,7 @@ console.log(preciototal)
         <CardElement options={CARD_ELEMENT_OPTIONS} />
       </div>
 
-      <button disabled={!stripe} className="btn btn-success">
+      <button disabled={loading} className="btn btn-success">
         {loading ? (
           <button class="btn btn-success" type="button" disabled>
           <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>

@@ -11,7 +11,7 @@ const CarrouselEP = () =>
   const loguearUser = JSON.parse(localStorage.getItem("loguearUsuario"))
   const userID = loguearUser?.id
   const myHistorial = useSelector(state => state?.historial);
-  let myHistorialCompra = myHistorial?.filter(e => e.user[0]._id === userID)
+  let myHistorialCompra = myHistorial?.filter(e => e.user[0]?._id === userID)
 
 
   let comprarM = (id, orders) =>
