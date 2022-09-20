@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPedidos } from "../action";
 import {useNavigate} from "react-router-dom"
 import Swal from 'sweetalert2'
+import collage from '../images/collage.png';
 import "../styles/PasarelaDePago.css";
-
+import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
+import NavBar from "./NavBar";
 
 
 
@@ -59,12 +61,45 @@ console.log(nuevoPedido)
   
 
   return (
-    <div id="paymentMain"className="container">
-      <br /><br /><br /><br /><br /><br /><br /><br />
-    <h3>Solo falta un ultimo paso </h3>
-    <p>Ahora simplemente debes dar click al siguiente boton para finalizar tu compra y recibir el detalle</p>
-    <button onClick={handleClick}>Confirmar</button>
-    </div>
+
+
+    <div className="container-fluid">
+
+      <NavBar/>
+      <MDBContainer fluid>
+      <MDBRow style={{paddingTop:"130px"}}>
+
+        <MDBCol sm='5' className='d-none d-sm-block px-0  me-5'>
+          <img src={collage}
+            alt="Login img" className="w-100" style={{objectFit: 'cover', objectPosition: 'left'}} />
+        </MDBCol>
+
+        <MDBCol id="confirmMain" sm='5'className='ms-5'>
+
+        <h3 id="titleConfirm">Solo falta un ultimo paso </h3>
+        <p id="textConfirm">Ahora simplemente debes dar click al siguiente boton para finalizar tu compra y recibir el detalle</p>
+        <div id="butonPagoConfirmContent">
+         <button id="butonPagoConfirm" onClick={handleClick}>Confirmar</button>
+        </div>
+
+        </MDBCol>
+
+      
+
+      </MDBRow>
+
+    </MDBContainer>
+</div>
+
+
+
+
+
+
+
+    
+    
+    
   );
 };
 
