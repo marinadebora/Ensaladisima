@@ -7,7 +7,8 @@ const ReviewSchema = new Schema({
     lastName:{type:String,  lowercase:true},
     comentarios:{type:String,  require: true, lowercase:true},
     email:{type:String, lowercase:true},
-    estrellas: {type:Number, require: true}
+    estrellas: {type:Number, require: true},
+    activo: { type: Boolean, default: true }
 })
 ReviewSchema.plugin(findOrCreate)
 module.exports= mongoose.model("Review",ReviewSchema)

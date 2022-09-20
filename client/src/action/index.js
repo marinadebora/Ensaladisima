@@ -724,10 +724,126 @@ export const putAdmin=(_id,payload)=>async (dispatch)=>{
 	}
 }
 //ruta para banear al usuario
-export const putActivo=(_id,payload)=>async (dispatch)=>{
+export const putActivo=(_id)=>async (dispatch)=>{
 	try {
 		if(_id){
-			const editar= await axios.put(`/userActivo/${_id}`,payload);
+			const editar= await axios.put(`/userActivo/${_id}`);
+			return dispatch({
+				type:"PUT_ACTIVO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+//rutas para borrado logico
+export const putActivoBase=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/basesActivo/${_id}`);
+			return dispatch({
+				type:"PUT_ACTIVO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+export const putActivoMenu=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/menusActivo/${_id}`);
+			return dispatch({
+				type:"PUT_ACTIVO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+
+export const putActivoMenuB=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/menubigActivo/${_id}`);
+			return dispatch({
+				type:"PUT_ACTIVO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+
+export const putActivoProteina=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/proteinsActivo/${_id}`);
+			return dispatch({
+				type:"PUT_ACTIVO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+
+export const putActivoComplementos=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/complementsActivo/${_id}`);
+			return dispatch({
+				type:"PUT_ACTIVO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+
+export const putActivoSalsas=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/salsasActivo/${_id}`);
+			return dispatch({
+				type:"PUT_ACTIVO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+
+export const putActivoToppings=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/toppingsActivo/${_id}`);
+			return dispatch({
+				type:"PUT_ACTIVO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+
+export const putActivoPostres=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/postresActivo/${_id}`);
+			return dispatch({
+				type:"PUT_ACTIVO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+
+export const putActivoBebidas=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/bebidasActivo/${_id}`);
 			return dispatch({
 				type:"PUT_ACTIVO",payload:editar.data
 			})
@@ -766,7 +882,18 @@ export function getReview() {
 	}
 }
 
-
+export const putActivoReview=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/reviewActivo/${_id}`);
+			return dispatch({
+				type:"PUT_ACTIVO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
 
 //ruta de historial de compra
 export function historialCompra(){
