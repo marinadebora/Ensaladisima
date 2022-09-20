@@ -29,19 +29,19 @@ export default function BaseEdit() {
   const buscar6 = beverage?.find(e => e._id === id)
   const buscar7 = dessert?.find(e => e._id === id)
   const buscar8 = menu?.find(e => e._id === id)
-  const putActivoTodo =() => {
-  if(buscar1?._id)  dispatch(putActivoBase(id))
-  if(buscar2?._id)  dispatch(putActivoComplementos(id))
-  if(buscar3?._id)  dispatch(putActivoSalsas(id))
-  if(buscar4?._id)  dispatch(putActivoProteina(id))
-  if(buscar5?._id)  dispatch(putActivoToppings(id))
-  if(buscar6?._id)  dispatch(putActivoBebidas(id))
-  if(buscar7?._id)  dispatch(putActivoPostres(id))
-  if(buscar8?._id)  dispatch(putActivoMenu(id))
-  history(-1)
-  return alert("Se modifico correctamente, fijate bro")}
-  var {activo} = buscar1||buscar2||buscar3||buscar4||buscar5||buscar6||buscar7||buscar8
+  const putActivoTodo =async() => {
+  if(buscar1?._id) await dispatch(putActivoBase(id))
+  if(buscar2?._id) await dispatch(putActivoComplementos(id))
+  if(buscar3?._id) await dispatch(putActivoSalsas(id))
+  if(buscar4?._id) await dispatch(putActivoProteina(id))
+  if(buscar5?._id) await dispatch(putActivoToppings(id))
+  if(buscar6?._id) await dispatch(putActivoBebidas(id))
+  if(buscar7?._id) await dispatch(putActivoPostres(id))
+  if(buscar8?._id) await dispatch(putActivoMenu(id))
 
+  return history(-1)}
+  const {activo} = buscar1||buscar2||buscar3||buscar4||buscar5||buscar6||buscar7||buscar8
+  console.log(buscar1?._id)
 
   useEffect(() => {
     dispatch(bases(id))
