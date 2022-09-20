@@ -68,7 +68,7 @@ const CarrouselEP = () =>
               <div class="carousel-item active">
                 <div class="row">
                   {
-                    ensaladas?.map((e, i) => (
+                    loguearUser&&ensaladas?.map((e, i) => (
                       <div class="col-md-2 mb-1">
                         <div class="card">
                           <img class="img" alt="100%x280" src={imag[i] || e.image} />
