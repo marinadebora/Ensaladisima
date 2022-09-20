@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { useSelector } from "react-redux"
 import { getPedidos, historialCompra, historialId } from "../action";
 import CardDetalleHistorial from "./CardDetalleHistorial";
 import CardDetalleHistorialBebidas from "./CardDetailBebidas";
+import CardDetalleHistorialPostres from "./CardHistorialPostres";
 
 
 
@@ -20,16 +21,17 @@ export default function DetalleHistorial() {
     dispatch(historialId(_id))
   }, [dispatch, _id])
   const buscar = pedidos?.find(e => e._id === historialDetail?.orders[0]?._id)
-
+  // console.log(buscar.desserts)
 
   return (
-    <div>
+    <div id="detailHistorialContent">
       <br />
       <br />
       <br />
       <br />
       <br />
       <br />
+      <Link to="/admin_ordenes"><button>Volver</button></Link>
       {
         buscar?.salads ?
           buscar?.salads.map(e => {
@@ -59,6 +61,19 @@ export default function DetalleHistorial() {
               <CardDetalleHistorialBebidas
               bebidaName={e.name}
               bebidaPrecio={e.price}
+              />
+            </div>
+          )
+        }):<></>
+      }
+      {
+        buscar?.desserts?
+        buscar?.desserts?.map(e=>{
+          return (
+            <div>
+              <CardDetalleHistorialPostres
+              postresName={e.name}
+              postresPrecio={e.price}
               />
             </div>
           )

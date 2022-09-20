@@ -348,11 +348,11 @@ export const postMenu = (payload) => async () => {
 	const json = await axios.post("/menus", payload);
 	return json;
 }
-// ruta post big
-// export const postBig = (payload)=> async ()=>{
-// 	const json = await axios.post("/ensaladabig",payload);
-// 	return json;
-// }
+// ruta post MenuBig
+ export const postMenuBig = (payload)=> async ()=>{
+ 	const json = await axios.post("/menuBig",payload);
+ 	return json;
+ }
 
 //ruta put de bases
 export const putBases = (_id, payload) => async (dispatch) => {
@@ -955,6 +955,46 @@ export function saladGrande(payload) {
 	}
 }
 
+// para cambiar el estado a procesado
+export const putProcesado=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/estadoProcessing/${_id}`);
+			return dispatch({
+				type:"PUT_PROCESADO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+
+// para cambiar el estado a Recibido
+export const putRecibido=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/estadoReceived/${_id}`);
+			return dispatch({
+				type:"PUT_RECIBIDO",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+// para cambiar el estado a Cancelado
+export const putCancelado=(_id)=>async (dispatch)=>{
+	try {
+		if(_id){
+			const editar= await axios.put(`/estadoCanceled/${_id}`);
+			return dispatch({
+				type:"PUT_Cancelado",payload:editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
 //ruta para cargar la ensaladas que el usuario vuelve a comprar
 export function modificarPedido(payload) {
 	return async function (dispatch) {
@@ -968,5 +1008,33 @@ export function modificarPedido(payload) {
 		} catch (error) {
 			console.log(error)
 		}
+	}
+}
+
+export function putPedidoDelivery(payload) {
+	return async function (dispatch) {
+		try {
+			const modificar = await axios.put(`/putpedidodelivery`, payload)
+			return dispatch({
+				type: "PEDIDO_DELIVERY_PUT",
+				payload: modificar.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+    }
+}
+//filtro por estado historial de compra admin
+export function filtroHistorial(payload){
+	return {
+		type: 'FITRO_HISTORIAL',
+		payload
+	}
+}
+//filtro por rango de precio historial de compra admin
+export function filtroHistorialPrecio(payload){
+	return {
+		type: 'FILTRO_PRECIO',
+		payload
 	}
 }

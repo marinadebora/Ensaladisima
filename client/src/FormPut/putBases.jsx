@@ -29,19 +29,19 @@ export default function BaseEdit() {
   const buscar6 = beverage?.find(e => e._id === id)
   const buscar7 = dessert?.find(e => e._id === id)
   const buscar8 = menu?.find(e => e._id === id)
-  const putActivoTodo =async() => {
-  if(buscar1?._id) await dispatch(putActivoBase(id))
-  if(buscar2?._id) await dispatch(putActivoComplementos(id))
-  if(buscar3?._id) await dispatch(putActivoSalsas(id))
-  if(buscar4?._id) await dispatch(putActivoProteina(id))
-  if(buscar5?._id) await dispatch(putActivoToppings(id))
-  if(buscar6?._id) await dispatch(putActivoBebidas(id))
-  if(buscar7?._id) await dispatch(putActivoPostres(id))
-  if(buscar8?._id) await dispatch(putActivoMenu(id))
+  const putActivoTodo =() => {
+  if(buscar1?._id)  dispatch(putActivoBase(id))
+  if(buscar2?._id)  dispatch(putActivoComplementos(id))
+  if(buscar3?._id)  dispatch(putActivoSalsas(id))
+  if(buscar4?._id)  dispatch(putActivoProteina(id))
+  if(buscar5?._id)  dispatch(putActivoToppings(id))
+  if(buscar6?._id)  dispatch(putActivoBebidas(id))
+  if(buscar7?._id)  dispatch(putActivoPostres(id))
+  if(buscar8?._id)  dispatch(putActivoMenu(id))
+  history(-1)
+  return alert("Se modifico correctamente, fijate bro")}
+  var {activo} = buscar1||buscar2||buscar3||buscar4||buscar5||buscar6||buscar7||buscar8
 
-  return history(-1)}
-  const {activo} = buscar1||buscar2||buscar3||buscar4||buscar5||buscar6||buscar7||buscar8
-  console.log(buscar1?._id)
 
   useEffect(() => {
     dispatch(bases(id))
@@ -72,13 +72,13 @@ export default function BaseEdit() {
       setInput({
         ...input,
         [e.target.name]: e.target.value,
-        image:imagenInput
+        image:JSON.parse(localStorage.getItem('imagenPut'))
       })
     }else{
       setInput({
         ...input,
         [e.target.name]: e.target.value,
-        
+       
       })
     }
    
@@ -204,7 +204,7 @@ export default function BaseEdit() {
 
 		let response = await axios.post("https://api.cloudinary.com/v1_1/deqbqghhq/image/upload", formData)
 		setImagenInput(response.data.url)
-		
+    localStorage.setItem('imagenPut', JSON.stringify(response.data.url))
 
 	};
 
@@ -259,17 +259,20 @@ export default function BaseEdit() {
         
         <div>
           <label>Habilitado:{activo === true?"A la venta":"No esta a la venta"}</label>
-          <label >Imagen: </label><img className="imgPutBases"  src={buscar1?.image ? buscar1.image : buscar2?.image ? buscar2.image : buscar3?.image ? buscar3.image : buscar4?.image ? buscar4.image : buscar5?.image ? buscar5.image : buscar6?.image ? buscar6.image : buscar7?.image ? buscar7.image : buscar8?.image ? buscar8.image : input.image} alt='' />
-        </div>
-        <div>
-         <label >editar imagen: </label><input type="file" onChange={event => cloudinary(event.target.files)} />
-         <img className="imgPutBases" src={input.image} alt="" />
-        </div>
         <div id="marcoProductEdit">
           <label>Nombre: </label><input type="text" value={input.name} placeholder={buscar1?.name ? buscar1.name : buscar2?.name ? buscar2.name : buscar3?.name ? buscar3.name : buscar4?.name ? buscar4.name : buscar5?.name ? buscar5.name : buscar6?.name ? buscar6.name : buscar7?.name ? buscar7.name : buscar8?.name ? buscar8.name : input.name} name="name" onChange={handleChange} />
-          
+        </div>
+          <label >Imagen: </label><img className="imgPutBases"  src={buscar1?.image ? buscar1.image : buscar2?.image ? buscar2.image : buscar3?.image ? buscar3.image : buscar4?.image ? buscar4.image : buscar5?.image ? buscar5.image : buscar6?.image ? buscar6.image : buscar7?.image ? buscar7.image : buscar8?.image ? buscar8.image : input.image} alt='' />
+          <input type="url" defaulValue={JSON.parse(localStorage.getItem('imagenPut'))||input.image} placeholder={buscar1?.image ? buscar1.image : buscar2?.image ? buscar2.image : buscar3?.image ? buscar3.image : buscar4?.image ? buscar4.image : buscar5?.image ? buscar5.image : buscar6?.image ? buscar6.image : buscar7?.image ? buscar7.image : buscar8?.image ? buscar8.image : input.image} name="image" onChange={handleChange} />
+        </div>
+        <div>
+         <label >editar imagen: </label><input id="cloudInput" defaulValue={input.image} name="image"  type="file" onChange={event => cloudinary(event.target.files)} />
+         <img className="imgPutBases" src={imagenInput} alt="" /><input type="checkbox" name="image" id="one" onChange={handleChange}/>✔
         </div>
         
+        
+      
+
 
         {/* <div>
           <label >Imagen(link):</label><input type="url" defaulValue={input.image} placeholder={buscar1?.image ? buscar1.image : buscar2?.image ? buscar2.image : buscar3?.image ? buscar3.image : buscar4?.image ? buscar4.image : buscar5?.image ? buscar5.image : buscar6?.image ? buscar6.image : buscar7?.image ? buscar7.image : buscar8?.image ? buscar8.image : input.image} name="image" onChange={handleChange} />

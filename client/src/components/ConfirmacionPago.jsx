@@ -1,27 +1,28 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPedidos } from "../action";
+import { getPedidos, usuariosRegistrados } from "../action";
 import {useNavigate} from "react-router-dom"
 import Swal from 'sweetalert2'
 import "../styles/PasarelaDePago.css";
+import NavBar from "./NavBar";
 
 
 
 
-export default function ConfirmacionPago(){
+export default function ConfirmacionPago(preciototal){
 
 const dispatch = useDispatch()
 const history = useNavigate()
 let usuario = JSON.parse(localStorage.getItem("loguearUsuario"))
 
-const todosPedidos = useSelector(state =>state.pedidos)
 
-console.log(todosPedidos)
-const pedidosUsuario = todosPedidos?.filter(pedido=>pedido?.user?._id === usuario?.id )
-console.log(pedidosUsuario)
-const nuevoPedido = pedidosUsuario?.find(pedido=> pedido?.salads?.length === 0 && pedido?.beverages?.length === 0  && pedido?.desserts?.length === 0)
-console.log(nuevoPedido?._id)
+const usuarito = useSelector(state =>state.usuarios)
+console.log(usuarito)
 
+const usuarioAModificar = usuarito?.find(e=>e._id === usuario?.id)
+console.log(usuarioAModificar)
+const pedidoNuevo = usuarioAModificar?.orders[0]?._id
+console.log(pedidoNuevo)
 
   console.log(usuario)
   let usuarioLocalStorage = {
@@ -31,9 +32,10 @@ console.log(nuevoPedido?._id)
     firstName: usuario?.firstName,
     id: usuario?.id,
     lastName: usuario?.lastName,
-    orders: [nuevoPedido?._id],
+    orders: [pedidoNuevo],
     token: usuario?.token 
   }
+  console.log(usuarioLocalStorage)
   function handleClick(){
     localStorage.removeItem("postres")
     localStorage.removeItem("bebidas")
@@ -41,10 +43,11 @@ console.log(nuevoPedido?._id)
     localStorage.removeItem("ensaladaG")
     localStorage.removeItem("medianas")
     localStorage.removeItem("grandes")
-    console.log(usuarioLocalStorage)
-    const usuario = localStorage.setItem("loguearUsuario",JSON.stringify(usuarioLocalStorage))
-    console.log(usuario)
+    localStorage.setItem("loguearUsuario",JSON.stringify(usuarioLocalStorage))
+
     history("/menu")
+  
+
     Swal.fire({
       position: 'center',
       icon: "success",
@@ -55,11 +58,13 @@ console.log(nuevoPedido?._id)
     };
     useEffect(() => {
     dispatch(getPedidos())
-    }, [dispatch])
+    dispatch(usuariosRegistrados())
+    },[dispatch])
   
 
   return (
     <div id="paymentMain"className="container">
+      <NavBar/>
       <br /><br /><br /><br /><br /><br /><br /><br />
     <h3>Solo falta un ultimo paso </h3>
     <p>Ahora simplemente debes dar click al siguiente boton para finalizar tu compra y recibir el detalle</p>

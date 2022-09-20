@@ -89,7 +89,6 @@ console.log(preciototal)
         console.log(data);
         
         elements.getElement(CardElement).clear();
-        setLoading(false)
         Swal.fire({
           position: 'center',
           icon: "success",
@@ -99,6 +98,8 @@ console.log(preciototal)
         })
         dispatch(postHistorialDeCompra({_id:user.id,totalPayable:preciototal}))
         history("/confirmacionPago")
+        window.location.reload()
+        setLoading(false)
         
       } catch (error) {
         alert("Los datos no concuerdan");
@@ -110,13 +111,14 @@ console.log(preciototal)
   // console.log(!stripe || loading);
 
   return (
+    
     <div id="paymentMain"className="container">
-
+      
    
     <form className="card card-body" onSubmit={handleSubmit}>
       {/* Product Information */}
       
-      <h3 className="text-center my-2">Price: ${preciototal}</h3>
+      <h3 className="text-center my-2">Precio: ${preciototal}</h3>
 
       {/* User Card Input */}
       <div className="form-group">
@@ -135,11 +137,13 @@ console.log(preciototal)
       </button>
     </form>
     </div>
+    
   );
 };
 
 function PasarelaDePago() {
   return (
+   
     <Elements stripe={stripePromise}>
       
           <div id="checkOutContainer">
@@ -147,9 +151,8 @@ function PasarelaDePago() {
           <CheckoutForm />
 
         </div>
-       
-      
     </Elements>
+    
   );
 }
 

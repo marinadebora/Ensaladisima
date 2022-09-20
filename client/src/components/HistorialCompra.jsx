@@ -11,7 +11,7 @@ export function HistorialCompras()  {
   const userID =loguearUser?.id
   const myHistorial = useSelector(state => state?.historial);
  // cost buscarUser=myHistorial?.map(e=>e.user[])
-let historialUser=myHistorial?.filter(e=>e.user[0]._id===userID)
+let historialUser=myHistorial?.filter(e=>e.user[0]?._id===userID)
 
 console.log(historialUser)
   useEffect(()=>{
@@ -19,235 +19,259 @@ console.log(historialUser)
   },[dispatch])
 
     return (
-      <div>
+      <div id="containerHistorialMain">
         <NavBar/>
        <div className="contenedor-total">
 {
-  historialUser?.length<=0?<div ><h3 className='h3'>Aun no tienes compras</h3> <img className="imagenhc" src={''} alt=''/></div>:
-  historialUser?.map(e=>(
+      historialUser?.length<=0?<div ><h3 className='h3'>Aun no tienes compras</h3> <img className="imagenhc" src={''} alt=''/></div>:
+      historialUser?.map(e=>(
       <div className="contenedor-orden">
-      {e.received&&<p id='estadoRec'>Estado de la compra RECIBIDO</p> }
-      {e.pending&& <p id='estadoPend'>Estado de la compra PENDIENTE</p>}
-      {e.processing&& <p id='estadoProc'>Estado de la compra PROCESADO</p>}
-      {e.canceled&&<p id='estadoCan'>Estado de la compra CANCELADO</p>}
-      <p className="text">Compra n° : {e._id}</p>
-      <p className="text">Fecha : {e?.facheyhora?.split('T')[0]}</p>
-      <p className="text">Hora : {e?.facheyhora?.split('T')[1]?.split('.')[0]}</p>
-        
-         { e.orders?.map(e=>(
-              <div >
-                 {
-                  e.saladsMenu&& e.saladsMenu.map(e=>(
-                    <>
-                    {
-                      
-                    }
-                    <p className='nombre-art'>1 {e.name}</p>
-                    <img src={e.image?.[0]} alt="imagen" className='imagen-art'/>
-                    <p>ingredientes</p>
-                    <ul className="ulEnsaladas">
-                    {
-                     e.base&& e.base.map(e=>(
-                        <li className="liIngredientes">{e}, </li>
-                      ))
-                    }
-                    </ul>
-                    <ul className="ulEnsaladas">
-                    {
-                     e.protein&& e.protein.map(e=>(
-                        <li className="liIngredientes">{e}, </li>
-                      ))
-                    }
-                    </ul>
-                    <ul className="ulEnsaladas">
-                    {
-                     e.complement&& e.complement.map(e=>(
-                        <li className="liIngredientes">{e}, </li>
-                      ))
-                    }
-                    </ul>
-                    <ul className="ulEnsaladas">
-                    {
-                     e.sauce&& e.sauce.map(e=>(
-                        <li className="liIngredientes">{e}, </li>
-                      ))
-                    }
-                    </ul>
-                    <ul className="ulEnsaladas">
-                    {
-                     e.topping&& e.topping.map(e=>(
-                        <li className="liIngredientes">{e}, </li>
-                      ))
-                    }
-                    </ul>
-                    <p className='texto-art'>Precio: {e.price}</p>
-                    </>
-                  ))
-                 }
-                 {
-                 e.saladsMenuBig&& e.saladsMenuBig.map(e=>(
-                    <>
-                    <p className='nombre-art'>1 {e.name}</p>
-                    <img src={e.image?.[0]} alt="imagen" className='imagen-art'/>
-                    <p>ingredientes</p>
-                    <ul className="ulEnsaladas">
-                    {
-                    e.base&&e.base.map(e=>(
-                        <li className="liIngredientes">{e}, </li>
-                      ))
-                    }
-                    </ul>
-                    <ul className="ulEnsaladas">
-                    {
-                    e.protein&& e.protein.map(e=>(
-                      <li className="liIngredientes">{e}, </li>
-                      ))
-                    }
-                    </ul>
-                    <ul className="ulEnsaladas">
-                    {
-                     e.complement&& e.complement.map(e=>(
-                      <li className="liIngredientes">{e}, </li>
-                      ))
-                    }
-                    </ul>
-                    <ul className="ulEnsaladas">
-                    {
-                     e.sauce&& e.sauce.map(e=>(
-                      <li className="liIngredientes">{e}, </li>
-                      ))
-                    }
-                    </ul>
-                    <ul className="ulEnsaladas">
-                    {
-                     e.topping&& e.topping.map(e=>(
-                      <li className="liIngredientes">{e}, </li>
-                      ))
-                    }
-                    </ul>
-                    <p className='texto-art'>Precio: {e.price}</p>
-                    </>
-                  ))
-                 }
-                 {
-                 e.saladsMed&& e.saladsMed.map(e=>(
-                    <>
-                    <p className='nombre-art'>1 {e.name}</p>
-                    <img src={e.image} alt="imagen" className='imagen-art'/>
-                    <p>ingredientes</p>
-                    <ul className="ulEnsaladas">
-                    {
-                     e.base&& e.base.map(e=>(
-                      <li className="liIngredientes">{e}, </li>
-                      ))
-                    }
-                    </ul>
-                    <ul className="ulEnsaladas">
-                    {
-                     e.protein&& e.protein.map(e=>(
-                      <li className="liIngredientes">{e}, </li>
-                      ))
-                    }
-                    </ul>
-                    <ul className="ulEnsaladas">
-                    {
-                     e.complement&& e.complement.map(e=>(
-                      <li className="liIngredientes">{e}, </li>
-                      ))
-                    }
-                    </ul>
-                    <ul>
-                    {
-                     e.sauce&& e.sauce.map(e=>(
-                      <li className="liIngredientes">{e}, </li>
-                      ))
-                    }
-                    </ul>
-                    <ul className="ulEnsaladas">
-                    {
-                     e.topping&& e.topping.map(e=>(
-                      <li className="liIngredientes">{e}, </li>
-                      ))
-                    }
-                    </ul>
-                    <p className='texto-art'>Precio: {e.price}</p>
-                    </>
-                  ))
-                 }
-                  {
-                   e.saladsBig&&e.saladsBig.map(e=>(
-                    <>
-                    <p className='nombre-art'>1 {e.name}</p>
-                    <img src={e.image} alt="imagen" className='imagen-art'/>
-                    <p>ingredientes</p>
-                    <ul className="ulEnsaladas">
-                    {
-                     e.base&& e.base.map(e=>(
-                      <li className="liIngredientes">{e}, </li>
-                      ))
-                    }
-                    </ul>
-                    <ul className="ulEnsaladas">
-                    {
-                     e.protein&& e.protein.map(e=>(
-                      <li className="liIngredientes">{e}, </li>
-                      ))
-                    }
-                    </ul>
-                    <ul className="ulEnsaladas">
-                    {
-                     e.complement&& e.complement.map(e=>(
-                      <li className="liIngredientes">{e}, </li>
-                      ))
-                    }
-                    </ul>
-                    <ul className="ulEnsaladas">
-                    {
-                     e.sauce&& e.sauce.map(e=>(
-                      <li className="liIngredientes">{e}, </li>
-                      ))
-                    }
-                    </ul>
-                    <ul className="ulEnsaladas">
-                    {
-                     e.topping&& e.topping.map(e=>(
-                      <li className="liIngredientes">{e}, </li>
-                      ))
-                    }
-                    </ul>
-                    <p className='texto-art'>Precio: {e.price}</p>
-                    </>
-                  ))
-                 }
-                 {
-                  e.beverages&&e.beverages.map(e=>(
-                    <>
-                    <p className='nombre-art'>1 {e.name}</p>
-                    <img src={e.image?.[0]} alt="imagen" className='imagen-art'/>
-                    <p>Precio: {e.price}</p>
-                    
-                    </>
-                  )) 
-                 }
-                 {
-                  e.desserts&&e.desserts.map(e=>(
-                    <>
-                    <p className='nombre-art'>1 {e.name}</p>
-                    <img src={e.image?.[0]} alt="imagen" className='imagen-art'/>
-                    <p>Precio: {e.price}</p>
-                    
-                    </>
-                  )) 
-                 }
-                
-             </div>
-          ))}
+      <div class="row">
+        <div class="col">
+          {e.received&&<p id='estadoRec'>Estado de la compra ENTREGADO</p> }
+          {e.pending&& <p id='estadoPend'>Estado de la compra PENDIENTE</p>}
+          {e.processing&& <p id='estadoProc'>Estado de la compra EN PROCESO</p>}
+          {e.canceled&&<p id='estadoCan'>Estado de la compra CANCELADO</p>}
+        </div>
+        <div id="nCompra"class="col">
+          <p className="text">Compra n° : {e._id}</p>
+        </div>
+      </div>
+      
+      <div class="row">
 
-      <h5 className="text">Total: US$ {e.totalPayable} </h5>    
+        <div class="col">
+
+            { e.orders?.map(e=>(
+                  <div >
+                    {
+                      e.saladsMenu&& e.saladsMenu.map(e=>(
+                        <>
+                        
+                        <p className='tuEnsalada'>{e.name}</p>
+                        <img src={e.image?.[0]} alt="imagen" className='imagen-art'/>
+                        <p className='nombre-art1'>Ingredientes:</p>
+                        <ul className="ulEnsaladas">
+                        {
+                        e.base&& e.base.map(e=>(
+                            <li className="liIngredientes">{e}, </li>
+                          ))
+                        }
+                        </ul>
+                        <ul className="ulEnsaladas">
+                        {
+                        e.protein&& e.protein.map(e=>(
+                            <li className="liIngredientes">{e}, </li>
+                          ))
+                        }
+                        </ul>
+                        <ul className="ulEnsaladas">
+                        {
+                        e.complement&& e.complement.map(e=>(
+                            <li className="liIngredientes">{e}, </li>
+                          ))
+                        }
+                        </ul>
+                        <ul className="ulEnsaladas">
+                        {
+                        e.sauce&& e.sauce.map(e=>(
+                            <li className="liIngredientes">{e}, </li>
+                          ))
+                        }
+                        </ul>
+                        <ul className="ulEnsaladas">
+                        {
+                        e.topping&& e.topping.map(e=>(
+                            <li className="liIngredientes">{e}, </li>
+                          ))
+                        }
+                        </ul>
+                        <p className='texto-art'>Precio: u$s {e.price}</p>
+                        </>
+                      ))
+                    }
+                    {
+                    e.saladsMenuBig&& e.saladsMenuBig.map(e=>(
+                        <>
+                        <p className='tuEnsalada'>1 {e.name}</p>
+                        <img src={e.image?.[0]} alt="imagen" className='imagen-art'/>
+                        <p className='nombre-art'>Ingredientes:</p>
+                        <ul className="ulEnsaladas">
+                        {
+                        e.base&&e.base.map(e=>(
+                            <li className="liIngredientes">{e}, </li>
+                          ))
+                        }
+                        </ul>
+                        <ul className="ulEnsaladas">
+                        {
+                        e.protein&& e.protein.map(e=>(
+                          <li className="liIngredientes">{e}, </li>
+                          ))
+                        }
+                        </ul>
+                        <ul className="ulEnsaladas">
+                        {
+                        e.complement&& e.complement.map(e=>(
+                          <li className="liIngredientes">{e}, </li>
+                          ))
+                        }
+                        </ul>
+                        <ul className="ulEnsaladas">
+                        {
+                        e.sauce&& e.sauce.map(e=>(
+                          <li className="liIngredientes">{e}, </li>
+                          ))
+                        }
+                        </ul>
+                        <ul className="ulEnsaladas">
+                        {
+                        e.topping&& e.topping.map(e=>(
+                          <li className="liIngredientes">{e}, </li>
+                          ))
+                        }
+                        </ul>
+                        <p className='texto-art'>Precio: u$s {e.price}</p>
+                        </>
+                      ))
+                    }
+                    {
+                    e.saladsMed&& e.saladsMed.map(e=>(
+                        <>
+                        <p className='tuEnsalada'>1 {e.name}</p>
+                        <img src={e.image} alt="imagen" className='imagen-art'/>
+                        <p className='nombre-art'>Ingredientes:</p>
+                        <ul className="ulEnsaladas">
+                        {
+                        e.base&& e.base.map(e=>(
+                          <li className="liIngredientes">{e}, </li>
+                          ))
+                        }
+                        </ul>
+                        <ul className="ulEnsaladas">
+                        {
+                        e.protein&& e.protein.map(e=>(
+                          <li className="liIngredientes">{e}, </li>
+                          ))
+                        }
+                        </ul>
+                        <ul className="ulEnsaladas">
+                        {
+                        e.complement&& e.complement.map(e=>(
+                          <li className="liIngredientes">{e}, </li>
+                          ))
+                        }
+                        </ul>
+                        <ul>
+                        {
+                        e.sauce&& e.sauce.map(e=>(
+                          <li className="liIngredientes">{e}, </li>
+                          ))
+                        }
+                        </ul>
+                        <ul className="ulEnsaladas">
+                        {
+                        e.topping&& e.topping.map(e=>(
+                          <li className="liIngredientes">{e}, </li>
+                          ))
+                        }
+                        </ul>
+                        <p className='texto-art'>Precio: u$s {e.price}</p>
+                        </>
+                      ))
+                    }
+                      {
+                      e.saladsBig&&e.saladsBig.map(e=>(
+                        <>
+                        <p className='tuEnsalada'>1 {e.name}</p>
+                        <img src={e.image} alt="imagen" className='imagen-art'/>
+                        <p className='nombre-art'>Ingredientes:</p>
+                        <ul className="ulEnsaladas">
+                        {
+                        e.base&& e.base.map(e=>(
+                          <li className="liIngredientes">{e}, </li>
+                          ))
+                        }
+                        </ul>
+                        <ul className="ulEnsaladas">
+                        {
+                        e.protein&& e.protein.map(e=>(
+                          <li className="liIngredientes">{e}, </li>
+                          ))
+                        }
+                        </ul>
+                        <ul className="ulEnsaladas">
+                        {
+                        e.complement&& e.complement.map(e=>(
+                          <li className="liIngredientes">{e}, </li>
+                          ))
+                        }
+                        </ul>
+                        <ul className="ulEnsaladas">
+                        {
+                        e.sauce&& e.sauce.map(e=>(
+                          <li className="liIngredientes">{e}, </li>
+                          ))
+                        }
+                        </ul>
+                        <ul className="ulEnsaladas">
+                        {
+                        e.topping&& e.topping.map(e=>(
+                          <li className="liIngredientes">{e}, </li>
+                          ))
+                        }
+                        </ul>
+                        <p className='texto-art'>Precio: u$s {e.price}</p>
+                        </>
+                      ))
+                    }
+                    {
+                      e.beverages&&e.beverages.map(e=>(
+                        <>
+                        <p className='tuEnsalada'>Bebidas:</p>
+                        <p className='nombre-art'>1 {e.name}</p>
+                        <img src={e.image?.[0]} alt="imagen" className='imagen-art'/>
+                        <p>Precio: u$s {e.price}</p>
+                        
+                        </>
+                      )) 
+                    }
+                    {
+                      e.desserts&&e.desserts.map(e=>(
+                        <>
+                        <p className='tuEnsalada'>Postres:</p>
+                        <p className='nombre-art'>1 {e.name}</p>
+                        <img src={e.image?.[0]} alt="imagen" className='imagen-art'/>
+                        <p>Precio: u$s {e.price}</p>
+                        
+                        </>
+                      )) 
+                    }
+                    
+                </div>
+              ))}
+        </div>
+
+        <div class="col">
+          <p class="row" className="textDate">Fecha : {e?.facheyhora?.split('T')[0]}</p>
+          <p class="row" className="textDate">Hora : {e?.facheyhora?.split('T')[1]?.split('.')[0]}</p>
+        </div>
+        
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <h5 className="text">Total: u$s {e.totalPayable} </h5>
+        </div>
+        <div class="col">
+          <Link to='/menu'>
+            <button variant="outlined" id="buttonHistotialCliente">Volver</button>
+          </Link> 
+
+        </div>
+      </div> 
+
   
-      <Link to='/menu'>
-          <button variant="outlined" id="buttonHistotialCliente">Volver</button>
-      </Link> 
           </div>
       ))
 }

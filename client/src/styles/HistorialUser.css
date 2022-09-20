@@ -1,103 +1,152 @@
-.contenedor-total{
-    flex-wrap: wrap;
-    overflow: hidden;
-    height: auto;
-    margin:2% 10%;
-  
-    
-  }
-  .contenedor-orden{
-    width: 55%;
-    margin:2%;
-    padding: 2%;
-    box-shadow: 0 3px 13px 1px rgba(0, 0, 0, 0.503);
-    text-align:start;
-  }
- 
-  
-  
-      .imagen-art{
-          width: 20%;
-          
-          display: block;
-        }
-        .contenedor-texto-art {
-           text-align:end; 
-           width: 50%;
-           height: 100%;
-           padding: 2%;
-           font-family: Arial, Helvetica, sans-serif;
-           font-weight: 1%;
-           line-height: 1.2rem;
-        }
-        .nombre-art {
-            display: flex;
-            text-decoration: none;
-            font-family: Tommy-light;
-            color: #207140;
-            font-size: 15px;
-            margin: 0px;
-            padding: 0.3%;
-            text-align: center;
-            font-family: Tommy-bold;
-        }
-      .link {
-        text-decoration: none;
-        font-size:1.1rem ;
-        text-align: justify;
-      }
-      .texto.art {
-        font-size:2.1rem ;
-        text-align: justify;
-      }
-   .imagenhc{
-    width: 30%;
-   }
-   .h3{
-    color: rgb(1, 1, 42);
-   }
-   .text{
-    text-align: start;
-    margin-top:10px;
-   }
-  #buttonHistotialCliente{
-   margin-left: 80%;
-    width: 15%;
-    height: 10%;
-    background-color: #207140; 
-    color: white;
-    text-decoration: none;
-    border:1px  solid white;
-    border-radius: 3.12rem;
-    font-family: Tommy-bold;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-  #estadoRec{
-    font-family: Tommy-regular;
-    color: #207140;
-  }
-  #estadoPend{
-    font-family: Tommy-regular;
-color:#d8d404 
-  }
-  #estadoProc{
-    font-family: Tommy-regular;
-    color:#D77511
-  }
-  #estadoCan{
-    font-family: Tommy-regular;
-    color:rgb(112, 2, 2)
-  }
-  .ulEnsaladas{
-    display: flex;
-    width: 100%;
-    height: 20%;
-    flex-wrap: wrap;
-  }
-  .liIngredientes{
-    display: block;
-    text-decoration: none;
-    padding: 0.1rem;
-  }
+@font-face {
+  font-family: Tommy-regular;
+  src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+
+  font-family: Tommy-light;
+  src: url(../fonts//made_tommy/MADE\ TOMMY\ Light_PERSONAL\ USE.ttf);
+}
+
+#containerHistorialMain {
+  width: 100%;
+  height: auto;
+}
+
+.contenedor-total {
+  height: auto;
+  padding-top: 9rem;
+}
+.contenedor-orden {
+  border: 2px solid #207140;
+  margin:  auto;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding: 20px;
+  width: 90%;
+  height: auto;
+  border-radius: 20px;
+
+}
+
+#nCompra{
+  font-family: Tommy-regular;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.textDate{
+  font-family: Tommy-regular;
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.imagen-art {
+  width: 10%;
+  display: block;
+}
+.contenedor-texto-art {
+  text-align: end;
+  width: 50%;
+  height: 100%;
+  padding: 2%;
+  font-family: Tommy-regular;
+  font-weight: 1%;
+  line-height: 1.2rem;
+}
+.nombre-art {
+  display: flex;
+  text-decoration: none;
+  font-family: Tommy-light;
+  color: #207140;
+  font-size: 20px;
+  margin: 0px;
+  padding: 0.3%;
+  text-align: center;
+  font-family: Tommy-bold;
+}
+
+.nombre-art1 {
+  display: flex;
+  text-decoration: none;
+  font-family: Tommy-light;
+  color: #207140;
+  font-size: 15px;
+  margin: 0px;
+  padding: 0.3%;
+  text-align: center;
+  font-family: Tommy-bold;
+}
+
+.tuEnsalada{
+  display: flex;
+  text-decoration: none;
+  color: #207140;
+  font-size: 20px;
+  margin: 0px;
+  padding: 0.3%;
+  text-align: center;
+  font-family: Tommy-bold;
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid #207140;
+}
+.link {
+  text-decoration: none;
+  font-size: 1.1rem;
+  text-align: justify;
+}
+.texto.art {
+  font-size: 2.1rem;
+  text-align: justify;
+}
+.imagenhc {
+  width: 30%;
+}
+.h3 {
+  color: rgb(1, 1, 42);
+}
+.text {
+  font-family: Tommy-bold;
+  text-align: start;
+}
+#buttonHistotialCliente {
+  margin-left: 80%;
+  width: 15%;
+  height: 100%;
+  background-color: #207140;
+  color: white;
+  text-decoration: none;
+  border: 1px solid white;
+  border-radius: 3.12rem;
+  font-family: Tommy-bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#estadoRec {
+  font-family: Tommy-bold;
+  color: #207140;
+}
+#estadoPend {
+  font-family: Tommy-bold;
+  color: #d8d404;
+}
+#estadoProc {
+  font-family: Tommy-bold;
+  color: #d77511;
+}
+#estadoCan {
+  font-family: Tommy-bold;
+  color: rgb(112, 2, 2);
+}
+.ulEnsaladas {
+  display: flex;
+  width: 100%;
+  height: 20%;
+  flex-wrap: wrap;
+}
+.liIngredientes {
+  font-family: Tommy-light;
+  display: block;
+  text-decoration: none;
+  padding: 0.1rem;
+}

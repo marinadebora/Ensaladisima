@@ -36,11 +36,8 @@ function Pago() {
 
             <h3 className="fw-normal mb-3 ps-5 pb-3" style={{letterSpacing: '1px'}}>Log in</h3>
 
-
-          
-
-
             <PasarelaDePago/>
+            
             <Link id="butonPagoBack" to="/checkout">
                  <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"> Volver</i>
             </Link>

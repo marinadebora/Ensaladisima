@@ -12,18 +12,21 @@ import {
 } from "mdb-react-ui-kit";
 import { useLocalStorage } from '../useLocalStorage'
 import React from "react";
-
+import '../styles/CheckOut.css'
 import {
-  Link,
+  Link, useNavigate,
   /* useNavigate */
 } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   eliminarDelCarrito, getPedidos, agregarAlCarrito,
-  putPedidocargarPedido
+  putPedidocargarPedido,
+  putPedidoDelivery,
+  usuariosRegistrados
 } from "../action";
 import NavBar from "./NavBar";
+
 
 
 
@@ -199,7 +202,7 @@ export default function QuantityEdit() {
       const usuario = JSON.parse(localStorage.getItem('loguearUsuario'))
       setUser(usuario)
       dispatch(getPedidos())
-
+      dispatch(usuariosRegistrados())
     }
   }, [dispatch])
 
@@ -263,18 +266,96 @@ export default function QuantityEdit() {
       resultado?.desserts?.find(a=> a._id !== e.target.value)
     }
   } */
-
+  
   const [envio, setEnvio] = useState(true)
+  
+  const [datos, setDatos] = useState({
+    adress:"",
+    delivery: envio,
+    _id: user?.orders[0],
+    comentario: ""
+  })
 
-
-  const handleClick = (e) => {
-    setEnvio(e.target.value)
-    console.log(envio)
+  const handleClick = () => {
+    if (envio === true) {
+      setEnvio(false)
+      setDatos({
+        adress: datos?.adress,
+        delivery: false,
+        _id: user?.orders[0],
+        comentario: datos?.comentario
+      })
+    } else {
+      setEnvio(true)
+      setDatos({
+        adress: "",
+        delivery: true,
+        _id: user?.orders[0],
+        comentario: datos?.comentario
+      })
+    }
   }
 
+  const cambiarDireccion = (e)=>{
+  setDatos({
+    adress: e.target.value,
+    delivery: true,
+    _id: user?.orders[0],
+    comentario: datos?.comentario
+  })
+  }
+
+  const cambiarComentario = (e)=>{
+    setDatos({
+      adress: datos?.adress,
+      delivery: true,
+      _id: user?.orders[0],
+      comentario: e.target.value
+    })
+  }
+
+  const enviarEnTrue = () => {
+    return (
+      <div>
+        <div className="mb-4 pb-2">
+          <spam style={{ fontSize: '1.7em' }}>Delivery</spam>
+          <label class="toggleSwitch nolabel" >
+            <input defaultValue={user?.adress ? user?.adress[0] : ''} onClick={handleClick} value={false} style={{ width: '1em' }} type="checkbox" />
+            <span style={{ marginLeft: '0.2rem', fontSize: '1.5em' }}>Cambiar</span>
+          </label>
+        </div>
+      </div>
+    )
+  }
+
+  const enviarEnFalse = () => {
+    return (
+      <div>
+        <div className="mb-4 pb-2">
+          <spam style={{ fontSize: '1.7em' }}>Retirar en la tienda</spam>
+          <label class="toggleSwitch nolabel" >
+            <input onClick={handleClick} value={true} style={{ width: '1em' }} type="checkbox" />
+            <span style={{ marginLeft: '0.2rem', fontSize: '1.5em' }}>Cambiar</span>
+          </label>
+        </div>
+      </div>)
+  }
+
+  const history = useNavigate()
+
+  const cargarDatos = (e)=>{
+    e.preventDefault()
+      dispatch(putPedidoDelivery(datos))
+      history('/pago')
+    }
+
+  console.log(datos)
+
+  const persona = useSelector(state => state.usuarios)
+  const buscarPersona = persona?.find(e => e.email === user?.email)
   const direction = new Set(user?.adress)
-  console.log(direction)
-  const totales= [...direction]
+  console.log(buscarPersona?.adress)
+  const totales = [...direction]
   console.log(totales)
   return (
     <div>
@@ -329,7 +410,7 @@ export default function QuantityEdit() {
                                 </MDBCol>
                                 <MDBCol md="3" lg="2" xl="2" className="text-end">
                                   <MDBTypography tag="h6" className="mb-0">
-                                    <button class="buttonChico" value={e._id} /* onClick={borrarDelCarrito} */>X</button>
+                                    <button id="buttonDeleteCheckOut" value={e._id} /* onClick={borrarDelCarrito} */>X</button>
                                   </MDBTypography>
                                 </MDBCol>
                                 <MDBCol md="2" lg="1" xl="1" className="text-end">
@@ -363,52 +444,43 @@ export default function QuantityEdit() {
                             <MDBTypography tag="h5">US$ {armadoCarrito?.total}</MDBTypography>
                           </div>
                           <MDBTypography tag="h5" className="text-uppercase mb-3">
-                            ENVÍO
+                            Forma De Entrega
                           </MDBTypography>
                           <div className="mb-4 pb-2">
-                            <spam style={{ fontSize: '1.7em' }}>Delivery</spam>
-
-                            <label class="toggleSwitch nolabel" onClick="">
-                              <span>
-                                {envio === true ?
-                                  <div>
-                                    <input onClick={handleClick} value={false} style={{ width: '1em' }} type="checkbox" />
-                                    <span style={{ marginLeft: '0.2rem', fontSize: '1.5em' }}>no</span>
-                                  </div> : envio === false ?
-                                  <div>
-                                    <input onClick={handleClick} value={true} style={{ width: '1em' }} type="checkbox" />
-                                    <span style={{ marginLeft: '0.2rem', fontSize: '1.5em' }}>si</span>
-                                  </div> : envio === true
-                                }
-
-                              </span>
-                            </label>
-                            {envio === true ?
-                              <div>
-                                <select name="Direccion" >
-                                  <option>Selecciona</option>
-                                  {totales?.map(e => {
-                                    return (
-                                      <option>{e}</option>
-                                    )
-                                  })}
-                                </select>
-                                <MDBInput size="lg" defaultValue={user?.adress ? user?.adress[0] : ''} placeholder='Ingresar Direccion' />
-                                <MDBTypography tag="h5" className="text-uppercase mb-3">
-                                  Comentarios
-                                </MDBTypography>
-                                <div className="mb-5">
-                                  <MDBInput size="lg" />
+                            <span>
+                              {envio === true ? enviarEnTrue() : enviarEnFalse()}
+                            </span>
+                            <span>
+                              {envio === true ?
+                                <div>
+                                  <select name="direction" onChange={cambiarDireccion}>
+                                    <option value=''>Selecciona</option>
+                                    {totales?.map(e => {
+                                      return (
+                                        <option value={e}>{e}</option>
+                                      )
+                                    })}
+                                  </select>
+                                  <MDBInput size="lg" onChange={cambiarDireccion} value={datos.adress} placeholder='Ingresar Direccion' />
+                                  <br />
+                                  <MDBTypography tag="h5" className="text-uppercase mb-3">
+                                    Comentarios
+                                  </MDBTypography>
+                                  <div className="mb-5">
+                                    <MDBInput onChange={cambiarComentario} value={datos.comentario} size="lg" />
+                                  </div>
+                                </div> :
+                                <div>
+                                  <MDBTypography tag="h5" className="text-uppercase mb-3">
+                                    Comentarios
+                                  </MDBTypography>
+                                  <div className="mb-5">
+                                    <MDBInput onChange={cambiarComentario} value={datos.comentario} size="lg" />
+                                  </div>
                                 </div>
-                              </div> :
-                              <div>
-                                <MDBTypography tag="h5" className="text-uppercase mb-3">
-                                  Comentarios
-                                </MDBTypography>
-                                <div className="mb-5">
-                                  <MDBInput size="lg" />
-                                </div></div>
-                            }
+                              }
+                            </span>
+
                           </div>
                           {/* <MDBTypography tag="h5" className="text-uppercase mb-3">
                             Comentarios
@@ -423,7 +495,7 @@ export default function QuantityEdit() {
                             </MDBTypography>
                             <MDBTypography tag="h5">US$ {armadoCarrito?.total}</MDBTypography>
                           </div>
-                          {user ? <Link class="buttonChico" to="/pago">Comprar</Link> : <Link class="buttonChico" to="/registro">Registrate</Link>}
+                          {user ? <button value={datos} onClick={cargarDatos} class="buttonChico">Comprar</button> : <Link class="buttonChico" to="/registro">Registrate</Link>}
                         </div>
                       </MDBCol>
                     </MDBRow>
