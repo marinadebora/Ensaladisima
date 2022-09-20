@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { Link,useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../components/NavBar";
-import { bases, beverages, complements, desserts, Menu, proteins, putBases, putBebidas, putComplemento, putMenu, putPostres, putProteinas, putSalsas, putTopping, sauces, toppings } from "../action";
+import { bases, beverages, complements, desserts, Menu, MenuBig, proteins, putBases, putBebidas, putComplemento, putMenu, putPostres, putProteinas, putSalsas, putTopping, sauces, toppings } from "../action";
 import "./putBases.css"
 import axios from "axios";
 
 export default function BaseEdit() {
   const dispatch = useDispatch()
   const base1 = useSelector(state => state.bases)
-  const complemento = useSelector(state => state.complements)        
+  const complemento = useSelector(state => state.complements)
   const salsas = useSelector(state => state.sauces)
   const proteina = useSelector(state => state.proteins)
   const topping = useSelector(state => state.toppings)
   const beverage = useSelector(state => state.beverages)
   const dessert = useSelector(state => state.desserts)
   const menu = useSelector(state => state.menu)
+  const menuBig = useSelector(state => state.menuBig)
 
   let { id } = useParams()
 
@@ -27,6 +28,7 @@ export default function BaseEdit() {
   const buscar6 = beverage?.find(e => e._id === id)
   const buscar7 = dessert?.find(e => e._id === id)
   const buscar8 = menu?.find(e => e._id === id)
+  const buscar9 = menuBig?.find(e => e._id === id)
 
   useEffect(() => {
     dispatch(bases(id))
@@ -37,6 +39,7 @@ export default function BaseEdit() {
     dispatch(beverages(id))
     dispatch(desserts(id))
     dispatch(Menu(id))
+    dispatch(MenuBig(id))
   }, [dispatch, id])
 
   const [input, setInput] = useState({
@@ -53,20 +56,20 @@ export default function BaseEdit() {
 
 
   function handleChange(e) {
-    if(imagenInput){
+    if (imagenInput) {
       setInput({
         ...input,
         [e.target.name]: e.target.value,
-        image:JSON.parse(localStorage.getItem('imagenPut'))
+        image: JSON.parse(localStorage.getItem('imagenPut'))
       })
-    }else{
+    } else {
       setInput({
         ...input,
         [e.target.name]: e.target.value,
-       
+
       })
     }
-   
+
   }
 
   function handleSubmit(e) {
@@ -174,155 +177,205 @@ export default function BaseEdit() {
         sauce: "",
         topping: "",
         precio: "",
-        stock: ""
+        stock: "",
+        price: ""
+      })
+    }
+    else if (buscar9) {
+      dispatch(putMenu(id, input))
+      alert("MenuBig editado")
+      setInput({
+        name: "",
+        image: "",
+        base: "",
+        protein: "",
+        complement: "",
+        sauce: "",
+        topping: "",
+        precio: "",
+        stock: "",
+        price: ""
       })
     }
   }
   let [imagenInput, setImagenInput] = useState([])
-  	
-	const cloudinary = async (files) =>
-	{
 
-		const formData = new FormData();
-		formData.append("file", files[0]);
-		formData.append("upload_preset", "qji2i4gs");
+  const cloudinary = async (files) => {
 
-		let response = await axios.post("https://api.cloudinary.com/v1_1/deqbqghhq/image/upload", formData)
-		setImagenInput(response.data.url)
+    const formData = new FormData();
+    formData.append("file", files[0]);
+    formData.append("upload_preset", "qji2i4gs");
+
+    let response = await axios.post("https://api.cloudinary.com/v1_1/deqbqghhq/image/upload", formData)
+    setImagenInput(response.data.url)
     localStorage.setItem('imagenPut', JSON.stringify(response.data.url))
 
-	};
+  };
 
   return (
- 
-      <div id="container">
-            <NavBar/>
 
-            <div class="row">
+    <div id="container">
+      <NavBar />
 
-                <div class="col-2" id="sideBar">
-                    <div class="col" id="mainButtonContentAdmin">
-                        <Link id="butonSideBarAdmin" to="/admin_ordenes">
-                            <i id="butonOrders" class="bi bi-clipboard-check-fill"> Ordenes</i>
-                        </Link>
-                    </div>
+      <div class="row">
 
-                    <div class="col" id="mainButtonContentAdmin">
-                        <Link id="butonSideBarAdmin" to="/admin_usuarios">
-                            <i id="butonOrders" class="bi bi-people-fill"> Usuarios</i>
-                        </Link>
-                    </div>
-                    <div class="col" id="mainButtonContentAdmin">
-                        <Link id="butonSideBarAdmin" to="/admin_productos">
-                            <i id="butonOrders" class="bi bi-file-earmark-plus-fill"> Productos</i>
-                        </Link>
-                    </div>
-                    <div class="col" id="mainButtonContentAdmin">
-                        <Link id="butonSideBarAdmin" to="#">
-                            <i id="butonOrders" class="bi bi-clipboard-check-fill"> Caja</i>
-                        </Link>
-                    </div>
+        <div class="col-2" id="sideBar">
+          <div class="col" id="mainButtonContentAdmin">
+            <Link id="butonSideBarAdmin" to="/admin_ordenes">
+              <i id="butonOrders" class="bi bi-clipboard-check-fill"> Ordenes</i>
+            </Link>
+          </div>
 
-
-
-                </div>
-
-                <div class="col-10" id="adminContent">
-                    <div class="row" id="searchBarAdmin">
-                        <div class="col" id="adminTittle">ADMIN</div>
-                    </div>
-
-      
+          <div class="col" id="mainButtonContentAdmin">
+            <Link id="butonSideBarAdmin" to="/admin_usuarios">
+              <i id="butonOrders" class="bi bi-people-fill"> Usuarios</i>
+            </Link>
+          </div>
+          <div class="col" id="mainButtonContentAdmin">
+            <Link id="butonSideBarAdmin" to="/admin_productos">
+              <i id="butonOrders" class="bi bi-file-earmark-plus-fill"> Productos</i>
+            </Link>
+          </div>
+          <div class="col" id="mainButtonContentAdmin">
+            <Link id="butonSideBarAdmin" to="#">
+              <i id="butonOrders" class="bi bi-clipboard-check-fill"> Caja</i>
+            </Link>
+          </div>
 
 
-        {/* /----------------------------- INICIO EDIT ----------------------------------/ */}
-      
-      <h1 id="titleUsuariosRegistrados">Editá tu productos!</h1>
-      <form id="usuarioDetailMain" onSubmit={handleSubmit}>
-         {/**FORMULARIO PARA EDITAR BASES/COMPLEMENTOS/SALSAS/TOPPING/ETC */}
-        
-        <div>
-        <div id="marcoProductEdit">
-          <label>Nombre: </label><input type="text" value={input.name} placeholder={buscar1?.name ? buscar1.name : buscar2?.name ? buscar2.name : buscar3?.name ? buscar3.name : buscar4?.name ? buscar4.name : buscar5?.name ? buscar5.name : buscar6?.name ? buscar6.name : buscar7?.name ? buscar7.name : buscar8?.name ? buscar8.name : input.name} name="name" onChange={handleChange} />
+
         </div>
-          <label >Imagen: </label><img className="imgPutBases"  src={buscar1?.image ? buscar1.image : buscar2?.image ? buscar2.image : buscar3?.image ? buscar3.image : buscar4?.image ? buscar4.image : buscar5?.image ? buscar5.image : buscar6?.image ? buscar6.image : buscar7?.image ? buscar7.image : buscar8?.image ? buscar8.image : input.image} alt='' />
-          <input type="url" defaulValue={JSON.parse(localStorage.getItem('imagenPut'))||input.image} placeholder={buscar1?.image ? buscar1.image : buscar2?.image ? buscar2.image : buscar3?.image ? buscar3.image : buscar4?.image ? buscar4.image : buscar5?.image ? buscar5.image : buscar6?.image ? buscar6.image : buscar7?.image ? buscar7.image : buscar8?.image ? buscar8.image : input.image} name="image" onChange={handleChange} />
-        </div>
-        <div>
-         <label >editar imagen: </label><input id="cloudInput" defaulValue={input.image} name="image"  type="file" onChange={event => cloudinary(event.target.files)} />
-         <img className="imgPutBases" src={imagenInput} alt="" /><input type="checkbox" name="image" id="one" onChange={handleChange}/>✔
-        </div>
-        
-        
-      
+
+        <div class="col-10" id="adminContent">
+          <div class="row" id="searchBarAdmin">
+            <div class="col" id="adminTittle">ADMIN</div>
+          </div>
 
 
-        {/* <div>
+
+
+          {/* /----------------------------- INICIO EDIT ----------------------------------/ */}
+
+          <h1 id="titleUsuariosRegistrados">Editá tu productos!</h1>
+          <form id="usuarioDetailMain" onSubmit={handleSubmit}>
+            {/**FORMULARIO PARA EDITAR BASES/COMPLEMENTOS/SALSAS/TOPPING/ETC */}
+
+            <div>
+              <div id="marcoProductEdit">
+                <label>Nombre: </label><input type="text" value={input.name} placeholder={buscar1?.name ? buscar1.name : buscar2?.name ? buscar2.name : buscar3?.name ? buscar3.name : buscar4?.name ? buscar4.name : buscar5?.name ? buscar5.name : buscar6?.name ? buscar6.name : buscar7?.name ? buscar7.name : buscar8?.name ? buscar8.name : input.name} name="name" onChange={handleChange} />
+              </div>
+              <label >Imagen: </label><img className="imgPutBases" src={buscar1?.image ? buscar1.image : buscar2?.image ? buscar2.image : buscar3?.image ? buscar3.image : buscar4?.image ? buscar4.image : buscar5?.image ? buscar5.image : buscar6?.image ? buscar6.image : buscar7?.image ? buscar7.image : buscar8?.image ? buscar8.image : input.image} alt='' />
+              <input type="url" defaulValue={JSON.parse(localStorage.getItem('imagenPut')) || input.image} placeholder={buscar1?.image ? buscar1.image : buscar2?.image ? buscar2.image : buscar3?.image ? buscar3.image : buscar4?.image ? buscar4.image : buscar5?.image ? buscar5.image : buscar6?.image ? buscar6.image : buscar7?.image ? buscar7.image : buscar8?.image ? buscar8.image : input.image} name="image" onChange={handleChange} />
+            </div>
+            <div>
+              <label >editar imagen: </label><input id="cloudInput" defaulValue={input.image} name="image" type="file" onChange={event => cloudinary(event.target.files)} />
+              <img className="imgPutBases" src={imagenInput} alt="" /><input type="checkbox" name="image" id="one" onChange={handleChange} />✔
+            </div>
+
+
+
+
+
+            {/* <div>
           <label >Imagen(link):</label><input type="url" defaulValue={input.image} placeholder={buscar1?.image ? buscar1.image : buscar2?.image ? buscar2.image : buscar3?.image ? buscar3.image : buscar4?.image ? buscar4.image : buscar5?.image ? buscar5.image : buscar6?.image ? buscar6.image : buscar7?.image ? buscar7.image : buscar8?.image ? buscar8.image : input.image} name="image" onChange={handleChange} />
         </div> */}
-           {/**FORMULARIO PARA EDITAR POSTRES/BEBIDAS*/}
-        {
+            {/**FORMULARIO PARA EDITAR POSTRES/BEBIDAS*/}
+            {
 
-          buscar6 && <div><label >Precio:</label><input type="number" value={input.price} placeholder={buscar6?.price ? buscar6.price : input.price} name="price" onChange={handleChange} />
+              buscar6 && <div><label >Precio:</label><input type="number" value={input.price} placeholder={buscar6?.price ? buscar6.price : input.price} name="price" onChange={handleChange} />
 
-          </div>
-        }
-        {
+              </div>
+            }
+            {
 
-          buscar6 && <div><label >Stock:</label><input type="number" value={input.stock} placeholder={buscar6?.stock ? buscar6.stock : input.stock} name="stock" onChange={handleChange} />
+              buscar6 && <div><label >Stock:</label><input type="number" value={input.stock} placeholder={buscar6?.stock ? buscar6.stock : input.stock} name="stock" onChange={handleChange} />
 
-          </div>
-        }
-        {
+              </div>
+            }
+            {
 
-          buscar7 && <div><label >Precio:</label><input type="number" value={input.price} placeholder={buscar7?.price ? buscar7.price : input.price} name="price" onChange={handleChange} />
+              buscar7 && <div><label >Precio:</label><input type="number" value={input.price} placeholder={buscar7?.price ? buscar7.price : input.price} name="price" onChange={handleChange} />
 
-          </div>
-        }
-        {
+              </div>
+            }
+            {
 
-          buscar7 && <div><label >Stock:</label><input type="number" value={input.stock} placeholder={buscar7?.stock ? buscar7.stock : input.stock} name="stock" onChange={handleChange} />
+              buscar7 && <div><label >Stock:</label><input type="number" value={input.stock} placeholder={buscar7?.stock ? buscar7.stock : input.stock} name="stock" onChange={handleChange} />
 
-          </div>
-        }
-         {/**FORMULARIO PARA EDITAR MENU*/}
-        {
+              </div>
+            }
+            {/**FORMULARIO PARA EDITAR MENU*/}
+            {
 
-          buscar8 && <div><label >Base:</label><input type="text" value={input.base} placeholder={buscar8?.base ? buscar8.base : input.base} name="base" onChange={handleChange} />
+              buscar8 && <div><label >Base:</label><input type="text" value={input.base} placeholder={buscar8?.base ? buscar8.base : input.base} name="base" onChange={handleChange} />
 
-          </div>
-        }
-        {
-          buscar8 && <div><label >Protein:</label><input type="text" value={input.protein} placeholder={buscar8?.protein ? buscar8.protein : input.protein} name="protein" onChange={handleChange} />
-          </div>
-        }
+              </div>
+            }
+            {
+              buscar8 && <div><label >Protein:</label><input type="text" value={input.protein} placeholder={buscar8?.protein ? buscar8.protein : input.protein} name="protein" onChange={handleChange} />
+              </div>
+            }
 
-        {
-          buscar8 && <div><label >Complement:</label><input type="text" value={input.complement} placeholder={buscar8?.complement ? buscar8.complement : input.complement} name="complement" onChange={handleChange} />
-          </div>
-        }
-        {
-          buscar8 && <div><label >Sauce:</label><input type="text" value={input.sauce} placeholder={buscar8?.sauce ? buscar8.sauce : input.sauce} name="sauce" onChange={handleChange} />
-          </div>
-        }
-        {
-          buscar8 && <div> <label >Topping:</label><input type="text" value={input.topping} placeholder={buscar8?.topping ? buscar8.topping : input.topping} name="topping" onChange={handleChange} />
-          </div>
-        }
-        <div id="buttonEditConfirmContent">
-        <button id="buttonEditConfirm" type='submit'>Editar producto</button>
+            {
+              buscar8 && <div><label >Complement:</label><input type="text" value={input.complement} placeholder={buscar8?.complement ? buscar8.complement : input.complement} name="complement" onChange={handleChange} />
+              </div>
+            }
+            {
+              buscar8 && <div><label >Sauce:</label><input type="text" value={input.sauce} placeholder={buscar8?.sauce ? buscar8.sauce : input.sauce} name="sauce" onChange={handleChange} />
+              </div>
+            }
+            {
+              buscar8 && <div> <label >Topping:</label><input type="text" value={input.topping} placeholder={buscar8?.topping ? buscar8.topping : input.topping} name="topping" onChange={handleChange} />
+              </div>
+            }
+            {
+              buscar8 && <div> <label >Precio:</label><input type="number" value={input.price} placeholder={buscar8?.price ? buscar8.price : input.price} name="price" onChange={handleChange} />
+              </div>
+            }
+
+             {/**FORMULARIO PARA EDITAR MENUBIG*/}
+             
+            {
+
+              buscar9 && <div><label >Base:</label><input type="text" value={input.base} placeholder={buscar9?.base ? buscar9.base : input.base} name="base" onChange={handleChange} />
+
+              </div>
+            }
+            {
+              buscar9 && <div><label >Protein:</label><input type="text" value={input.protein} placeholder={buscar9?.protein ? buscar9.protein : input.protein} name="protein" onChange={handleChange} />
+              </div>
+            }
+
+            {
+              buscar9 && <div><label >Complement:</label><input type="text" value={input.complement} placeholder={buscar9?.complement ? buscar9.complement : input.complement} name="complement" onChange={handleChange} />
+              </div>
+            }
+            {
+              buscar9 && <div><label >Sauce:</label><input type="text" value={input.sauce} placeholder={buscar9?.sauce ? buscar9.sauce : input.sauce} name="sauce" onChange={handleChange} />
+              </div>
+            }
+            {
+              buscar9 && <div> <label >Topping:</label><input type="text" value={input.topping} placeholder={buscar9?.topping ? buscar9.topping : input.topping} name="topping" onChange={handleChange} />
+              </div>
+            }
+            {
+              buscar9 && <div> <label >Precio:</label><input type="number" value={input.price} placeholder={buscar9?.price ? buscar9.price : input.price} name="price" onChange={handleChange} />
+              </div>
+            }
+            <div id="buttonEditConfirmContent">
+              <button id="buttonEditConfirm" type='submit'>Editar producto</button>
+            </div>
+
+          </form>
+          <Link id="butonCarrouselMain" to="/admin_productos">
+            <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"> Volver</i>
+          </Link>
+
+          {/* /----------------------------- FIN EDIT ----------------------------------/ */}
+
         </div>
 
-      </form>
-        <Link id="butonCarrouselMain" to="/admin_productos">
-            <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"> Volver</i>
-        </Link>
-
-      {/* /----------------------------- FIN EDIT ----------------------------------/ */}
-      
-    </div>
-
-    </div>
+      </div>
     </div>
 
   )

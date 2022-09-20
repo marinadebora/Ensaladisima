@@ -1,10 +1,10 @@
 const { Router } = require("express");
-/* const { base } = require("../constroladores/cargarBaseDeDatos/controladorDeBase");
-const { menu } = require("../constroladores/cargarBaseDeDatos/controladorDelMenu");
-const { proteina } = require("../constroladores/cargarBaseDeDatos/controladorProteina");
-const { salsas } = require("../constroladores/cargarBaseDeDatos/controladorSalsas");
-const { topping } = require("../constroladores/cargarBaseDeDatos/controladorTopping");
-const { complements } = require("../constroladores/cargarBaseDeDatos/controladorDeComplementos"); */
+// const { base } = require("../constroladores/cargarBaseDeDatos/controladorDeBase");
+// const { menu } = require("../constroladores/cargarBaseDeDatos/controladorDelMenu");
+// const { proteina } = require("../constroladores/cargarBaseDeDatos/controladorProteina");
+// const { salsas } = require("../constroladores/cargarBaseDeDatos/controladorSalsas");
+// const { topping } = require("../constroladores/cargarBaseDeDatos/controladorTopping");
+// const { complements } = require("../constroladores/cargarBaseDeDatos/controladorDeComplementos");
 const { getBase } = require("./Base/getBase");
 const { getComplements } = require("./Complementos/getComplementos");
 const { getMenu } = require("./Menu/getMenu");
@@ -19,8 +19,8 @@ const getIdUsuario = require("./Usuarios/getUsuarioId");
 const getPedidos = require("./Pedidos/getPedidos");
 const crearEnsaladasBigs = require("./EnsaladasBigs/postEnsaladasBigs");
 const { correo } = require("../Nodemailer/autenticar");
-const { bebidas } = require("../constroladores/cargarBaseDeDatos/controladorDeBebidas");
-const { postres } = require("../constroladores/cargarBaseDeDatos/controladorDePostres");
+// const { bebidas } = require("../constroladores/cargarBaseDeDatos/controladorDeBebidas");
+// const { postres } = require("../constroladores/cargarBaseDeDatos/controladorDePostres");
 const { getBebidas } = require("./Bebidas/getBebidas");
 const { getPostres } = require("./Postres/getPostres");
 const postPedidoBebida = require("./Pedidos/postPedidoBebidas");
@@ -45,7 +45,7 @@ const { editarPassword } = require("./Usuarios/putPassword");
 const { correoPassword } = require("../Nodemailer/putPassword");
 const { getEmail } = require("./Usuarios/getEmail");
 const { passwordEditada } = require("../Nodemailer/passwordActualizada");
-const eliminarDelPedido  = require("./Pedidos/eliminardelPedido");
+const eliminarDelPedido = require("./Pedidos/eliminardelPedido");
 const postPedidoMenu = require("./Pedidos/postPedidoMenu");
 const postHistorial = require("./Historial/postHistorial");
 // const { menuBig } = require("../constroladores/cargarBaseDeDatos/controladorDelMenuBig");
@@ -89,12 +89,12 @@ const router = Router();
 // rutas para el modelo de Usuarios.
 router.use('/usuarios', getUsuarios)
 router.use('/usuario', getIdUsuario)
-router.use('/registro', registro,usuarioMidelwere, correo)
-router.use("/autenticar",auth, crearPedidoMidelwere, sesionMidelwere)
-router.put("/usuarios/:_id",editarPassword,passwordEditada);
-router.use("/email",getEmail,correoPassword);
-router.put("/userAdmin/:_id",putAdmin);
-router.put("/userActivo/:_id",putActivo);
+router.use('/registro', registro, usuarioMidelwere, correo)
+router.use("/autenticar", auth, crearPedidoMidelwere, sesionMidelwere)
+router.put("/usuarios/:_id", editarPassword, passwordEditada);
+router.use("/email", getEmail, correoPassword);
+router.put("/userAdmin/:_id", putAdmin);
+router.put("/userActivo/:_id", putActivo);
 
 // rutas para el modelo de Pedidos.
 router.use('/pedidos', getPedidos)
@@ -103,30 +103,30 @@ router.use('/pedidopostre', postPedidoPostre)
 router.use('/pedidomenu', postPedidoMenu)
 router.use('/pedidomenubig', postPedidoMenuBig)
 router.use('/eliminarDelPedido', eliminarDelPedido)
-router.use('/agregar', agregarAlPedido )
+router.use('/agregar', agregarAlPedido)
 router.use('/crearLocalStorage', crearLocalStorage)
 router.use('/cargarPedido', cargarPedido)
-router.use("/putpedidodelivery",putPedidosDelivery)
+router.use("/putpedidodelivery", putPedidosDelivery)
 
 
 // rutas para el modelo de Menu.
 router.get("/menus", getMenu)
-router.post("/menus",postMenu);
-router.put("/menus/:_id",putMenu);
-router.put("/menusActivo/:_id",putActivoMenu);//
+router.post("/menus", postMenu);
+router.put("/menus/:_id", putMenu);
+router.put("/menusActivo/:_id", putActivoMenu);//
 
 //rutas para el modelo de MenuBig
 router.get("/menubig", getMenuBig)
-router.post("/menuBig",postMenuBig);
-router.put("/menubigActivo/:_id",putActivoMenuB);//
+router.post("/menuBig", postMenuBig);
+router.put("/menubigActivo/:_id", putActivoMenuB);//
 
 // rutas para el modelo de Historial.
 router.use('/crearHistorial', postHistorial)
 router.use('/historial', getHistorial)
-router.put("/estadoProcessing/:_id",editarProcessing);
-router.put("/estadoReceived/:_id",editarReceived);
-router.put("/estadoCanceled/:_id",editarCanceled);
-router.get("/historials/:_id",getHistorialId);
+router.put("/estadoProcessing/:_id", editarProcessing);
+router.put("/estadoReceived/:_id", editarReceived);
+router.put("/estadoCanceled/:_id", editarCanceled);
+router.get("/historials/:_id", getHistorialId);
 
 
 
@@ -142,66 +142,66 @@ router.use('/grande', postEnsaladaGrande)
 
 // rutas para el modelo de Base.
 router.get("/bases", getBase)
-router.post("/bases",postBase);
-router.put("/bases/:_id",putBase);
-router.put("/basesActivo/:_id",putActivoBase);//
+router.post("/bases", postBase);
+router.put("/bases/:_id", putBase);
+router.put("/basesActivo/:_id", putActivoBase);//
 
 // rutas para el modelo de Protein.
 router.get("/proteins", getProteins)
 router.post("/proteins", postProteins);
 router.put("/proteins/:_id", putProteins);
-router.put("/proteinsActivo/:_id",putActivoProtein);//
+router.put("/proteinsActivo/:_id", putActivoProtein);//
 
 // rutas para el modelo de Complement.
 router.get("/complements", getComplements)
-router.post("/complements",postComplementos);
-router.put("/complements/:_id",putComplementos);
-router.put("/complementsActivo/:_id",putActivoComplemento);//
+router.post("/complements", postComplementos);
+router.put("/complements/:_id", putComplementos);
+router.put("/complementsActivo/:_id", putActivoComplemento);//
 
 // rutas para el modelo de Suace.
 router.use('/salsas', getSalsas)
 router.post('/salsas', postSalsas);
 router.put('/salsas/:_id', putSalsas);//
-router.put("/salsasActivo/:_id",putActivoSalsas);
+router.put("/salsasActivo/:_id", putActivoSalsas);
 
 
 // rutas para el modelo de Topping
 router.use('/toppings', getToppings)
 router.post('/toppings', postToppings);
 router.put('/toppings/:_id', putToppings);
-router.put("/toppingsActivo/:_id",putActivoTopping);//
+router.put("/toppingsActivo/:_id", putActivoTopping);//
 
 //rutas para el modelo de Beverages
-router.get("/bebidas",getBebidas);
-router.post("/bebidas",postBebidas);
-router.put("/bebidas/:_id",putBebidas);
-router.put("/bebidasActivo/:_id",putActivoBebidas);//
+router.get("/bebidas", getBebidas);
+router.post("/bebidas", postBebidas);
+router.put("/bebidas/:_id", putBebidas);
+router.put("/bebidasActivo/:_id", putActivoBebidas);//
 
 //rutas para el modelo de Desserts
-router.get("/postres",getPostres);
-router.post("/postres",postPostres);
-router.put("/postres/:_id",putPostres);
-router.put("/postresActivo/:_id",putActivoPostres);//
+router.get("/postres", getPostres);
+router.post("/postres", postPostres);
+router.put("/postres/:_id", putPostres);
+router.put("/postresActivo/:_id", putActivoPostres);//
 
 //ruta formulario de contacto
 router.post("/contactform", correoContacto)
 
 // rutas para cargar los modelos de la base de datos
-/* router.get('/menudb', menu);
-router.get("/basedb", base);
-router.get("/proteinadb", proteina);
-router.get("/salsasdb", salsas);
-router.get("/toppingdb", topping);
-router.get('/complementdb', complements);
-router.get("/bebida",bebidas);
-router.get("/postre",postres);
-router.get("/MenuBig", menuBig )*/
+// router.get('/menudb', menu);
+// router.get("/basedb", base);
+// router.get("/proteinadb", proteina);
+// router.get("/salsasdb", salsas);
+// router.get("/toppingdb", topping);
+// router.get('/complementdb', complements);
+// router.get("/bebidadb", bebidas);
+// router.get("/postredb", postres);
+// router.get("/MenuBigdb", menuBig)
 
 
 // rutas de las review
 router.use('/review', getReview)
 router.use('/reviewCreada', postCrearReview)
-router.put("/reviewActivo/:_id",putActivoReviews);//
+router.put("/reviewActivo/:_id", putActivoReviews);
 // ruta alternativas
 
 router.use('/modificarpedido', pedidoSlice)

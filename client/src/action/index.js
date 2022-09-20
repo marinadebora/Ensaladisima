@@ -187,8 +187,24 @@ export function Menu() {
 
 	}
 }
+// ruta get MenuBig
+export function MenuBig() {
+	return async function (dispatch) {
+		try {
+			const menu = await axios(`/menubig`)
 
+			return dispatch({
 
+				type: "MENU_BIG",
+				payload: menu.data
+
+			})
+		} catch (error) {
+			console.log(error)
+		}
+
+	}
+}
 
 //ruta get de los postres 
 export function desserts() {
@@ -371,6 +387,17 @@ export const putMenu = (_id, payload) => async (dispatch) => {
 		let json = await axios.put(`/menus/${_id}`, payload)
 		return dispatch(
 			{ type: "PUT_MENU", payload: json.data })
+
+	} catch (error) {
+		alert(`el ID: ${_id} no existe`)
+	}
+}
+//ruta put de menu
+export const putMenuBig = (_id, payload) => async (dispatch) => {
+	try {
+		let json = await axios.put(`/menus/${_id}`, payload)
+		return dispatch(
+			{ type: "PUT_MENU_BIG", payload: json.data })
 
 	} catch (error) {
 		alert(`el ID: ${_id} no existe`)
