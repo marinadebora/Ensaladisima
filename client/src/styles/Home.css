@@ -138,6 +138,7 @@
 }
 
 #videoMain{
+   overflow: hidden;
    width: 34%;
    margin:0px;
    padding: 0px;

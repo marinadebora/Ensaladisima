@@ -27,7 +27,10 @@ export default function BaseEdit(){
               name={e.name}
               image={e.image}
               id={e._id}
+              activo={e.activo}
+              
                />
+               
           </div>
         )
       }): <div class="spinner-grow text-success" role="status">
@@ -57,6 +60,7 @@ export  function ComplemetoEdit(){
             name={e.name}
             image={e.image}
             id={e._id}
+            activo={e.activo}
           />
         </div>
       )
@@ -87,7 +91,7 @@ export  function SalsasEdit(){
             name={e.name}
             image={e.image}
             id={e._id}
-
+            activo={e.activo}
           />
         </div>
       )
@@ -118,7 +122,7 @@ export  function ProteinaEdit(){
             name={e.name}
             image={e.image}
             id={e._id}
-
+            activo={e.activo}
           />
         </div>
       )
@@ -148,7 +152,7 @@ export  function ToppingEdit(){
             name={e.name}
             image={e.image}
             id={e._id}
-
+            activo={e.activo}
           />
         </div>
       )
@@ -182,6 +186,7 @@ export  function BebidasEdit(){
             price={e.price}
             stock= {e.stock}
             id={e._id}
+            activo={e.activo}
           />
         </div>
       )
@@ -214,6 +219,7 @@ export  function PostresEdit(){
             price={e.price}
             stock= {e.stock}
             id={e._id}
+            activo={e.activo}
           />
         </div>
       )
@@ -248,6 +254,7 @@ export  function MenuEdit(){
             price={e.price}
             stock= {e.stock}
             id={e._id}
+            activo={e.activo}
           />
         </div>
       )

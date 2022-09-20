@@ -122,7 +122,7 @@ function App() {
 
     <Route exact path= '/login' element={<Login/>}/>
     <Route exact path= '/registro' element={<Registro/>}/>
-    <Route exact path= '/profile' element={<ErrorAdmin/>}/>
+    <Route exact path= '/profile' element={<Profile/>}/>
     <Route exact path= '/contacto' element={<ContactForm/>}/>
     <Route exact path= '/team' element={<Team/>}/>
     

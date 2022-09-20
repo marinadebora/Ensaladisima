@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link,useNavigate,useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../components/NavBar";
-import { bases, beverages, complements, desserts, Menu, MenuBig, proteins, putBases, putBebidas, putComplemento, putMenu, putPostres, putProteinas, putSalsas, putTopping, sauces, toppings } from "../action";
+import { bases, beverages, complements, desserts, Menu, proteins, putBases, putBebidas, putComplemento, putMenu, MenuBig,putPostres, putProteinas, putSalsas, putTopping, sauces, toppings,
+  putActivoBase,putActivoBebidas, putActivoMenu,/* putActivoMenuB, */putActivoComplementos,
+  putActivoPostres,putActivoToppings,putActivoSalsas,putActivoProteina  } from "../action";
 import "./putBases.css"
 import axios from "axios";
 
@@ -18,6 +20,7 @@ export default function BaseEdit() {
   const menu = useSelector(state => state.menu)
   const menuBig = useSelector(state => state.menuBig)
 
+  const history = useNavigate()
   let { id } = useParams()
 
   const buscar1 = base1?.find(e => e._id === id)
@@ -29,6 +32,19 @@ export default function BaseEdit() {
   const buscar7 = dessert?.find(e => e._id === id)
   const buscar8 = menu?.find(e => e._id === id)
   const buscar9 = menuBig?.find(e => e._id === id)
+  const putActivoTodo =async() => {
+  if(buscar1?._id) await dispatch(putActivoBase(id))
+  if(buscar2?._id) await dispatch(putActivoComplementos(id))
+  if(buscar3?._id) await dispatch(putActivoSalsas(id))
+  if(buscar4?._id) await dispatch(putActivoProteina(id))
+  if(buscar5?._id) await dispatch(putActivoToppings(id))
+  if(buscar6?._id) await dispatch(putActivoBebidas(id))
+  if(buscar7?._id) await dispatch(putActivoPostres(id))
+  if(buscar8?._id) await dispatch(putActivoMenu(id))
+
+  return history(-1)}
+  const {activo} = buscar1||buscar2||buscar3||buscar4||buscar5||buscar6||buscar7||buscar8
+  console.log(buscar1?._id)
 
   useEffect(() => {
     dispatch(bases(id))
@@ -244,6 +260,27 @@ export default function BaseEdit() {
 
 
 
+                </div>
+
+                <div class="col-10" id="adminContent">
+                    <div class="row" id="searchBarAdmin">
+                        <div class="col" id="adminTittle">ADMIN</div>
+                    </div>
+
+      
+
+
+        {/* /----------------------------- INICIO EDIT ----------------------------------/ */}
+      
+      <h1 id="titleUsuariosRegistrados">Editá tu productos!</h1>
+      <button onClick={putActivoTodo}>Habilitar/Deshabilitar</button>
+      <form id="usuarioDetailMain" onSubmit={handleSubmit}/>
+         {/**FORMULARIO PARA EDITAR BASES/COMPLEMENTOS/SALSAS/TOPPING/ETC */}
+        
+        <div>
+          <label>Habilitado:{activo === true?"A la venta":"No esta a la venta"}</label>
+        <div id="marcoProductEdit">
+          <label>Nombre: </label><input type="text" value={input.name} placeholder={buscar1?.name ? buscar1.name : buscar2?.name ? buscar2.name : buscar3?.name ? buscar3.name : buscar4?.name ? buscar4.name : buscar5?.name ? buscar5.name : buscar6?.name ? buscar6.name : buscar7?.name ? buscar7.name : buscar8?.name ? buscar8.name : input.name} name="name" onChange={handleChange} />
         </div>
 
         <div class="col-10" id="adminContent">
@@ -282,11 +319,10 @@ export default function BaseEdit() {
             {/**FORMULARIO PARA EDITAR POSTRES/BEBIDAS*/}
             {
 
-              buscar6 && <div><label >Precio:</label><input type="number" value={input.price} placeholder={buscar6?.price ? buscar6.price : input.price} name="price" onChange={handleChange} />
-
-              </div>
-            }
-            {
+          buscar6 && <div><label >Precio:</label><input type="number" value={input.price} placeholder={buscar6?.price ? buscar6.price : input.price} name="price" onChange={handleChange} />
+          </div>
+        }
+        {
 
               buscar6 && <div><label >Stock:</label><input type="number" value={input.stock} placeholder={buscar6?.stock ? buscar6.stock : input.stock} name="stock" onChange={handleChange} />
 
@@ -377,6 +413,9 @@ export default function BaseEdit() {
 
       </div>
     </div>
+    </div>
+    </div>
 
   )
 }
+

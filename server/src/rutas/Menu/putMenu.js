@@ -1,7 +1,7 @@
 const Menu = require("../../modelos/Menu");
 
 const putMenu= async (req,res)=>{
-const {name,median,big,image,base,protein,complement,sauce,topping,price} = req.body;
+const {name,price,image,base,protein,complement,sauce,topping} = req.body;
 const {_id} = req.params;
 try {
     const buscar = await Menu.findById({_id});
