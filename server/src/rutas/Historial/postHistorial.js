@@ -6,7 +6,7 @@ const Pedidos = require('../../modelos/Pedidos')
 const postHistorial = Router()
 
 postHistorial.post('/', async (req,res,next) =>{
-    const {_id,totalPayable} = req.body
+    const {_id, totalPayable} = req.body
     try {
         const usuario = await Usuarios.find({_id})
         console.log(usuario[0])

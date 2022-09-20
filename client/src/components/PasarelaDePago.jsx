@@ -75,7 +75,7 @@ console.log(preciototal)
 
     if (!error) {
       
-      // console.log(paymentMethod)
+
       const { id } = paymentMethod;
       try {
         const { data } = await axios.post(
@@ -110,8 +110,9 @@ console.log(preciototal)
   // console.log(!stripe || loading);
 
   return (
+    
     <div id="paymentMain"className="container">
-
+      
    
     <form className="card card-body" onSubmit={handleSubmit}>
       {/* Product Information */}
@@ -135,11 +136,13 @@ console.log(preciototal)
       </button>
     </form>
     </div>
+    
   );
 };
 
 function PasarelaDePago() {
   return (
+   
     <Elements stripe={stripePromise}>
       
           <div id="checkOutContainer">
@@ -147,9 +150,8 @@ function PasarelaDePago() {
           <CheckoutForm />
 
         </div>
-       
-      
     </Elements>
+    
   );
 }
 

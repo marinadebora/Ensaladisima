@@ -26,7 +26,6 @@ import { usuariosId } from './action';
 import { ErrorAdmin } from './components/ErrorAdmin';
 
 import AdminUsuariosDetail from './components/AdminUsuariosDetail';
-import HistorialDelUsuario from './components/HistorialDelUsuario';
 import DetalleHistorial from './components/DetalleHistorial';
 import { HistorialCompras } from './components/HistorialCompra';
 
@@ -92,6 +91,7 @@ function App() {
       <Route exact path= '/profile' element={<Profile/>}/>
       <Route exact path= '/contacto' element={<ContactForm/>}/>
       <Route exact path= '/team' element={<Team/>}/>
+      <Route path= '/historial' element={<HistorialCompras/>}/>
       
 
       {/* rutas para administador */}
@@ -106,8 +106,7 @@ function App() {
       <Route path= '/password/:_id' element={<CambioPassword/>}/>
       <Route path= '/review' element={<Review/>}/>
       <Route path= '/verReview' element={<VerReview/>}/>
-    <Route path='/historialUser' element={<HistorialDelUsuario/>}/>
-    <Route path='/detalleHistorial/:_id' element={<DetalleHistorial/>}/>
+      <Route path='/detalleHistorial/:_id' element={<DetalleHistorial/>}/>
     </Routes>
 
     <Footer/>
@@ -138,6 +137,7 @@ function App() {
     <Route path= '/cargando' element={<ArmandoEnsalada/>}/>
     <Route path= '/sendEmail' element={<ErrorAdmin/>}/>
     <Route path= '/password/:_id' element={<ErrorAdmin/>}/>
+    <Route path= '/historial' element={<HistorialCompras/>}/>
    
   </Routes>
 
