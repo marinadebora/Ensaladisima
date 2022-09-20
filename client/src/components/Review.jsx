@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
 import { useDispatch,useSelector } from 'react-redux';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate, Link} from 'react-router-dom';
 import { getReview, reviewCreada } from "../action";
 import Swal from 'sweetalert2'
 import '../styles/Review.css'
@@ -82,26 +82,24 @@ dispatch(getReview())
    
 
   }
-  function cancel(e)
-  {
-    e.preventDefault()
-    navigate(`/`)//ver a donde quiero que me lleve esto
-  }
+  // function cancel(e)
+  // {
+  //   e.preventDefault()
+  //   navigate(`/`)//ver a donde quiero que me lleve esto
+  // }
   console.log(review)
 
 
   return (
     <div>
      <NavBar /> 
+     <h2 id="titleReview">Dejamos tu califiación</h2>
       {
-        <div>
-          <br /><br /><br /><br /><br />
-          <form onSubmit={handleSubmit}>
+        <div id="mainReviewContainer">
 
-            <div className="contenedor">
-              <div id="close">
-              <label id="labelCalificar">Calificanos </label> <button id="button-Calificar"  onClick={cancel} class="btn-close" aria-label="Close" ></button>
-              </div>
+          <form onSubmit={handleSubmit}>
+          <div id="contenedor" class="container">
+            <div class="row">
               <p class="clasificacion">
                 <input className='input' onChange={puntuacion} id="radio1" type="radio" name="estrellas" value="5" /><label className='label' for="radio1">★</label>
                 <input className='input' onChange={puntuacion} id="radio2" type="radio" name="estrellas" value="4" /><label className='label' for="radio2">★</label>
@@ -109,6 +107,8 @@ dispatch(getReview())
                 <input className='input' onChange={puntuacion} id="radio4" type="radio" name="estrellas" value="2" /><label className='label' for="radio4">★</label>
                 <input className='input' onChange={puntuacion} id="radio5" type="radio" name="estrellas" value="1" /><label className='label' for="radio5">★</label>
               </p>
+              </div>
+            <div class="row">
               {
               
                 <div class="form-floating">
@@ -122,11 +122,20 @@ dispatch(getReview())
                   > </textarea>
                 </div>
               }
-
             </div>
 
-            <input type="submit" value="Enviar"class="buttonCalificar"  />
+            <div id="buttonCalificarContent" class="row">
+            <input type="submit" value="Enviar" id="buttonCalificar"/>
+            </div>
+
+            </div>
+            <div id="buttonBackContent"class="row" >
+              <Link id="butonCarrouselMain" to="/menu">
+                <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"> Volver a la tienda</i>
+              </Link>
+            </div>
           </form>
+          
           
         </div>
       }

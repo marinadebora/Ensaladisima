@@ -25,7 +25,8 @@ const initialState = {
   allUsuarios: {},
   detail: [],
   historialDetail:{},
-  ensBLS:[]
+  ensBLS:[],
+  filtroHistorial:[]
 }
 
 
@@ -238,7 +239,30 @@ function rootReducer(state = initialState, action) {
             ...state,
            
           }
-       
+          case 'FITRO_HISTORIAL':
+      const estadoTotal =state.allhistorial
+      const filterH= action.payload==='pending'?estadoTotal.filter(e=>e.pending===true):
+      action.payload==='processing'?estadoTotal.filter(e=>e.processing===true):
+      action.payload==='received'?estadoTotal.filter(e=>e.received===true):
+      action.payload==='canceled'? estadoTotal.filter(e=>e.canceled===true):
+      action.payload==='sinFiltro'&& estadoTotal
+
+
+      return{
+        ...state,
+        historial:filterH,
+        filtroHistorial:filterH
+      }
+     case 'FILTRO_PRECIO':
+      const estadoHorder=state.filtroHistorial
+      const filtroMes=action.payload==='menor'?estadoHorder?.filter(e=>e.totalPayable<50):
+      action.payload==='medio'?estadoHorder?.filter(e=>e.totalPayable>50&&e.totalPayable<100):
+      action.payload==='mayor'?estadoHorder?.filter(e=>e.totalPayable>100):
+      action.payload==='sinFiltro'&&estadoHorder
+      return{
+        ...state,
+        historial:filtroMes
+      }  
     default:
       return {
         state
