@@ -20,7 +20,7 @@ import Redux from "../images/TeamPics/TecnologiasUtilizadas/Redux.png";
 const Team = () => {
   
     return (
-        <div>
+        
 
         <div id="Main" class="container-fluid">
             <div id="titleContent" class="row">
@@ -105,7 +105,7 @@ const Team = () => {
 
         </div>
 
-        </div>
+       
   )
 }
 
