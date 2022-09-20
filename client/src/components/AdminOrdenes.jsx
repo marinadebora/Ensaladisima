@@ -55,10 +55,7 @@ export default function HistorialDelUsuario() {
                         <div class="col" id="adminTittle">ADMIN</div>  
                     </div>
 
-                
-                        
-                   
-               
+            
 
                 <div class="row">
                 {/* <CrearProduto/> */}

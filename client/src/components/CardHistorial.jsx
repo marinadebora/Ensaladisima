@@ -97,9 +97,7 @@ function handleSubmitCancelado (e){
          
         </div>
 
-         
-
-         
+    
      </div>
     
   )
