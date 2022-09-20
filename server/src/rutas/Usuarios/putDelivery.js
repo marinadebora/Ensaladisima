@@ -6,6 +6,8 @@ const putPedidosDelivery = Router()
 
 putPedidosDelivery.put("/", async (req,res)=>{
     const {adress,delivery,_id,comentario} = req.body
+    console.log({adress,delivery,_id,comentario})
+    
     try{
     const pedidoAModificar1 = await Pedido.findById({_id:_id})
         const pedidoAModificar2 =await Pedido.findByIdAndUpdate({_id:_id},
