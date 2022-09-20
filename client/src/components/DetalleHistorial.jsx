@@ -24,7 +24,7 @@ export default function DetalleHistorial() {
   // console.log(buscar.desserts)
 
   return (
-    <div>
+    <div id="detailHistorialContent">
       <br />
       <br />
       <br />

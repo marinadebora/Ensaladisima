@@ -16,6 +16,13 @@
   
 }
 
+#titleConfirm1{
+  color: #207140;
+  font-family: Tommy-regular;
+  font-size: 50px;
+
+}
+
 #butonPagoConfirmContent{
   display: flex;
   justify-content: center;
@@ -50,4 +57,9 @@
  background-color: #94D2DE;
  color: white;
  transition: all 20ms;
+}
+
+#butonPagoBck{
+  margin-top: 5rem;
+  margin-left: 2rem;
 }
