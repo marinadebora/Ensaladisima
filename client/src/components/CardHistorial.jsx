@@ -66,14 +66,14 @@ function handleSubmitCancelado (e){
          <p class="col-4" id="stateData">{pending?"SI":"NO"}</p>
          </div>
          <div class="row">
-         <p class="col-4" id="stateLabel">Procesado: </p>
+         <p class="col-4" id="stateLabel">En proceso: </p>
          <p class="col-3" id="stateData">{processing?<p id="psi">SI<i class="bi bi-check-lg" id="check"></i></p>:"NO"}</p>
 
          <button id="buttonState" class="col-5" onClick={handleSubmitProcesado}>Si/No</button>
          </div>
          
          <div class="row">
-         <p class="col-4" id="stateLabel">Recibido: </p>
+         <p class="col-4" id="stateLabel">Entregado: </p>
          <p class="col-3" id="stateData">{received?<p id="psi">SI<i class="bi bi-check-lg" id="check"></i></p>:"NO"}</p>
          <button id="buttonState" class="col-5" onClick={handleSubmitRecibido}>Si/No</button>
          </div>
