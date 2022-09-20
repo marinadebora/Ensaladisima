@@ -11,10 +11,10 @@ const CarrouselEP = () =>
   const loguearUser = JSON.parse(localStorage.getItem("loguearUsuario"))
   const userID = loguearUser?.id
   const myHistorial = useSelector(state => state?.historial);
-  let myHistorialCompra = myHistorial?.filter(e => e.user[0]._id === userID)
+  let myHistorialCompra = myHistorial?.filter(e => e.user[0]?._id === userID)
 
 
-  let comprarM = (id, orders) =>
+  let comprar = (id, orders) =>
   {
     let repetirEnsalada = {
       id:id,
@@ -23,15 +23,7 @@ const CarrouselEP = () =>
     dispatch(modificarPedido(repetirEnsalada))
     console.log(repetirEnsalada)
   }
-  let comprarG = (id, orders) =>
-  {
-    let repetirEnsalada = {
-      id:id,
-      orders:orders
-    }
-    dispatch(modificarPedido(repetirEnsalada))
-    console.log(repetirEnsalada)
-  }
+ 
   let arrayM = []
   myHistorialCompra?.map(e => (
     e.orders?.map(e => (
@@ -109,13 +101,9 @@ const CarrouselEP = () =>
                                         ))
                                       }
                                     </ul>
-                                    {
-                                      e.name==='Tu Ensalada Grande'&&<button id="buttoonPlus2" onClick={() => comprarM(e._id,loguearUser.orders[0])}>Comprar</button>
-                                    }
-                                    {
-                                     e.name==='Tu Ensalada Mediana'&&<button id="buttoonPlus2" onClick={() => comprarG(e._id,loguearUser.orders[0])}>Comprar</button>
-                                    }
                                     
+                                     <button id="buttoonPlus2" onClick={() => comprar(e?._id,loguearUser?.orders[0])}>Comprar</button>
+                                  
                                   </div>
                                 </div>
                               </div>
