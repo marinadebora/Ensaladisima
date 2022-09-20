@@ -14,14 +14,16 @@ import { useLocalStorage } from '../useLocalStorage'
 import React from "react";
 
 import {
-  Link,
+  Link, useNavigate,
   /* useNavigate */
 } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   eliminarDelCarrito, getPedidos, agregarAlCarrito,
-  putPedidocargarPedido
+  putPedidocargarPedido,
+  putPedidoDelivery,
+  usuariosRegistrados
 } from "../action";
 import NavBar from "./NavBar";
 
@@ -199,7 +201,7 @@ export default function QuantityEdit() {
       const usuario = JSON.parse(localStorage.getItem('loguearUsuario'))
       setUser(usuario)
       dispatch(getPedidos())
-
+      dispatch(usuariosRegistrados())
     }
   }, [dispatch])
 
@@ -263,9 +265,15 @@ export default function QuantityEdit() {
       resultado?.desserts?.find(a=> a._id !== e.target.value)
     }
   } */
-
+  
   const [envio, setEnvio] = useState(true)
-
+  
+  const [datos, setDatos] = useState({
+    adress:"",
+    delivery: envio,
+    _id: user?.orders[0],
+    comentario: ""
+  })
 
   const handleClick = () => {
     if (envio === true) {
@@ -273,7 +281,7 @@ export default function QuantityEdit() {
       setDatos({
         adress: datos?.adress,
         delivery: false,
-        id: user?.orders[0],
+        _id: user?.orders[0],
         comentario: datos?.comentario
       })
     } else {
@@ -281,7 +289,7 @@ export default function QuantityEdit() {
       setDatos({
         adress: "",
         delivery: true,
-        id: user?.orders[0],
+        _id: user?.orders[0],
         comentario: datos?.comentario
       })
     }
@@ -291,7 +299,7 @@ export default function QuantityEdit() {
   setDatos({
     adress: e.target.value,
     delivery: true,
-    id: user?.orders[0],
+    _id: user?.orders[0],
     comentario: datos?.comentario
   })
   }
@@ -300,7 +308,7 @@ export default function QuantityEdit() {
     setDatos({
       adress: datos?.adress,
       delivery: true,
-      id: user?.orders[0],
+      _id: user?.orders[0],
       comentario: e.target.value
     })
   }
@@ -332,19 +340,25 @@ export default function QuantityEdit() {
       </div>)
   }
 
-  const [datos, setDatos] = useState({
-    adress:"",
-    delivery: envio,
-    id: user?.orders[0],
-    comentario: ""
-  })
-  console.log(datos)
-  const cargarDatos = ()=>{
-    console.log(datos)
+  const history = useNavigate()
+
+  const cargarDatos = (e)=>{
+    e.preventDefault()
+    if(datos?.comentario?.length > 10){
+      dispatch(putPedidoDelivery(datos))
+      history('/pago')
+    }else{
+      alert('el comentario debe tener mas de 10 caracteres')
+    }
+    
   }
 
+  console.log(datos)
+
+  const persona = useSelector(state => state.usuarios)
+  const buscarPersona = persona?.find(e => e.email === user?.email)
   const direction = new Set(user?.adress)
-  console.log(direction)
+  console.log(buscarPersona?.adress)
   const totales = [...direction]
   console.log(totales)
   return (
@@ -485,7 +499,7 @@ export default function QuantityEdit() {
                             </MDBTypography>
                             <MDBTypography tag="h5">US$ {armadoCarrito?.total}</MDBTypography>
                           </div>
-                          {user ? <Link to="/pago"><button onClick={cargarDatos()} class="buttonChico">Comprar</button></Link> : <Link class="buttonChico" to="/registro">Registrate</Link>}
+                          {user ? <button value={datos} onClick={cargarDatos} class="buttonChico">Comprar</button> : <Link class="buttonChico" to="/registro">Registrate</Link>}
                         </div>
                       </MDBCol>
                     </MDBRow>

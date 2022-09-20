@@ -1010,3 +1010,17 @@ export function modificarPedido(payload) {
 		}
 	}
 }
+
+export function putPedidoDelivery(payload) {
+	return async function (dispatch) {
+		try {
+			const modificar = await axios.put(`/putpedidodelivery`, payload)
+			return dispatch({
+				type: "PEDIDO_DELIVERY_PUT",
+				payload: modificar.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}
