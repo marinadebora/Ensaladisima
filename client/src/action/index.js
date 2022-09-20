@@ -1022,5 +1022,19 @@ export function putPedidoDelivery(payload) {
 		} catch (error) {
 			console.log(error)
 		}
+    }
+}
+//filtro por estado historial de compra admin
+export function filtroHistorial(payload){
+	return {
+		type: 'FITRO_HISTORIAL',
+		payload
+	}
+}
+//filtro por rango de precio historial de compra admin
+export function filtroHistorialPrecio(payload){
+	return {
+		type: 'FILTRO_PRECIO',
+		payload
 	}
 }

@@ -14,7 +14,7 @@ const CarrouselEP = () =>
   let myHistorialCompra = myHistorial?.filter(e => e.user[0]?._id === userID)
 
 
-  let comprarM = (id, orders) =>
+  let comprar = (id, orders) =>
   {
     let repetirEnsalada = {
       id:id,
@@ -23,15 +23,7 @@ const CarrouselEP = () =>
     dispatch(modificarPedido(repetirEnsalada))
     console.log(repetirEnsalada)
   }
-  let comprarG = (id, orders) =>
-  {
-    let repetirEnsalada = {
-      id:id,
-      orders:orders
-    }
-    dispatch(modificarPedido(repetirEnsalada))
-    console.log(repetirEnsalada)
-  }
+ 
   let arrayM = []
   myHistorialCompra?.map(e => (
     e.orders?.map(e => (
@@ -76,7 +68,7 @@ const CarrouselEP = () =>
               <div class="carousel-item active">
                 <div class="row">
                   {
-                    ensaladas?.map((e, i) => (
+                    loguearUser&&ensaladas?.map((e, i) => (
                       <div class="col-md-2 mb-1">
                         <div class="card">
                           <img class="img" alt="100%x280" src={imag[i] || e.image} />
@@ -109,13 +101,9 @@ const CarrouselEP = () =>
                                         ))
                                       }
                                     </ul>
-                                    {
-                                      e.name==='Tu Ensalada Grande'&&<button id="buttoonPlus2" onClick={() => comprarM(e._id,loguearUser.orders[0])}>Comprar</button>
-                                    }
-                                    {
-                                     e.name==='Tu Ensalada Mediana'&&<button id="buttoonPlus2" onClick={() => comprarG(e._id,loguearUser.orders[0])}>Comprar</button>
-                                    }
                                     
+                                     <button id="buttoonPlus2" onClick={() => comprar(e?._id,loguearUser?.orders[0])}>Comprar</button>
+                                  
                                   </div>
                                 </div>
                               </div>

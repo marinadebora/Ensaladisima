@@ -12,7 +12,7 @@ import {
 } from "mdb-react-ui-kit";
 import { useLocalStorage } from '../useLocalStorage'
 import React from "react";
-
+import '../styles/CheckOut.css'
 import {
   Link, useNavigate,
   /* useNavigate */
@@ -26,6 +26,7 @@ import {
   usuariosRegistrados
 } from "../action";
 import NavBar from "./NavBar";
+
 
 
 
@@ -414,7 +415,7 @@ export default function QuantityEdit() {
                                 </MDBCol>
                                 <MDBCol md="3" lg="2" xl="2" className="text-end">
                                   <MDBTypography tag="h6" className="mb-0">
-                                    <button class="buttonChico" value={e._id} /* onClick={borrarDelCarrito} */>X</button>
+                                    <button id="buttonDeleteCheckOut" value={e._id} /* onClick={borrarDelCarrito} */>X</button>
                                   </MDBTypography>
                                 </MDBCol>
                                 <MDBCol md="2" lg="1" xl="1" className="text-end">

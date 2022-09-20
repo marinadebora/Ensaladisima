@@ -1,7 +1,65 @@
-#butonPagoBack{
+@font-face {
+  font-family: Tommy-regular;
+  src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+  font-family: Tommy-light;
+  src: url(../fonts//made_tommy/MADE\ TOMMY\ Light_PERSONAL\ USE.ttf);
+}
+
+#titleConfirm{
+  color: #207140;
+  font-family: Tommy-regular;
+}
+
+#textConfirm{
+  color: #207140;
+  font-family: Tommy-light;
   
+}
+
+#titleConfirm1{
+  color: #207140;
+  font-family: Tommy-regular;
+  font-size: 50px;
+
+}
+
+#butonPagoConfirmContent{
+  display: flex;
+  justify-content: center;
+}
+
+#confirmMain{
+  border: 2px solid #207140;
+  margin:  auto;
+  margin-top: 10rem;
+  margin-left: 5rem;
+  padding: 20px;
+  width: 500px;
+  height: 200px;
+  border-radius: 20px;
+}
+
+
+#butonPagoConfirm{
+  background-color: #207140; 
+  color: white;
   text-decoration: none;
-  border:none;
+  border:3px  solid white;
+  padding: 0.3rem;
+  border-radius: 50px;
+  font-family: Tommy-regular;
+  font-size: 1rem;
   margin: 10px;
-  padding-left: 20px;
+  cursor: pointer;
+}
+
+#butonPagoConfirm:hover{
+ background-color: #94D2DE;
+ color: white;
+ transition: all 20ms;
+}
+
+#butonPagoBck{
+  margin-top: 5rem;
+  margin-left: 2rem;
 }
