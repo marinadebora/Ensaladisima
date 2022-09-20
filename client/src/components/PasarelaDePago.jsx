@@ -75,7 +75,7 @@ console.log(preciototal)
 
     if (!error) {
       
-      // console.log(paymentMethod)
+
       const { id } = paymentMethod;
       try {
         const { data } = await axios.post(

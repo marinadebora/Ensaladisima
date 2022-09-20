@@ -31,15 +31,29 @@ function validateMenu(menu) {
 	if (!menu.protein) errorsMenu.protein = "Campo Obligatorio"
 	if (!menu.complement) errorsMenu.complement = "Campo Obligatorio"
 	if (!menu.sauce) errorsMenu.sauce = "Campo Obligatorio"
+	if (!menu.price) errorsMenu.price = "Campo Obligatorio"
 
 	return errorsMenu
+}
+function validateMenuBig(menuBig) {
+	let errorsMenuBig = {}
+	if (!menuBig.name) errorsMenuBig.name = "Campo Obligatorio"
+	if (!menuBig.image) errorsMenuBig.image = "Campo Obligatorio"
+	if (!menuBig.topping) errorsMenuBig.topping = "Campo Obligatorio"
+	if (!menuBig.base) errorsMenuBig.base = "Campo Obligatorio"
+	if (!menuBig.protein) errorsMenuBig.protein = "Campo Obligatorio"
+	if (!menuBig.complement) errorsMenuBig.complement = "Campo Obligatorio"
+	if (!menuBig.sauce) errorsMenuBig.sauce = "Campo Obligatorio"
+	if (!menuBig.price) errorsMenuBig.price = "Campo Obligatorio"
+
+	return errorsMenuBig
 }
 
 
 export default function CrearProduto() {
 	const dispatch = useDispatch()
 	// const navigate = useNavigate()
-	const seleccionar = ["base", "complemento", "proteina", "topping", "salsas", "postre", "bebidas", "menu"];
+	const seleccionar = ["base", "complemento", "proteina", "topping", "salsas", "postre", "bebidas", "menu","menuBig"];
 	const seleccionarEdit = ["baseEdit", "complementoEdit", "proteinaEdit", "toppingEdit", "salsasEdit", "postreEdit", "bebidasEdit", "menuEdit"];
 	const [select, setSelect] = useState("");
 	const [selectEdit, setSelectEdit] = useState("");
@@ -59,9 +73,21 @@ export default function CrearProduto() {
 		protein: "",
 		complement: "",
 		sauce: "",
-		topping: ""
+		topping: "",
+		price:""
+	})
+	const [menuBig, setMenuBig] = useState({
+		name: "",
+		image: "",
+		base: "",
+		protein: "",
+		complement: "",
+		sauce: "",
+		topping: "",
+		price:""
 	})
 	const [errorsMenu, setErrorsMenu] = useState({})
+	const [errorsMenuBig, setErrorsMenuBig] = useState({})
 	const [errors, setErrors] = useState({})
 	const [errorsIngredientes, setErrorsIngredientes] = useState({})
 	function handleChange(e) {
@@ -94,6 +120,17 @@ export default function CrearProduto() {
 		})
 		setErrorsMenu(validateMenu({
 			...menu,
+			[e.target.name]: e.target.value
+		}))
+	}
+	function handleChangeMenuBig(e) {
+		setMenuBig({
+			...menuBig,
+			[e.target.name]: e.target.value,
+			image: imagenMenu
+		})
+		setErrorsMenuBig(validateMenuBig({
+			...menuBig,
 			[e.target.name]: e.target.value
 		}))
 	}
@@ -183,7 +220,7 @@ export default function CrearProduto() {
 				})
 			}
 		} else if (select === "menu") {
-			if (errorsMenu.name || errorsMenu.base || errorsMenu.protein || errorsMenu.complement || errorsMenu.sauce || errorsMenu.topping || !menu.name) {
+			if (errorsMenu.name || errorsMenu.base || errorsMenu.protein || errorsMenu.complement || errorsMenu.sauce || errorsMenu.topping ||errorsMenu.price|| !menu.name) {
 				alert("No se pudo crear el Menu, por favor completa los campos")
 			} else {
 				dispatch(postMenu(menu))
@@ -195,7 +232,26 @@ export default function CrearProduto() {
 					protein: "",
 					complement: "",
 					sauce: "",
-					topping: ""
+					topping: "",
+					price:""
+				})
+			}
+		}
+		else if (select === "menuBig") {
+			if (errorsMenuBig.name || errorsMenuBig.base || errorsMenuBig.protein || errorsMenuBig.complement || errorsMenuBig.sauce || errorsMenuBig.topping ||errorsMenuBig.price|| !menuBig.name) {
+				alert("No se pudo crear el MenuBig, por favor completa los campos")
+			} else {
+				dispatch(postMenu(menuBig))
+				alert("MenuBig Creado")
+				setMenuBig({
+					name: "",
+					image: "",
+					base: "",
+					protein: "",
+					complement: "",
+					sauce: "",
+					topping: "",
+					price:""
 				})
 			}
 		}
@@ -270,8 +326,8 @@ export default function CrearProduto() {
 					</div>
 					</form>
 
-					<form id="formCrear" style={{width:"100%"}}> 
-						<div>
+					<form style={{width:"40%"}}  id="formCrear" onSubmit={handleSubmit}> 
+						<div style={{display:"flow",justifyContent:"space-evenly",textAlign:"center"}}>
 					<div>
 					
 					<div id="SelectCrearEdit">
@@ -437,10 +493,53 @@ export default function CrearProduto() {
 															<label >Topping:</label><input type="text" value={menu.topping} name="topping" onChange={handleChangeMenu} />
 															{errorsMenu.topping && <p>{errorsMenu.topping}</p>}
 														</div>
+														<div>
+															<label >Precio:</label><input type="number" value={menu.price} name="price" onChange={handleChangeMenu} />
+															{errorsMenu.price && <p>{errorsMenu.price}</p>}
+														</div>
 
 
 														<button class="buttonFormAdmin" type='submit'>Crear Menu</button>
-													</div>) : ""
+													</div>) :
+													select === "menuBig" ? (<div>
+														{/**FORMULARIO PARA CREAR MENU */}
+														<div>
+															<label>Nombre: </label><input type="text" value={menuBig.name} name="name" onChange={handleChangeMenuBig} />
+															{errorsMenuBig.name && <p>{errorsMenuBig.name}</p>}
+														</div>
+														<div>
+															<label >Imagen: </label><input type="file" onChange={event => cloudinary(event.target.files)} />
+															<img className="imgenCloud" src={menuBig.image} alt="" />
+														</div>
+
+														<div>
+															<label >Base:</label><input type="text" value={menuBig.base} name="base" onChange={handleChangeMenuBig} />
+															{errorsMenuBig.base && <p>{errorsMenuBig.base}</p>}
+														</div>
+														<div>
+															<label >Protein:</label><input type="text" value={menuBig.protein} name="protein" onChange={handleChangeMenuBig} />
+															{errorsMenuBig.protein && <p>{errorsMenuBig.protein}</p>}
+														</div>
+														<div>
+															<label >Complement:</label><input type="text" value={menuBig.complement} name="complement" onChange={handleChangeMenuBig} />
+															{errorsMenuBig.complement && <p>{errorsMenuBig.complement}</p>}
+														</div>
+														<div>
+															<label >Sauce:</label><input type="text" value={menuBig.sauce} name="sauce" onChange={handleChangeMenuBig} />
+															{errorsMenuBig.sauce && <p>{errorsMenuBig.sauce}</p>}
+														</div>
+														<div>
+															<label >Topping:</label><input type="text" value={menuBig.topping} name="topping" onChange={handleChangeMenuBig} />
+															{errorsMenuBig.topping && <p>{errorsMenuBig.topping}</p>}
+														</div>
+														<div>
+															<label >Precio:</label><input type="number" value={menuBig.price} name="price" onChange={handleChangeMenuBig} />
+															{errorsMenuBig.price && <p>{errorsMenuBig.price}</p>}
+														</div>
+
+
+														<button class="buttonFormAdmin" type='submit'>Crear MenuBig</button>
+													</div>):<></>
 						// (<div><h2>Selecciona el parametro que vas a crear</h2></div>)
 
 

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../components/NavBar";
 import { bases, beverages, complements, desserts, Menu, proteins, putBases, putBebidas, putComplemento, putMenu, putPostres, putProteinas, putSalsas, putTopping, sauces, toppings } from "../action";
 import "./putBases.css"
-
+import axios from "axios";
 
 export default function BaseEdit() {
   const dispatch = useDispatch()
@@ -53,10 +53,20 @@ export default function BaseEdit() {
 
 
   function handleChange(e) {
-    setInput({
-      ...input,
-      [e.target.name]: e.target.value
-    })
+    if(imagenInput){
+      setInput({
+        ...input,
+        [e.target.name]: e.target.value,
+        image:imagenInput
+      })
+    }else{
+      setInput({
+        ...input,
+        [e.target.name]: e.target.value,
+        
+      })
+    }
+   
   }
 
   function handleSubmit(e) {
@@ -168,7 +178,20 @@ export default function BaseEdit() {
       })
     }
   }
+  let [imagenInput, setImagenInput] = useState([])
+  	
+	const cloudinary = async (files) =>
+	{
 
+		const formData = new FormData();
+		formData.append("file", files[0]);
+		formData.append("upload_preset", "qji2i4gs");
+
+		let response = await axios.post("https://api.cloudinary.com/v1_1/deqbqghhq/image/upload", formData)
+		setImagenInput(response.data.url)
+		
+
+	};
 
   return (
  
@@ -217,12 +240,24 @@ export default function BaseEdit() {
       <h1 id="titleUsuariosRegistrados">Editá tu productos!</h1>
       <form id="usuarioDetailMain" onSubmit={handleSubmit}>
          {/**FORMULARIO PARA EDITAR BASES/COMPLEMENTOS/SALSAS/TOPPING/ETC */}
+        
+        <div>
+          <label >Imagen: </label><img className="imgPutBases"  src={buscar1?.image ? buscar1.image : buscar2?.image ? buscar2.image : buscar3?.image ? buscar3.image : buscar4?.image ? buscar4.image : buscar5?.image ? buscar5.image : buscar6?.image ? buscar6.image : buscar7?.image ? buscar7.image : buscar8?.image ? buscar8.image : input.image} alt='' />
+        </div>
+        <div>
+         <label >editar imagen: </label><input type="file" onChange={event => cloudinary(event.target.files)} />
+         <img className="imgPutBases" src={input.image} alt="" />
+        </div>
         <div id="marcoProductEdit">
           <label>Nombre: </label><input type="text" value={input.name} placeholder={buscar1?.name ? buscar1.name : buscar2?.name ? buscar2.name : buscar3?.name ? buscar3.name : buscar4?.name ? buscar4.name : buscar5?.name ? buscar5.name : buscar6?.name ? buscar6.name : buscar7?.name ? buscar7.name : buscar8?.name ? buscar8.name : input.name} name="name" onChange={handleChange} />
         </div>
-        <div>
+        
+      
+
+
+        {/* <div>
           <label >Imagen(link):</label><input type="url" defaulValue={input.image} placeholder={buscar1?.image ? buscar1.image : buscar2?.image ? buscar2.image : buscar3?.image ? buscar3.image : buscar4?.image ? buscar4.image : buscar5?.image ? buscar5.image : buscar6?.image ? buscar6.image : buscar7?.image ? buscar7.image : buscar8?.image ? buscar8.image : input.image} name="image" onChange={handleChange} />
-        </div>
+        </div> */}
            {/**FORMULARIO PARA EDITAR POSTRES/BEBIDAS*/}
         {
 

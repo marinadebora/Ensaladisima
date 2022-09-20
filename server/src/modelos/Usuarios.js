@@ -9,6 +9,7 @@ const UsuariosSchema = new Schema({
     lastName: { type: String, default:"", lowercase:true },
     email: { type: String, required: true, lowercase:true },
     password: { type: String, require: true},
+    profilePhoto:{type:Array, default:[""]},
     adress: { type: Array, default:[""]},
     phone: { type: String, default: ''},
     admin: { type: Boolean, default: false },

@@ -14,6 +14,7 @@ const PedidosSchema = new Schema({
     adress: { type: String, default: ''},
     comentarios: {type: String, default: ''},
     facheyhora:{type:Date, default: Date()}
+
 })
 
 module.exports = mongoose.model("Pedidos", PedidosSchema)

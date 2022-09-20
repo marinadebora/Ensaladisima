@@ -44,7 +44,8 @@ console.log(nuevoPedido)
     localStorage.removeItem("ensaladaG")
     localStorage.removeItem("medianas")
     localStorage.removeItem("grandes")
-    localStorage.setItem("loguearUsuario",JSON.stringify(usuarioLocalStorage))
+    const usuario = localStorage.setItem("loguearUsuario",JSON.stringify(usuarioLocalStorage))
+    console.log(usuario)
     history("/menu")
     Swal.fire({
       position: 'center',
