@@ -7,10 +7,10 @@ import "../styles/Profile.css";
 import NavBar from './NavBar';
 
 export default function PersonalProfile() {
-  const user = JSON.parse(localStorage.getItem('usuarioLogueado'))
   const usuario=JSON.parse(localStorage.getItem('loguearUsuario'))
 
   let [imagenCloud, setImagenCloud] = useLocalStorage('imagenClod', '')
+  let cargarImg=imagenCloud?.email===usuario?.email&&imagenCloud?.img
   const [edit, setEdit] = useState(false)
   console.log(usuario)
 function editar(){
@@ -22,7 +22,7 @@ function editar(){
     formData.append("upload_preset", "qji2i4gs");
 
     let response = await axios.post("https://api.cloudinary.com/v1_1/deqbqghhq/image/upload",formData)
-    setImagenCloud(response.data.url)
+    setImagenCloud({img:response.data.url,email:usuario.email})
     setEdit(false)
   };
 
@@ -36,7 +36,7 @@ function editar(){
               <MDBRow className="g-0" >
                 <MDBCol md="4" className="gradient-custom text-center text-white"
                   style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem' }}>
-                  <MDBCardImage src={imagenCloud?imagenCloud:loginLogo}
+                  <MDBCardImage src={cargarImg?cargarImg:loginLogo}
                     alt="Avatar" className="my-5 mb-3" style={{ borderRadius:"100px", width: '80px', height:'80px' }} fluid />
                     <button id="buttonEdit" onClick={editar}>
                     <MDBCardText style={{backgroundColor:"transparent", color:"white", fontFamily:"Tommy-light", textAlign:"center"}}>Editar</MDBCardText></button>
@@ -51,7 +51,7 @@ function editar(){
                        ></MDBInput>
                     }
 
-                  <MDBTypography tag="h5"style={{color:"#207140", fontFamily:"Tommy-light"}}>{/* user.firstName + ' ' +user?.lastName  */}</MDBTypography>
+                 {/*  <MDBTypography tag="h5"style={{color:"#207140", fontFamily:"Tommy-light"}}>{usuario.firstName + ' ' +usuario?.lastName }</MDBTypography> */}
 
                   {/* <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>Web Designer</MDBCardText> */}
                   <MDBIcon far icon="edit mb-5" />
@@ -62,15 +62,15 @@ function editar(){
                     <hr className="mt-0 mb-4" />
                     <MDBRow className="pt-1">
                       <MDBCol size="6" className="mb-3">
-                        <MDBTypography tag="h6" style={{color:"#207140", fontFamily:"Tommy-regular"}}>Email</MDBTypography>
+                        <MDBTypography tag="h6" style={{color:"#207140", fontFamily:"Tommy-regular"}}>Usuario</MDBTypography>
 
-                        <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>{/* user.email */}</MDBCardText>
+                        <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>{usuario.firstName + ' ' +usuario?.lastName }</MDBCardText>
 
 
                       </MDBCol>
                       <MDBCol size="6" className="mb-3">
-                        <MDBTypography tag="h6" style={{color:"#207140", fontFamily:"Tommy-regular"}}>Phone</MDBTypography>
-                        <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>telefono{/* {user.phone} */}</MDBCardText>
+                        <MDBTypography tag="h6" style={{color:"#207140", fontFamily:"Tommy-regular"}}>Email</MDBTypography>
+                        <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>{usuario.email}</MDBCardText>
                       </MDBCol>
                     </MDBRow>
 
@@ -79,7 +79,7 @@ function editar(){
                     <MDBRow className="pt-1">
                       <MDBCol size="6" className="mb-3">
                         <MDBTypography tag="h6" style={{color:"#207140", fontFamily:"Tommy-regular"}}>Direccion</MDBTypography>
-                        <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>Direccion</MDBCardText>
+                        <MDBCardText style={{color:"#207140", fontFamily:"Tommy-light"}}>{usuario.adress}</MDBCardText>
                       </MDBCol>
                       {/* <MDBCol size="6" className="mb-3">
                         <MDBTypography tag="h6" style={{color:"#207140", fontFamily:"Tommy-regular"}}>Phone</MDBTypography>
@@ -106,7 +106,7 @@ function editar(){
     <div >
       <NavBar/>
     {
-      !user?
+      usuario?
       sesion():
       <div style={{ paddingTop: "7%" ,}}>
         
