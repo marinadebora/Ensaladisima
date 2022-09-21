@@ -298,7 +298,11 @@ function rootReducer(state = initialState, action) {
       return{
         ...state,
         historial:filtroMes
-      }  
+      }
+    case 'ELIMINAR_LINEA':
+      return {
+        ...state
+      }
     default:
       return {
         state
