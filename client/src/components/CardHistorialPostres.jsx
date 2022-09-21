@@ -1,19 +1,17 @@
 import React from "react"
-import "../styles/CardUsuarioId.css"
+import "../styles/CardComandaDetail.css"
 
 
 
 export default function CardDetalleHistorialPostres({postresName,postresPrecio}){
   return (
     
-      <div id="usuarioDetailMain" className="container">
+    <div id="mainContainerDetalleHistoria" className="container">
+
       <div class="row">
 
-         <div class="row"  id="pencilContent">
-         <button id="pencilB" type='button'><i id="pencil" class="bi bi-pencil"></i></button>
-         </div> 
-         <p class="col-6" id="userLabel">Postre: </p><p class="col-6" id="userData">{postresName}</p>
-         <p class="col-6" id="userLabel">Precio: </p><p class="col-6" id="userData">💲 {postresPrecio}</p>
+         <p class="col-6" id="productLabel">Postre: </p><p class="col-6" id="dataLabel">{postresName}</p>
+         <p class="col-6" id="productLabel">Precio: </p><p class="col-6" id="dataLabel">u$s {postresPrecio}</p>
          
          </div>
          

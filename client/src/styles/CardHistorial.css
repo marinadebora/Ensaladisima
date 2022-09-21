@@ -144,11 +144,6 @@
     cursor: pointer;
 }
 
-#pencil{
-    color: #207140;
-    font-size: 20px;
-}
-
 #pencilContent{
     overflow: hidden;
     padding: 0px;

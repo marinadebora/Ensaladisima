@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { complements, postBases, postBebidas, postComplementos, postMenu, postPostres, postProteinas, postSalsas, postToppings } from "../action";
 import BaseEdit, { BebidasEdit, ComplemetoEdit, MenuEdit, PostresEdit, ProteinaEdit, SalsasEdit, ToppingEdit } from "../components/AdminEdit";
 import '../styles/CrearProducto.css';
+import '../FormPut/putBases.css';
 import axios from "axios";
 
 function validate(input) {
@@ -295,7 +296,7 @@ export default function CrearProduto() {
 				<div style={{display:"flow", flexWrap:"wrap",justifyContent:"space-evenly",textAlign:"center",width:"100%"}}>
 					
 					{/**SELECT PARA EDITAR PRODUCTOS */}
-					<div id="SelectCrearEdit">
+					<div id="SelectCrearEdit1">
 						<select onChange={hanldeOnChangeSelectEdit}>
 							<option value="">Seleccioná para Editar</option>
 							{seleccionarEdit.map(e => {
@@ -341,12 +342,14 @@ export default function CrearProduto() {
 								)
 							})}
 						</select>
-						<div>
+						<div id="usuarioDetailMain1Content">
 					{/**FORMULARIO PARA CREAR BEBIDAS */}
 					{
 						// select === "" ? (<h2 id="formSubtitle">selecciona el parametr</h2>) :
-						select === "bebidas" ? (<div>
+						select === "bebidas" ? (<div id="usuarioDetailMain1">
 							<div>
+
+								
 								<label>Nombre: </label><input type="text" value={input.name} name="name" onChange={handleChange} />
 								{errors.name && <p>{errors.name}</p>}
 							</div>
@@ -367,7 +370,7 @@ export default function CrearProduto() {
 						</div>) :
 
 
-							select === "postre" ? (<div><div>
+							select === "postre" ? (<div id="usuarioDetailMain1"><div>
 								{/**FORMULARIO PARA CREAR POSTRES */}
 								<label>Nombre: </label><input type="text" value={input.name} name="name" onChange={handleChange} />
 								{errors.name && <p>{errors.name}</p>}
@@ -387,7 +390,7 @@ export default function CrearProduto() {
 
 								<button class="buttonFormAdmin" type='submit'>Crear Postre</button></div>) :
 
-								select === "base" ? (<div>
+								select === "base" ? (<div id="usuarioDetailMain1">
 									{/**FORMULARIO PARA CREAR BASES */}
 									<div>
 										<label >Imagen: </label><input type="file" onChange={event => cloudinary(event.target.files)} />
@@ -402,7 +405,7 @@ export default function CrearProduto() {
 								</div>) :
 
 
-									select === "complemento" ? (<div>
+									select === "complemento" ? (<div id="usuarioDetailMain1">
 										{/**FORMULARIO PARA CREAR COMPLEMENTOS */}
 										<div>
 											<label >Imagen: </label><input type="file" onChange={event => cloudinary(event.target.files)} />
@@ -417,7 +420,7 @@ export default function CrearProduto() {
 									</div>) :
 
 
-										select === "proteina" ? (<div>
+										select === "proteina" ? (<div id="usuarioDetailMain1">
 											{/**FORMULARIO PARA CREAR PROTEINAS */}
 											<div>
 												<label >Imagen: </label><input type="file" onChange={event => cloudinary(event.target.files)} />
@@ -432,7 +435,7 @@ export default function CrearProduto() {
 										</div>) :
 
 
-											select === "topping" ? (<div>
+											select === "topping" ? (<div id="usuarioDetailMain1"> 
 												{/**FORMULARIO PARA CREAR TOPPING */}
 												<div>
 													<label >Imagen: </label><input type="file" onChange={event => cloudinary(event.target.files)} />
@@ -447,7 +450,7 @@ export default function CrearProduto() {
 											</div>) :
 
 
-												select === "salsas" ? (<div>
+												select === "salsas" ? (<div id="usuarioDetailMain1">
 													{/**FORMULARIO PARA CREAR SALSAS */}
 
 													<div>
@@ -462,7 +465,7 @@ export default function CrearProduto() {
 												</div>) :
 
 
-													select === "menu" ? (<div>
+													select === "menu" ? (<div id="usuarioDetailMain1">
 														{/**FORMULARIO PARA CREAR MENU */}
 														<div>
 															<label>Nombre: </label><input type="text" value={menu.name} name="name" onChange={handleChangeMenu} />
@@ -501,7 +504,7 @@ export default function CrearProduto() {
 
 														<button class="buttonFormAdmin" type='submit'>Crear Menu</button>
 													</div>) :
-													select === "menuBig" ? (<div>
+													select === "menuBig" ? (<div id="usuarioDetailMain1">
 														{/**FORMULARIO PARA CREAR MENU */}
 														<div>
 															<label>Nombre: </label><input type="text" value={menuBig.name} name="name" onChange={handleChangeMenuBig} />
