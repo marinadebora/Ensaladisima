@@ -246,11 +246,6 @@ export default function BaseEdit() {
                             <i id="butonOrders" class="bi bi-file-earmark-plus-fill"> Productos</i>
                         </Link>
                     </div>
-                    <div class="col" id="mainButtonContentAdmin">
-                        <Link id="butonSideBarAdmin" to="#">
-                            <i id="butonOrders" class="bi bi-clipboard-check-fill"> Caja</i>
-                        </Link>
-                    </div>
 
 
 
@@ -267,7 +262,9 @@ export default function BaseEdit() {
         {/* /----------------------------- INICIO EDIT ----------------------------------/ */}
       
       <h1 id="titleUsuariosRegistrados">Editá tu productos!</h1>
-      <button onClick={putActivoTodo}>Habilitar/Deshabilitar</button>
+      <div id="estadoVentaButonContent">
+      <button id="estadoVentaButon" onClick={putActivoTodo}>Habilitar/Deshabilitar</button>
+      </div>
       <form id="usuarioDetailMain" onSubmit={handleSubmit}>
          {/**FORMULARIO PARA EDITAR BASES/COMPLEMENTOS/SALSAS/TOPPING/ETC */}
         

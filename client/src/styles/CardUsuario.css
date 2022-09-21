@@ -26,6 +26,7 @@
 
 #ensaladaNombreEdit{
     display: flex;
+    justify-content: center;
     text-decoration: none;
     font-family: Tommy-light;
     color: #207140;

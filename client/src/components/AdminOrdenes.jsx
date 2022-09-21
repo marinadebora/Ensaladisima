@@ -38,9 +38,6 @@ export default function HistorialDelUsuario()
 
         <div class="col-2" id="sideBar">
 
-
-
-         
         <div class="col" id="mainButtonContentAdmin">
                     <Link id="butonSideBarAdmin" to="/admin_ordenes">
                         <i id="butonOrders" class="bi bi-clipboard-check-fill"> Ordenes</i>
@@ -57,11 +54,7 @@ export default function HistorialDelUsuario()
                         <i id="butonOrders" class="bi bi-file-earmark-plus-fill"> Productos</i> 
                     </Link>
                 </div>
-                <div class="col" id="mainButtonContentAdmin">
-                    <Link id="butonSideBarAdmin" to="#">
-                        <i id="butonOrders" class="bi bi-clipboard-check-fill"> Caja</i>
-                    </Link>
-                </div>
+                
                 
             
             </div>
@@ -76,7 +69,7 @@ export default function HistorialDelUsuario()
           <div class="row">
                 <h2 id="titleUsuariosRegistrados">Ordenes</h2>
             <div>
-              <div className="contenedor-total">
+              
                 <div id='filtro'>
                   
                   <select name="filtroestado" id="filtroestado" onChange={(e) => filtroPorEstado(e)}>
@@ -94,7 +87,7 @@ export default function HistorialDelUsuario()
                     <option key={'mayor'} value={'mayor'}>Mayor a US$ 100</option>
                   </select>
                 </div>
-              </div>
+              
           
               {
                 historial ?
@@ -128,104 +121,3 @@ export default function HistorialDelUsuario()
 
   )
 }
-
-/* import React, { useEffect } from "react";
-import { Link } from 'react-router-dom';
-import '../styles/Admin.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { historialCompra} from "../action";
-import CardHistorial from "./CardHistorial";
-import NavBar from "./NavBar";
-
-export default function HistorialDelUsuario() {
-    const {historial} = useSelector(state=>state)
-    const dispatch=useDispatch()
-    useEffect(()=>{
-        dispatch(historialCompra())
-    },[dispatch])
-
-
-    return (
-       <div id="container">
-        <NavBar/>
-         <div class="row">
-
-            <div class="col-2" id="sideBar">
-
-                
-
-                <div class="col" id="mainButtonContentAdmin">
-                    <Link id="butonSideBarAdmin" to="/admin_ordenes">
-                        <i id="butonOrders" class="bi bi-clipboard-check-fill"> Ordenes</i>
-                    </Link>
-                </div>
-                
-                <div class="col" id="mainButtonContentAdmin">
-                    <Link id="butonSideBarAdmin" to="/admin_usuarios">
-                        <i id="butonOrders" class="bi bi-people-fill"> Usuarios</i>
-                    </Link>
-                </div>
-                <div class="col" id="mainButtonContentAdmin">
-                    <Link id="butonSideBarAdmin" to="/admin_productos">
-                        <i id="butonOrders" class="bi bi-file-earmark-plus-fill"> Productos</i> 
-                    </Link>
-                </div>
-                <div class="col" id="mainButtonContentAdmin">
-                    <Link id="butonSideBarAdmin" to="#">
-                        <i id="butonOrders" class="bi bi-clipboard-check-fill"> Caja</i>
-                    </Link>
-                </div>
-                
-            
-            </div>
-
-            <div class="col-10" id="adminContent">
-                
-
-                    <div class="row" id="searchBarAdmin">
-                        <div class="col" id="adminTittle">ADMIN</div>  
-                    </div>
-
-            
-
-                <div class="row">
-                //<CrearProduto/> 
-                <div>
-                <h2 id="titleUsuariosRegistrados">Ordenes</h2>
-                {
-            historial?
-            historial?.map(e=>{
-               return(
-                <div>
-                
-                    <CardHistorial
-                    nombre={e.user[0]?.firstName + " " +e.user[0]?.lastName}
-                    correo={e.user[0]?.email}
-                    _id={e._id}
-                    canceled={e?.canceled}
-                    pending={e?.pending}
-                    processing={e?.processing}
-                    received={e?.received}
-                    totalPayable={e.totalPayable}
-                    facheyhora={e.facheyhora}
-                    
-                    />
-                </div>
-               )
-            }):<></>
-           }
-                </div>
-               
-                </div>
-
-
-
-
-            </div>
-
-
-         </div>
-
-       </div>
-
-    )} */
