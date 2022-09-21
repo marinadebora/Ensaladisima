@@ -13,7 +13,6 @@ const CarrouselEP = () =>
   const myHistorial = useSelector(state => state?.historial);
   let myHistorialCompra = myHistorial?.filter(e => e.user[0]?._id === userID)
 
-  console.log(myHistorial)
   let comprar = (id, orders) =>
   {
     let repetirEnsalada = {
