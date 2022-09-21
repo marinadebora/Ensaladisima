@@ -1,0 +1,30 @@
+@font-face {
+    font-family: Tommy-regular;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+  
+    font-family: Tommy-bold;
+    src: url(../fonts/made_tommy/MADE\ TOMMY\ Bold_PERSONAL\ USE.ttf);
+  }
+
+
+#mainContainerDetalleHistoria{
+    width: 90%;
+    border-bottom: 4px solid  black;
+    padding-top: 2em;
+    
+    
+}
+
+#productLabel{
+    margin: 0px;
+    font-family: Tommy-bold;
+    color:black;
+    border-bottom: 1px solid black;
+}
+
+#dataLabel{
+    margin: 0px;
+    font-family: Tommy-light;
+    color:black;
+    border-bottom: 1px solid black;
+}
