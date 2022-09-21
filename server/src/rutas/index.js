@@ -5,6 +5,9 @@ const { Router } = require("express");
 // const { salsas } = require("../constroladores/cargarBaseDeDatos/controladorSalsas");
 // const { topping } = require("../constroladores/cargarBaseDeDatos/controladorTopping");
 // const { complements } = require("../constroladores/cargarBaseDeDatos/controladorDeComplementos");
+// const { bebidas } = require("../constroladores/cargarBaseDeDatos/controladorDeBebidas");
+// const { postres } = require("../constroladores/cargarBaseDeDatos/controladorDePostres");
+// const { menuBig } = require("../constroladores/cargarBaseDeDatos/controladorDelMenuBig");
 const { getBase } = require("./Base/getBase");
 const { getComplements } = require("./Complementos/getComplementos");
 const { getMenu } = require("./Menu/getMenu");
@@ -19,8 +22,6 @@ const getIdUsuario = require("./Usuarios/getUsuarioId");
 const getPedidos = require("./Pedidos/getPedidos");
 const crearEnsaladasBigs = require("./EnsaladasBigs/postEnsaladasBigs");
 const { correo } = require("../Nodemailer/autenticar");
-// const { bebidas } = require("../constroladores/cargarBaseDeDatos/controladorDeBebidas");
-// const { postres } = require("../constroladores/cargarBaseDeDatos/controladorDePostres");
 const { getBebidas } = require("./Bebidas/getBebidas");
 const { getPostres } = require("./Postres/getPostres");
 const postPedidoBebida = require("./Pedidos/postPedidoBebidas");
@@ -48,7 +49,6 @@ const { passwordEditada } = require("../Nodemailer/passwordActualizada");
 const eliminarDelPedido = require("./Pedidos/eliminardelPedido");
 const postPedidoMenu = require("./Pedidos/postPedidoMenu");
 const postHistorial = require("./Historial/postHistorial");
-// const { menuBig } = require("../constroladores/cargarBaseDeDatos/controladorDelMenuBig");
 const { getMenuBig } = require("./MenuBig/getMenuBig");
 const postEnsaladaMediana = require("./EnsaladasMedianas/posEnsaladasMediana");
 const postEnsaladaGrande = require("./EnsaladasBigs/postEnsaladasBig");
@@ -82,6 +82,7 @@ const { editarReceived } = require("./Historial/editarReceived");
 const { editarCanceled } = require("./Historial/editarCanceled");
 const { getHistorialId } = require("./Historial/getHistorialID");
 const { postMenuBig } = require("./MenuBig/postMenuBig");
+const { putMenuBig } = require("./MenuBig/putMenuBig");
 
 
 const router = Router();
@@ -119,6 +120,7 @@ router.put("/menusActivo/:_id", putActivoMenu);//
 router.get("/menubig", getMenuBig)
 router.post("/menuBig", postMenuBig);
 router.put("/menubigActivo/:_id", putActivoMenuB);//
+router.put("/menuBig/:_id",putMenuBig);
 
 // rutas para el modelo de Historial.
 router.use('/crearHistorial', postHistorial)

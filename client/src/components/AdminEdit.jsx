@@ -268,7 +268,7 @@ export  function MenuEdit(){
 
 export  function MenuBigEdit(){
   let { id } = useParams()
-  const  menuBig = useSelector(state => state.menuBig)
+  const  menuBigg = useSelector(state => state.menuBig)
 
   const dispatch = useDispatch()
 
@@ -278,8 +278,8 @@ export  function MenuBigEdit(){
   return (
     <div id='grillaEditCardContent'>
     {
-      menuBig ?
-      menuBig.map(e => {
+      menuBigg ?
+      menuBigg.map(e => {
       return (
         <div id="grillaEditCard" key={e._id}>
           <CardSimple
@@ -288,6 +288,7 @@ export  function MenuBigEdit(){
             price={e.price}
             stock= {e.stock}
             id={e._id}
+            activo={e.activo}
           />
         </div>
       )
