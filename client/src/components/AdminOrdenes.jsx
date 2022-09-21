@@ -54,11 +54,7 @@ export default function HistorialDelUsuario()
                         <i id="butonOrders" class="bi bi-file-earmark-plus-fill"> Productos</i> 
                     </Link>
                 </div>
-                <div class="col" id="mainButtonContentAdmin">
-                    <Link id="butonSideBarAdmin" to="#">
-                        <i id="butonOrders" class="bi bi-clipboard-check-fill"> Caja</i>
-                    </Link>
-                </div>
+                
                 
             
             </div>
