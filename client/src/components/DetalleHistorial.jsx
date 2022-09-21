@@ -25,7 +25,7 @@ export default function DetalleHistorial() {
 
 
 
-  console.log(buscar);
+  //console.log(buscar);
   // console.log(pedidos);
 
   return (
