@@ -53,10 +53,10 @@ const history = useNavigate()
   dispatch(getPedidos())
 }, [dispatch])
 const orders = useSelector(state=>state.pedidos)
-
+let datos=JSON.parse(localStorage.getItem('datosCheckout'))
 let preciototal = orders?.find(e =>e._id === user.orders[0])?.totalPayable
+let data = orders?.find(e =>e._id === user.orders[0])
 
-console.log(preciototal)
   const stripe = useStripe();
   const elements = useElements();
   
@@ -116,11 +116,18 @@ console.log(preciototal)
       
    
     <form className="card card-body" onSubmit={handleSubmit}>
-      {/* Product Information */}
+    {data?.facheyhora&&<div> <p className="text-left my-2">Fecha: {data?.facheyhora?.split('T')[0]}</p><p className="text-end my-2">{data?.facheyhora?.split('T')[1].split('.')[0]} Hs.  </p></div> }
+    {data?.user&& <p className="text-left my-2"> {data.user.firstName} {data.user.lastName} Tel: {data.user.phone}</p>}
+    {datos&& <p className="text-left my-2"> {datos.adress} </p>}
+    {datos&& <p className="text-left my-2"> delivery: {datos.delivery?'✔':'❌'} </p>}
+    {datos&& <p className="text-left my-2">Comentarios:  {datos.comentario}</p>}
+    {data?.salads&&data.salads?.map(e=><p className="text-left my-2">1 {e.name} US${e.price}</p>)}
+    {data?.beverages&&data.beverages?.map(e=><p className="text-left my-2">1 {e.name} US${e.price}</p>)}
+    {data?.desserts&&data.desserts?.map(e=><p className="text-left my-2">1 {e.name} US${e.price}</p>)}
       
-      <h3 className="text-center my-2">Precio: ${preciototal}</h3>
+      <h5 className="text-center my-2">Price: US${preciototal}</h5>
 
-      {/* User Card Input */}
+      {/* User Card Input  beverages*/}
       <div className="form-group">
         <CardElement options={CARD_ELEMENT_OPTIONS} />
       </div>
