@@ -13,7 +13,7 @@ return (
         <div key={id} id="contain-bases-card">
           <label class="checkeable">
           {
-            stock? <><img id="img-bases" src={image} alt={name} />
+            stock?.length>0? <><img id="img-bases" src={image} alt={name} />
           <p id="priceMenu">US$ {price}</p>
           <button type='button' className='btn-bolsa' name={name} value='selecciona' onClick={select}>
           <i id="buttoonPlus" class="bi bi-check-square-fill"></i>
