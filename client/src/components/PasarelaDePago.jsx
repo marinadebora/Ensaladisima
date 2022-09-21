@@ -89,7 +89,6 @@ let data = orders?.find(e =>e._id === user.orders[0])
         console.log(data);
         
         elements.getElement(CardElement).clear();
-        setLoading(false)
         Swal.fire({
           position: 'center',
           icon: "success",
@@ -98,7 +97,9 @@ let data = orders?.find(e =>e._id === user.orders[0])
           timer: 1500
         })
         dispatch(postHistorialDeCompra({_id:user.id,totalPayable:preciototal}))
-        history("/ConfirmacionPago")
+        history("/confirmacionPago")
+        window.location.reload()
+        setLoading(false)
         
       } catch (error) {
         alert("Los datos no concuerdan");
@@ -131,7 +132,7 @@ let data = orders?.find(e =>e._id === user.orders[0])
         <CardElement options={CARD_ELEMENT_OPTIONS} />
       </div>
 
-      <button disabled={!stripe} className="btn btn-success">
+      <button disabled={loading} className="btn btn-success">
         {loading ? (
           <button class="btn btn-success" type="button" disabled>
           <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
