@@ -10,7 +10,7 @@ export function Bases()
 {
   const [base, setBase] = useLocalStorage('bases',[])
   const [state, setstate] = useState(false)
-  const allBases=useSelector(state=>state.bases)
+  const allBases=useSelector(state=>state.basesFilter)
   let [form, setForm] = useState({
     bases: []
   })
