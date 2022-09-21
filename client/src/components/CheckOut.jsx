@@ -343,14 +343,12 @@ export default function QuantityEdit() {
 
   const cargarDatos = (e)=>{
     e.preventDefault()
-      dispatch(putPedidoDelivery(datos))
-      history('/pago')
-    
-    
+    dispatch(putPedidoDelivery(datos))
+    history('/pago')
   }
 
   console.log(datos)
-
+  localStorage.setItem('datosCheckout', JSON.stringify(datos))
   const persona = useSelector(state => state.usuarios)
   const buscarPersona = persona?.find(e => e.email === user?.email)
   const direction = new Set(user?.adress)

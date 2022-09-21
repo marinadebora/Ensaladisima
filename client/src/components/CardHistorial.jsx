@@ -37,9 +37,6 @@ function handleSubmitCancelado (e){
 
       <div class="row">
            
-         <div class="row"  id="pencilContent">
-         <button id="pencilB" type='button'><i id="pencil" class="bi bi-printer"></i></button>
-         </div> 
          <div class="row">
             <div class="col">
             <p class="col" id="userLabelOrder">Fecha y Hora: </p><p class="col" id="userDataOrder">{facheyhora.split('T')[0]+ " / " + facheyhora.split('T')[1].split('.')[0]}</p>

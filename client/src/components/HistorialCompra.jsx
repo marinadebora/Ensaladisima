@@ -23,8 +23,11 @@ console.log(historialUser)
         <NavBar/>
        <div className="contenedor-total">
 {
-      historialUser?.length<=0?<div ><h3 className='h3'>Aun no tienes compras</h3> <img className="imagenhc" src={''} alt=''/></div>:
-      historialUser?.map(e=>(
+     loguearUser&& historialUser?.length<=0? <div style={{ paddingTop: "7%" ,}}>
+        
+     <h3 style={{color:"#207140", fontFamily:"Tommy-light", paddingBottom:"9%" ,paddingTop: "12%",display:'flex', justifyContent:'center', alignContent:'center' }}>Aun no tienes compras</h3>
+   </div>:
+     loguearUser&&historialUser?historialUser?.map(e=>(
       <div className="contenedor-orden">
       <div class="row">
         <div class="col">
@@ -273,7 +276,11 @@ console.log(historialUser)
 
   
           </div>
-      ))
+      )):
+      <div style={{ paddingTop: "7%" ,}}>
+        
+      <h3 style={{color:"#207140", fontFamily:"Tommy-light", paddingBottom:"9%" ,paddingTop: "12%",display:'flex', justifyContent:'center', alignContent:'center' }}>Inicia sesion para ver tu historial</h3>
+    </div>
 }
   
   

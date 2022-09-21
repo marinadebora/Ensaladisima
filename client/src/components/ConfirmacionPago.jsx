@@ -91,15 +91,6 @@ console.log(nuevoPedido)
     </MDBContainer>
 </div>
 
-
-
-
-
-
-
-    
-    
-    
-  );
+);
 };
 

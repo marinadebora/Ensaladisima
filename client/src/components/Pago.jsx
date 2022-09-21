@@ -11,7 +11,7 @@ import "../styles/Login.css"
 import "../styles/PasarelaDePago.css"
 import { Link } from 'react-router-dom';
 import PasarelaDePago from "./PasarelaDePago";
-import NavBar from "./NavBar";
+import Navbar from "./NavBar";
 
 
 function Pago() {
@@ -19,7 +19,7 @@ function Pago() {
   return (
     
     <MDBContainer fluid>
-      <NavBar/>
+      <Navbar/>
       <MDBRow style={{paddingTop:"130px"}}>
 
       <MDBCol sm='5' className='d-none d-sm-block px-0  me-5'>
@@ -36,14 +36,11 @@ function Pago() {
 
           <div className='d-flex flex-column justify-content-center h-custom-1 w-100 pt-2'>
 
-            <h3 id="titleConfirm1" className="fw-normal mb-5 ps-4 pb-3" style={{letterSpacing: '1px'}}>Pago</h3>
-
-
-          
-
+            <h3 className="fw-normal mb-3 ps-5 pb-3" style={{letterSpacing: '1px'}}>Log in</h3>
 
             <PasarelaDePago/>
-            <Link id="butonPagoBck" to="/checkout">
+            
+            <Link id="butonPagoBack" to="/checkout">
                  <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"> Volver</i>
             </Link>
 

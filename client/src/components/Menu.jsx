@@ -25,10 +25,10 @@ const Menu = () =>
 {
   const history = useNavigate()
   const dispatch = useDispatch();
-  const allSalads = useSelector((state) => state.salads);
-  const allSaladsBig = useSelector(state => state.saladsBig)
-  const allDesserts = useSelector(state => state.desserts)
-  const allBeverages = useSelector(state => state.beverages)
+  const allSalads = useSelector((state) => state.saladsFilter);
+  const allSaladsBig = useSelector(state => state.saladsBigFilter)
+  const allDesserts = useSelector(state => state.dessertsFilter)
+  const allBeverages = useSelector(state => state.beveragesFilter)
   const usuario = JSON.parse(localStorage.getItem('loguearUsuario'))
 
 
