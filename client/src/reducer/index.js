@@ -26,7 +26,17 @@ const initialState = {
   detail: [],
   historialDetail:{},
   ensBLS:[],
-  filtroHistorial:[]
+  filtroHistorial:[],
+  saladsFilter: [],
+  saladsBigFilter: [],
+  basesFilter: [],
+  proteinsFilter: [],
+  complementsFilter: [],
+  saucesFilter: [],
+  toppingsFilter: [],
+  beveragesFilter: [],
+  dessertsFilter: [],
+  menuFilter: [],
 }
 
 
@@ -48,62 +58,72 @@ function rootReducer(state = initialState, action) {
       const filterSalads=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        salads: filterSalads
+        salads:action.payload ,
+        saladsFilter:filterSalads
       }
     case "SALADS_BIG":
       const filterSaladsBig=action.payload?.filter(e=>e.activo===true)
 
       return {
         ...state,
-        saladsBig: filterSaladsBig
+        saladsBig:action.payload ,
+        saladsBigFilter:filterSaladsBig
       }
     case 'BASES':
       const filterBases=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        bases: filterBases
+        bases:action.payload ,
+        basesFilter: filterBases
       }
     case 'PROTEINS':
       const filterProteins=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        proteins: filterProteins
+        proteins:action.payload,
+        proteinsFilter: filterProteins
       }
     case 'COMPLEMENTS':
       const filterComplements=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        complements: filterComplements
+        complements: action.payload,
+        complementsFilter:filterComplements
       }
     case 'SAUCES':
       const filterSauces=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        sauces: filterSauces
+        sauces: action.payload,
+        sauceFilter:filterSauces
       }
     case 'TOPPINGS':
       const filterToppings=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        toppings: filterToppings
+        toppings: action.payload,
+        toppingsFilter:filterToppings
       }
     case 'BEVERAGES':
       const filterBeverages=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        beverages: filterBeverages
+        beverages: action.payload,
+        beveragesFilter:filterBeverages
       }
     case 'DESSERTS':
       const filterDesserts=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        desserts: filterDesserts
+        desserts: action.payload,
+        dessertsFilter:filterDesserts
       }
     case "MENU":
       const filterMenu=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        menu: filterMenu
+        menu: action.payload,
+        menuFilter:filterMenu
       }
     case 'PEDIDO_BEBIDAS':
       return {
