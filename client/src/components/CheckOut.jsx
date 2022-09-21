@@ -23,9 +23,11 @@ import {
   eliminarDelCarrito, getPedidos, agregarAlCarrito,
   putPedidocargarPedido,
   putPedidoDelivery,
-  usuariosRegistrados
+  usuariosRegistrados,
+  eliminarLinia
 } from "../action";
 import NavBar from "./NavBar";
+import Swal from 'sweetalert2'
 
 
 
@@ -214,25 +216,33 @@ export default function QuantityEdit() {
     total: resultado?.totalPayable,
     direccion: resultado?.adress
   }
-
+  console.log(armadoCarrito)
   const agregarAlpedido = (e) => {
     dispatch(agregarAlCarrito({ id: resultado?._id, _id: e.target.value }))
     window.location.reload(false)
   }
 
   const removeDelCarrito = (e) => {
-    dispatch(eliminarDelCarrito({ id: resultado?._id, _id: e.target.value }))
-    window.location.reload(false)
-    /* console.log(e.target.value)
-    console.log(armadoCarrito?.producto?.filter(e => e._id ) === toString(e.target.value)).length )
-    if(resultado?.salads?.filter(e => e._id == e.target.value) .length > 1 ){
+    let armar = armadoCarrito?.producto?.filter(a=> a._id === e.target.value)
+    console.log(armar?.length)
+    if(armar?.length > 1){
       dispatch(eliminarDelCarrito({ id: resultado?._id, _id: e.target.value }))
       window.location.reload(false)
     }else{
-      alert('no puede borrar todo el carrito')
-    } */
-
+      Swal.fire({
+        position: 'center',
+        icon: 'warning',
+        title: 'Para eliminar el producto pulsa el boton X',
+        showConfirmButton: false,
+        timer: 1800
+      })
+    }
+    
   }
+    const borrarDelCarrito = (e)=>{
+      dispatch(eliminarLinia({id: resultado?._id, _id: e.target.value }))
+      window.location.reload(false)
+    }
 
   let productosMapInicio = armadoCarrito?.producto?.map(item => {
     return [item._id, item]
@@ -254,18 +264,6 @@ export default function QuantityEdit() {
   let productosMapArr = new Map(productosMap)
   let unicos = [...productosMapArr.values()]
 
-  /* const borrarDelCarrito = (e)=>{
-    console.log(e.target.value)
-    console.log(resultado?.beverages?.find(a=> a._id === e.target.value))
-    if(resultado?.beverages?.find(a=> a._id === e.target.value)){
-      resultado = resultado?.beverages?.find(a=> a._id !== e.target.value)
-      console.log(resultado)
-    }else if(resultado?.salads?.find(a=> a._id === e.target.value)){
-      resultado?.salads?.find(a=> a._id !== e.target.value)
-    }else if(resultado?.desserts?.find(a=> a._id === e.target.value)){
-      resultado?.desserts?.find(a=> a._id !== e.target.value)
-    }
-  } */
   
   const [envio, setEnvio] = useState(true)
   
@@ -345,12 +343,9 @@ export default function QuantityEdit() {
 
   const cargarDatos = (e)=>{
     e.preventDefault()
-    if(datos?.comentario?.length > 10){
       dispatch(putPedidoDelivery(datos))
       history('/pago')
-    }else{
-      alert('el comentario debe tener mas de 10 caracteres')
-    }
+    
     
   }
 
@@ -415,7 +410,7 @@ export default function QuantityEdit() {
                                 </MDBCol>
                                 <MDBCol md="3" lg="2" xl="2" className="text-end">
                                   <MDBTypography tag="h6" className="mb-0">
-                                    <button id="buttonDeleteCheckOut" value={e._id} /* onClick={borrarDelCarrito} */>X</button>
+                                    <button id="buttonDeleteCheckOut" value={e._id} onClick={borrarDelCarrito}>X</button>
                                   </MDBTypography>
                                 </MDBCol>
                                 <MDBCol md="2" lg="1" xl="1" className="text-end">

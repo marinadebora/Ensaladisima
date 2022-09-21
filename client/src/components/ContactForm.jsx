@@ -31,7 +31,6 @@ const ContactForm = () => {
     dispatch(contactForm(data))
     alert('Consulta enviada exitosamente')
     navigate("/menu")
-   
 /*     setTimeout(() => {
       setSubmitted(true);
     }, 100); */
@@ -67,7 +66,7 @@ const ContactForm = () => {
         <label>Nombre: </label>
             <input
             type="text"
-            placeholder="Your name"
+            placeholder="Tu nombre"
             name="name"
             onChange={handleOnChange}
             required
@@ -98,7 +97,7 @@ const ContactForm = () => {
         <div className="mb-3 pt-0">
         <label>Dejanos tu consulta: </label>
             <textarea
-            placeholder="Your message"
+            placeholder="Tu mensaje"
             name="message"
             className="px-3 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded-20 text-sm border-1 outline-none focus:outline-none focus:ring w-full"
             onChange={handleOnChange}
