@@ -25,7 +25,18 @@ const initialState = {
   allUsuarios: {},
   detail: [],
   historialDetail:{},
-  ensBLS:[]
+  ensBLS:[],
+  filtroHistorial:[],
+  saladsFilter: [],
+  saladsBigFilter: [],
+  basesFilter: [],
+  proteinsFilter: [],
+  complementsFilter: [],
+  saucesFilter: [],
+  toppingsFilter: [],
+  beveragesFilter: [],
+  dessertsFilter: [],
+  menuFilter: [],
 }
 
 
@@ -44,54 +55,75 @@ function rootReducer(state = initialState, action) {
         usuarios: []
       }
     case 'SALADS':
+      const filterSalads=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        salads: action.payload
+        salads:action.payload ,
+        saladsFilter:filterSalads
       }
     case "SALADS_BIG":
+      const filterSaladsBig=action.payload?.filter(e=>e.activo===true)
+
       return {
         ...state,
-        saladsBig: action.payload
+        saladsBig:action.payload ,
+        saladsBigFilter:filterSaladsBig
       }
     case 'BASES':
+      const filterBases=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        bases: action.payload
+        bases:action.payload ,
+        basesFilter: filterBases
       }
     case 'PROTEINS':
+      const filterProteins=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        proteins: action.payload
+        proteins:action.payload,
+        proteinsFilter: filterProteins
       }
     case 'COMPLEMENTS':
+      const filterComplements=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        complements: action.payload
+        complements: action.payload,
+        complementsFilter:filterComplements
       }
     case 'SAUCES':
+      const filterSauces=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        sauces: action.payload
+        sauces: action.payload,
+        sauceFilter:filterSauces
       }
     case 'TOPPINGS':
+      const filterToppings=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        toppings: action.payload
+        toppings: action.payload,
+        toppingsFilter:filterToppings
       }
     case 'BEVERAGES':
+      const filterBeverages=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        beverages: action.payload
+        beverages: action.payload,
+        beveragesFilter:filterBeverages
       }
     case 'DESSERTS':
+      const filterDesserts=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        desserts: action.payload
+        desserts: action.payload,
+        dessertsFilter:filterDesserts
       }
     case "MENU":
+      const filterMenu=action.payload?.filter(e=>e.activo===true)
       return {
         ...state,
-        menu: action.payload
+        menu: action.payload,
+        menuFilter:filterMenu
       }
     case 'PEDIDO_BEBIDAS':
       return {
@@ -198,9 +230,11 @@ function rootReducer(state = initialState, action) {
         ...state,
       }
       case 'REVIEW':
+        const filterComentarios=action.payload?.filter(e=>e.activo===true)
+  
       return {
         ...state,
-        comentarios: action.payload
+        comentarios: filterComentarios
 
       }
     case 'HISTORIAL_COMPRA':
@@ -236,9 +270,35 @@ function rootReducer(state = initialState, action) {
         case 'MODIFICAR_PEDIDO':
           return {
             ...state,
-           
           }
-       
+        case "PEDIDO_DELIVERY_PUT":
+          return {
+            ...state
+          }
+          case 'FITRO_HISTORIAL':
+      const estadoTotal =state.allhistorial
+      const filterH= action.payload==='pending'?estadoTotal.filter(e=>e.pending===true):
+      action.payload==='processing'?estadoTotal.filter(e=>e.processing===true):
+      action.payload==='received'?estadoTotal.filter(e=>e.received===true):
+      action.payload==='canceled'? estadoTotal.filter(e=>e.canceled===true):
+      action.payload==='sinFiltro'&& estadoTotal
+
+
+      return{
+        ...state,
+        historial:filterH,
+        filtroHistorial:filterH
+      }
+     case 'FILTRO_PRECIO':
+      const estadoHorder=state.filtroHistorial
+      const filtroMes=action.payload==='menor'?estadoHorder?.filter(e=>e.totalPayable<50):
+      action.payload==='medio'?estadoHorder?.filter(e=>e.totalPayable>50&&e.totalPayable<100):
+      action.payload==='mayor'?estadoHorder?.filter(e=>e.totalPayable>100):
+      action.payload==='sinFiltro'&&estadoHorder
+      return{
+        ...state,
+        historial:filtroMes
+      }  
     default:
       return {
         state

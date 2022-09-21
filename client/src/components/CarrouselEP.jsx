@@ -13,8 +13,7 @@ const CarrouselEP = () =>
   const myHistorial = useSelector(state => state?.historial);
   let myHistorialCompra = myHistorial?.filter(e => e.user[0]?._id === userID)
 
-
-  let comprarM = (id, orders) =>
+  let comprar = (id, orders) =>
   {
     let repetirEnsalada = {
       id:id,
@@ -23,15 +22,7 @@ const CarrouselEP = () =>
     dispatch(modificarPedido(repetirEnsalada))
     console.log(repetirEnsalada)
   }
-  let comprarG = (id, orders) =>
-  {
-    let repetirEnsalada = {
-      id:id,
-      orders:orders
-    }
-    dispatch(modificarPedido(repetirEnsalada))
-    console.log(repetirEnsalada)
-  }
+ 
   let arrayM = []
   myHistorialCompra?.map(e => (
     e.orders?.map(e => (
@@ -48,7 +39,7 @@ const CarrouselEP = () =>
 
   let ensalada = [...arrayM, ...arrayG]
   let ensaladas = ensalada.slice(ensalada?.length - 6, ensalada?.length)
-
+  
   useEffect(() =>
   {
     dispatch(historialCompra())
@@ -59,17 +50,13 @@ const CarrouselEP = () =>
   return (
     <div class="container ">
       <div class="row">
+
+      { loguearUser&&ensaladas?.length>0&&
         <div class="col-10">
           <h3 class="mb-3" id="carrouselTitle">Tus ultimas ensaladas:</h3>
         </div>
-        {/* <div class="col-2 ml-2">
-          <button id="butonCarrouselMain" href="#carouselExampleIndicators2" data-slide="prev">
-            <i id="butonCarrousel" class="bi bi-arrow-left-circle-fill"></i>
-          </button>
-          <button id="butonCarrouselMain" href="#carouselExampleIndicators2" data-slide="next">
-            <i id="butonCarrousel" class="bi bi-arrow-right-circle-fill"></i>
-          </button>
-        </div> */}
+      }
+      
         <div class="col-12">
           <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
 
@@ -77,7 +64,7 @@ const CarrouselEP = () =>
               <div id="carouselContainer" class="container">
                 <div class="row">
                   {
-                    ensaladas?.map((e, i) => (
+                    loguearUser&&ensaladas?.map((e, i) => (
                       <div class="col-md-2 mb-1">
                         <div class="card">
                           <img class="img" alt="100%x280" src={imag[i] || e.image} />
@@ -110,13 +97,9 @@ const CarrouselEP = () =>
                                         ))
                                       }
                                     </ul>
-                                    {
-                                      e.name==='Tu Ensalada Grande'&&<button id="buttoonPlus2" onClick={() => comprarM(e._id,loguearUser.orders[0])}>Comprar</button>
-                                    }
-                                    {
-                                     e.name==='Tu Ensalada Mediana'&&<button id="buttoonPlus2" onClick={() => comprarG(e._id,loguearUser.orders[0])}>Comprar</button>
-                                    }
                                     
+                                     <button id="buttoonPlus2" onClick={() => comprar(e?._id,loguearUser?.orders[0])}>Comprar</button>
+                                  
                                   </div>
                                 </div>
                               </div>

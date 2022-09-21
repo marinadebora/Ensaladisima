@@ -1010,3 +1010,31 @@ export function modificarPedido(payload) {
 		}
 	}
 }
+
+export function putPedidoDelivery(payload) {
+	return async function (dispatch) {
+		try {
+			const modificar = await axios.put(`/putpedidodelivery`, payload)
+			return dispatch({
+				type: "PEDIDO_DELIVERY_PUT",
+				payload: modificar.data
+			})
+		} catch (error) {
+			console.log(error)
+		}
+    }
+}
+//filtro por estado historial de compra admin
+export function filtroHistorial(payload){
+	return {
+		type: 'FITRO_HISTORIAL',
+		payload
+	}
+}
+//filtro por rango de precio historial de compra admin
+export function filtroHistorialPrecio(payload){
+	return {
+		type: 'FILTRO_PRECIO',
+		payload
+	}
+}
