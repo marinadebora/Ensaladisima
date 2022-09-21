@@ -9,10 +9,7 @@ export default function CardUsuariosId({ firstName,lastName,email,phone,adress,a
     
      <div id="usuarioDetailMain" className="container">
       <div class="row">
-
-         <div class="row"  id="pencilContent">
-         <button id="pencilB" type='button'><i id="pencil" class="bi bi-pencil"></i></button>
-         </div> 
+ 
          <p class="col-6" id="userLabel">Nombre: </p><p class="col-6" id="userData">{firstName}</p>
          <p class="col-6" id="userLabel">Apellido: </p><p class="col-6" id="userData">{lastName}</p>
          <p class="col-6" id="userLabel">Email: </p><p class="col-6" id="userData">{email}</p>

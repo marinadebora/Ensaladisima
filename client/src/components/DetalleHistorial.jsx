@@ -37,13 +37,8 @@ export default function DetalleHistorial() {
       <Link to="/admin_ordenes"><button id="buttonDetalleHistoria">Volver</button></Link>
       </div>
       <div class="container" id="detalleHistoriaContainer">
-        <div class="row"  id="pencilContent">
-         <button id="pencilB" type='button'><i id="pencil" class="bi bi-printer"></i></button>
-
-
-
-         </div> 
-        
+      
+      
         {
           buscar?.salads ?
             buscar?.salads.map(e => {

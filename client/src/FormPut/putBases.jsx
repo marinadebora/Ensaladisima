@@ -267,7 +267,9 @@ export default function BaseEdit() {
         {/* /----------------------------- INICIO EDIT ----------------------------------/ */}
       
       <h1 id="titleUsuariosRegistrados">Editá tu productos!</h1>
-      <button onClick={putActivoTodo}>Habilitar/Deshabilitar</button>
+      <div id="estadoVentaButonContent">
+      <button id="estadoVentaButon" onClick={putActivoTodo}>Habilitar/Deshabilitar</button>
+      </div>
       <form id="usuarioDetailMain" onSubmit={handleSubmit}>
          {/**FORMULARIO PARA EDITAR BASES/COMPLEMENTOS/SALSAS/TOPPING/ETC */}
         

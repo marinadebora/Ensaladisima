@@ -38,3 +38,17 @@
 .accordion-item{
     border: none;
 }
+
+#buttoonPlus2{
+    background-color: #207140; 
+    color: white;
+    text-decoration: none;
+    border:2px  solid white;
+    width: 100%;
+    padding: 0.2rem;
+    margin-top: 0.5rem;
+    border-radius: 50px;
+    font-family: Tommy-light;
+    font-size: 0.8rem; 
+    cursor: pointer;
+}
