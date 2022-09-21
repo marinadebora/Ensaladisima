@@ -24,10 +24,10 @@ import {
   putPedidocargarPedido,
   putPedidoDelivery,
   usuariosRegistrados,
-  eliminarLinia
+  /* eliminarLinia */
 } from "../action";
 import NavBar from "./NavBar";
-import Swal from 'sweetalert2'
+/* import Swal from 'sweetalert2' */
 
 
 
@@ -216,19 +216,19 @@ export default function QuantityEdit() {
     total: resultado?.totalPayable,
     direccion: resultado?.adress
   }
-  console.log(armadoCarrito)
+
   const agregarAlpedido = (e) => {
     dispatch(agregarAlCarrito({ id: resultado?._id, _id: e.target.value }))
     window.location.reload(false)
   }
 
   const removeDelCarrito = (e) => {
-    let armar = armadoCarrito?.producto?.filter(a=> a._id === e.target.value)
+    /* let armar = armadoCarrito?.producto?.filter(a=> a._id === e.target.value)
     console.log(armar?.length)
-    if(armar?.length > 1){
+    if(armar?.length > 1){ */
       dispatch(eliminarDelCarrito({ id: resultado?._id, _id: e.target.value }))
       window.location.reload(false)
-    }else{
+    /* }else{
       Swal.fire({
         position: 'center',
         icon: 'warning',
@@ -236,13 +236,13 @@ export default function QuantityEdit() {
         showConfirmButton: false,
         timer: 1800
       })
-    }
+    } */
     
   }
-    const borrarDelCarrito = (e)=>{
+    /* const borrarDelCarrito = (e)=>{
       dispatch(eliminarLinia({id: resultado?._id, _id: e.target.value }))
       window.location.reload(false)
-    }
+    } */
 
   let productosMapInicio = armadoCarrito?.producto?.map(item => {
     return [item._id, item]
@@ -407,9 +407,9 @@ export default function QuantityEdit() {
                                   </MDBTypography>
                                 </MDBCol>
                                 <MDBCol md="3" lg="2" xl="2" className="text-end">
-                                  <MDBTypography tag="h6" className="mb-0">
+                                  {/* <MDBTypography tag="h6" className="mb-0">
                                     <button id="buttonDeleteCheckOut" value={e._id} onClick={borrarDelCarrito}>X</button>
-                                  </MDBTypography>
+                                  </MDBTypography> */}
                                 </MDBCol>
                                 <MDBCol md="2" lg="1" xl="1" className="text-end">
                                 </MDBCol>
