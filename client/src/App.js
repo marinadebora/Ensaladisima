@@ -136,7 +136,7 @@ function App() {
 
     <Route path= '/cargando' element={<ArmandoEnsalada/>}/>
     <Route path= '/sendEmail' element={<SendEmail/>}/>
-    <Route path= '/password/:_id' element={<ErrorAdmin/>}/>
+    <Route path= '/password/:_id' element={<CambioPassword/>}/>
     <Route path= '/historial' element={<HistorialCompras/>}/>
    
   </Routes>
