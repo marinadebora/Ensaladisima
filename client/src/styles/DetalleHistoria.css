@@ -1,0 +1,51 @@
+@font-face {
+    font-family: Tommy-regular;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+  
+    font-family: Tommy-bold;
+    src: url(../fonts/made_tommy/MADE\ TOMMY\ Bold_PERSONAL\ USE.ttf);
+  }
+
+
+#buttonDetalleHistoriaContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+   
+}
+
+#buttonDetalleHistoria{
+    width: 100%;
+    
+    margin-bottom: 2rem;
+    background-color: #207140; 
+    color: white;
+    text-decoration: none;
+    border:3px  solid white;
+    padding: 0.5rem;
+    border-radius: 50px;
+    font-family: Tommy-bold;
+    font-size: 1.0rem;
+    cursor: pointer;
+
+}
+#detalleHistoriaContainer{
+    overflow: hidden;
+    padding: 0px;
+    width: 70%;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding-bottom: 2rem;
+    margin-bottom: 3rem;
+}
+
+#cardHistorialContainer{
+   display: flex;
+   justify-content: center;
+}
+
+#pencil{
+
+    color: black;
+    font-size: 25px;
+}
