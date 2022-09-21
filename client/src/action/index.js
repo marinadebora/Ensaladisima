@@ -362,6 +362,7 @@ export const putBases = (_id, payload) => async (dispatch) => {
 			{ type: "PUT_BASES", payload: json.data })
 
 	} catch (error) {
+		console.log(error)
 		alert(`el ID: ${_id} no existe`)
 	}
 }
