@@ -5,7 +5,7 @@ import { useLocalStorage } from "../useLocalStorage";
 import '../styles/Bases.css'
 
 export function Toppings () {
-    const allToppings= useSelector(state=>state.toppings)
+    const allToppings= useSelector(state=>state.toppingsFilter)
     const [topping, setTopping] = useLocalStorage('topping',[])
 
     let [form, setForm] = useState({
