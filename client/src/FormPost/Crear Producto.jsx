@@ -61,15 +61,15 @@ export default function CrearProduto() {
 	let { id } = useParams()
 	const [input, setInput] = useState({
 		name: "",
-		image: "",
+		image: "https://res.cloudinary.com/deqbqghhq/image/upload/v1663681875/samples/vacio_qvdstv.png",
 		price: "",
 		stock: ""
 	})
 	console.log(input)
-	const [ingredientes, setIngredientes] = useState({ name: "", image: "" })
+	const [ingredientes, setIngredientes] = useState({ name: "", image: "https://res.cloudinary.com/deqbqghhq/image/upload/v1663681875/samples/vacio_qvdstv.png" })
 	const [menu, setMenu] = useState({
 		name: "",
-		image: "",
+		image: "https://res.cloudinary.com/deqbqghhq/image/upload/v1663681875/samples/vacio_qvdstv.png",
 		base: "",
 		protein: "",
 		complement: "",
@@ -79,7 +79,7 @@ export default function CrearProduto() {
 	})
 	const [menuBig, setMenuBig] = useState({
 		name: "",
-		image: "",
+		image: "https://res.cloudinary.com/deqbqghhq/image/upload/v1663681875/samples/vacio_qvdstv.png",
 		base: "",
 		protein: "",
 		complement: "",
@@ -145,7 +145,7 @@ export default function CrearProduto() {
 				alert("Bebida creada")
 				setInput({
 					name: "",
-					image: "",
+					image: "https://res.cloudinary.com/deqbqghhq/image/upload/v1663681875/samples/vacio_qvdstv.png",
 					price: "",
 					stock: ""
 				})
@@ -159,7 +159,7 @@ export default function CrearProduto() {
 				alert("Postre Creado")
 				setInput({
 					name: "",
-					image: "",
+					image: "https://res.cloudinary.com/deqbqghhq/image/upload/v1663681875/samples/vacio_qvdstv.png",
 					price: "",
 					stock: ""
 				})
@@ -173,7 +173,7 @@ export default function CrearProduto() {
 				alert("Base Creada")
 				setIngredientes({
 					name: "",
-					image: ""
+					image: "https://res.cloudinary.com/deqbqghhq/image/upload/v1663681875/samples/vacio_qvdstv.png"
 				})
 			}
 		} else if (select === "complemento") {
@@ -184,7 +184,7 @@ export default function CrearProduto() {
 				alert("Complemento Creado")
 				setIngredientes({
 					name: "",
-					image: ""
+					image: "https://res.cloudinary.com/deqbqghhq/image/upload/v1663681875/samples/vacio_qvdstv.png"
 				})
 			}
 		} else if (select === "proteina") {
@@ -195,7 +195,7 @@ export default function CrearProduto() {
 				alert("Proteina Creada")
 				setIngredientes({
 					name: "",
-					image: ""
+					image: "https://res.cloudinary.com/deqbqghhq/image/upload/v1663681875/samples/vacio_qvdstv.png"
 				})
 			}
 		} else if (select === "topping") {
@@ -206,7 +206,7 @@ export default function CrearProduto() {
 				alert("Topping Creado")
 				setIngredientes({
 					name: "",
-					image: ""
+					image: "https://res.cloudinary.com/deqbqghhq/image/upload/v1663681875/samples/vacio_qvdstv.png"
 				})
 			}
 		} else if (select === "salsas") {
@@ -217,7 +217,7 @@ export default function CrearProduto() {
 				alert("Salsa Creada")
 				setIngredientes({
 					name: "",
-					image: ""
+					image: "https://res.cloudinary.com/deqbqghhq/image/upload/v1663681875/samples/vacio_qvdstv.png"
 				})
 			}
 		} else if (select === "menu") {
@@ -228,7 +228,7 @@ export default function CrearProduto() {
 				alert("Menu Creado")
 				setMenu({
 					name: "",
-					image: "",
+					image: "https://res.cloudinary.com/deqbqghhq/image/upload/v1663681875/samples/vacio_qvdstv.png",
 					base: "",
 					protein: "",
 					complement: "",
@@ -246,7 +246,7 @@ export default function CrearProduto() {
 				alert("MenuBig Creado")
 				setMenuBig({
 					name: "",
-					image: "",
+					image: "https://res.cloudinary.com/deqbqghhq/image/upload/v1663681875/samples/vacio_qvdstv.png",
 					base: "",
 					protein: "",
 					complement: "",
@@ -355,7 +355,7 @@ export default function CrearProduto() {
 							</div>
 							<div>
 								<label >Imagen: </label><input type="file" onChange={event => cloudinary(event.target.files)} />
-								<img className="imgenCloud" src={input.image} alt="" />
+								<img className="imgenCloud" src={input.image} alt="imagen" />
 							</div>
 							<div>
 								<label>Price: </label><input type="number" value={input.price} name="price" onChange={handleChange} />

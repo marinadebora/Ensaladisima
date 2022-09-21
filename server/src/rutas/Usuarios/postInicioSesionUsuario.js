@@ -46,6 +46,7 @@ const auth = async (req, res, next) => {
             const Persona = await Usuarios.findOneAndUpdate({_id:creado._id},{orders: pedidoagregado._id})
             console.log(Persona)
             let token = jwt.sign({ userGoogle }, "torombolo", {expiresIn: "10h"})
+            id =creado._id
             res.send({ email, token, firstName, lastName, id, admin,adress, orders })
             next()
         }
