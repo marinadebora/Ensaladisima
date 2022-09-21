@@ -79,7 +79,7 @@ let data = orders?.find(e =>e._id === user.orders[0])
       const { id } = paymentMethod;
       try {
         const { data } = await axios.post(
-          "http://localhost:4000/checkout",
+          "/checkout",
           {
             id,
             amount: preciototal*100, //cents
