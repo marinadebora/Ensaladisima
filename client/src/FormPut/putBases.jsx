@@ -51,6 +51,7 @@ export default function BaseEdit() {
   //console.log(buscar1?._id)
 
   useEffect(() => {
+
     dispatch(bases(id))
     dispatch(complements(id))
     dispatch(sauces(id))

@@ -83,6 +83,7 @@ const { editarCanceled } = require("./Historial/editarCanceled");
 const { getHistorialId } = require("./Historial/getHistorialID");
 const { postMenuBig } = require("./MenuBig/postMenuBig");
 const { putMenuBig } = require("./MenuBig/putMenuBig");
+const eliminarLinea = require("./Pedidos/eliminarLinea");
 
 
 const router = Router();
@@ -206,6 +207,8 @@ router.use('/reviewCreada', postCrearReview)
 router.put("/reviewActivo/:_id", putActivoReviews);
 // ruta alternativas
 
+// ruta alternativas
 router.use('/modificarpedido', pedidoSlice)
+router.use('/eliminarLinia', eliminarLinea)
 
 module.exports = router

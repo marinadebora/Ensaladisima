@@ -77,7 +77,7 @@ float: right;
 
 #addContent{
    margin-bottom: 20px;
-   margin-left: 4%;
+   margin-right: 4%;
 
 }
 
@@ -99,7 +99,8 @@ float: right;
 
 #textButtonAdd{
     margin-left: 1.5rem;
-    margin-right: 0.5rem;
+    margin-right: 0.4rem;
+    margin-top: 0.3rem;
     font-family:  Tommy-regular;
     color: #207140;
     text-decoration: none;

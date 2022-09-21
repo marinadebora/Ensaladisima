@@ -378,6 +378,7 @@ export const putBases = (_id, payload) => async (dispatch) => {
 			{ type: "PUT_BASES", payload: json.data })
 
 	} catch (error) {
+		console.log(error)
 		alert(`el ID: ${_id} no existe`)
 	}
 }
@@ -1063,5 +1064,16 @@ export function filtroHistorialPrecio(payload){
 	return {
 		type: 'FILTRO_PRECIO',
 		payload
+	}
+}
+
+export const eliminarLinia = (value)=>{
+	return async (dispatch)=>{
+		try {
+			const borrar = await axios.put('/eliminarLinia',value)
+			return dispatch({ type: 'ELIMINAR_LINEA', payload: borrar.data})
+		} catch (error) {
+			console.log(error)
+		}
 	}
 }

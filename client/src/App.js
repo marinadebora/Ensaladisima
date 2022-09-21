@@ -52,7 +52,7 @@ function App() {
         <Route exact path= '/pideTuEnsalada' element={<PideTuEnsalada />}/>
         <Route exact path= '/checkout' element={<CheckOut/>}/>
         <Route exact path= '/pago' element={<Pago />}/>
-        <Route exact path= '/confirmacionPago' element={<ConfirmacionPago />}/>
+        <Route exact path= '/confirmacionPago' element={<ConfirmacionPago/>}/>
 
         <Route exact path= '/login' element={<Login/>}/>
         <Route exact path= '/registro' element={<Registro/>}/>
@@ -85,6 +85,7 @@ function App() {
       <Route exact path= '/pideTuEnsalada' element={<PideTuEnsalada />}/>
       <Route exact path= '/checkout' element={<CheckOut/>}/>
       <Route exact path= '/pago' element={<Pago />}/>
+      <Route exact path= '/confirmacionPago' element={<ConfirmacionPago />}/>
 
       <Route exact path= '/login' element={<Login/>}/>
       <Route exact path= '/registro' element={<Registro/>}/>
@@ -135,8 +136,8 @@ function App() {
     <Route path= "/adminId/:id" element={<ErrorAdmin/>}/>
 
     <Route path= '/cargando' element={<ArmandoEnsalada/>}/>
-    <Route path= '/sendEmail' element={<ErrorAdmin/>}/>
-    <Route path= '/password/:_id' element={<ErrorAdmin/>}/>
+    <Route path= '/sendEmail' element={<SendEmail/>}/>
+    <Route path= '/password/:_id' element={<CambioPassword/>}/>
     <Route path= '/historial' element={<HistorialCompras/>}/>
    
   </Routes>

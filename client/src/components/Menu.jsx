@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { salads, desserts, beverages, saladsBig, menuMediano, menuGrande, pedidoBebidaLogueado, pedidoPostreLogueado, usuariosRegistrados } from "../action/index.js";
 import "../styles/Menu.css";
- import CarrouselEP from './CarrouselEP';
+import CarrouselEP from './CarrouselEP';
 import { useLocalStorage } from '../useLocalStorage';
 import NavBar from './NavBar';
 import { useNavigate } from 'react-router-dom';
@@ -25,10 +25,10 @@ const Menu = () =>
 {
   const history = useNavigate()
   const dispatch = useDispatch();
-  const allSalads = useSelector((state) => state.salads);
-  const allSaladsBig = useSelector(state => state.saladsBig)
-  const allDesserts = useSelector(state => state.desserts)
-  const allBeverages = useSelector(state => state.beverages)
+  const allSalads = useSelector((state) => state.saladsFilter);
+  const allSaladsBig = useSelector(state => state.saladsBigFilter)
+  const allDesserts = useSelector(state => state.dessertsFilter)
+  const allBeverages = useSelector(state => state.beveragesFilter)
   const usuario = JSON.parse(localStorage.getItem('loguearUsuario'))
 
 
@@ -241,7 +241,7 @@ const Menu = () =>
       }
 
       <div class="container">
-        <CarrouselEP />
+        <CarrouselEP/>
         <h1 id="tituloMenu"> Ensaladas de la casa</h1>
 
 

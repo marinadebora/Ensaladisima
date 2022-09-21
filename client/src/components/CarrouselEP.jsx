@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { historialCompra, modificarPedido } from '../action/'
 import { imag } from '../imagenes';
-import "../styles/Card.css";
+import "../styles/Carousel.css";
 
 
 const CarrouselEP = () =>
@@ -13,7 +13,6 @@ const CarrouselEP = () =>
   const myHistorial = useSelector(state => state?.historial);
   let myHistorialCompra = myHistorial?.filter(e => e.user[0]?._id === userID)
 
-  console.log(myHistorial)
   let comprar = (id, orders) =>
   {
     let repetirEnsalada = {
@@ -51,16 +50,18 @@ const CarrouselEP = () =>
   return (
     <div class="container ">
       <div class="row">
+
       { loguearUser&&ensaladas?.length>0&&
-       <div class="col-10">
-          <h3 class="mb-3" id="carrouselTitle">Tus ultimas ensaladas</h3>
+        <div class="col-10">
+          <h3 class="mb-3" id="carrouselTitle">Tus ultimas ensaladas:</h3>
         </div>
       }
       
         <div class="col-12">
           <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+
             <div class="carousel-inner">
-              <div class="carousel-item active">
+              <div id="carouselContainer" class="container">
                 <div class="row">
                   {
                     loguearUser&&ensaladas?.map((e, i) => (
@@ -71,7 +72,7 @@ const CarrouselEP = () =>
                             <div class="accordion" id="accordionExample">
                               <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
-                                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> <p class="card-title">{e.name}</p></button>
+                                  <button id="buttonCarousel" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> <p class="card-title">{e.name}</p></button>
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                   <div class="accordion-body">
