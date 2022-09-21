@@ -1038,3 +1038,14 @@ export function filtroHistorialPrecio(payload){
 		payload
 	}
 }
+
+export const eliminarLinia = (value)=>{
+	return async (dispatch)=>{
+		try {
+			const borrar = await axios.put('/eliminarLinia',value)
+			return dispatch({ type: 'ELIMINAR_LINEA', payload: borrar.data})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+}

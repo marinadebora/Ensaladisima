@@ -241,7 +241,7 @@ const Menu = () =>
       }
 
       <div class="container">
-        <CarrouselEP />
+        <CarrouselEP/>
         <h1 id="tituloMenu"> Ensaladas de la casa</h1>
 
 
