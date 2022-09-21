@@ -23,7 +23,7 @@ export const Review = () =>
   })
 
   let comentariosUser=comentarios?.filter(e=>e._id===usuario._id)
-  console.log(comentariosUser?.length)
+  console.log(comentariosUser)
   useEffect(()=>{
 dispatch(getReview())
   },[dispatch])
@@ -43,7 +43,7 @@ dispatch(getReview())
  async function handleSubmit(e)
   {
     e.preventDefault()
-    if(comentariosUser){
+    if(comentariosUser.length>0){
       await Swal.fire({
         icon: 'error',
         title: '🚨',
