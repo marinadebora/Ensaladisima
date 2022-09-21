@@ -1,0 +1,40 @@
+#carrouselTitle{
+    font-family:  Tommy-regular;
+    color: #207140;
+    font-size: 30px;
+    margin-top: 2%;
+    margin-left: 3%;
+}
+
+#carouselContainer{
+    justify-content: center;
+}
+
+#accordion-button{
+    padding: 0px;
+    margin: 0px;
+}
+
+.card{
+    overflow: hidden;
+    border: 2px solid #207140;
+    border-radius: 20px;
+}
+
+.card-title{
+    color: #207140;
+    text-decoration: none;
+    font-family:  Tommy-regular;
+    font-size: 20px;
+    margin: 0px;
+}
+
+#buttonCarousel{
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.accordion-item{
+    border: none;
+}

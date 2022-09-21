@@ -6,7 +6,7 @@ import '../styles/Bases.css'
 
 export function Protein () {
   const [proteinas, setProteinas] = useLocalStorage('proteinas',[])
-    const allProteins= useSelector(state=>state.proteins)
+    const allProteins= useSelector(state=>state.proteinsFilter)
     let [form, setForm] = useState({
         proteinas: []
       })

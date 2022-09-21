@@ -44,7 +44,7 @@ export default function BaseEdit() {
   return history(-1)
 }
   const {activo} = buscar1||buscar2||buscar3||buscar4||buscar5||buscar6||buscar7||buscar8
-  console.log(buscar1?._id)
+  //console.log(buscar1?._id)
 
   useEffect(() => {
 

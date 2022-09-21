@@ -11,6 +11,7 @@ import "../styles/Login.css"
 import "../styles/PasarelaDePago.css"
 import { Link } from 'react-router-dom';
 import PasarelaDePago from "./PasarelaDePago";
+import Navbar from "./NavBar";
 
 
 function Pago() {
@@ -18,6 +19,7 @@ function Pago() {
   return (
     
     <MDBContainer fluid>
+      <Navbar/>
       <MDBRow style={{paddingTop:"130px"}}>
 
       <MDBCol sm='5' className='d-none d-sm-block px-0  me-5'>
