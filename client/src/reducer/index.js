@@ -129,9 +129,9 @@ function rootReducer(state = initialState, action) {
       case "MENU_BIG":
         return{
            ...state,
-        menuBig: action.payload,
-        
+        menuBig: action.payload
         }
+       
     case 'PEDIDO_BEBIDAS':
       return {
         ...state,

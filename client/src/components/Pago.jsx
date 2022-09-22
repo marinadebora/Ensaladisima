@@ -36,7 +36,7 @@ function Pago() {
 
           <div className='d-flex flex-column justify-content-center h-custom-1 w-100 pt-2'>
 
-            <h3 className="fw-normal mb-3 ps-5 pb-3" style={{letterSpacing: '1px'}}>Log in</h3>
+            <h3 className="fw-normal mb-3 ps-5 pb-3" style={{letterSpacing: '1px'}}>Pago</h3>
 
             <PasarelaDePago/>
             

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { complements, postBases, postBebidas, postComplementos, postMenu, postPostres, postProteinas, postSalsas, postToppings } from "../action";
-import BaseEdit, { BebidasEdit, ComplemetoEdit, MenuEdit, PostresEdit, ProteinaEdit, SalsasEdit, ToppingEdit } from "../components/AdminEdit";
+import BaseEdit, { BebidasEdit, ComplemetoEdit, MenuBigEdit, MenuEdit, PostresEdit, ProteinaEdit, SalsasEdit, ToppingEdit } from "../components/AdminEdit";
 import '../styles/CrearProducto.css';
 import '../FormPut/putBases.css';
 import axios from "axios";
@@ -56,7 +56,7 @@ export default function CrearProduto() {
 	const dispatch = useDispatch()
 	// const navigate = useNavigate()
 	const seleccionar = ["base", "complemento", "proteina", "topping", "salsas", "postre", "bebidas", "menu","menuBig"];
-	const seleccionarEdit = ["baseEdit", "complementoEdit", "proteinaEdit", "toppingEdit", "salsasEdit", "postreEdit", "bebidasEdit", "menuEdit"];
+	const seleccionarEdit = ["baseEdit", "complementoEdit", "proteinaEdit", "toppingEdit", "salsasEdit", "postreEdit", "bebidasEdit", "menuEdit","menuBigEdit"];
 	const [select, setSelect] = useState("");
 	const [selectEdit, setSelectEdit] = useState("");
 	let { id } = useParams()
@@ -318,7 +318,8 @@ export default function CrearProduto() {
 												selectEdit === "toppingEdit" ? (<ToppingEdit />) :
 													selectEdit === "bebidasEdit" ? (<BebidasEdit />) :
 														selectEdit === "postreEdit" ? (<PostresEdit />) :
-															selectEdit === "menuEdit" ? (<MenuEdit />) : ""
+															selectEdit === "menuEdit" ? (<MenuEdit />) :
+															selectEdit === "menuBigEdit"? (<MenuBigEdit/>):""
 
 
 							}

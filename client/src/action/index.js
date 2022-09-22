@@ -206,7 +206,6 @@ export function MenuBig() {
 	}
 }
 
-
 //ruta get de los postres 
 export function desserts() {
 	return async function (dispatch) {
@@ -406,6 +405,7 @@ export const putMenuBig = (_id, payload) => async (dispatch) => {
 		console.error(error)
 	}
 }
+
 //ruta put de Complemento
 export const putComplemento = (_id, payload) => async (dispatch) => {
 	try {
@@ -760,10 +760,10 @@ export const putActivo=(_id)=>async (dispatch)=>{
 	}
 }
 //rutas para borrado logico
-export const putActivoBase=(_id)=>async (dispatch)=>{
+export const putActivoBase=(_id,payload)=>async (dispatch)=>{
 	try {
 		if(_id){
-			const editar= await axios.put(`/basesActivo/${_id}`);
+			const editar= await axios.put(`/basesActivo/${_id}`,payload);
 			return dispatch({
 				type:"PUT_ACTIVO",payload:editar.data
 			})

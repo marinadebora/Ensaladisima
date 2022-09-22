@@ -95,7 +95,7 @@ let data = orders?.find(e =>e._id === user.orders[0])
           showConfirmButton: false,
           timer: 1500
         })
-        dispatch(postHistorialDeCompra({_id:user.id,totalPayable:preciototal}))
+        dispatch(postHistorialDeCompra({_id:user.id,totalPayable:preciototal, email:user.email}))
         history("/confirmacionPago")
         window.location.reload()
         setLoading(false)

@@ -7,7 +7,7 @@ try {
     const buscar = await Menu.findById({_id});
     if(!buscar) res.status(404).send("No se encontro el ID");
     else{
-        const editar = await Menu.updateOne({_id},{name:name?name:buscar.name,price:price?price:buscar.price,image:image?image:buscar.image,base:base?base:buscar.base,protein:protein?protein:buscar.protein,complement:complement?complement:buscar.complement,sauce:sauce?sauce:buscar.sauce,topping:topping?topping:buscar.topping});
+        const editar = await Menu.updateOne({_id},{name:name?name:buscar.name,median:median?median:buscar.median,big:big?big:buscar.big,image:image?image:buscar.image,base:base?base:buscar.base,protein:protein?protein:buscar.protein,complement:complement?complement:buscar.complement,sauce:sauce?sauce:buscar.sauce,topping:topping?topping:buscar.topping,price:price?price:buscar.price});
         res.send("Menu editado correctamente");
     }
 } catch (error) {

@@ -1,6 +1,6 @@
 const Menu = require("../../modelos/MenuBig");
 
-const putMenu= async (req,res)=>{
+const putMenuBig= async (req,res)=>{
 const {name,price,image,base,protein,complement,sauce,topping} = req.body;
 const {_id} = req.params;
 try {
@@ -14,4 +14,4 @@ try {
     console.log(error);
 }
 }
-module.exports = {putMenu};
+module.exports = {putMenuBig};

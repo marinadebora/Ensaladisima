@@ -38,9 +38,6 @@ export default function HistorialDelUsuario()
 
         <div class="col-2" id="sideBar">
 
-
-
-         
         <div class="col" id="mainButtonContentAdmin">
                     <Link id="butonSideBarAdmin" to="/admin_ordenes">
                         <i id="butonOrders" class="bi bi-clipboard-check-fill"> Ordenes</i>
@@ -57,11 +54,7 @@ export default function HistorialDelUsuario()
                         <i id="butonOrders" class="bi bi-file-earmark-plus-fill"> Productos</i> 
                     </Link>
                 </div>
-                <div class="col" id="mainButtonContentAdmin">
-                    <Link id="butonSideBarAdmin" to="#">
-                        <i id="butonOrders" class="bi bi-clipboard-check-fill"> Caja</i>
-                    </Link>
-                </div>
+                
                 
             
             </div>
@@ -76,7 +69,7 @@ export default function HistorialDelUsuario()
           <div class="row">
                 <h2 id="titleUsuariosRegistrados">Ordenes</h2>
             <div>
-              <div className="contenedor-total">
+              
                 <div id='filtro'>
                   
                   <select name="filtroestado" id="filtroestado" onChange={(e) => filtroPorEstado(e)}>
@@ -94,7 +87,7 @@ export default function HistorialDelUsuario()
                     <option key={'mayor'} value={'mayor'}>Mayor a US$ 100</option>
                   </select>
                 </div>
-              </div>
+              
           
               {
                 historial ?
@@ -128,4 +121,3 @@ export default function HistorialDelUsuario()
 
   )
 }
-
