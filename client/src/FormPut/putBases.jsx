@@ -38,12 +38,16 @@ export default function BaseEdit() {
   if(buscar6?._id) await dispatch(putActivoBebidas(id))
   if(buscar7?._id) await dispatch(putActivoPostres(id))
   if(buscar8?._id) await dispatch(putActivoMenu(id))
-
-  return history(-1)}
+  
+  localStorage.removeItem("imagenPut")
+  localStorage.removeItem("imagenClod")
+  return history(-1)
+}
   const {activo} = buscar1||buscar2||buscar3||buscar4||buscar5||buscar6||buscar7||buscar8
   //console.log(buscar1?._id)
 
   useEffect(() => {
+
     dispatch(bases(id))
     dispatch(complements(id))
     dispatch(sauces(id))
@@ -98,6 +102,9 @@ export default function BaseEdit() {
         sauce: "",
         topping: ""
       })
+      localStorage.removeItem("imagenPut")
+      localStorage.removeItem("imagenClod")
+      return history("/admin_productos")
     }
     else if (buscar2) {
       dispatch(putComplemento(id, input))
@@ -111,6 +118,7 @@ export default function BaseEdit() {
         sauce: "",
         topping: ""
       })
+      return history("/admin_productos")
     }
     else if (buscar3) {
       dispatch(putSalsas(id, input))
@@ -124,6 +132,7 @@ export default function BaseEdit() {
         sauce: "",
         topping: ""
       })
+      return history("/admin_productos")
     }
     else if (buscar4) {
       dispatch(putProteinas(id, input))
@@ -137,6 +146,7 @@ export default function BaseEdit() {
         sauce: "",
         topping: ""
       })
+      return history("/admin_productos")
     }
     else if (buscar5) {
       dispatch(putTopping(id, input))
@@ -150,6 +160,7 @@ export default function BaseEdit() {
         sauce: "",
         topping: ""
       })
+      return history("/admin_productos")
     }
     else if (buscar6) {
       dispatch(putBebidas(id, input))
@@ -163,6 +174,7 @@ export default function BaseEdit() {
         sauce: "",
         topping: ""
       })
+      return history("/admin_productos")
     }
     else if (buscar7) {
       dispatch(putPostres(id, input))
@@ -176,6 +188,7 @@ export default function BaseEdit() {
         sauce: "",
         topping: ""
       })
+      return history("/admin_productos")
     }
     else if (buscar8) {
       dispatch(putMenu(id, input))
@@ -191,6 +204,7 @@ export default function BaseEdit() {
         precio: "",
         stock: ""
       })
+      return history("/admin_productos")
     }
   }
   let [imagenInput, setImagenInput] = useState([])
@@ -232,11 +246,6 @@ export default function BaseEdit() {
                             <i id="butonOrders" class="bi bi-file-earmark-plus-fill"> Productos</i>
                         </Link>
                     </div>
-                    <div class="col" id="mainButtonContentAdmin">
-                        <Link id="butonSideBarAdmin" to="#">
-                            <i id="butonOrders" class="bi bi-clipboard-check-fill"> Caja</i>
-                        </Link>
-                    </div>
 
 
 
@@ -253,7 +262,9 @@ export default function BaseEdit() {
         {/* /----------------------------- INICIO EDIT ----------------------------------/ */}
       
       <h1 id="titleUsuariosRegistrados">Editá tu productos!</h1>
-      <button onClick={putActivoTodo}>Habilitar/Deshabilitar</button>
+      <div id="estadoVentaButonContent">
+      <button id="estadoVentaButon" onClick={putActivoTodo}>Habilitar/Deshabilitar</button>
+      </div>
       <form id="usuarioDetailMain" onSubmit={handleSubmit}>
          {/**FORMULARIO PARA EDITAR BASES/COMPLEMENTOS/SALSAS/TOPPING/ETC */}
         

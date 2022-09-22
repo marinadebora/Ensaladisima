@@ -33,19 +33,16 @@ const Team = () => {
                     <div id="picContent" class="col">
                     <img src={AlePic} alt="img" id="teamPicA"/>
                     <h2 id="name">Alexis Piña</h2>
-                    <p id="text">dsfgjsdfjkgbdfwfjgbdwfgjwdfbjwdjdrbdrjjdrbwrlbjdsbfd</p>
                     </div>
 
                     <div id="picContent" class="col">
                     <img src={DeboPic} alt="img" id="teamPicA"/>
                     <h2 id="name">Debo Carabajal</h2>
-                    <p id="text">dsfgjsdfjkgbdfwfjgbdwfgjwdfbjwdjdrbdrjjdrbwrlbjdsbfd</p>
                     </div>
 
                     <div id="picContent" class="col">
                     <img src={CristianPic} alt="img" id="teamPicA"/>
                     <h2 id="name">Cristian Delva</h2>
-                    <p id="text">dsfgjsdfjkgbdfwfjgbdwfgjwdfbjwdjdrbdrjjdrbwrlbjdsbfd</p>
                     </div>
 
                 </div>
@@ -55,13 +52,11 @@ const Team = () => {
                     <div id="picContent" class="col">
                     <img src={DiegoPic} alt="img" id="teamPicB"/>
                     <h2 id="name">Diego Martinotti</h2>
-                    <p id="text">dsfgjsdfjkgbdfwfjgbdwfgjwdfbjwdjdrbdrjjdrbwrlbjdsbfd</p>
                     </div>
 
                     <div id="picContent" class="col">
                     <img src={NahuelPic} alt="img" id="teamPicB"/>
                     <h2 id="name">Nahuel Salomon</h2>
-                    <p id="text">dsfgjsdfjkgbdfwfjgbdwfgjwdfbjwdjdrbdrjjdrbwrlbjdsbfd</p>
                     </div>
                 </div>
             </div>

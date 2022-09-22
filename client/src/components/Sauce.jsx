@@ -4,7 +4,7 @@ import { useLocalStorage } from "../useLocalStorage";
 import '../styles/Bases.css'
 
 export function Sauce () {
-    const allSauces= useSelector(state=>state.saucesFilter)
+    const allSauces= useSelector(state=>state.sauceFilter)
     const [salsa, setSalsa] = useLocalStorage('salsa',[])
     let [form, setForm] = useState({
         sauces: []
