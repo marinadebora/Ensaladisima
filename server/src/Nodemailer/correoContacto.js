@@ -10,6 +10,7 @@ const correoContacto = async (req,res )=>{
             subject: "Contacto ensaladísima", // Subject line
             text: "", // plain text body
             html: `"<b>De: ensaladisima02@gmail.com</b>"
+            <img src=https://res.cloudinary.com/deqbqghhq/image/upload/v1663807102/headerMail_e3dfb6.png alt=foto/>
             <div>
             <h4>Hola ${name} recibimos tu mensaje! </h4>
             <p> En breve nos pondremos en contacto contigo</p>

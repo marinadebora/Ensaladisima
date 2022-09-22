@@ -84,6 +84,7 @@ const { getHistorialId } = require("./Historial/getHistorialID");
 const { postMenuBig } = require("./MenuBig/postMenuBig");
 const { putMenuBig } = require("./MenuBig/putMenuBig");
 const eliminarLinea = require("./Pedidos/eliminarLinea");
+const { correoDeFactura } = require("../Nodemailer/correoDeFactura");
 
 
 const router = Router();
@@ -124,7 +125,7 @@ router.put("/menubigActivo/:_id", putActivoMenuB);//
 router.put("/menuBig/:_id",putMenuBig);
 
 // rutas para el modelo de Historial.
-router.use('/crearHistorial', postHistorial)
+router.use('/crearHistorial', postHistorial, correoDeFactura )
 router.use('/historial', getHistorial)
 router.put("/estadoProcessing/:_id", editarProcessing);
 router.put("/estadoReceived/:_id", editarReceived);
