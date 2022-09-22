@@ -1,3 +1,11 @@
+@font-face {
+    font-family: Tommy-regular;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.ttf);
+
+    font-family: Tommy-light;
+    src: url(../fonts//made_tommy/MADE\ TOMMY\ Light_PERSONAL\ USE.ttf);
+}
+
 #buttonEditConfirmContent{
     display: flex;
     justify-content: right;
@@ -61,4 +69,30 @@
 #cloudInput{
     width: 28.5%;
 
+}
+
+#estadoVentaButonContent{
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+ #estadoVentaButon{
+    width: 20%;
+    background-color: #207140; 
+    color: white;
+    text-decoration: none;
+    border:2px  solid white;
+    padding: 0.5rem;
+    border-radius: 50px;
+    font-family: Tommy-bold;
+    font-size: 1.0rem;
+    cursor: pointer;
+}
+
+
+#estadoVenta{
+    font-family: Tommy-light;
+    color: #207140;
 }
