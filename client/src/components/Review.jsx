@@ -22,7 +22,7 @@ export const Review = () =>
 
   })
 
-  let comentariosUser=comentarios?.filter(e=>e._id===usuario._id)
+  let comentariosUser=comentarios?.filter(e=>e.email===usuario.email)
   console.log(comentariosUser)
   useEffect(()=>{
 dispatch(getReview())
@@ -43,7 +43,7 @@ dispatch(getReview())
  async function handleSubmit(e)
   {
     e.preventDefault()
-    if(comentariosUser){
+    if(comentariosUser.length){
       await Swal.fire({
         title: '🚨',
         text: 'ya nos calificaste',
