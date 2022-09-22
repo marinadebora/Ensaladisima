@@ -43,7 +43,7 @@ dispatch(getReview())
  async function handleSubmit(e)
   {
     e.preventDefault()
-    if(comentariosUser){
+    if(comentariosUser.length>0){
       await Swal.fire({
         title: '🚨',
         text: 'ya nos calificaste',
