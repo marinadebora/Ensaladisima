@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { putActivo, putAdmin, usuariosId } from "../action";
 import CardUsuariosId from "./CardUsuarioId";
-
+import Swal from 'sweetalert2'
 
 
 export default function AdminUsuarioId() {
@@ -20,11 +20,11 @@ export default function AdminUsuarioId() {
     // console.log(detail.activo)
     function handleSubmitActivo(){
         dispatch(putActivo(id))
-        alert("Activo editado")
+        Swal.fire({title: '😉', text:'Activo editado',showConfirmButton: false, timer: 1500})
     }
     function handleSubmitAdmin(){
         dispatch(putAdmin(id))
-        alert("Admin editado")
+        Swal.fire({title: '😉', text:'Admin editado',showConfirmButton: false, timer: 1500})
     }
     return (
         

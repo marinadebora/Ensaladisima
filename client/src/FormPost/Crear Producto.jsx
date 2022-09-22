@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { complements, postBases, postBebidas, postComplementos, postMenu, postPostres, postProteinas, postSalsas, postToppings } from "../action";
-import BaseEdit, { BebidasEdit, ComplemetoEdit, MenuEdit, PostresEdit, ProteinaEdit, SalsasEdit, ToppingEdit } from "../components/AdminEdit";
+import BaseEdit, { BebidasEdit, ComplemetoEdit, MenuBigEdit, MenuEdit, PostresEdit, ProteinaEdit, SalsasEdit, ToppingEdit } from "../components/AdminEdit";
 import '../styles/CrearProducto.css';
 import '../FormPut/putBases.css';
 import axios from "axios";
+import Swal from 'sweetalert2'
 
 function validate(input) {
 	let errors = {}
@@ -55,7 +56,7 @@ export default function CrearProduto() {
 	const dispatch = useDispatch()
 	// const navigate = useNavigate()
 	const seleccionar = ["base", "complemento", "proteina", "topping", "salsas", "postre", "bebidas", "menu","menuBig"];
-	const seleccionarEdit = ["baseEdit", "complementoEdit", "proteinaEdit", "toppingEdit", "salsasEdit", "postreEdit", "bebidasEdit", "menuEdit"];
+	const seleccionarEdit = ["baseEdit", "complementoEdit", "proteinaEdit", "toppingEdit", "salsasEdit", "postreEdit", "bebidasEdit", "menuEdit","menuBigEdit"];
 	const [select, setSelect] = useState("");
 	const [selectEdit, setSelectEdit] = useState("");
 	let { id } = useParams()
@@ -139,10 +140,10 @@ export default function CrearProduto() {
 		e.preventDefault()
 		if (select === "bebidas") {
 			if (errors.name || errors.price || errors.stock || !input.name) {
-				alert("No se pudo crear la Bebida, por favor completa los campos")
+				Swal.fire({title: '🚨',text:'No se pudo crear la Bebida, por favor completa los campos'}) 
 			} else {
 				dispatch(postBebidas(input))
-				alert("Bebida creada")
+				Swal.fire({title: '😉', text:`Bebida creada`})
 				setInput({
 					name: "",
 					image: "https://res.cloudinary.com/deqbqghhq/image/upload/v1663681875/samples/vacio_qvdstv.png",
@@ -153,10 +154,10 @@ export default function CrearProduto() {
 
 		} else if (select === "postre") {
 			if (errors.name || errors.image || errors.price || errors.stock || !input.name) {
-				alert("No se pudo crear el Postre, por favor completa los campos")
+				Swal.fire({title: '🚨',text:'No se pudo crear el Postre, por favor completa los campos'}) 
 			} else {
 				dispatch(postPostres(input))
-				alert("Postre Creado")
+				Swal.fire({title: '😉', text:`Postre Creado`})
 				setInput({
 					name: "",
 					image: "https://res.cloudinary.com/deqbqghhq/image/upload/v1663681875/samples/vacio_qvdstv.png",
@@ -167,10 +168,10 @@ export default function CrearProduto() {
 
 		} else if (select === "base") {
 			if (errorsIngredientes.name || !ingredientes.name) {
-				alert("No se pudo crear la Base,por favor completa los campos")
+				Swal.fire({title: '🚨',text:'No se pudo crear la Base,por favor completa los campos'}) 
 			} else {
 				dispatch(postBases(ingredientes))
-				alert("Base Creada")
+				Swal.fire({title: '😉', text:`Base Creada`})
 				setIngredientes({
 					name: "",
 					image: "https://res.cloudinary.com/deqbqghhq/image/upload/v1663681875/samples/vacio_qvdstv.png"
@@ -178,10 +179,10 @@ export default function CrearProduto() {
 			}
 		} else if (select === "complemento") {
 			if (errorsIngredientes.name || !ingredientes.name) {
-				alert("No se pudo crear el Complemento, por favor completa los campos")
+				Swal.fire({title: '🚨',text:'No se pudo crear el Complemento, por favor completa los campos'}) 
 			} else {
 				dispatch(postComplementos(ingredientes))
-				alert("Complemento Creado")
+				Swal.fire({title: '😉', text:"Complemento Creado"})
 				setIngredientes({
 					name: "",
 					image: "https://res.cloudinary.com/deqbqghhq/image/upload/v1663681875/samples/vacio_qvdstv.png"
@@ -189,10 +190,9 @@ export default function CrearProduto() {
 			}
 		} else if (select === "proteina") {
 			if (errorsIngredientes.name || !ingredientes.name) {
-				alert("No se pudo crear la Proteina, por favor completa los campos")
 			} else {
 				dispatch(postProteinas(ingredientes))
-				alert("Proteina Creada")
+				Swal.fire({title: '😉', text:"Proteina Creada"})
 				setIngredientes({
 					name: "",
 					image: "https://res.cloudinary.com/deqbqghhq/image/upload/v1663681875/samples/vacio_qvdstv.png"
@@ -200,10 +200,10 @@ export default function CrearProduto() {
 			}
 		} else if (select === "topping") {
 			if (errorsIngredientes.name || !ingredientes.name) {
-				alert("No se pudo crear el Topping, por favor completa los campos")
+				Swal.fire({title: '🚨',text:'No se pudo crear el Topping, por favor completa los campos'}) 
 			} else {
 				dispatch(postToppings(ingredientes))
-				alert("Topping Creado")
+	 			Swal.fire({title: '😉', text:"Topping Creado"})
 				setIngredientes({
 					name: "",
 					image: "https://res.cloudinary.com/deqbqghhq/image/upload/v1663681875/samples/vacio_qvdstv.png"
@@ -211,10 +211,10 @@ export default function CrearProduto() {
 			}
 		} else if (select === "salsas") {
 			if (errorsIngredientes.name || !ingredientes.name) {
-				alert("No se pudo crear la Salsa, por favor completa los campos")
+				Swal.fire({title: '🚨',text:'No se pudo crear la Salsa, por favor completa los campos'}) 
 			} else {
 				dispatch(postSalsas(ingredientes))
-				alert("Salsa Creada")
+				Swal.fire({title: '😉', text:"Salsa Creada"})
 				setIngredientes({
 					name: "",
 					image: "https://res.cloudinary.com/deqbqghhq/image/upload/v1663681875/samples/vacio_qvdstv.png"
@@ -222,10 +222,10 @@ export default function CrearProduto() {
 			}
 		} else if (select === "menu") {
 			if (errorsMenu.name || errorsMenu.base || errorsMenu.protein || errorsMenu.complement || errorsMenu.sauce || errorsMenu.topping ||errorsMenu.price|| !menu.name) {
-				alert("No se pudo crear el Menu, por favor completa los campos")
+				Swal.fire({title: '🚨',text:'No se pudo crear el Menu, por favor completa los campos'}) 
 			} else {
 				dispatch(postMenu(menu))
-				alert("Menu Creado")
+				Swal.fire({title: '😉', text:"Menu Creado"})
 				setMenu({
 					name: "",
 					image: "https://res.cloudinary.com/deqbqghhq/image/upload/v1663681875/samples/vacio_qvdstv.png",
@@ -240,10 +240,10 @@ export default function CrearProduto() {
 		}
 		else if (select === "menuBig") {
 			if (errorsMenuBig.name || errorsMenuBig.base || errorsMenuBig.protein || errorsMenuBig.complement || errorsMenuBig.sauce || errorsMenuBig.topping ||errorsMenuBig.price|| !menuBig.name) {
-				alert("No se pudo crear el MenuBig, por favor completa los campos")
+				Swal.fire({title: '🚨',text:'No se pudo crear el MenuBig, por favor completa los campos'}) 
 			} else {
 				dispatch(postMenu(menuBig))
-				alert("MenuBig Creado")
+				Swal.fire({title: '😉', text:"MenuBig Creado"})
 				setMenuBig({
 					name: "",
 					image: "https://res.cloudinary.com/deqbqghhq/image/upload/v1663681875/samples/vacio_qvdstv.png",
@@ -318,7 +318,8 @@ export default function CrearProduto() {
 												selectEdit === "toppingEdit" ? (<ToppingEdit />) :
 													selectEdit === "bebidasEdit" ? (<BebidasEdit />) :
 														selectEdit === "postreEdit" ? (<PostresEdit />) :
-															selectEdit === "menuEdit" ? (<MenuEdit />) : ""
+															selectEdit === "menuEdit" ? (<MenuEdit />) :
+															selectEdit === "menuBigEdit"? (<MenuBigEdit/>):""
 
 
 							}

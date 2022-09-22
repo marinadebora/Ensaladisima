@@ -63,9 +63,9 @@ export function PideTuEnsalada()
 
       navigate("/cargando");
       Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Ensalada creada con exito',
+        
+        title: '😉',
+        text:'Ensalada creada con exito',
         showConfirmButton: false,
         timer: 1500
       })
@@ -79,7 +79,6 @@ export function PideTuEnsalada()
         });
     } else {
       Swal.fire({
-        icon: 'error',
         title: '😫',
         text: 'Sin base ni proteina no tienes 🥗',
       })
@@ -131,9 +130,8 @@ export function PideTuEnsalada()
       navigate("/cargando");
 
       Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Ensalada creada con exito',
+        title: '😉',
+        text:'Ensalada creada con exito',
         showConfirmButton: false,
         timer: 1500
 
@@ -148,7 +146,6 @@ export function PideTuEnsalada()
         });
     } else {
       Swal.fire({
-        icon: 'error',
         title: '😫',
         text: 'Sin base ni Proteina no tienes 🥗',
       })

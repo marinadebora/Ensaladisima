@@ -90,19 +90,18 @@ let data = orders?.find(e =>e._id === user.orders[0])
         
         elements.getElement(CardElement).clear();
         Swal.fire({
-          position: 'center',
-          icon: "success",
-          title: 'Pago realizado con exito',
+          title: '😉',
+          text:'Pago realizado con exito',
           showConfirmButton: false,
           timer: 1500
         })
-        dispatch(postHistorialDeCompra({_id:user.id,totalPayable:preciototal}))
+        dispatch(postHistorialDeCompra({_id:user.id,totalPayable:preciototal, email:user.email}))
         history("/confirmacionPago")
         window.location.reload()
         setLoading(false)
         
       } catch (error) {
-        alert("Los datos no concuerdan");
+        Swal.fire({title: '🚨',text:'Los datos no concuerdan'}) 
       }
       setLoading(false);
     }

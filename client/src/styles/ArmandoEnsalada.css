@@ -1,5 +1,6 @@
 .containerCargando{
      display: flex;
+     flex-direction: column;
     width: 50%;
     height: 50%;
     align-items: center;
@@ -8,10 +9,10 @@
     margin: 5%;
 text-align: center;
 color:#207140;
-padding-top: 10%;
+padding-bottom:5rem ;
 }
 .imagenCargando{
-    margin: 5%;
+  
     padding-top: 10%;
     width: 16%;
 }

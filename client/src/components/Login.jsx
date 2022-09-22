@@ -20,6 +20,7 @@ import NavBar from "./NavBar";
 //const CLIENT_GOOGLE_DEPLOY = "585193864937-33pidddgujvakqmkvulpsvf8t3fhar18.apps.googleusercontent.com"
 //const CLIENT_GOOGLE = "957119588043-ig515qgobf821lomcuofvpa0mj90ugf0.apps.googleusercontent.com"
 //const GOOGLE_SECRET = "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"
+import Swal from 'sweetalert2'
 
 function validate(loginUser){
   let error = {}
@@ -68,8 +69,8 @@ function validate(loginUser){
         saladsBig: buscarEnsaladaG ? buscarEnsaladaG?.map(e=> e): []
       }
       const dispatchGoogle = await dispatch(PostLogeoUsuario(usuarioLocal))
-        if(!dispatchGoogle) alert("Hay un error en el inicio de sesion")
-        alert('Bienvenido a ensaladísima')
+        if(!dispatchGoogle) Swal.fire({title: '🚨',text:'Error en el inicio de sesion'})
+        Swal.fire({title: '🥗', text:'Bienvenido a Ensaladísima'})
         localStorage.setItem("loguearUsuario", JSON.stringify(dispatchGoogle.payload))
         history("/menu")
         window.location.reload()  
@@ -102,14 +103,14 @@ function validate(loginUser){
   const handleLogin = async(e) => {
     e.preventDefault();
     try{
-      if(error.email||error.password)  alert("Hay errores en los campos")
+      if(error.email||error.password)Swal.fire({title: '🚨',text:'Hay errores en los campos'}) 
     
       else{
   
         const dispatchLog = await dispatch(PostLogeoUsuario(loginUser))
-        if(!dispatchLog) alert("Hay un error en el inicio de sesion") 
+        if(!dispatchLog)Swal.fire({title: '🚨',text:'Error en el inicio de sesion'})  
         else{
-          alert('Bienvenido a ensaladísima')
+          Swal.fire({title: '🥗', text:'Bienvenido a Ensaladísima'})
           localStorage.setItem("loguearUsuario", JSON.stringify(dispatchLog.payload))
     setLoginUser({
       email:"",
@@ -122,7 +123,8 @@ function validate(loginUser){
         
     }catch(error){
       console.log(error)
-      alert(error)
+      Swal.fire({title: '🚨',text:error}) 
+  
     }
   }
    

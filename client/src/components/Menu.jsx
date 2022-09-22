@@ -63,11 +63,10 @@ const Menu = () =>
       setmeMedianas([...medianas, ...ensaladaM])
       history("/cargando")
       Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Se agrego correctamente',
+        title: '😉',
+        text:'Ensalada agregada con exito',
         showConfirmButton: false,
-        timer: 1200
+        timer: 1500
       })
         .then((value) =>
         {
@@ -81,11 +80,10 @@ const Menu = () =>
       dispatch(menuMediano(name))
       history("/cargando")
       Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Se agrego correctamente",
+        title: '😉',
+        text:'Ensalada agregada con exito',
         showConfirmButton: false,
-        timer: 500
+        timer: 1500
       })
         .then((value) =>
         {
@@ -106,11 +104,10 @@ const Menu = () =>
       setmeGrandes([...grandes, ...ensaladaG])
       history("/cargando")
       Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Se agrego correctamente',
+        title: '😉',
+        text:'Ensalada agregada con exito',
         showConfirmButton: false,
-        timer: 1200
+        timer: 1500
       })
         .then((value) =>
         {
@@ -124,11 +121,10 @@ const Menu = () =>
       dispatch(menuGrande(name))
       history("/cargando")
       Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Se agrego correctamente',
+        title: '😉',
+        text:'Ensalada agregada con exito',
         showConfirmButton: false,
-        timer: 1200
+        timer: 1500
       })
         .then((value) =>
         {
@@ -147,11 +143,10 @@ const Menu = () =>
     dispatch(pedidoBebidaLogueado(name))
     history("/cargando")
     Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Se agrego correctamente',
+      title: '😉',
+      text:'Bebida agregada con exito',
       showConfirmButton: false,
-      timer: 1200
+      timer: 1500
     })
       .then((value) =>
       {
@@ -168,11 +163,10 @@ const Menu = () =>
     dispatch(pedidoPostreLogueado(name))
     history("/cargando")
     Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Se agrego correctamente',
+      title: '😉',
+      text:'Postre agregado con exito',
       showConfirmButton: false,
-      timer: 1200
+      timer: 1500
     })
       .then((value) =>
       {
@@ -193,11 +187,10 @@ const Menu = () =>
       setBeverage([...beverage, ...bebidas])
       history("/cargando")
       Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Se agrego correctamente',
+        title: '😉',
+        text:'Se agrego correctamente',
         showConfirmButton: false,
-        timer: 1200
+        timer: 1500
       })
         .then((value) =>
         {
@@ -215,11 +208,10 @@ const Menu = () =>
         userPostres(name)/* dispatch(pedidoPostreLogueado(name)) */
       history("/cargando")
       Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Se agrego correctamente',
+        title: '😉',
+        text:'Se agrego correctamente',
         showConfirmButton: false,
-        timer: 1200
+        timer: 1500
       })
         .then((value) =>
         {

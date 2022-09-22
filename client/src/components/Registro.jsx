@@ -1,4 +1,5 @@
 import React from 'react';
+import Swal from 'sweetalert2'
 
 import {
  
@@ -72,16 +73,16 @@ function Registro() {
         errors.password||
         errors.adress||
         errors.phone||
-        !inputUser.firstName) alert("Tienes errores en los campos")
+        !inputUser.firstName)Swal.fire({title: '🚨',text:'Tienes errores en los campos'}) 
         
       else{
 
         const  dispatchRegister = await dispatch(PostRegistroUsuario(inputUser));
         console.log(inputUser)
         if(!dispatchRegister){
-          alert("Tienes errores en los campos")
+          Swal.fire({title: '🚨',text:'Tienes errores en los campos'}) 
         }else{
-          alert(`Se ha registrado correctamente con el email ${inputUser.email}`)
+          Swal.fire({title: '😉', text:`Se ha registrado correctamente con el email ${inputUser.email}`})
         setInputUser({
           firstName:"",
           lastName:"",

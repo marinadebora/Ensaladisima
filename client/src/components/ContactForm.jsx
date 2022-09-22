@@ -4,6 +4,7 @@ import { Link, useNavigate }from 'react-router-dom';
 import { contactForm } from "../action/index";
 import "./../styles/ContactForm.css"
 import NavBar from "./NavBar";
+import Swal from 'sweetalert2'
 
 //const FORM_ENDPOINT = ""; // TODO - fill on the later step
 
@@ -29,7 +30,12 @@ const ContactForm = () => {
 
   const handleSubmit = () => {
     dispatch(contactForm(data))
-    alert('Consulta enviada exitosamente')
+    Swal.fire({
+      title: '😉',
+      text:'Consulta enviada exitosamente',
+      showConfirmButton: false,
+      timer: 1500
+    })
     navigate("/menu")
 /*     setTimeout(() => {
       setSubmitted(true);

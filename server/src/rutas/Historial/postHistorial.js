@@ -22,13 +22,13 @@ postHistorial.post('/', async (req,res,next) =>{
                     purchaseHistory: crearHistorial._id
                 }
             })
-    
+            console.log(modificar)
             const crearPedido = await Pedidos.create({user:_id})
             const buscar = await Usuarios.findOneAndUpdate({_id},{
                 orders: crearPedido._id
             })
-         
             res.send(`Tu orden de compra fue creada con exito ${buscar}`)
+            next()
         }else{
             res.status(404).send('Primero debe agregar productos al pedido, para poder realizar su compra')
         }

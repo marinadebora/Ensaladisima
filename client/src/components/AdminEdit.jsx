@@ -1,4 +1,4 @@
-import { bases, beverages, complements, desserts, Menu, proteins, sauces, toppings } from "../action";
+import { bases, beverages, complements, desserts, Menu, MenuBig, proteins, sauces, toppings } from "../action";
 import CardSimple from "./CardSimple";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -246,6 +246,40 @@ export  function MenuEdit(){
     {
       menu ?
       menu.map(e => {
+      return (
+        <div id="grillaEditCard" key={e._id}>
+          <CardSimple
+            name={e.name}
+            image={e.image}
+            price={e.price}
+            stock= {e.stock}
+            id={e._id}
+            activo={e.activo}
+          />
+        </div>
+      )
+    }):<div class="spinner-grow text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+       </div>
+  }
+  </div>
+  )
+}
+
+export  function MenuBigEdit(){
+  let { id } = useParams()
+  const  menuBigg = useSelector(state => state.menuBig)
+
+  const dispatch = useDispatch()
+
+  useEffect ( () => {
+      dispatch(MenuBig(id))
+  },[dispatch,id])
+  return (
+    <div id='grillaEditCardContent'>
+    {
+      menuBigg ?
+      menuBigg.map(e => {
       return (
         <div id="grillaEditCard" key={e._id}>
           <CardSimple
