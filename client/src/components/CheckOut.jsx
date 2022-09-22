@@ -459,7 +459,7 @@ export default function QuantityEdit() {
                                       )
                                     })}
                                   </select>
-                                  <MDBInput size="lg" onChange={cambiarDireccion} value={datos.adress} placeholder='Ingresar Direccion' />
+                                  <MDBInput size="lg" onChange={cambiarDireccion} value={datos.adress} placeholder={user?.adress ? user?.adress[0] : 'Ingresar Direccion'} />
                                   <br />
                                   <MDBTypography tag="h5" className="text-uppercase mb-3">
                                     Comentarios

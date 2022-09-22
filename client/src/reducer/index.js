@@ -27,6 +27,7 @@ const initialState = {
   historialDetail:{},
   ensBLS:[],
   filtroHistorial:[],
+  menuBig:[],
   saladsFilter: [],
   saladsBigFilter: [],
   basesFilter: [],
@@ -125,6 +126,12 @@ function rootReducer(state = initialState, action) {
         menu: action.payload,
         menuFilter:filterMenu
       }
+      case "MENU_BIG":
+        return{
+           ...state,
+        menuBig: action.payload,
+        
+        }
     case 'PEDIDO_BEBIDAS':
       return {
         ...state,

@@ -48,11 +48,10 @@ console.log(nuevoPedido)
     console.log(usuario)
     history("/menu")
     Swal.fire({
-      position: 'center',
-      icon: "success",
-      title: 'Se ha confirmado su compra',
-      showConfirmButton: false,
-      timer: 2500
+      title: '😉',
+        text:'Compra confirmada',
+        showConfirmButton: false,
+        timer: 1500
     })
     };
     useEffect(() => {

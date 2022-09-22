@@ -43,28 +43,25 @@ dispatch(getReview())
  async function handleSubmit(e)
   {
     e.preventDefault()
-    if(comentariosUser.length>0){
+    if(comentariosUser){
       await Swal.fire({
-        icon: 'error',
         title: '🚨',
         text: 'ya nos calificaste',
       })
-      navigate('/')
+      navigate('/menu')
     }else{
 
       if(review.comentarios&&review.estrellas){
         dispatch(reviewCreada(review))
         await  Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Calificacion enviada con exito ',
-            showConfirmButton: false,
-            timer: 1500
+          title: '😉',
+          text:'Calificacion enviada con exito',
+          showConfirmButton: false,
+          timer: 1500
           })
-         navigate('/')//ver a donde quiero que me lleve esto
+         navigate('/menu')//ver a donde quiero que me lleve esto
       }else{
         Swal.fire({
-          icon: 'error',
           title: '😫',
           text: 'faltan completar campos',
         })
