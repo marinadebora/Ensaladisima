@@ -7,8 +7,6 @@
 //     try {
 //         const crear = await ensalada.map(e => Menu.findOrCreate({
 //             name: e.Nombre,
-//             median: e.EnsaladaMediana,
-//             big: e.EnsaladaGrande,
 //             image: e.img,
 //             base: e.Base,
 //             protein: e.Proteina,

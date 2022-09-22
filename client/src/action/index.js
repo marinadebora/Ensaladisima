@@ -187,8 +187,24 @@ export function Menu() {
 
 	}
 }
+// ruta get MenuBig
+export function MenuBig() {
+	return async function (dispatch) {
+		try {
+			const menu = await axios(`/menubig`)
 
+			return dispatch({
 
+				type: "MENU_BIG",
+				payload: menu.data
+
+			})
+		} catch (error) {
+			console.log(error)
+		}
+
+	}
+}
 
 //ruta get de los postres 
 export function desserts() {
@@ -375,6 +391,17 @@ export const putMenu = (_id, payload) => async (dispatch) => {
 
 	} catch (error) {
 		alert(`el ID: ${_id} no existe`)
+	}
+}
+//ruta put de menu
+export const putMenuBig = (_id, payload) => async (dispatch) => {
+	try {
+		let json = await axios.put(`/menuBig/${_id}`, payload)
+		return dispatch(
+			{ type: "PUT_MENU_BIG", payload: json.data })
+
+	} catch (error) {
+		console.error(error)
 	}
 }
 //ruta put de Complemento
@@ -738,10 +765,10 @@ export const putActivo=(_id)=>async (dispatch)=>{
 	}
 }
 //rutas para borrado logico
-export const putActivoBase=(_id)=>async (dispatch)=>{
+export const putActivoBase=(_id,payload)=>async (dispatch)=>{
 	try {
 		if(_id){
-			const editar= await axios.put(`/basesActivo/${_id}`);
+			const editar= await axios.put(`/basesActivo/${_id}`,payload);
 			return dispatch({
 				type:"PUT_ACTIVO",payload:editar.data
 			})
