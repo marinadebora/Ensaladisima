@@ -318,7 +318,7 @@ export default function QuantityEdit() {
         <div className="mb-4 pb-2">
           <spam style={{ fontSize: '1.7em' }}>Delivery</spam>
           <label class="toggleSwitch nolabel" >
-            <input defaultValue={user?.adress ? user?.adress[0] : ''} onClick={handleClick} value={false} style={{ width: '1em' }} type="checkbox" />
+            <input defaultValue={user?.adress ? user?.adress : ''} onClick={handleClick} value={false} style={{ width: '1em' }} type="checkbox" />
             <span style={{ marginLeft: '0.2rem', fontSize: '1.5em' }}>Cambiar</span>
           </label>
         </div>
@@ -459,7 +459,7 @@ export default function QuantityEdit() {
                                       )
                                     })}
                                   </select>
-                                  <MDBInput size="lg" onChange={cambiarDireccion} value={datos.adress} placeholder='Ingresar Direccion' />
+                                  <MDBInput size="lg" onChange={cambiarDireccion} value={datos.adress}  placeholder='Ingresar Direccion' />
                                   <br />
                                   <MDBTypography tag="h5" className="text-uppercase mb-3">
                                     Comentarios
