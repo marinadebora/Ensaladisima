@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import Swal from 'sweetalert2'
 
 //ruta get de todos los usuarios
 export function usuariosRegistrados() {
@@ -379,7 +379,8 @@ export const putBases = (_id, payload) => async (dispatch) => {
 
 	} catch (error) {
 		console.log(error)
-		alert(`el ID: ${_id} no existe`)
+		Swal.fire({title: '🚨',text:`el ID: ${_id} no existe`})
+	
 	}
 }
 //ruta put de menu
@@ -390,10 +391,10 @@ export const putMenu = (_id, payload) => async (dispatch) => {
 			{ type: "PUT_MENU", payload: json.data })
 
 	} catch (error) {
-		alert(`el ID: ${_id} no existe`)
+		Swal.fire({title: '🚨',text:`el ID: ${_id} no existe`})
 	}
 }
-//ruta put de menu
+//ruta put de menuBig
 export const putMenuBig = (_id, payload) => async (dispatch) => {
 	try {
 		let json = await axios.put(`/menuBig/${_id}`, payload)
@@ -404,6 +405,7 @@ export const putMenuBig = (_id, payload) => async (dispatch) => {
 		console.error(error)
 	}
 }
+
 //ruta put de Complemento
 export const putComplemento = (_id, payload) => async (dispatch) => {
 	try {
@@ -412,8 +414,7 @@ export const putComplemento = (_id, payload) => async (dispatch) => {
 			{ type: "PUT_COMPLEMENTOS", payload: json.data })
 
 	} catch (error) {
-		alert(`el ID: ${_id} no existe`)
-	}
+		Swal.fire({title: '🚨',text:`el ID: ${_id} no existe`})	}
 }
 //ruta put de Salsas
 export const putSalsas = (_id, payload) => async (dispatch) => {
@@ -423,8 +424,7 @@ export const putSalsas = (_id, payload) => async (dispatch) => {
 			{ type: "PUT_SALSAS", payload: json.data })
 
 	} catch (error) {
-		alert(`el ID: ${_id} no existe`)
-	}
+		Swal.fire({title: '🚨',text:`el ID: ${_id} no existe`})	}
 }
 //ruta put de Topping
 export const putTopping = (_id, payload) => async (dispatch) => {
@@ -434,8 +434,7 @@ export const putTopping = (_id, payload) => async (dispatch) => {
 			{ type: "PUT_TOPPINGS", payload: json.data })
 
 	} catch (error) {
-		alert(`el ID: ${_id} no existe`)
-	}
+		Swal.fire({title: '🚨',text:`el ID: ${_id} no existe`})	}
 }
 //ruta put de Proteinas
 export const putProteinas = (_id, payload) => async (dispatch) => {
@@ -445,8 +444,7 @@ export const putProteinas = (_id, payload) => async (dispatch) => {
 			{ type: "PUT_PROTEINAS", payload: json.data })
 
 	} catch (error) {
-		alert(`el ID: ${_id} no existe`)
-	}
+		Swal.fire({title: '🚨',text:`el ID: ${_id} no existe`})	}
 }
 //ruta put de Bebidas
 export const putBebidas = (_id, payload) => async (dispatch) => {
@@ -456,8 +454,7 @@ export const putBebidas = (_id, payload) => async (dispatch) => {
 			{ type: "PUT_BEBIDAS", payload: json.data })
 
 	} catch (error) {
-		alert(`el ID: ${_id} no existe`)
-	}
+		Swal.fire({title: '🚨',text:`el ID: ${_id} no existe`})	}
 }
 //ruta put de Postres
 export const putPostres = (_id, payload) => async (dispatch) => {
@@ -467,8 +464,7 @@ export const putPostres = (_id, payload) => async (dispatch) => {
 			{ type: "PUT_POSTRES", payload: json.data })
 
 	} catch (error) {
-		alert(`el ID: ${_id} no existe`)
-	}
+		Swal.fire({title: '🚨',text:`el ID: ${_id} no existe`})	}
 }
 
 
@@ -690,8 +686,7 @@ export const putPassword = (_id, payload) => async (dispatch) => {
 			{ type: "PUT_PASSWORD", payload: json.data })
 
 	} catch (error) {
-		alert(`el ID: ${_id} no existe`)
-	}
+		Swal.fire({title: '🚨',text:`el ID: ${_id} no existe`})	}
 }
 
 export function postHistorialDeCompra(_id) {

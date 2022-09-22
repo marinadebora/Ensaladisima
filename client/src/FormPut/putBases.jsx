@@ -2,15 +2,18 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../components/NavBar";
-import {
-  bases, beverages, complements, desserts, Menu, proteins, putBases, putBebidas, putComplemento, putMenu, putMenuBig, putPostres, putProteinas, putSalsas, putTopping, sauces, toppings,
-  putActivoBase, putActivoBebidas, putActivoMenu,/* putActivoMenuB, */putActivoComplementos,
-  putActivoPostres, putActivoToppings, putActivoSalsas, putActivoProteina, putActivoMenuB, MenuBig
-} from "../action";
+import
+  {
+    bases, beverages, complements, desserts, Menu, proteins, putBases, putBebidas, putComplemento, putMenu, putPostres, putProteinas, putSalsas, putTopping, sauces, toppings,
+    putActivoBase, putActivoBebidas, putActivoMenu, putActivoMenuB, putActivoComplementos,
+    putActivoPostres, putActivoToppings, putActivoSalsas, putActivoProteina, MenuBig, putMenuBig
+  } from "../action";
 import "./putBases.css"
 import axios from "axios";
+import Swal from 'sweetalert2'
 
-export default function BaseEdit() {
+export default function BaseEdit()
+{
   const dispatch = useDispatch()
   const base1 = useSelector(state => state.bases)
   const complemento = useSelector(state => state.complements)
@@ -33,7 +36,9 @@ export default function BaseEdit() {
   const buscar7 = dessert?.find(e => e._id === id)
   const buscar8 = menu?.find(e => e._id === id)
   const buscar9 = menuBig?.find(e => e._id === id)
-  const putActivoTodo = async () => {
+
+  const putActivoTodo = async () =>
+  {
     if (buscar1?._id) await dispatch(putActivoBase(id))
     if (buscar2?._id) await dispatch(putActivoComplementos(id))
     if (buscar3?._id) await dispatch(putActivoSalsas(id))
@@ -44,13 +49,13 @@ export default function BaseEdit() {
     if (buscar8?._id) await dispatch(putActivoMenu(id))
     if (buscar9?._id) await dispatch(putActivoMenuB(id))
     localStorage.removeItem("imagenPut")
-
     return history(-1)
   }
-  const { activo } = buscar1 || buscar2 || buscar3 || buscar4 || buscar5 || buscar6 || buscar7 || buscar8||buscar9
+  const { activo } = buscar1 || buscar2 || buscar3 || buscar4 || buscar5 || buscar6 || buscar7 || buscar8 || buscar9
   //console.log(buscar1?._id)
 
-  useEffect(() => {
+  useEffect(() =>
+  {
 
     dispatch(bases(id))
     dispatch(complements(id))
@@ -76,7 +81,8 @@ export default function BaseEdit() {
   })
 
 
-  function handleChange(e) {
+  function handleChange(e)
+  {
     if (imagenInput) {
       setInput({
         ...input,
@@ -93,11 +99,12 @@ export default function BaseEdit() {
 
   }
 
-  function handleSubmit(e) {
+  function handleSubmit(e)
+  {
     e.preventDefault()
     if (buscar1) {
       dispatch(putBases(id, input))
-      alert("Base editada")
+      Swal.fire({ title: '😉', text: "Base editada" })
       setInput({
         name: "",
         image: "",
@@ -112,7 +119,7 @@ export default function BaseEdit() {
     }
     else if (buscar2) {
       dispatch(putComplemento(id, input))
-      alert("Complemento Editado")
+      Swal.fire({ title: '😉', text: "Complemento Editado" })
       setInput({
         name: "",
         image: "",
@@ -127,7 +134,7 @@ export default function BaseEdit() {
     }
     else if (buscar3) {
       dispatch(putSalsas(id, input))
-      alert("Salsa Editada")
+      Swal.fire({ title: '😉', text: "Salsa Editada" })
       setInput({
         name: "",
         image: "",
@@ -142,7 +149,7 @@ export default function BaseEdit() {
     }
     else if (buscar4) {
       dispatch(putProteinas(id, input))
-      alert("Proteina Editada")
+      Swal.fire({ title: '😉', text: "Proteina Editada" })
       setInput({
         name: "",
         image: "",
@@ -157,7 +164,7 @@ export default function BaseEdit() {
     }
     else if (buscar5) {
       dispatch(putTopping(id, input))
-      alert("Topping Editado")
+      Swal.fire({ title: '😉', text: "Topping Editado" })
       setInput({
         name: "",
         image: "",
@@ -172,7 +179,7 @@ export default function BaseEdit() {
     }
     else if (buscar6) {
       dispatch(putBebidas(id, input))
-      alert("Bebida Editada")
+      Swal.fire({ title: '😉', text: "Bebida Editada" })
       setInput({
         name: "",
         image: "",
@@ -187,7 +194,7 @@ export default function BaseEdit() {
     }
     else if (buscar7) {
       dispatch(putPostres(id, input))
-      alert("Postre Editado")
+      Swal.fire({ title: '😉', text: "Postre Editado" })
       setInput({
         name: "",
         image: "",
@@ -202,7 +209,7 @@ export default function BaseEdit() {
     }
     else if (buscar8) {
       dispatch(putMenu(id, input))
-      alert("Menu editado")
+      Swal.fire({ title: '😉', text: "Menu editado" })
       setInput({
         name: "",
         image: "",
@@ -219,7 +226,7 @@ export default function BaseEdit() {
     }
     else if (buscar9) {
       dispatch(putMenuBig(id, input))
-      alert("MenuBig editado")
+      Swal.fire({ title: '😉', text: "Menu editado" })
       setInput({
         name: "",
         image: "",
@@ -239,7 +246,8 @@ export default function BaseEdit() {
 
   let [imagenInput, setImagenInput] = useState([])
 
-  const cloudinary = async (files) => {
+  const cloudinary = async (files) =>
+  {
 
     const formData = new FormData();
     formData.append("file", files[0]);
@@ -300,7 +308,7 @@ export default function BaseEdit() {
                 <label>Nombre: </label><input type="text" value={input.name} placeholder={buscar1?.name ? buscar1.name : buscar2?.name ? buscar2.name : buscar3?.name ? buscar3.name : buscar4?.name ? buscar4.name : buscar5?.name ? buscar5.name : buscar6?.name ? buscar6.name : buscar7?.name ? buscar7.name : buscar8?.name ? buscar8.name : buscar9?.name ? buscar9.name : input.name} name="name" onChange={handleChange} />
               </div>
               <label >Imagen: </label><img className="imgPutBases" src={buscar1?.image ? buscar1.image : buscar2?.image ? buscar2.image : buscar3?.image ? buscar3.image : buscar4?.image ? buscar4.image : buscar5?.image ? buscar5.image : buscar6?.image ? buscar6.image : buscar7?.image ? buscar7.image : buscar8?.image ? buscar8.image : buscar9?.image ? buscar9.image : input.image} alt='' />
-              <input type="url" defaulValue={JSON.parse(localStorage.getItem('imagenPut')) || input.image} placeholder={buscar1?.image ? buscar1.image : buscar2?.image ? buscar2.image : buscar3?.image ? buscar3.image : buscar4?.image ? buscar4.image : buscar5?.image ? buscar5.image : buscar6?.image ? buscar6.image : buscar7?.image ? buscar7.image : buscar8?.image ? buscar8.image :  buscar9?.image ? buscar9.image : input.image} name="image" onChange={handleChange} />
+              <input type="url" defaulValue={JSON.parse(localStorage.getItem('imagenPut')) || input.image} placeholder={buscar1?.image ? buscar1.image : buscar2?.image ? buscar2.image : buscar3?.image ? buscar3.image : buscar4?.image ? buscar4.image : buscar5?.image ? buscar5.image : buscar6?.image ? buscar6.image : buscar7?.image ? buscar7.image : buscar8?.image ? buscar8.image : buscar9?.image ? buscar9.image : input.image} name="image" onChange={handleChange} />
             </div>
             <div>
               <label >editar imagen: </label><input id="cloudInput" defaulValue={input.image} name="image" type="file" onChange={event => cloudinary(event.target.files)} />
@@ -362,9 +370,6 @@ export default function BaseEdit() {
               buscar8 && <div> <label >Topping:</label><input type="text" value={input.topping} placeholder={buscar8?.topping ? buscar8.topping : input.topping} name="topping" onChange={handleChange} />
               </div>
             }
-
-
-
             {
 
               buscar9 && <div><label >Base:</label><input type="text" value={input.base} placeholder={buscar9?.base ? buscar9.base : input.base} name="base" onChange={handleChange} />
