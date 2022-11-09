@@ -2,8 +2,10 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 
 //ruta get de todos los usuarios
-export function usuariosRegistrados() {
-	return async function (dispatch) {
+export function usuariosRegistrados()
+{
+	return async function (dispatch)
+	{
 		try {
 			const usuarios = await axios("/usuarios")
 			return dispatch({
@@ -15,13 +17,16 @@ export function usuariosRegistrados() {
 		}
 	}
 }
-export const vaciarUsuarios = () => {
+export const vaciarUsuarios = () =>
+{
 	return { type: "VACIAR_U", payload: [] }
 }
 
 //ruta get de las ensaldas de la casa
-export function salads() {
-	return async function (dispatch) {
+export function salads()
+{
+	return async function (dispatch)
+	{
 		try {
 			const salad = await axios(`/menus`)
 
@@ -39,8 +44,10 @@ export function salads() {
 }
 
 //ruta get de las ensaldas grande de la casa
-export function saladsBig() {
-	return async function (dispatch) {
+export function saladsBig()
+{
+	return async function (dispatch)
+	{
 		try {
 			const salad = await axios(`/menubig`)
 
@@ -58,8 +65,10 @@ export function saladsBig() {
 }
 
 //ruta get de las bases para las ensalada armadas por el usuario
-export function bases() {
-	return async function (dispatch) {
+export function bases()
+{
+	return async function (dispatch)
+	{
 		try {
 			const base = await axios(`/bases`)
 
@@ -77,8 +86,10 @@ export function bases() {
 }
 
 //ruta get de las proteinas para las ensalada armadas por el usuario
-export function proteins() {
-	return async function (dispatch) {
+export function proteins()
+{
+	return async function (dispatch)
+	{
 		try {
 			const protein = await axios(`/proteins`)
 
@@ -96,8 +107,10 @@ export function proteins() {
 }
 
 //ruta get de los complementos para las ensalada armadas por el usuario
-export function complements() {
-	return async function (dispatch) {
+export function complements()
+{
+	return async function (dispatch)
+	{
 		try {
 			const protein = await axios(`/complements`)
 
@@ -115,8 +128,10 @@ export function complements() {
 }
 
 //ruta get de las salsas para las ensalada armadas por el usuario
-export function sauces() {
-	return async function (dispatch) {
+export function sauces()
+{
+	return async function (dispatch)
+	{
 		try {
 			const sauce = await axios(`/salsas`)
 
@@ -134,8 +149,10 @@ export function sauces() {
 }
 
 //ruta get de los toppings para las ensalada armadas por el usuario
-export function toppings() {
-	return async function (dispatch) {
+export function toppings()
+{
+	return async function (dispatch)
+	{
 		try {
 			const topings = await axios(`/toppings`)
 
@@ -152,8 +169,10 @@ export function toppings() {
 	}
 }
 //ruta get de las bebidas 
-export function beverages() {
-	return async function (dispatch) {
+export function beverages()
+{
+	return async function (dispatch)
+	{
 		try {
 			const beverage = await axios(`/bebidas`)
 
@@ -170,8 +189,10 @@ export function beverages() {
 	}
 }
 // ruta get de menu
-export function Menu() {
-	return async function (dispatch) {
+export function Menu()
+{
+	return async function (dispatch)
+	{
 		try {
 			const menu = await axios(`/menus`)
 
@@ -188,8 +209,10 @@ export function Menu() {
 	}
 }
 // ruta get MenuBig
-export function MenuBig() {
-	return async function (dispatch) {
+export function MenuBig()
+{
+	return async function (dispatch)
+	{
 		try {
 			const menu = await axios(`/menubig`)
 
@@ -207,8 +230,10 @@ export function MenuBig() {
 }
 
 //ruta get de los postres 
-export function desserts() {
-	return async function (dispatch) {
+export function desserts()
+{
+	return async function (dispatch)
+	{
 		try {
 			const dessert = await axios(`/postres`)
 
@@ -225,8 +250,10 @@ export function desserts() {
 	}
 }
 //ruta post de bebidas
-export function pedidoBebidas(payload) {
-	return async function (dispatch) {
+export function pedidoBebidas(payload)
+{
+	return async function (dispatch)
+	{
 		try {
 			const pedido = await axios.post(`/pedidobebida`, payload);
 			return dispatch({
@@ -241,8 +268,10 @@ export function pedidoBebidas(payload) {
 }
 
 //ruta post de postres
-export function pedidoPostres(payload) {
-	return async function (dispatch) {
+export function pedidoPostres(payload)
+{
+	return async function (dispatch)
+	{
 		try {
 			const pedido = await axios.post(`/pedidopostre`, payload);
 			return dispatch({
@@ -257,8 +286,10 @@ export function pedidoPostres(payload) {
 }
 
 //ruta post de ensalada mediana
-export function pedidoEnsaladaM(payload) {
-	return async function (dispatch) {
+export function pedidoEnsaladaM(payload)
+{
+	return async function (dispatch)
+	{
 		try {
 			const pedido = await axios.post(`/ensaladamed`, payload);
 			return dispatch({
@@ -273,8 +304,10 @@ export function pedidoEnsaladaM(payload) {
 }
 
 //ruta post de ensalada grande
-export function pedidoEnsaladaG(payload) {
-	return async function (dispatch) {
+export function pedidoEnsaladaG(payload)
+{
+	return async function (dispatch)
+	{
 		try {
 			const pedido = await axios.post(`/ensaladabig`, payload);
 			return dispatch({
@@ -289,8 +322,10 @@ export function pedidoEnsaladaG(payload) {
 }
 
 //ruta post de menu medium
-export function pedidoMenu(payload) {
-	return async function (dispatch) {
+export function pedidoMenu(payload)
+{
+	return async function (dispatch)
+	{
 		try {
 			const pedido = await axios.post(`/pedidomenu`, payload);
 			return dispatch({
@@ -305,8 +340,10 @@ export function pedidoMenu(payload) {
 }
 
 //ruta post de menu big
-export function pedidoBig(payload) {
-	return async function (dispatch) {
+export function pedidoBig(payload)
+{
+	return async function (dispatch)
+	{
 		try {
 			const pedido = await axios.post(`/pedidomenuBig`, payload);
 			return dispatch({
@@ -323,55 +360,65 @@ export function pedidoBig(payload) {
 
 
 // ruta post de Bases
-export const postBases = (payload) => async () => {
+export const postBases = (payload) => async () =>
+{
 	let json = await axios.post("/bases", payload);
 	return json;
 }
 
 // ruta post de Proteinas
-export const postProteinas = (payload) => async () => {
+export const postProteinas = (payload) => async () =>
+{
 	let json = await axios.post("/proteins", payload);
 	return json;
 }
 //ruta post de Salsas
-export const postSalsas = (payload) => async () => {
+export const postSalsas = (payload) => async () =>
+{
 	let json = await axios.post("/salsas", payload);
 	return json;
 }
 
 //ruta post de Complementos
-export const postComplementos = (payload) => async () => {
+export const postComplementos = (payload) => async () =>
+{
 	let json = await axios.post("/complements", payload);
 	return json;
 }
 
-export const postToppings = (payload) => async () => {
+export const postToppings = (payload) => async () =>
+{
 	const json = await axios.post("/toppings", payload);
 	return json;
 }
 // ruta post de Bebidas
-export const postBebidas = (payload) => async () => {
+export const postBebidas = (payload) => async () =>
+{
 	const json = await axios.post("/bebidas", payload);
 	return json;
 }
 // ruta post de postre
-export const postPostres = (payload) => async () => {
+export const postPostres = (payload) => async () =>
+{
 	const json = await axios.post("/postres", payload);
 	return json;
 }
 // ruta post de menu
-export const postMenu = (payload) => async () => {
+export const postMenu = (payload) => async () =>
+{
 	const json = await axios.post("/menus", payload);
 	return json;
 }
 // ruta post MenuBig
- export const postMenuBig = (payload)=> async ()=>{
- 	const json = await axios.post("/menuBig",payload);
- 	return json;
- }
+export const postMenuBig = (payload) => async () =>
+{
+	const json = await axios.post("/menuBig", payload);
+	return json;
+}
 
 //ruta put de bases
-export const putBases = (_id, payload) => async (dispatch) => {
+export const putBases = (_id, payload) => async (dispatch) =>
+{
 	try {
 		let json = await axios.put(`/bases/${_id}`, payload)
 		return dispatch(
@@ -379,23 +426,25 @@ export const putBases = (_id, payload) => async (dispatch) => {
 
 	} catch (error) {
 		console.log(error)
-		Swal.fire({title: '🚨',text:`el ID: ${_id} no existe`})
-	
+		Swal.fire({ title: '🚨', text: `el ID: ${_id} no existe` })
+
 	}
 }
 //ruta put de menu
-export const putMenu = (_id, payload) => async (dispatch) => {
+export const putMenu = (_id, payload) => async (dispatch) =>
+{
 	try {
 		let json = await axios.put(`/menus/${_id}`, payload)
 		return dispatch(
 			{ type: "PUT_MENU", payload: json.data })
 
 	} catch (error) {
-		Swal.fire({title: '🚨',text:`el ID: ${_id} no existe`})
+		Swal.fire({ title: '🚨', text: `el ID: ${_id} no existe` })
 	}
 }
 //ruta put de menuBig
-export const putMenuBig = (_id, payload) => async (dispatch) => {
+export const putMenuBig = (_id, payload) => async (dispatch) =>
+{
 	try {
 		let json = await axios.put(`/menuBig/${_id}`, payload)
 		return dispatch(
@@ -407,70 +456,84 @@ export const putMenuBig = (_id, payload) => async (dispatch) => {
 }
 
 //ruta put de Complemento
-export const putComplemento = (_id, payload) => async (dispatch) => {
+export const putComplemento = (_id, payload) => async (dispatch) =>
+{
 	try {
 		let json = await axios.put(`/complements/${_id}`, payload)
 		return dispatch(
 			{ type: "PUT_COMPLEMENTOS", payload: json.data })
 
 	} catch (error) {
-		Swal.fire({title: '🚨',text:`el ID: ${_id} no existe`})	}
+		Swal.fire({ title: '🚨', text: `el ID: ${_id} no existe` })
+	}
 }
 //ruta put de Salsas
-export const putSalsas = (_id, payload) => async (dispatch) => {
+export const putSalsas = (_id, payload) => async (dispatch) =>
+{
 	try {
 		let json = await axios.put(`/salsas/${_id}`, payload)
 		return dispatch(
 			{ type: "PUT_SALSAS", payload: json.data })
 
 	} catch (error) {
-		Swal.fire({title: '🚨',text:`el ID: ${_id} no existe`})	}
+		Swal.fire({ title: '🚨', text: `el ID: ${_id} no existe` })
+	}
 }
 //ruta put de Topping
-export const putTopping = (_id, payload) => async (dispatch) => {
+export const putTopping = (_id, payload) => async (dispatch) =>
+{
 	try {
 		let json = await axios.put(`/toppings/${_id}`, payload)
 		return dispatch(
 			{ type: "PUT_TOPPINGS", payload: json.data })
 
 	} catch (error) {
-		Swal.fire({title: '🚨',text:`el ID: ${_id} no existe`})	}
+		Swal.fire({ title: '🚨', text: `el ID: ${_id} no existe` })
+	}
 }
 //ruta put de Proteinas
-export const putProteinas = (_id, payload) => async (dispatch) => {
+export const putProteinas = (_id, payload) => async (dispatch) =>
+{
 	try {
 		let json = await axios.put(`/proteins/${_id}`, payload)
 		return dispatch(
 			{ type: "PUT_PROTEINAS", payload: json.data })
 
 	} catch (error) {
-		Swal.fire({title: '🚨',text:`el ID: ${_id} no existe`})	}
+		Swal.fire({ title: '🚨', text: `el ID: ${_id} no existe` })
+	}
 }
 //ruta put de Bebidas
-export const putBebidas = (_id, payload) => async (dispatch) => {
+export const putBebidas = (_id, payload) => async (dispatch) =>
+{
 	try {
 		let json = await axios.put(`/bebidas/${_id}`, payload)
 		return dispatch(
 			{ type: "PUT_BEBIDAS", payload: json.data })
 
 	} catch (error) {
-		Swal.fire({title: '🚨',text:`el ID: ${_id} no existe`})	}
+		Swal.fire({ title: '🚨', text: `el ID: ${_id} no existe` })
+	}
 }
 //ruta put de Postres
-export const putPostres = (_id, payload) => async (dispatch) => {
+export const putPostres = (_id, payload) => async (dispatch) =>
+{
 	try {
 		let json = await axios.put(`/postres/${_id}`, payload)
 		return dispatch(
 			{ type: "PUT_POSTRES", payload: json.data })
 
 	} catch (error) {
-		Swal.fire({title: '🚨',text:`el ID: ${_id} no existe`})	}
+		Swal.fire({ title: '🚨', text: `el ID: ${_id} no existe` })
+	}
 }
 
 
 
-export function PostRegistroUsuario(payload) {
-	return async function (dispatch) {
+export function PostRegistroUsuario(payload)
+{
+	return async function (dispatch)
+	{
 		try {
 			const registrado = await axios.post("/registro", payload);
 			return dispatch({
@@ -483,8 +546,10 @@ export function PostRegistroUsuario(payload) {
 	}
 }
 
-export function PostLogeoUsuario(payload) {
-	return async function (dispatch) {
+export function PostLogeoUsuario(payload)
+{
+	return async function (dispatch)
+	{
 		try {
 			const logueado = await axios.post("/autenticar", payload)
 			return dispatch({
@@ -499,8 +564,10 @@ export function PostLogeoUsuario(payload) {
 
 // me traigo todos los pedidos
 
-export function getPedidos() {
-	return async function (dispatch) {
+export function getPedidos()
+{
+	return async function (dispatch)
+	{
 		try {
 			const pedido = await axios.get("/pedidos")
 			return dispatch({
@@ -513,8 +580,10 @@ export function getPedidos() {
 	}
 }
 
-export function eliminarDelCarrito(value) {
-	return async function (dispatch) {
+export function eliminarDelCarrito(value)
+{
+	return async function (dispatch)
+	{
 		try {
 			const eliminar = await axios.put(`/eliminarDelPedido`, value)
 			return dispatch({
@@ -527,8 +596,10 @@ export function eliminarDelCarrito(value) {
 	}
 }
 
-export function agregarAlCarrito(value) {
-	return async function (dispatch) {
+export function agregarAlCarrito(value)
+{
+	return async function (dispatch)
+	{
 		try {
 			const agregar = await axios.put(`/agregar`, value)
 			return dispatch({
@@ -543,8 +614,10 @@ export function agregarAlCarrito(value) {
 
 // rutas para agregar del menu al carrito del usuario logueado
 
-export function menuGrande(value) {
-	return async function (dispatch) {
+export function menuGrande(value)
+{
+	return async function (dispatch)
+	{
 		try {
 			const agregar = await axios.post(`/pedidomenubig`, value)
 			return dispatch({
@@ -557,8 +630,10 @@ export function menuGrande(value) {
 	}
 }
 
-export function menuMediano(value) {
-	return async function (dispatch) {
+export function menuMediano(value)
+{
+	return async function (dispatch)
+	{
 		try {
 			const agregar = await axios.post(`/pedidomenu`, value)
 			return dispatch({
@@ -571,8 +646,10 @@ export function menuMediano(value) {
 	}
 }
 
-export function pedidoBebidaLogueado(value) {
-	return async function (dispatch) {
+export function pedidoBebidaLogueado(value)
+{
+	return async function (dispatch)
+	{
 		try {
 			const agregar = await axios.post(`/pedidobebida`, value)
 			return dispatch({
@@ -585,8 +662,10 @@ export function pedidoBebidaLogueado(value) {
 	}
 }
 
-export function pedidoPostreLogueado(value) {
-	return async function (dispatch) {
+export function pedidoPostreLogueado(value)
+{
+	return async function (dispatch)
+	{
 		try {
 			const agregar = await axios.post(`/pedidopostre`, value)
 			return dispatch({
@@ -600,8 +679,10 @@ export function pedidoPostreLogueado(value) {
 }
 
 
-export function saladMUser(payload) {
-	return async function (dispatch) {
+export function saladMUser(payload)
+{
+	return async function (dispatch)
+	{
 		try {
 			const saladM = await axios.post(`/ensaladamed`, payload)
 			return dispatch({
@@ -614,22 +695,26 @@ export function saladMUser(payload) {
 	}
 }
 
-export function contactForm(value){
-	return async function(dispatch){
-		try{
-			const form = await axios.post("/contactform",value)
+export function contactForm(value)
+{
+	return async function (dispatch)
+	{
+		try {
+			const form = await axios.post("/contactform", value)
 			console.log(form)
 			return dispatch({
-				type:"CONTACT_FORM",
-				payload:form.data
+				type: "CONTACT_FORM",
+				payload: form.data
 			})
 		} catch (error) {
 			console.log(error)
 		}
 	}
 }
-export function saladGUser(payload) {
-	return async function (dispatch) {
+export function saladGUser(payload)
+{
+	return async function (dispatch)
+	{
 		try {
 			const saladG = await axios.post(`/ensaladabig`, payload)
 			return dispatch({
@@ -642,8 +727,10 @@ export function saladGUser(payload) {
 	}
 }
 
-export function crearLocalStorage(value) {
-	return async function (dispatch) {
+export function crearLocalStorage(value)
+{
+	return async function (dispatch)
+	{
 		const cargar = await axios.post('/crearLocalStorage', value)
 		return dispatch({
 			type: 'CARGA_LOCAL',
@@ -652,8 +739,10 @@ export function crearLocalStorage(value) {
 	}
 }
 
-export function putPedidocargarPedido(value) {
-	return async function (dispatch) {
+export function putPedidocargarPedido(value)
+{
+	return async function (dispatch)
+	{
 		const cargarPedido = await axios.put('/cargarPedido', value)
 		return dispatch({
 			type: 'CARGAR_PEDIDO_DEL_LOCAL', payload: cargarPedido.data
@@ -664,7 +753,8 @@ export function putPedidocargarPedido(value) {
 
 
 //ruta Put para buscar el mail de un usuario
-export const getMailUsuario = (input) => async (dispatch) => {
+export const getMailUsuario = (input) => async (dispatch) =>
+{
 	try {
 		let json = await axios.put("/email", input)
 		return dispatch(
@@ -679,18 +769,22 @@ export const getMailUsuario = (input) => async (dispatch) => {
 }
 
 //ruta put cambio de password
-export const putPassword = (_id, payload) => async (dispatch) => {
+export const putPassword = (_id, payload) => async (dispatch) =>
+{
 	try {
 		let json = await axios.put(`/usuarios/${_id}`, payload)
 		return dispatch(
 			{ type: "PUT_PASSWORD", payload: json.data })
 
 	} catch (error) {
-		Swal.fire({title: '🚨',text:`el ID: ${_id} no existe`})	}
+		Swal.fire({ title: '🚨', text: `el ID: ${_id} no existe` })
+	}
 }
 
-export function postHistorialDeCompra(_id) {
-	return async function (dispatch) {
+export function postHistorialDeCompra(_id)
+{
+	return async function (dispatch)
+	{
 		try {
 			const agregar = await axios.post(`/crearHistorial`, _id)
 			return dispatch({
@@ -703,43 +797,46 @@ export function postHistorialDeCompra(_id) {
 	}
 }
 
-export const searchBar= (nombre)=>async (dispatch)=>{
+export const searchBar = (nombre) => async (dispatch) =>
+{
 	try {
 		const buscar = await axios(`/usuarios?nombre=${nombre}`)
-		if(nombre){
+		if (nombre) {
 			return dispatch(
-			{
-				type:"BUSCAR_USUARIO",payload:buscar.data
-			}
-		)
+				{
+					type: "BUSCAR_USUARIO", payload: buscar.data
+				}
+			)
 		}
-		
+
 	} catch (error) {
-	console.log(error)
+		console.log(error)
 	}
 }
 
 
-export const usuariosId= (_id)=> async (dispatch)=>{
-try {
-	if(_id){
-		const buscar = await axios(`/usuario/${_id}`)
-		return dispatch({
-		type:"USUARIO_ID",payload:buscar.data
-	})
+export const usuariosId = (_id) => async (dispatch) =>
+{
+	try {
+		if (_id) {
+			const buscar = await axios(`/usuario/${_id}`)
+			return dispatch({
+				type: "USUARIO_ID", payload: buscar.data
+			})
+		}
+
+	} catch (error) {
+		console.log(error)
 	}
-	
-} catch (error) {
-	console.log(error)
-}
 }
 //ruta para cambiar de true a false el admin
-export const putAdmin=(_id,payload)=>async (dispatch)=>{
+export const putAdmin = (_id, payload) => async (dispatch) =>
+{
 	try {
-		if(_id){
-			const editar= await axios.put(`/userAdmin/${_id}`,payload);
+		if (_id) {
+			const editar = await axios.put(`/userAdmin/${_id}`, payload);
 			return dispatch({
-				type:"PUT_ADMIN",payload:editar.data
+				type: "PUT_ADMIN", payload: editar.data
 			})
 		}
 	} catch (error) {
@@ -747,12 +844,13 @@ export const putAdmin=(_id,payload)=>async (dispatch)=>{
 	}
 }
 //ruta para banear al usuario
-export const putActivo=(_id)=>async (dispatch)=>{
+export const putActivo = (_id) => async (dispatch) =>
+{
 	try {
-		if(_id){
-			const editar= await axios.put(`/userActivo/${_id}`);
+		if (_id) {
+			const editar = await axios.put(`/userActivo/${_id}`);
 			return dispatch({
-				type:"PUT_ACTIVO",payload:editar.data
+				type: "PUT_ACTIVO", payload: editar.data
 			})
 		}
 	} catch (error) {
@@ -760,37 +858,26 @@ export const putActivo=(_id)=>async (dispatch)=>{
 	}
 }
 //rutas para borrado logico
-export const putActivoBase=(_id,payload)=>async (dispatch)=>{
+export const putActivoBase = (_id, payload) => async (dispatch) =>
+{
 	try {
-		if(_id){
-			const editar= await axios.put(`/basesActivo/${_id}`,payload);
+		if (_id) {
+			const editar = await axios.put(`/basesActivo/${_id}`, payload);
 			return dispatch({
-				type:"PUT_ACTIVO",payload:editar.data
+				type: "PUT_ACTIVO", payload: editar.data
 			})
 		}
 	} catch (error) {
 		console.error(error)
 	}
 }
-export const putActivoMenu=(_id)=>async (dispatch)=>{
+export const putActivoMenu = (_id) => async (dispatch) =>
+{
 	try {
-		if(_id){
-			const editar= await axios.put(`/menusActivo/${_id}`);
+		if (_id) {
+			const editar = await axios.put(`/menusActivo/${_id}`);
 			return dispatch({
-				type:"PUT_ACTIVO",payload:editar.data
-			})
-		}
-	} catch (error) {
-		console.error(error)
-	}
-}
-
-export const putActivoMenuB=(_id)=>async (dispatch)=>{
-	try {
-		if(_id){
-			const editar= await axios.put(`/menubigActivo/${_id}`);
-			return dispatch({
-				type:"PUT_ACTIVO",payload:editar.data
+				type: "PUT_ACTIVO", payload: editar.data
 			})
 		}
 	} catch (error) {
@@ -798,12 +885,13 @@ export const putActivoMenuB=(_id)=>async (dispatch)=>{
 	}
 }
 
-export const putActivoProteina=(_id)=>async (dispatch)=>{
+export const putActivoMenuB = (_id) => async (dispatch) =>
+{
 	try {
-		if(_id){
-			const editar= await axios.put(`/proteinsActivo/${_id}`);
+		if (_id) {
+			const editar = await axios.put(`/menubigActivo/${_id}`);
 			return dispatch({
-				type:"PUT_ACTIVO",payload:editar.data
+				type: "PUT_ACTIVO", payload: editar.data
 			})
 		}
 	} catch (error) {
@@ -811,12 +899,13 @@ export const putActivoProteina=(_id)=>async (dispatch)=>{
 	}
 }
 
-export const putActivoComplementos=(_id)=>async (dispatch)=>{
+export const putActivoProteina = (_id) => async (dispatch) =>
+{
 	try {
-		if(_id){
-			const editar= await axios.put(`/complementsActivo/${_id}`);
+		if (_id) {
+			const editar = await axios.put(`/proteinsActivo/${_id}`);
 			return dispatch({
-				type:"PUT_ACTIVO",payload:editar.data
+				type: "PUT_ACTIVO", payload: editar.data
 			})
 		}
 	} catch (error) {
@@ -824,12 +913,13 @@ export const putActivoComplementos=(_id)=>async (dispatch)=>{
 	}
 }
 
-export const putActivoSalsas=(_id)=>async (dispatch)=>{
+export const putActivoComplementos = (_id) => async (dispatch) =>
+{
 	try {
-		if(_id){
-			const editar= await axios.put(`/salsasActivo/${_id}`);
+		if (_id) {
+			const editar = await axios.put(`/complementsActivo/${_id}`);
 			return dispatch({
-				type:"PUT_ACTIVO",payload:editar.data
+				type: "PUT_ACTIVO", payload: editar.data
 			})
 		}
 	} catch (error) {
@@ -837,12 +927,13 @@ export const putActivoSalsas=(_id)=>async (dispatch)=>{
 	}
 }
 
-export const putActivoToppings=(_id)=>async (dispatch)=>{
+export const putActivoSalsas = (_id) => async (dispatch) =>
+{
 	try {
-		if(_id){
-			const editar= await axios.put(`/toppingsActivo/${_id}`);
+		if (_id) {
+			const editar = await axios.put(`/salsasActivo/${_id}`);
 			return dispatch({
-				type:"PUT_ACTIVO",payload:editar.data
+				type: "PUT_ACTIVO", payload: editar.data
 			})
 		}
 	} catch (error) {
@@ -850,12 +941,13 @@ export const putActivoToppings=(_id)=>async (dispatch)=>{
 	}
 }
 
-export const putActivoPostres=(_id)=>async (dispatch)=>{
+export const putActivoToppings = (_id) => async (dispatch) =>
+{
 	try {
-		if(_id){
-			const editar= await axios.put(`/postresActivo/${_id}`);
+		if (_id) {
+			const editar = await axios.put(`/toppingsActivo/${_id}`);
 			return dispatch({
-				type:"PUT_ACTIVO",payload:editar.data
+				type: "PUT_ACTIVO", payload: editar.data
 			})
 		}
 	} catch (error) {
@@ -863,12 +955,27 @@ export const putActivoPostres=(_id)=>async (dispatch)=>{
 	}
 }
 
-export const putActivoBebidas=(_id)=>async (dispatch)=>{
+export const putActivoPostres = (_id) => async (dispatch) =>
+{
 	try {
-		if(_id){
-			const editar= await axios.put(`/bebidasActivo/${_id}`);
+		if (_id) {
+			const editar = await axios.put(`/postresActivo/${_id}`);
 			return dispatch({
-				type:"PUT_ACTIVO",payload:editar.data
+				type: "PUT_ACTIVO", payload: editar.data
+			})
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+
+export const putActivoBebidas = (_id) => async (dispatch) =>
+{
+	try {
+		if (_id) {
+			const editar = await axios.put(`/bebidasActivo/${_id}`);
+			return dispatch({
+				type: "PUT_ACTIVO", payload: editar.data
 			})
 		}
 	} catch (error) {
@@ -877,22 +984,26 @@ export const putActivoBebidas=(_id)=>async (dispatch)=>{
 }
 //ruta para agregar los comentarios y la calificacion a la tienda
 
-export function reviewCreada( payload){
-	return async function(dispatch){
-		try {									
-			const comentario = await axios.post(`/reviewCreada`,payload)
+export function reviewCreada(payload)
+{
+	return async function (dispatch)
+	{
+		try {
+			const comentario = await axios.post(`/reviewCreada`, payload)
 			console.log(comentario)
 			return dispatch({
-				type:'EDITAR_COMENTARIOS',
-				payload:comentario
+				type: 'EDITAR_COMENTARIOS',
+				payload: comentario
 			})
 		} catch (error) {
 			console.log(error.message)
 		}
-	} 
-} 
-export function getReview() {
-	return async function (dispatch) {
+	}
+}
+export function getReview()
+{
+	return async function (dispatch)
+	{
 		try {
 			const comentarios = await axios("/review")
 			return dispatch({
@@ -905,12 +1016,13 @@ export function getReview() {
 	}
 }
 
-export const putActivoReview=(_id)=>async (dispatch)=>{
+export const putActivoReview = (_id) => async (dispatch) =>
+{
 	try {
-		if(_id){
-			const editar= await axios.put(`/reviewActivo/${_id}`);
+		if (_id) {
+			const editar = await axios.put(`/reviewActivo/${_id}`);
 			return dispatch({
-				type:"PUT_ACTIVO",payload:editar.data
+				type: "PUT_ACTIVO", payload: editar.data
 			})
 		}
 	} catch (error) {
@@ -919,38 +1031,43 @@ export const putActivoReview=(_id)=>async (dispatch)=>{
 }
 
 //ruta de historial de compra
-export function historialCompra(){
-	return async function(dispatch){
-		try{
+export function historialCompra()
+{
+	return async function (dispatch)
+	{
+		try {
 
-			const histComp= await axios(`/historial`)
-			
+			const histComp = await axios(`/historial`)
+
 			return dispatch({
-				type:'HISTORIAL_COMPRA',
-				payload:histComp.data
+				type: 'HISTORIAL_COMPRA',
+				payload: histComp.data
 			})
 		}
-		catch(error){
-console.log(error)
+		catch (error) {
+			console.log(error)
 		}
 	}
 }
-export const historialId=(_id)=>async(dispatch)=>{
-try {
-	const buscar= await axios(`/historials/${_id}`)
-	if(_id){
-		return dispatch({
-		type:"HISTORIAL_ID",payload:buscar.data
-	})
+export const historialId = (_id) => async (dispatch) =>
+{
+	try {
+		const buscar = await axios(`/historials/${_id}`)
+		if (_id) {
+			return dispatch({
+				type: "HISTORIAL_ID", payload: buscar.data
+			})
+		}
+
+	} catch (error) {
+		console.error(error)
 	}
-	
-} catch (error) {
-	console.error(error)
-}
 }
 
-export function saladMediana(payload) {
-	return async function (dispatch) {
+export function saladMediana(payload)
+{
+	return async function (dispatch)
+	{
 		try {
 			const mediana = await axios.post(`/mediana`, payload)
 			return dispatch({
@@ -964,8 +1081,10 @@ export function saladMediana(payload) {
 }
 
 
-export function saladGrande(payload) {
-	return async function (dispatch) {
+export function saladGrande(payload)
+{
+	return async function (dispatch)
+	{
 		try {
 			const grande = await axios.post(`/grande`, payload)
 			return dispatch({
@@ -979,12 +1098,13 @@ export function saladGrande(payload) {
 }
 
 // para cambiar el estado a procesado
-export const putProcesado=(_id)=>async (dispatch)=>{
+export const putProcesado = (_id) => async (dispatch) =>
+{
 	try {
-		if(_id){
-			const editar= await axios.put(`/estadoProcessing/${_id}`);
+		if (_id) {
+			const editar = await axios.put(`/estadoProcessing/${_id}`);
 			return dispatch({
-				type:"PUT_PROCESADO",payload:editar.data
+				type: "PUT_PROCESADO", payload: editar.data
 			})
 		}
 	} catch (error) {
@@ -993,12 +1113,13 @@ export const putProcesado=(_id)=>async (dispatch)=>{
 }
 
 // para cambiar el estado a Recibido
-export const putRecibido=(_id)=>async (dispatch)=>{
+export const putRecibido = (_id) => async (dispatch) =>
+{
 	try {
-		if(_id){
-			const editar= await axios.put(`/estadoReceived/${_id}`);
+		if (_id) {
+			const editar = await axios.put(`/estadoReceived/${_id}`);
 			return dispatch({
-				type:"PUT_RECIBIDO",payload:editar.data
+				type: "PUT_RECIBIDO", payload: editar.data
 			})
 		}
 	} catch (error) {
@@ -1006,12 +1127,13 @@ export const putRecibido=(_id)=>async (dispatch)=>{
 	}
 }
 // para cambiar el estado a Cancelado
-export const putCancelado=(_id)=>async (dispatch)=>{
+export const putCancelado = (_id) => async (dispatch) =>
+{
 	try {
-		if(_id){
-			const editar= await axios.put(`/estadoCanceled/${_id}`);
+		if (_id) {
+			const editar = await axios.put(`/estadoCanceled/${_id}`);
 			return dispatch({
-				type:"PUT_Cancelado",payload:editar.data
+				type: "PUT_Cancelado", payload: editar.data
 			})
 		}
 	} catch (error) {
@@ -1019,8 +1141,10 @@ export const putCancelado=(_id)=>async (dispatch)=>{
 	}
 }
 //ruta para cargar la ensaladas que el usuario vuelve a comprar
-export function modificarPedido(payload) {
-	return async function (dispatch) {
+export function modificarPedido(payload)
+{
+	return async function (dispatch)
+	{
 		try {
 			const modificar = await axios.put(`/modificarpedido`, payload)
 			console.log(modificar)
@@ -1034,8 +1158,10 @@ export function modificarPedido(payload) {
 	}
 }
 
-export function putPedidoDelivery(payload) {
-	return async function (dispatch) {
+export function putPedidoDelivery(payload)
+{
+	return async function (dispatch)
+	{
 		try {
 			const modificar = await axios.put(`/putpedidodelivery`, payload)
 			return dispatch({
@@ -1045,28 +1171,32 @@ export function putPedidoDelivery(payload) {
 		} catch (error) {
 			console.log(error)
 		}
-    }
+	}
 }
 //filtro por estado historial de compra admin
-export function filtroHistorial(payload){
+export function filtroHistorial(payload)
+{
 	return {
 		type: 'FITRO_HISTORIAL',
 		payload
 	}
 }
 //filtro por rango de precio historial de compra admin
-export function filtroHistorialPrecio(payload){
+export function filtroHistorialPrecio(payload)
+{
 	return {
 		type: 'FILTRO_PRECIO',
 		payload
 	}
 }
 
-export const eliminarLinia = (value)=>{
-	return async (dispatch)=>{
+export const eliminarLinia = (value) =>
+{
+	return async (dispatch) =>
+	{
 		try {
-			const borrar = await axios.put('/eliminarLinia',value)
-			return dispatch({ type: 'ELIMINAR_LINEA', payload: borrar.data})
+			const borrar = await axios.put('/eliminarLinia', value)
+			return dispatch({ type: 'ELIMINAR_LINEA', payload: borrar.data })
 		} catch (error) {
 			console.log(error)
 		}
